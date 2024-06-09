@@ -1,0 +1,10 @@
+{% if include.tag %}
+{% assign orgs = site.members | where: "type", "organisatie" | where_exp: "org", "org.tags contains include.tag" | sort: "name" %}
+{% else %}
+{% assign orgs = site.members | where: "type", "organisatie" | sort: "name" %}
+{% endif %}
+<ul>
+{% for org in orgs %}
+<li><a href="{{ org.url }}">{{ org.title }}</a></li>
+{% endfor %}
+</ul>

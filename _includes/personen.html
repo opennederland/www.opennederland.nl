@@ -1,0 +1,10 @@
+{% if include.tag %}
+{% assign personen = site.members | where: "type", "persoon" | where_exp: "persoon", "persoon.tags contains include.tag" | sort: "lidnummer" %}
+{% else %}
+{% assign personen = site.members | where: "type", "persoon" | sort: "lidnummer" %}
+{% endif %}
+<ul>
+{% for persoon in personen %}
+<li>{{ persoon.lidnummer }}. <a href="{{ persoon.url }}">{{ persoon.title }}</a></li>
+{% endfor %}
+</ul>

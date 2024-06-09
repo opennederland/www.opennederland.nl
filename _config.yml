@@ -1,0 +1,26 @@
+title: "Vereniging Open Nederland"
+tagline: "verbinden van open"
+open-definition: "Open data en content mag vrijelijk worden gebruikt, aangepast en gedeeld - door iedereen, voor ieder doel."
+description: "Bevorderen van toegang tot informatie, kennis en cultuur"
+twitter: "@OpenNederland"
+social-image: header-banner-bijeenkomst-foto.jpg
+icon: ON-beeldmerk-2024.png
+
+collections:
+  tags:
+    output: true
+    permalink: /tags/:name/
+  members:
+    output: true
+    permalink: /leden/:name/
+defaults:
+  - scope:
+      type: tags
+    values:
+      layout: tags
+      collection: tags
+  - scope:
+      type: members
+    values:
+      layout: members
+      collection: members

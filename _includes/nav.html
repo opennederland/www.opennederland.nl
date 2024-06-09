@@ -1,0 +1,7 @@
+<div class="wrapper">
+    {% assign pages = site.pages | where_exp: 'page', 'page.order' | sort: 'order' %}
+    {% for page in pages %}
+        <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+    {% endfor %}
+    <a href="#contact">Contact</a>
+</div>

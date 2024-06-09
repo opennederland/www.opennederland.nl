@@ -1,0 +1,10 @@
+<div style="margin: 2em 0">
+    {% assign maanden = "januari, februari, maart, april, mei, juni, juli, augustus, september, oktober, november, december" | split: ", " %}
+    {% assign index = include.bericht.date | date: "%-m" | minus: 1 %}
+    {% assign format = "%-d " | append: maanden[index] | append: " %Y" %}
+    <p style="margin: 0; font-size: 1.2em">{{ include.bericht.date | date: format }}</p>
+    <h3 style="margin: 0">
+        <a href="{{ include.bericht.url | relative_url }}">{{ include.bericht.title }}</a>
+        {% include tags.html tags=include.bericht.tags %}
+    </h3>
+</div>

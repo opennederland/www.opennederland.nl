@@ -1,0 +1,130 @@
+:root {
+    --main-color: var(--bs-danger);
+}
+body {
+    font-size: 1em;
+}
+.wrapper {
+    max-width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.foto-banner {
+    position: relative;
+    width: 100%;
+    max-height: 480px;
+    height: 60vw;
+    background-size: cover;
+    background-position: center center;
+}
+.foto-banner__overlay {
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+.foto-banner__content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    text-align: center;
+    font-size: 2em;
+}
+.foto-banner__content img {
+    margin: 0;
+}
+nav {
+    background-color: #000;
+    padding: 1em;
+}
+nav a {
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0 0.4em;
+}
+main {
+    padding-bottom: 80px;
+}
+footer {
+    background-color: var(--main-color);
+    color: #fff;
+    min-height: 200px;
+    padding: 2em 0;
+}
+footer a {
+    color: #fff;
+    font-weight: 900;
+}
+h1 {
+    font-size: 4em;
+    text-align: center;
+}
+h2 {
+    font-size: 3em;
+    font-weight: 500;
+    margin: 1em 0 0.2em;
+}
+h3 {
+    font-size: 2em;
+    color: var(--main-color);
+    line-height: 1.4em;
+    margin: 1em 0 0.2em;
+}
+a {
+    color: var(--main-color);
+    font-weight: 900;
+}
+a.tag {
+    display: inline-block;
+    color: #fff;
+    background-color: var(--main-color);
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+    margin: 0.2em;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    vertical-align: text-bottom;
+}
+.tag.makers { background-color: var(--bs-pink); color: var(--bs-white); }
+.tag.open-access { background-color: var(--bs-danger); color: var(--bs-white); }
+.tag.open-source { background-color: var(--bs-warning); color: var(--bs-black); }
+.tag.open-design { background-color: var(--bs-info); color: var(--bs-black); }
+.tag.open-glam { background-color: var(--bs-success); color: var(--bs-white); }
+.tag.open-onderwijs { background-color: var(--bs-teal); color: var(--bs-white); }
+.tag.open-onderzoek { background-color: var(--bs-primary); color: var(--bs-white); }
+.tag.open-overheid { background-color: var(--bs-purple); color: var(--bs-white); }
+.tag.open-zorg { background-color: var(--bs-orange); color: var(--bs-white); }
+img, iframe {
+    max-width: 100%;
+    margin: 1em auto;
+}
+.main-item {
+    background-color: var(--main-color);
+    color: #fff;
+    margin: 1em auto;
+    text-align: center;
+    padding: 1.4em;
+    font-size: 1.4em;
+    width: 300px;
+}
+blockquote {
+    border-left: 4px solid var(--main-color);
+    padding-left: 1em;
+    font-style: italic;
+}
+@media screen and (max-width: 680px) {
+    .wrapper {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    .foto-banner__content {
+        font-size: 1em;
+    }
+}

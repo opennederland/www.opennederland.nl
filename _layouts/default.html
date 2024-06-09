@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% assign random = site.time | date: "%s%N" %}
+    <link rel="stylesheet" href="{{ "/style.css?forceRefresh=" | append: random | relative_url }}">
+
+    <link rel="icon" href="{{ site.icon | absolute_url }}">
+    <link rel="image_src" href="{{ site.icon | absolute_url }}">
+    <link rel="shortcut icon" type="image/png" href="{{ site.icon | absolute_url }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.title }}: {{ page.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:image" content="{{ site.social-image | absolute_url }}">
+    <meta property="og:url" content="{{ site.url | absolute_url }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ site.title }}: {{ page.title }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:image" content="{{ site.social-image | absolute_url }}">
+    <meta name="twitter:url" content="{{ site.url | absolute_url }}">
+    <meta name="twitter:site" content="{{ site.twitter }}">
+    <meta name="twitter:creator" content="{{ site.twitter }}">
+
+</head>
+<body>
+    <nav>
+        {% include nav.html %}
+    </nav>
+
+{% if page.url == "/" %}
+    <div class="foto-banner" style="background-image: url(header-banner-bijeenkomst-foto.jpg)">
+        <div class="foto-banner__overlay"></div>
+        <div class="foto-banner__content">
+            <div>
+                <p style="max-width: 640px; margin: auto; font-style: italic;">“{{ site.open-definition }}”</p>
+                <img src="{{ "ON-logo-2024-transparant.png" | relative_url }}" alt="Vereniging Open Nederland">
+                <p style="max-width: 640px; margin: auto; font-size: 1.4em; margin-top: -0.2em">{{ site.tagline }}</hp>
+            </div>
+        </div>
+    </div>
+
+    <center style="max-width: 640px; margin: 3em auto">
+        {% include tags-list.html %}
+    </center>
+{% endif %}
+
+</div>
+    <header class="wrapper" style="display: none">
+        {% include header.html %}
+    </header>
+
+    <main class="wrapper">
+        <h2>{{ page.title }}</h2>
+
+        {% if page.tags %}
+            <p>{% include tags.html tags=page.tags %}</p>
+        {% endif %}
+        
+        {{ content }}
+
+    </main>
+
+    <footer>
+        {% include footer.html %}
+    </footer>
+</body>
+</html>

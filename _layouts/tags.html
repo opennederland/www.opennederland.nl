@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{{ content }}
+
+<h2>Berichten</h2>
+
+{% assign posts = site.posts | where_exp: "post", "post.tags contains page.title" %}
+{% for post in posts limit: 3 %}
+{% include bericht.html bericht=post %}
+{% endfor %}
+
+<a href="{{ "/berichten/" | relative_url }}">Bekijk alle berichten</a>
+
+<h2>Organisaties</h2>
+
+{% include organisaties.html tag=page.title %}
+
+<hr style="margin-top: 80px">
+<center style="max-width: 640px; margin: 3em auto">
+    {% include tags-list.html %}
+</center>
