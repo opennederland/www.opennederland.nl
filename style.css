@@ -101,6 +101,7 @@ a.tag {
 .tag.open-onderzoek { background-color: var(--bs-primary); color: var(--bs-white); }
 .tag.open-overheid { background-color: var(--bs-purple); color: var(--bs-white); }
 .tag.open-zorg { background-color: var(--bs-orange); color: var(--bs-white); }
+.tag.unknown-theme { background-color: var(--bs-gray); color: var(--bs-white); text-decoration: none }
 img, iframe {
     max-width: 100%;
     margin: 1em auto;

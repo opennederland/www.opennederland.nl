@@ -1,4 +1,8 @@
 {% for pageTag in include.tags %}
     {% assign tag = site.tags | where: "title", pageTag | first %}
+    {% if tag %}
     <a href="{{ tag.url | relative_url }}" class="tag {{ tag.slug }}">#{{ tag.title }}</a>
+    {% else %}
+    <a class="tag unknown-theme">{{ pageTag }}</a>
+    {% endif %}
 {% endfor %}
