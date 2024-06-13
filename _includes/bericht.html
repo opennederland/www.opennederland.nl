@@ -4,7 +4,11 @@
     {% assign format = "%-d " | append: maanden[index] | append: " %Y" %}
     <p style="margin: 0; font-size: 1.2em">{{ include.bericht.date | date: format }}</p>
     <h3 style="margin: 0">
+        {% if include.bericht.source %}
+        <a href="{{ include.bericht.source }}">{{ include.bericht.title }}</a>
+        {% else %}
         <a href="{{ include.bericht.url | relative_url }}">{{ include.bericht.title }}</a>
+        {% endif %}
         {% include tags.html tags=include.bericht.tags %}
     </h3>
 </div>
