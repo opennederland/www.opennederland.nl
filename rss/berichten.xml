@@ -9,7 +9,7 @@
         <description>{{ site.description }}</description>
         <generator>Jekyll</generator>
         <copyright>CC-BY-SA 4.0 by Open Nederland</copyright>
-        <lastBuildDate>{{ site.date }}</lastBuildDate>
+        <lastBuildDate>{{ site.time }}</lastBuildDate>
         <atom:link href="{{ page.url | absolute_url }}" rel="self" type="application/rss+xml" />
         {% for post in site.posts %}
         <item>
