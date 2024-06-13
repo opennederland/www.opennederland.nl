@@ -25,3 +25,7 @@ order: 1
 ## Lid worden?
 
 Werk jij ook aan open in jouw domein en wil je graag kennis en ervaring delen met de andere leden van Vereniging Open Nederland? [Word dan lid!]({{ "/leden/" | relative_url }})
+
+## Aanmelden nieuwsbrief
+
+{% include laposta.html %}
