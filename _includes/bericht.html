@@ -6,6 +6,7 @@
     <h3 style="margin: 0">
         {% if include.bericht.source %}
         <a href="{{ include.bericht.source }}">{{ include.bericht.title }}</a>
+        <a class="tag unknown-theme">extern</a>
         {% else %}
         <a href="{{ include.bericht.url | relative_url }}">{{ include.bericht.title }}</a>
         {% endif %}
