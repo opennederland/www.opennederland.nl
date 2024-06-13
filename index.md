@@ -28,4 +28,6 @@ Werk jij ook aan open in jouw domein en wil je graag kennis en ervaring delen me
 
 ## Aanmelden nieuwsbrief
 
+(Nog) geen lid worden, maar wel op de hoogte blijven van de ontwikkelingen van Open Nederland en van Open in Nederland? Meld je dan aan voor de nieuwsbrief.
+
 {% include laposta.html %}
