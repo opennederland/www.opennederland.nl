@@ -2,8 +2,9 @@
 layout: default
 title:  "“Creative Commons” muzikanten buitenspel gezet door Sena"
 tags: ["Makers"]
+description: "Wetgeving loopt altijd achter op de realiteit. Gaan een bedenkelijke wet uit 1993 en een exclusief mandaat – een wettelijk monopolie – van het ministerie van Justitie & Veiligheid binnenkort leiden tot een beperking van open licenties?"
 ---
-**Wetgeving loopt altijd achter op de realiteit. Gaan een bedenkelijke wet uit 1993 en een exclusief mandaat – een wettelijk monopolie – van het ministerie van Justitie & Veiligheid binnenkort leiden tot een beperking van open licenties?**
+**{{ page.description }}**
 
 Door een gebrek aan toezicht staat Sena (Nederlandse rechtenorganisatie, Stichting ter Exploitatie van Naburige Rechten) op het punt om op flagrante wijze de grootste groep muziekmakers ter wereld de toegang tot zelfstandige exploitatie te ontzeggen.
 

@@ -2,6 +2,7 @@
 layout: default
 title: "Open Brief ISOC NL & PARTNERS: Breed gedragen teleurstelling keuze inzake “.nl registratie” in Amerikaanse cloud onder te brengen"
 tags: ["Open Source", "Makers"]
+description: "De overgang naar een Amerikaanse dienstverlener roept significante vragen op over de continuïteit van dienstverlening, gezien de juridische en politieke klimaten die van invloed kunnen zijn op de toegankelijkheid en beveiliging van kritieke Nederlandse internetinfrastructuur. Het convenant van SIDN met de Nederlandse overheid benadrukt de noodzaak van het behouden van deze infrastructuur binnen Nederland, een principe dat door dit besluit lijkt te worden genegeerd."
 ---
 [Eerder gepubliceerd op ISOC NL](https://isoc.nl/nieuws/isoc-nl-teleurgesteld-door-keuze-nl-registratie-in-amerikaanse-cloud-onder-te-brengen/)
 

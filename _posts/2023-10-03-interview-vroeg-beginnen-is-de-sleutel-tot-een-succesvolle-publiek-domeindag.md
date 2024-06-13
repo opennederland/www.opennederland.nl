@@ -2,10 +2,11 @@
 layout: default
 title:  "Interview: Vroeg beginnen is de sleutel tot een succesvolle Publiek Domeindag"
 tags: ["Open GLAM"]
+description: "Op de jaarlijkse Publiek Domeindag in januari vieren musea en andere erfgoedorganisaties de levens van mensen wiens auteursrechtelijke bescherming is verlopen. En waardoor hun werken voor iedereen beschikbaar komen. Het succes van zo’n geslaagd feestje? Begin op tijd met de voorbereiding, zegt Maarten Zeinstra, jurist en informatiespecialist. Hij deelt allerlei praktische tips."
 ---
 <b>Dit interview met onze voorzitter Maarten Zeinstra is eerder gepubliceerd op de site van [Netwerk Digitaal Erfgoed](https://netwerkdigitaalerfgoed.nl/nieuws/vroeg-beginnen-is-de-sleutel-tot-een-succesvolle-publiek-domeindag/).</b>
 
-Op de jaarlijkse Publiek Domeindag in januari vieren musea en andere erfgoedorganisaties de levens van mensen wiens auteursrechtelijke bescherming is verlopen. En waardoor hun werken voor iedereen beschikbaar komen. Het succes van zo’n geslaagd feestje? Begin op tijd met de voorbereiding, zegt Maarten Zeinstra, jurist en informatiespecialist. Hij deelt allerlei praktische tips. Bovendien gaat hij tijdens een [evenement](https://netwerkdigitaalerfgoed.nl/agenda/wat-kan-wel-wat-mag-niet-auteursrecht-voor-erfgoedorganisaties/) op 7 november, gewijd aan auteursrecht voor erfgoedorganisaties, dieper in op dit onderwerp.
+{{ page.description }} Bovendien gaat hij tijdens een [evenement](https://netwerkdigitaalerfgoed.nl/agenda/wat-kan-wel-wat-mag-niet-auteursrecht-voor-erfgoedorganisaties/) op 7 november, gewijd aan auteursrecht voor erfgoedorganisaties, dieper in op dit onderwerp.
 
 ![https://netwerkdigitaalerfgoed.nl/wp-content/uploads/2023/09/foto-van-Richard-Tepe.png](https://netwerkdigitaalerfgoed.nl/wp-content/uploads/2023/09/foto-van-Richard-Tepe.png)
 

@@ -2,10 +2,11 @@
 layout: default
 title:  "“Creative Commons” musicians sidelined by Sena"
 tags: ["Makers"]
+description: "Legislation always lags behind reality. Will a dubious Dutch law from 1993 and an exclusive mandate – a legal monopoly – from the Ministry of Justice & Security soon lead to a limitation of open licenses in the Netherlands?"
 ---
 This is an english translation of our previous post [‘Creative Commons muzikanten buitenspel gezet door SENA‘](https://www.opennederland.nl/2023/07/03/creative-commons-muzikanten-buitenspel-gezet-door-sena/).
 
-**Legislation always lags behind reality. Will a dubious Dutch law from 1993 and an exclusive mandate – a legal monopoly – from the Ministry of Justice & Security soon lead to a limitation of open licenses in the Netherlands?**
+**{{ page.description }}**
 
 Due to a lack of oversight, Sena (Dutch Collective Management Organisation, Foundation for the Exploitation of Neighboring Rights) is on the verge of flagrantly denying the largest group of musicians in the world access to independent exploitation of their works in the Netherlands.
 

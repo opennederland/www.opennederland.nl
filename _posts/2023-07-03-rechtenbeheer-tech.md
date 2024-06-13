@@ -2,6 +2,7 @@
 layout: default
 title:  "Rechtenbeheer & tech"
 tags: ["Open Source"]
+description: "Op 14 juni hebben Hessel, een bestuurslid van Open Nederland, en Chris, de VP Product van technologiebedrijf Pex.com, gezamenlijk een webinar georganiseerd voor WIPO (World Intellectual Property Organization)."
 ---
 Op 14 juni hebben Hessel, een bestuurslid van Open Nederland, en Chris, de VP Product van technologiebedrijf Pex.com, gezamenlijk een webinar georganiseerd voor [WIPO (World Intellectual Property Organization)](https://www.wipo.int/about-wipo/en/). Hoewel het webinar zich voornamelijk richt op ontwikkelingen in de muziekindustrie, zijn er ook uitstapjes gemaakt naar andere vakgebieden. Samen hebben Chris en Hessel verschillende onderwerpen behandeld, zoals de relatie tussen de industrie en IP “protectionisme”, de rechten en verantwoordelijkheden van makers, de noodzaak van transparantie en eerlijke handel, praktische technische tools en het bundelen van positieve energie.
 

@@ -2,6 +2,7 @@
 layout: default
 title:  "Publiek Domeindag 2024"
 tags: ["Open GLAM"]
+description: "Afgelopen 12 januari vierde we weer onze jaarlijkse publiek domeindag. Ondanks het treurige weer buiten, was het binnen bij onze gastheer Beeld & Geluid een hartelijk weerzien van leden van Open Nederland, materiedeskundigen en collega’s uit de sector."
 ---
 Afgelopen 12 januari vierde we weer onze jaarlijkse publiek domeindag. Ondanks het treurige weer buiten, was het binnen bij onze gastheer [Beeld & Geluid](https://www.beeldengeluid.nl/) een hartelijk weerzien van leden van Open Nederland, materiedeskundigen en collega’s uit de sector. Binnenkort zullen opnames van de vele bijeenkomsten op ons YouTube kanaal gedeeld worden. [Op Flickr vind je foto’s van het evenement.](https://www.flickr.com/photos/ter-burg/albums/72177720314117088/)
 
