@@ -3,6 +3,7 @@ layout: default
 title:  "Nieuwe Website Open Nederland"
 tags: ["Open Source"]
 description: "Open Nederland werkt momenteel aan een nieuwe website. Op deze website willen we goede voorbeelden van OPEN in de verschillende sectoren, en de mensen daarachter, over het voetlicht brengen. Daarnaast geven we updates over de ontwikkelingen van OPEN in Nederland."
+date: 2024-06-13 13:00 +0200
 ---
 {{ page.description }}
 
