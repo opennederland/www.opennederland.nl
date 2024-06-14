@@ -120,6 +120,16 @@ blockquote {
     padding-left: 1em;
     font-style: italic;
 }
+.footer-box {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.footer-box__left {
+}
+.footer-box__right {
+    margin-left: auto;
+}
 @media screen and (max-width: 680px) {
     .wrapper {
         padding-left: 1em;
@@ -127,5 +137,11 @@ blockquote {
     }
     .foto-banner__content {
         font-size: 1em;
+    }
+    .footer-box {
+        display: block;
+    }
+    .footer-box__right {
+        margin-top: 40px;
     }
 }
