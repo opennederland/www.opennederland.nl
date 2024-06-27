@@ -14,7 +14,7 @@
         {% for post in site.posts %}
         <item>
             <title>{{ post.title | xml_escape }}</title>
-            <link>{{ post.url | absolute_url }}</link>
+            <link>{{ post.source | default: post.url | absolute_url }}</link>
             <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
             <guid>{{ post.url | absolute_url }}</guid>
             <description>{{ post.description | xml_escape }}</description>
