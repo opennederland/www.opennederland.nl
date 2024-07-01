@@ -12,4 +12,7 @@
         {% endif %}
         {% include tags.html tags=include.bericht.tags %}
     </h3>
+    {% if include.bericht.description %}
+    <p>{{ include.bericht.description }}</p>
+    {% endif %}
 </div>
