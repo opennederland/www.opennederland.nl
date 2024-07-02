@@ -88,8 +88,8 @@ a.tag {
     padding: 0.2em 0.4em;
     border-radius: 0.2em;
     margin: 0.2em;
-    font-size: 1rem;
-    line-height: 1.4rem;
+    font-size: 0.9rem;
+    line-height: 1.25rem;
     vertical-align: text-bottom;
 }
 .tag.makers { background-color: var(--bs-pink); color: var(--bs-white); }
