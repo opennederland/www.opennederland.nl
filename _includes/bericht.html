@@ -14,5 +14,8 @@
     </h3>
     {% if include.bericht.description %}
     <p>{{ include.bericht.description }}</p>
+    {% if include.bericht.source %}
+    <p>Bron: <a href="{{ include.bericht.source }}">{{ include.bericht.source | split: '/' | slice: 2 | first | remove_first: 'www.' }}</a></p>
+    {% endif %}
     {% endif %}
 </div>
