@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(data => {
         const items = data.querySelectorAll("item");
         const rssFeedContainer = document.getElementById("rss-feed"); // Container element
-
+        const sectionheader = document.createElement("h3");
+        sectionheader.textContent = "Feed van deze organisatie:"
+        rssFeedContainer.appendChild(sectionheader);
         items.forEach(item => {
           const title = item.querySelector("title").textContent;
           const link = item.querySelector("link").textContent;
