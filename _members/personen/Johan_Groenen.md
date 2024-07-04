@@ -2,7 +2,7 @@
 title: Johan Groenen
 website: https://www.jgroenen.nl
 image: https://www.jgroenen.nl/img/jgroenen.png
-tags: ["Makers", "Open Design", "Open Overheid"]
+tags: ["Makers", "Open Design", "Open Overheid", "Open Source"]
 organisaties: ["Code for NL", "Open Nederland", "Tiltshift"]
 type: persoon
 lidnummer: 78
