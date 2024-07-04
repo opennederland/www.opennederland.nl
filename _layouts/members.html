@@ -23,10 +23,27 @@ layout: default
 
 {% if page.rss %}
     <div id="rss-feed">
+        <h3>Feed van deze organisatie:</h3>
+        <ul id="rss-feed-items"></ul>
+        <template id="template-rss-feed-item">
+            <li>
+                <a data-el="title-link" target="_blank"></a>
+                <p data-el="description"></p>
+            </li>
+        </template>
     </div>
-    <script src="{{ '/load_rss.js' | relative_url }}"></script>
-    <script>
-    document.documentElement.dataset.rssFeed = "{{ page.rss }}"; 
+    <script type="module">
+        import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
+        var rssLoader = new RSSLoader();
+        var items = await rssLoader.fetchRssFeed("{{ page.rss }}");
+        var template = document.querySelector("#template-rss-feed-item");
+        items.forEach(item => {
+            var clone = template.content.cloneNode(true);
+            clone.querySelector("[data-el=title-link]").href = item.link;
+            clone.querySelector("[data-el=title-link]").textContent = item.title;
+            clone.querySelector("[data-el=description]").textContent = item.description;
+            document.querySelector("#rss-feed-items").appendChild(clone);
+        });
     </script>
 {% endif %}
 

@@ -4,7 +4,7 @@ open-definition: "Open data en content mag vrijelijk worden gebruikt, aangepast 
 description: "Bevorderen van toegang tot informatie, kennis en cultuur"
 twitter: "@OpenNederland"
 social-image: header-banner-bijeenkomst-foto.jpg
-icon: ON-beeldmerk-2024.png
+icon: assets/img/ON-beeldmerk-2024.png
 
 collections:
   tags:
