@@ -16,7 +16,7 @@ Open Nederland is een netwerkorganisatie waar ook enkele organisaties in Nederla
 
 {% include organisaties.html %}
 
-### Huidige leden
+### Voor professionals
 
 Open Nederland kent een kleine 150 leden. Leden die aangegeven hebben op de online Ledenlijst te willen staan zijn te vinden op onze [online ledenlijst](/leden/personen).
 
