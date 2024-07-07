@@ -5,8 +5,9 @@ layout: default
 
 <blockquote>{{ content }}</blockquote>
 
+{% if page.website %}
 <p><a target="_blank" href="{{ page.website }}">{{ page.website }}</a> ↗</p>
-
+{% endif %}
 {% if page.organisaties %}
 <p>{{ page.title }} is onder andere betrokken bij:</p>
 <ul>
