@@ -1,0 +1,63 @@
+<div id="rss-feed">
+    <h3>Gecombineerde feeds van ons netwerk:</h3>
+    <ul id="rss-feed-items"></ul>
+    <template id="template-rss-feed-item">
+        <li>
+            <a data-el="title-link" target="_blank"></a>
+            <p data-el="description"></p>
+        </li>
+    </template>
+</div>
+<script type="module">
+    import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
+
+    async function fetchAndCombineRSSItems() {
+    {% assign members_with_rss = site.members | where_exp: "member", "member.rss" %}
+    let allItems = [];
+    let rssLoader = new RSSLoader(); 
+
+    {% for member in members_with_rss %}
+    try {
+        let items_{{ forloop.index }} = await rssLoader.fetchRssFeed("{{ member.rss }}");
+        allItems.push(...items_{{ forloop.index }});
+    } catch (error) {
+        console.error("Error fetching RSS feed: " + "{{ member.rss }}" , error); 
+    }
+    {% endfor %}
+
+    // Sort items by date in descending order
+    allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+    return allItems;
+}
+
+
+async function renderRSSItems() {
+    const items = await fetchAndCombineRSSItems();
+    const template = document.querySelector("#template-rss-feed-item");
+
+    items.forEach(item => {
+        let clone = template.content.cloneNode(true);
+        let publication_date = new Date(item.pubDate);
+        const url = new URL(item.link);
+        const domain = url.hostname;
+        clone.querySelector("[data-el=title-link]").href = item.link;
+        clone.querySelector("[data-el=title-link]").textContent = item.title;
+
+        // Create new paragraph element for the domain and date
+        const infoParagraph = document.createElement('p'); 
+        infoParagraph.textContent = `${domain} – ${publication_date.toLocaleDateString('en-CA')}`;
+
+        // Insert before the existing description text
+        clone.querySelector("[data-el=description]").prepend(infoParagraph);  
+        clone.querySelector("[data-el=description]").append(item.description); 
+
+        document.querySelector("#rss-feed-items").appendChild(clone);
+    });
+}
+
+
+    renderRSSItems();
+</script>
+
+
