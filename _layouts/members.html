@@ -23,7 +23,7 @@ layout: default
 
 {% if page.rss %}
     <div id="rss-feed">
-        <h3>Feed van deze organisatie:</h3>
+        <h3>Feed van dit lid <a href="{{ page.rss }}"><img src="/assets/img/RSS-feed.png" alt="RSS Feed" style="height: 1em; padding-bottom: 4px" /></a></h3>
         <ul id="rss-feed-items"></ul>
         <template id="template-rss-feed-item">
             <li>
