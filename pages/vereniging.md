@@ -12,8 +12,8 @@ Open Nederland bestaat uit een landelijk netwerk van makers, adviseurs en ondern
 
 Het bestuur van Open Nederland bestaat uit:
 
-- Maarten Zeinstra (Voorzitter)
-- Ton Zijlstra (Penningmeester)
+- [Maarten Zeinstra](https://www.ip-squared.com) (Voorzitter)
+- [Ton Zijlstra](https://www.zylstra.org/) (Penningmeester)
 - [Johan Groenen](https://www.jgroenen.nl) (Secretaris)
 - Hessel van Oorschot (Algemeen bestuurlid)
 - Bjorn Wijers (Algemeen bestuurslid)
