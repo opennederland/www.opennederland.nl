@@ -18,7 +18,7 @@
 
     {% for member in members_with_rss %}
     try {
-        let items_{{ forloop.index }} = await rssLoader.fetchRssFeed("{{ member.rss }}");
+        let items_{{ forloop.index }} = await rssLoader.fetchRssFeed("https://proxy.apitecture.io/?url={{ member.rss }}");
         allItems.push(...items_{{ forloop.index }});
     } catch (error) {
         console.error("Error fetching RSS feed: " + "{{ member.rss }}" , error); 
