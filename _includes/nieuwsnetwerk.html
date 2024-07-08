@@ -1,94 +1,42 @@
-<div id="rss-feed">
-    <ul id="rss-feed-items"></ul>
-</div>
+<div id="rss-feed"></div>
+{% include bericht.template.html %}
 
 <script type="module">
     import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
-    
-    async function fetchAndSortRSSItems(member) {
-      let rssLoader = new RSSLoader();
-      try {
-        let items = await rssLoader.fetchRssFeed("https://proxy.apitecture.io/?url=" + member.rss);
-        items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate)); // Sort immediately
-        return items;
-      } catch (error) {
-        console.error("Error fetching RSS feed: " + member.rss, error);
-        return []; // Return empty array on error
-      }
-    }
 
-    let allItems = []; // Global array to store all fetched items
+    var allItems = [];
+
+    var feeds = await fetch('{{ "json/feeds.json" | relative_url }}')
+      .then(response => response.json())
+      .then(data => data.feeds);
+
+    feeds.forEach(feed => {
+      loadFeed(feed.rss);
+    });
+
+    async function loadFeed(url) {
+      var rssLoader = new RSSLoader();
+      var items = await rssLoader.fetchRssFeed(`https://proxy.apitecture.io/?url=${url}`);
+      allItems.push(...items);
+      allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+      renderRSSItems();
+    }
 
     async function renderRSSItems() {
-        const template = document.querySelector("#template-rss-feed-item");
-        const container = document.querySelector("#rss-feed-items");
-
-        // Clear existing items before re-rendering
-        container.innerHTML = ''; 
-
-        // Sort all items before rendering
-        allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-        allItems.forEach(item => {
-        const div = document.createElement('div');
-        div.style.margin = '2em 0'; // Add margin style to the container div
-
-        const dateParagraph = document.createElement('p');
-        dateParagraph.textContent = new Date(item.pubDate).toLocaleDateString('nl-NL');
-        dateParagraph.style.margin = '0';
-        dateParagraph.style.fontSize = '1.2em';
-        div.appendChild(dateParagraph);
-
-        const h3 = document.createElement('h3');
-        h3.style.margin = '0'; // Add margin style to the h3
-
-        const titleLink = document.createElement('a');
-        titleLink.href = item.link;
-        titleLink.textContent = item.title;
-        titleLink.target = "_blank";
-        h3.appendChild(titleLink);
-
-        div.appendChild(h3);
-
-        const descriptionParagraph = document.createElement('p');
-        descriptionParagraph.textContent = item.description;
-        div.appendChild(descriptionParagraph);
-
-        const sourceLink = document.createElement('a');
-        sourceLink.href = item.link;
-        sourceLink.textContent = new URL(item.link).hostname;
-
-        const sourceParagraph = document.createElement('p');
-        sourceParagraph.textContent = 'Bron: ';
-        sourceParagraph.appendChild(sourceLink);
-        div.appendChild(sourceParagraph);
-
-        container.appendChild(div);
-    });
+      const container = document.querySelector("#rss-feed");
+      const template = document.querySelector("#bericht-template");
+      container.innerHTML = '<h3>Berichten uit het netwerk</h3>';
+      allItems.forEach(item => {
+        var clone = template.content.cloneNode(true);
+        clone.querySelector("[data-el=date]").textContent = new Date(item.pubDate).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' });
+        clone.querySelector("[data-el=title-link]").href = item.link;
+        clone.querySelector("[data-el=title-link]").textContent = item.title;
+        clone.querySelector("[data-el=description]").textContent = item.description;
+        clone.querySelector("[data-el=source-link]").href = item.link;
+        clone.querySelector("[data-el=source-link]").textContent = item.link;
+        container.appendChild(clone);
+      });
     }
-
-    async function fetchAndRenderRSSItems() {
-    let allPromises = []; 
-
-    {% assign members_with_rss = site.members | where_exp: "member", "member.rss" %}
-    const membersWithRSS = [
-        {% for member in members_with_rss %}
-        { rss: "{{ member.rss }}" },
-        {% endfor %}
-    ];
-
-    for (const member of membersWithRSS) {
-        allPromises.push(fetchAndSortRSSItems(member));
-    }
-
-    for (const promise of allPromises) {
-        const newItems = await promise; // Wait for the next fetch to complete
-        allItems.push(...newItems); // Add new items to the global array
-        renderRSSItems(); // Re-render the entire list
-    }
-    }
-
-fetchAndRenderRSSItems(); 
 </script>
     
 
