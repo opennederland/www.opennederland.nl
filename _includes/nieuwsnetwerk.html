@@ -33,7 +33,7 @@
         clone.querySelector("[data-el=title-link]").textContent = item.title;
         clone.querySelector("[data-el=description]").textContent = item.description;
         clone.querySelector("[data-el=source-link]").href = item.link;
-        clone.querySelector("[data-el=source-link]").textContent = item.link;
+        clone.querySelector("[data-el=source-link]").textContent = new URL(item.link).hostname;
         container.appendChild(clone);
       });
     }
