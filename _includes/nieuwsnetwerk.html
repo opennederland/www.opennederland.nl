@@ -1,0 +1,43 @@
+<div id="rss-feed"></div>
+{% include bericht.template.html %}
+
+<script type="module">
+    import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
+
+    var allItems = [];
+
+    var feeds = await fetch('{{ "json/feeds.json" | relative_url }}')
+      .then(response => response.json())
+      .then(data => data.feeds);
+
+    feeds.forEach(feed => {
+      loadFeed(feed.rss);
+    });
+
+    async function loadFeed(url) {
+      var rssLoader = new RSSLoader();
+      var items = await rssLoader.fetchRssFeed(`https://proxy.apitecture.io/?url=${url}`);
+      allItems.push(...items);
+      allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+      renderRSSItems();
+    }
+
+    async function renderRSSItems() {
+      const container = document.querySelector("#rss-feed");
+      const template = document.querySelector("#bericht-template");
+      container.innerHTML = '<h3>Berichten uit het netwerk</h3>';
+      allItems.forEach(item => {
+        var clone = template.content.cloneNode(true);
+        clone.querySelector("[data-el=date]").textContent = new Date(item.pubDate).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' });
+        clone.querySelector("[data-el=title-link]").href = item.link;
+        clone.querySelector("[data-el=title-link]").textContent = item.title;
+        clone.querySelector("[data-el=description]").textContent = item.description;
+        clone.querySelector("[data-el=source-link]").href = item.link;
+        clone.querySelector("[data-el=source-link]").textContent = item.link;
+        container.appendChild(clone);
+      });
+    }
+</script>
+    
+
+    
