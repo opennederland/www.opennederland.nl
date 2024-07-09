@@ -26,8 +26,6 @@ Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestu
 
 <iframe width="100%" height="500px" src="https://docs.opennederland.nu/apps/calendar/embed/pGFnsor2YAC26Bez/listMonth/now"></iframe>
 
-{% include creative-commons.md %}
-
 ## Lid worden?
 
 Werk jij ook aan open in jouw domein en wil je graag kennis en ervaring delen met de andere leden van Vereniging Open Nederland? [Word dan lid!]({{ "/leden/" | relative_url }})
