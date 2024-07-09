@@ -11,12 +11,18 @@
       .then(data => data.feeds);
 
     feeds.forEach(feed => {
-      loadFeed(feed.rss);
+      console.log(feed);
+      loadFeed(feed.rss, feed);
     });
 
-    async function loadFeed(url) {
+    async function loadFeed(url, feed) {
       var rssLoader = new RSSLoader();
       var items = await rssLoader.fetchRssFeed(`https://proxy.apitecture.io/?url=${url}`);
+      items = items.map(item => {
+        item.source = feed.name;
+        item.url = feed.url;
+        return item;
+      });
       allItems.push(...items);
       allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
       renderRSSItems();
@@ -32,8 +38,8 @@
         clone.querySelector("[data-el=title-link]").href = item.link;
         clone.querySelector("[data-el=title-link]").textContent = item.title;
         clone.querySelector("[data-el=description]").textContent = item.description;
-        clone.querySelector("[data-el=source-link]").href = item.link;
-        clone.querySelector("[data-el=source-link]").textContent = new URL(item.link).hostname;
+        clone.querySelector("[data-el=source-link]").href = item.url;
+        clone.querySelector("[data-el=source-link]").textContent = item.source;
         container.appendChild(clone);
       });
     }

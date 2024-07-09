@@ -37,6 +37,7 @@ layout: default
         import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
         var rssLoader = new RSSLoader();
         var items = await rssLoader.fetchRssFeed("https://proxy.apitecture.io/?url={{ page.rss }}");
+        items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
         var template = document.querySelector("#template-rss-feed-item");
         items.forEach(item => {
             var clone = template.content.cloneNode(true);
