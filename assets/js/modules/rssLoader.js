@@ -1,4 +1,13 @@
 export default function () {
+  function shorten(text, maxLength = 360) {
+    if (text.length > maxLength) {
+      text = text.substr(0, maxLength);
+      text = text.substr(0, Math.min(text.length, text.lastIndexOf(" ")));
+      text += '...';
+    }
+    return text;
+  }
+
   async function fetchRssFeed(rssFeedUrl) {
     var responseText = await fetch(rssFeedUrl).then(response => response.text());
     if (responseText.includes("xml version")) {
@@ -7,7 +16,7 @@ export default function () {
         return {
           "title": item.querySelector("title").textContent,
           "link": item.querySelector("link").textContent,
-          "description": item.querySelector("description").textContent.replace(/<[^>]*>?/gm, '').substring(0, 400).split(' ').slice(0, -1).join(' ') + '...',
+          "description": shorten(item.querySelector("description").textContent.replace(/<[^>]*>?/gm, '')),
           "pubDate": item.querySelector("pubDate").textContent
         }
       });
@@ -16,7 +25,7 @@ export default function () {
         return {
           "title": item.title,
           "link": item.url,
-          "description": item.content_html.replace(/<[^>]*>?/gm, '').substring(0, 400).split(' ').slice(0, -1).join(' ') + '...',
+          "description": shorten(item.content_html.replace(/<[^>]*>?/gm, '')),
           "pubDate": new Date(item.date_published).toUTCString()
         }
       });
