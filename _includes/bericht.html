@@ -5,7 +5,7 @@
     <p style="margin: 0; font-size: 1.2em">{{ include.bericht.date | date: format }}</p>
     <h3 style="margin: 0">
         {% if include.bericht.source %}
-        <a href="{{ include.bericht.source }}">{{ include.bericht.title }}</a>
+        <a target="_blank" href="{{ include.bericht.source }}">{{ include.bericht.title }}</a>
         <a class="tag unknown-theme">extern</a>
         {% else %}
         <a href="{{ include.bericht.url | relative_url }}">{{ include.bericht.title }}</a>
@@ -15,7 +15,7 @@
     {% if include.bericht.description %}
     <p>{{ include.bericht.description }}</p>
     {% if include.bericht.source %}
-    <p>Bron: <a href="{{ include.bericht.source }}">{{ include.bericht.source | split: '/' | slice: 2 | first | remove_first: 'www.' }}</a></p>
+    <p>Bron: <a target="_blank" href="{{ include.bericht.source }}">{{ include.bericht.source | split: '/' | slice: 2 | first | remove_first: 'www.' }}</a></p>
     {% endif %}
     {% endif %}
 </div>
