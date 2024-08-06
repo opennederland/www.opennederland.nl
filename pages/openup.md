@@ -19,6 +19,6 @@ We streven ernaar om een omgeving te creëren waarin je makkelijk, veilig en laa
 
 ### Wanneer is de volgende OpenUp!?
 
-Deze datum wordt binnenkort bekend gemaakt. Houd onze [Meetup](https://www.meetup.com/utrecht-open-nederland-meetup-group/) of deze website in de gaten voor updates.
+Deze datum wordt binnenkort bekend gemaakt. Houd deze website en onze socials in de gaten voor updates.
 
 Je kunt je ook inschrijven voor de nieuwsbrief. Zo blijf je op de hoogte van alle Open Nederland activiteiten.
