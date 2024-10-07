@@ -2,3 +2,7 @@
   tags: []
   url: https://nieuweinstituut.nl/
   rss: https://nieuweinstituut.nl/api/rss-nl.xml
+- title: FSFE
+  tags: ["Open Source", "Makers"]
+  url: https://www.fsfe.nl/
+  rss: https://fsfe.org/news/news.nl.rss
