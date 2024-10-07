@@ -1,8 +1,8 @@
 - title: Nieuwe Instituut
-  tags: []
+  tags: ["Verwante organisatie"]
   url: https://nieuweinstituut.nl/
   rss: https://nieuweinstituut.nl/api/rss-nl.xml
 - title: FSFE
-  tags: ["Open Source", "Makers"]
+  tags: ["Open Source", "Makers", "Verwante organisatie"]
   url: https://www.fsfe.nl/
   rss: https://fsfe.org/news/news.nl.rss
