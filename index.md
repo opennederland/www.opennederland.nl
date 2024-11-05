@@ -12,8 +12,6 @@ order: 1
 
 Open Nederland schrijft en verzamelt berichten die het open domein in Nederland raken. De onderstaande lijst met berichten zijn berichten die wij hebben gecureerd uit de vele berichten rondom domeinen van Open in Nederland.
 
-Open Nederland verzamelt ook feeds van onze leden, wanneer deze voornamelijk over domeinen van open gaan. Op [Nieuws uit het Netwerk](/nieuws-netwerk/) zijn de beschikbare feeds te bekijken.
-
 Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestuur@opennederland.nl)!
 
 {% for post in site.posts limit: 3 %}
@@ -22,13 +20,13 @@ Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestu
 
 [Bekijk alle berichten]({{ "/berichten/" | relative_url }})
 
-## Agenda
+## Nieuws uit het netwerk
 
-<iframe width="100%" height="500px" src="https://docs.opennederland.nu/apps/calendar/embed/pGFnsor2YAC26Bez/listMonth/now"></iframe>
+[Leden](https://www.opennederland.nl/leden/) en verwante organisaties plaatsen regelmatig nieuws op hun eigen platformen. Wanneer er een RSS feed beschikbaar is kunnen wij deze ook hier tonen. Dit is een overzicht wat er afgelopen periode op de sites van deze leden en aanverante organisaties geplaatst is. Open Nederland heeft geen controle over de inhoud van deze berichten en niet alle berichten zullen even relevant zijn voor de missie van Open Nederland.
 
-## Lid worden?
+Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestuur@opennederland.nl)!
 
-Werk jij ook aan open in jouw domein en wil je graag kennis en ervaring delen met de andere leden van Vereniging Open Nederland? [Word dan lid!]({{ "/leden/" | relative_url }})
+{% include nieuwsnetwerk.html %}
 
 ## Aanmelden nieuwsbrief
 

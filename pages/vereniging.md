@@ -21,3 +21,7 @@ Het bestuur van Open Nederland bestaat uit:
 Open Nederland is als organisatie lid van het Internationale Creative Commons netwerk. Dit betekent dat we organisatie houden aan de Creative Commons Network Charter.
 
 {% include creative-commons.md %}
+
+## Lid worden?
+
+Werk jij ook aan open in jouw domein en wil je graag kennis en ervaring delen met de andere leden van Vereniging Open Nederland? [Word dan lid!]({{ "/leden/" | relative_url }})
