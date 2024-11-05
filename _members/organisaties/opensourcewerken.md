@@ -1,7 +1,8 @@
 ---
 title: Opensourcewerken
-website: [https://tiltshift.nl](https://opensourcewerken.nl/)
+website: https://opensourcewerken.nl/
 image: 
 tags: ["Open Source", "Open Overheid"]
 type: organisatie
+rss: https://opensourcewerken.nl/rss
 ---
