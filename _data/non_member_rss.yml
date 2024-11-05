@@ -6,7 +6,15 @@
   tags: ["Open Source", "Makers", "Verwante organisatie"]
   url: https://www.fsfe.nl/
   rss: https://fsfe.org/news/news.nl.rss
-- title: Opensourcewerken
-  tags: ["Open Source", "Open Overheid"]
-  url: https://opensourcewerken.nl
-  rss: https://opensourcewerken.nl/rss
+- title: OpenAccess.nl
+  tags: ["Open Access", "Makers", "Open Onderzoek"]
+  url: https://www.openaccess.nl/
+  rss: https://www.openaccess.nl/nl/feed.xml
+- title: Open Leermateriaal
+  tags: ["Open Onderwijs", "Makers"]
+  url: https://www.openleermateriaal.nl/
+  rss: https://www.openleermateriaal.nl/categorie/actueel/feed/
+- title: Wikiwijs.nl
+  tags: ["Open Onderwijs", "Makers", "Open Onderzoek"]
+  url: https://www.wikiwijs.nl/
+  rss: https://www.wikiwijs.nl/feed/
