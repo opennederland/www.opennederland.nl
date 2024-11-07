@@ -8,7 +8,7 @@ order: 1
     <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
 </div>
 
-## Berichten
+## Uitgelichte berichten
 
 Open Nederland schrijft en verzamelt berichten die het open domein in Nederland raken. De onderstaande lijst met berichten zijn berichten die wij hebben gecureerd uit de vele berichten rondom domeinen van Open in Nederland.
 
