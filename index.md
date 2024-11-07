@@ -18,7 +18,9 @@ Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestu
 {% include bericht.html bericht=post %}
 {% endfor %}
 
-[Bekijk alle berichten]({{ "/berichten/" | relative_url }})
+<div style="padding: 1em 0">
+<a href="{{ "/berichten/" | relative_url }}" class="main-item">Bekijk alle berichten</a>
+</div>
 
 ## Nieuws uit het netwerk
 
@@ -26,7 +28,11 @@ Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestu
 
 Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestuur@opennederland.nl)!
 
-{% include nieuwsnetwerk.html %}
+{% include nieuwsnetwerk.html limit=3 %}
+
+<div style="padding: 1em 0">
+<a href="{{ "/nieuws-netwerk/" | relative_url }}" class="main-item">Bekijk meer nieuws uit het netwerk berichten</a>
+</div>
 
 ## Aanmelden nieuwsbrief
 

@@ -1,123 +1,28 @@
 <div id="rss-feed"></div>
+
 {% include bericht.template.html %}
 
 <script type="module">
-    import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
+  import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
+  import RSSRenderer from "{{ '/assets/js/modules/rssRenderer.js' | relative_url }}";
 
-    var allItems = [];
-    var currentPage = 1;
-    var itemsPerPage = 5; // Number of items to show per page
+  var rssLoader = new RSSLoader();
+  var rssRenderer = new RSSRenderer({{ include.limit | default: 0 }});
 
-    var feeds = await fetch('{{ "json/feeds.json" | relative_url }}')
-        .then(response => response.json())
-        .then(data => data.feeds);
+  var allItems = [];
 
-    feeds.forEach(feed => {
-        console.log(feed);
-        loadFeed(feed.rss, feed);
-    });
+  var feeds = await fetch('{{ "json/feeds.json" | relative_url }}')
+    .then(response => response.json())
+    .then(data => data.feeds);
 
-    async function loadFeed(url, feed) {
-        var rssLoader = new RSSLoader();
-        var items = await rssLoader.fetchRssFeed(`https://proxy.apitecture.io/?url=${url}`);
-        items = items.map(item => {
-            item.source = feed.name;
-            item.url = feed.url;
-            return item;
-        });
-        allItems.push(...items);
-        allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-        renderRSSItems();
-    }
+  feeds.forEach(feed => {
+    //console.log(feed);
+    loadItemsFromFeed(feed.rss, feed);
+  });
 
-    function findPageWithCurrentDateItem() {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0); // Set time to midnight for comparison
-
-        for (let i = 0; i < allItems.length; i++) {
-            const itemDate = new Date(allItems[i].pubDate);
-            itemDate.setHours(0, 0, 0, 0); // Set time to midnight
-
-            if (itemDate.getTime() === today.getTime()) {
-                // Calculate the page number based on the item's index
-                return Math.floor(i / itemsPerPage) + 1; 
-            }
-        }
-
-        return 1; // Default to the first page if no item matches today's date
-    }
-
-    async function renderRSSItems() {
-        const container = document.querySelector("#rss-feed");
-        const template = document.querySelector("#bericht-template");
-        container.innerHTML = '<h3>Berichten uit het netwerk</h3>';
-
-        // Calculate start and end index for current page
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const itemsToShow = allItems.slice(startIndex, endIndex);
-
-        itemsToShow.forEach(item => {
-            var clone = template.content.cloneNode(true);
-            clone.querySelector("[data-el=date]").textContent = new Date(item.pubDate).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' });
-            clone.querySelector("[data-el=title-link]").href = item.link;
-            clone.querySelector("[data-el=title-link]").textContent = item.title;
-            clone.querySelector("[data-el=description]").textContent = item.description;
-            clone.querySelector("[data-el=source-link]").href = item.url;
-            clone.querySelector("[data-el=source-link]").textContent = item.source;
-            container.appendChild(clone);
-        });
-
-        // Find the page with the first item of the current date
-        currentPage = findPageWithCurrentDateItem(); 
-
-        // Add pagination controls at the top
-        renderPaginationControls();
-    }
-
-    function renderPaginationControls() {
-      const container = document.querySelector("#rss-feed");
-      const totalPages = Math.ceil(allItems.length / itemsPerPage);
-
-      let paginationHTML = '<hr/>Pagina: <ul class="pagination">';
-
-      // Calculate start and end page for the pagination display
-      let startPage = Math.max(1, currentPage - 1);
-      let endPage = Math.min(totalPages, currentPage + 1);
-
-      // Add "First" page link
-      if (startPage > 1) {
-          paginationHTML += `<li class="page-item"><a class="page-link" href="#" data-page="1">1</a></li>`;
-          if (startPage > 2) { 
-              paginationHTML += `<li class="page-item disabled"><span class="page-link">...</span></li>`; 
-          }
-      }
-
-      // Add page links for the visible range
-      for (let i = startPage; i <= endPage; i++) {
-          paginationHTML += `<li class="page-item ${currentPage === i ? 'active' : ''}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
-      }
-
-      // Add "Last" page link
-      if (endPage < totalPages) {
-          if (endPage < totalPages - 1) { 
-              paginationHTML += `<li class="page-item disabled"><span class="page-link">...</span></li>`; 
-          }
-          paginationHTML += `<li class="page-item"><a class="page-link" href="#" data-page="${totalPages}">${totalPages}</a></li>`;
-      }
-
-      paginationHTML += '</ul>';
-
-        container.insertAdjacentHTML('beforeend', paginationHTML); // Insert at the top
-
-        // Add event listeners to pagination links
-        const pageLinks = document.querySelectorAll('.page-link');
-        pageLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                currentPage = parseInt(link.dataset.page);
-                renderRSSItems();
-            });
-        });
-    }
+  async function loadItemsFromFeed(url, feed) {
+    var feedItems = await rssLoader.fetchRssFeed(`https://proxy.apitecture.io/?url=${url}`);
+    feedItems = feedItems.map(item => ({ ...item, source: feed.name, url: feed.url }));
+    rssRenderer.addItems(feedItems);
+  }
 </script>
