@@ -16,7 +16,6 @@
     .then(data => data.feeds);
 
   feeds.forEach(feed => {
-    //console.log(feed);
     loadItemsFromFeed(feed.rss, feed);
   });
 

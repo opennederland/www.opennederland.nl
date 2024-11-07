@@ -10,9 +10,21 @@ export default function (limit) {
     render();
   }
 
-  async function render(page = 1) {
-    var fromItem = limit ? 0 : (page - 1) * itemsPerPage;
-    var toItem = limit ? limit : page * itemsPerPage;
+  function getPageWithCurrentDayItems() {
+    var today = new Date();
+    for (var i = 0; i < allItems.length; i++) {
+      if (new Date(allItems[i].pubDate) <= today) {
+        return Math.ceil(i / itemsPerPage) + 1;
+      }
+    }
+    return 1;
+  }
+
+  async function render(page) {
+    page = page || getPageWithCurrentDayItems();
+
+    var fromItem = (page - 1) * itemsPerPage;
+    var toItem = fromItem + (limit ? limit : itemsPerPage);
 
     container.innerHTML = '';
     for (var i = fromItem; i < toItem; i++) {
