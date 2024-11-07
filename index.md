@@ -31,7 +31,7 @@ Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestu
 {% include nieuwsnetwerk.html limit=3 %}
 
 <div style="padding: 1em 0">
-<a href="{{ "/nieuws-netwerk/" | relative_url }}" class="main-item">Bekijk meer nieuws uit het netwerk berichten</a>
+<a href="{{ "/nieuws-netwerk/" | relative_url }}" class="main-item">Meer nieuws uit het netwerk</a>
 </div>
 
 ## Aanmelden nieuwsbrief
