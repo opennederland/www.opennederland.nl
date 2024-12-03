@@ -1,6 +1,6 @@
 ---
 title: BjornW
-website: 
+website: https://burobjorn.nl
 image: 
 tags: ["Makers", "Open Design", "Open Onderwijs", "Open Onderzoek", "Open Overheid"]
 organisaties:
