@@ -13,7 +13,7 @@ Wij registreren geen gegevens van bezoekers van onze website.
 
 #### Hosting van de website
 
-Deze website wordt gehost vanaf Github Pages. Github Pages verzamelt de IP adressen van bezoekers van onze website ten behoeve van beveiliging.
+Deze website wordt gehost vanaf Github Pages. Github Pages verzamelt de IP adressen van bezoekers van onze website ten behoeve van beveiliging. Lees ook [het privacy beleid van Github](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
 #### Ingesloten inhoud van externe websites
 
