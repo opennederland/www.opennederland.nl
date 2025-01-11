@@ -14,4 +14,4 @@ Wij juichen [de Mastodon pilot van de Nederlandse overheid](https://opensourcewe
 
 [Onderteken hier ook de oproep aan de Nederlandse overheid om te stoppen met bigtech sociale media](https://www.bitsoffreedom.nl/campagnes/oproep-aan-de-overheid/)
 
-*Deze oproep sluit zich aan bij de missie van #makesocialssocialagain, een collectief aan campagnes om te stoppen met bigtech sociale media platformen en het experimenteren met alternatieven.*
+*Deze oproep sluit zich aan bij de missie van #makesocialssocialagain, een collectief aan campagnes om te stoppen met bigtech sociale media platformen en te experimenteren met alternatieven.*
