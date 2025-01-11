@@ -10,7 +10,7 @@ Gelukkig zijn de mogelijkheden voor democratisch en open maatschappelijk debat z
 
 Open Nederland maakt al enige tijd gebruik van [Mastodon](https://joinmastodon.org/), een open source software applicatie die middels een [open standaard genaamd ActivityPub](https://www.w3.org/TR/activitypub/) het mogelijk maakt om [decentraal](https://nl.wikipedia.org/wiki/Decentralisatie) met elkaar te communiceren. Net zoals e-mail, waarbij ook iedereen met elkaar kan communiceren ongeacht welke e-mail aanbieder of applicatie men gebruikt.   
 
-Wij juichen de Mastodon pilot van de Nederlandse overheid van harte toe en nodigen ook alle andere organisaties uit om te stoppen met bigtech sociale media, te investeren in open samenwerken en communiceren met behulp van open source software en open standaarden om zo ook bij te dragen aan een Open(er) Nederland.   
+Wij juichen [de Mastodon pilot van de Nederlandse overheid](https://opensourcewerken.nl/news/view/160e754f-69d5-413a-9482-e73e95cf6315/monique-bulthuis-mastodon-is-platform-dat-voldoet-aan-veiligheid-en-privacy) van harte toe en nodigen ook alle andere organisaties uit om te stoppen met bigtech sociale media, te investeren in open samenwerken en communiceren met behulp van open source software en open standaarden om zo ook bij te dragen aan een Open(er) Nederland.   
 
 [Onderteken hier ook de oproep aan de Nederlandse overheid om te stoppen met bigtech sociale media](https://www.bitsoffreedom.nl/campagnes/oproep-aan-de-overheid/)
 
