@@ -1,8 +1,7 @@
----
-layout: default
-title:	"Open Nederland en Creative Commons Nederland onderschrijven oproep aan de Nederlandse overheid om per direct te stoppen met big tech sociale media"
-tags:	'Makers', 'Open Onderwijs', 'Open Onderzoek' 'Open Access', 'Open Design', 'Open GLAM', 'Open Zorg', Open Source','Open Overheid'
-description:	"Open Nederland en Creative Commons Nederland onderschrijven oproep aan de Nederlandse overheid om per direct te stoppen met big tech sociale media"
+---  
+title:"Open Nederland en Creative Commons Nederland onderschrijven oproep aan de Nederlandse overheid om per direct te stoppen met big tech sociale media"
+tags:['Makers', 'Open Onderwijs','Open Onderzoek','Open Access', 'Open Design', 'Open GLAM', 'Open Zorg', 'Open Source','Open Overheid']
+description:"Open Nederland en Creative Commons Nederland onderschrijven oproep aan de Nederlandse overheid om per direct te stoppen met big tech sociale media"
 ---
 
 # Open Nederland en Creative Commons Nederland onderschrijven oproep aan de Nederlandse overheid om per direct te stoppen met big tech sociale media
