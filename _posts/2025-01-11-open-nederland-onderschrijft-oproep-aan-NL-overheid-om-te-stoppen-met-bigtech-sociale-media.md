@@ -20,6 +20,7 @@ Wij juichen [de Mastodon pilot van de Nederlandse overheid](https://opensourcewe
 
 [Onderteken hier ook de oproep aan de Nederlandse overheid om te stoppen met bigtech sociale media](https://www.bitsoffreedom.nl/campagnes/oproep-aan-de-overheid/)
 
-Wil je op de hoogte blijven van wat Open Nederland doet, [schrijf je in voor onze nieuwsbrief](https://www.opennederland.nl/#aanmelden-nieuwsbrief), [volg ons Mastodon account](https://mastodon.nl/@opennl) en vooralsnog zijn we ook aanwezig op [LinkedIn](https://www.linkedin.com/company/open-nederland/). Dat laatste platform houden we kritisch in de gaten...  
-
 *Deze oproep sluit zich aan bij de missie van #makesocialssocialagain, een collectief aan campagnes om te stoppen met bigtech sociale media platformen en te experimenteren met alternatieven.*
+
+### Op de hoogte blijven?
+Wil je op de hoogte blijven van wat Open Nederland doet, [schrijf je in voor onze nieuwsbrief](https://www.opennederland.nl/#aanmelden-nieuwsbrief), [volg ons Mastodon account](https://mastodon.nl/@opennl) en vooralsnog zijn we ook aanwezig op [LinkedIn](https://www.linkedin.com/company/open-nederland/). Dat laatste platform houden we kritisch in de gaten...  
