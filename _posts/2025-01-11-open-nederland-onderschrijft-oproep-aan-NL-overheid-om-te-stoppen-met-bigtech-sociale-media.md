@@ -4,8 +4,6 @@ tags: ['Makers', 'Open Onderwijs','Open Onderzoek','Open Access', 'Open Design',
 description: "Open Nederland en Creative Commons Nederland onderschrijven oproep aan de Nederlandse overheid om per direct te stoppen met big tech sociale media"
 ---
 
-# Open Nederland en Creative Commons Nederland onderschrijven oproep aan de Nederlandse overheid om per direct te stoppen met big tech sociale media
-
 Op 10 januari 2025 hebben [Bits of Freedom](https://www.bitsoffreedom.nl/), [PublicSpaces](https://publicspaces.net/), [DeGoedeZaak](https://www.degoedezaak.org/), [SETUP](https://www.setup.nl/), [Noorderlicht](https://noorderlicht.com/) en [Waag Futurelab](https://waag.org/nl/) de Nederlandse overheid [opgeroepen](https://nos.nl/nieuwsuur/artikel/2551204-internetorganisaties-roepen-overheid-op-te-stoppen-met-sociale-media) om per direct van big tech sociale media platformen zoals X (voorheen Twitter), Instagram en Facebook af te stappen. 
 
 In [de oproep](https://www.bitsoffreedom.nl/2025/01/10/oproep-nederlandse-overheid-vertrek-van-de-sociale-media-van-big-tech/) wordt verwezen naar [recente ontwikkelingen rondom het bewust stoppen met moderatie door Meta](https://nos.nl/artikel/2550996-er-waait-een-nieuwe-wind-op-facebook-en-instagram-vs-is-conservatiever-geworden), dat big tech bedrijven slechts oog hebben voor hun eigen diepe zakken en dat ze onbeschaamd [op zoek zijn naar politieke macht, met de eigenaar van X voorop](https://nos.nl/op3/video/2551296-de-politieke-macht-van-elon-musk). Big tech sociale media zijn een gevaar onze democratische rechtsstaat en vrijheid, daarom moet de Nederlandse overheid per direct stoppen met het gebruik van deze platformen.   
