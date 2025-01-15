@@ -26,4 +26,7 @@
   tags: ["Open Science", "Makers", "Open Onderzoek"]
   url: https://openpublishing.tudl.tudelft.nl/
   rss: https://openpublishing.tudl.tudelft.nl/feed/
-
+- title: NLUUG
+  tags: ["Open Source", "Makers", "Verwante organisatie"]
+  url: https://nluug.nl
+  rss: https://nluug.nl/atom.xml
