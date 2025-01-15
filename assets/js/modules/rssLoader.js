@@ -10,7 +10,7 @@ export default function () {
 
   async function fetchRssFeed(rssFeedUrl) {
     var responseText = await fetch(rssFeedUrl).then(response => response.text());
-    if (responseText.includes("xml version")) {
+    if (responseText.includes("xml version") || responseText.includes("rss version")) {
       var xml = new window.DOMParser().parseFromString(responseText, "text/xml");
       return Array.from(xml.querySelectorAll("item")).map(item => {
         return {
