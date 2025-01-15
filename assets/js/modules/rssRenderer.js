@@ -12,9 +12,9 @@ export default function (limit) {
 
   function getPageWithCurrentDayItems() {
     var today = new Date();
-    for (var i = 0; i < allItems.length; i++) {
-      if (new Date(allItems[i].pubDate) <= today) {
-        return Math.ceil(i / itemsPerPage) + 1;
+    for (var i = 1; i < allItems.length; i++) {
+      if (new Date(allItems[i].pubDate) < today) {
+        return Math.ceil((i - 1) / itemsPerPage) + 1;
       }
     }
     return 1;
