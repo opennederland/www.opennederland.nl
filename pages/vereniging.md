@@ -16,7 +16,7 @@ Het bestuur van Open Nederland bestaat uit:
 - [Ton Zijlstra](https://www.zylstra.org/) (Penningmeester)
 - [Johan Groenen](https://www.jgroenen.nl) (Secretaris)
 - Hessel van Oorschot (Algemeen bestuurlid)
-- Bjorn Wijers (Algemeen bestuurslid)
+- [Bjorn Wijers](https://burobjorn.nl) (Algemeen bestuurslid)
 
 Open Nederland is als organisatie lid van het Internationale Creative Commons netwerk. Dit betekent dat we organisatie houden aan de Creative Commons Network Charter.
 
