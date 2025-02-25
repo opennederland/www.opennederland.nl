@@ -17,7 +17,7 @@ Het bestuur van Open Nederland bestaat uit:
 - Hessel van Oorschot (Algemeen bestuurlid)
 - [Bjorn Wijers](https://burobjorn.nl) (Algemeen bestuurslid)
 
-Open Nederland is ook de beheer organisatie van Creative Commons in Nederland en lid van het Internationale Creative Commons netwerk. Dit betekent dat we organisatie houden aan de Creative Commons Network Charter.
+Open Nederland is ook de beheersorganisatie van Creative Commons in Nederland en lid van het Internationale Creative Commons netwerk. Dit betekent dat we organisatie houden aan de Creative Commons Network Charter.
 
 {% include creative-commons.md %}
 
