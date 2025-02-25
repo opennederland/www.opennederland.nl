@@ -4,11 +4,10 @@ title: Vereniging
 permalink: /vereniging/
 order: 2
 ---
-Vereniging Open Nederland bevordert samenwerking rondom en gebruik van Creative Commons en Open Source Licenties, en Open Werkwijzen.
+
+Vereniging Open Nederland is <em>dé vereniging</em> voor organisaties & individuen die werken aan 'Open'. Wij zijn een landelijk netwerk van makers, adviseurs en ondernemers die werken aan 'Open'. Van Open Source tot Open Science. Van Open Education tot Open Design en meer! Ons doel is om 'Open' in zijn vele vormen te creëren, te gebruiken, te ondersteunen en aan te moedigen voor het algemeen belang.
 
 _Vereniging Open Nederland heeft tot doel het bevorderen van toegang tot informatie, kennis en cultuur welke voor iedereen beschikbaar is en dit materiaal kan gebruiken, bewerken en delen voor alle doeleinden, hoogstens onderworpen aan eisen die de herkomst en openheid van het materiaal behouden._
-
-Open Nederland bestaat uit een landelijk netwerk van makers, adviseurs en ondernemers die de missie van Creative Commons in Nederland onderschrijft.
 
 Het bestuur van Open Nederland bestaat uit:
 
@@ -18,7 +17,7 @@ Het bestuur van Open Nederland bestaat uit:
 - Hessel van Oorschot (Algemeen bestuurlid)
 - [Bjorn Wijers](https://burobjorn.nl) (Algemeen bestuurslid)
 
-Open Nederland is als organisatie lid van het Internationale Creative Commons netwerk. Dit betekent dat we organisatie houden aan de Creative Commons Network Charter.
+Open Nederland is ook de beheer organisatie van Creative Commons in Nederland en lid van het Internationale Creative Commons netwerk. Dit betekent dat we organisatie houden aan de Creative Commons Network Charter.
 
 {% include creative-commons.md %}
 
