@@ -2,7 +2,7 @@
 title: Stichting Internet Archive
 website: https://stichtinginternetarchive.nl/
 image: 
-tags: ["Open Source", "Open Content", "Open Onderwijs", "Open Access"]
+tags: ["Open Source", "Open Content", "Open Onderwijs", "Open Access", "Open Science"]
 type: organisatie
 rss: https://www.stichtinginternetarchive.nl/feed/
 ---
