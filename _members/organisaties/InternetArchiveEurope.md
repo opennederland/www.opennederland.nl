@@ -7,4 +7,4 @@ type: organisatie
 rss: https://www.opennederland.nl/leden/internetarchiveeurope/](https://www.internetarchiveeurope.eu/feed/
 ---
 
-De Stichting Internet Archive, een Nederlandse non-profit onderzoeksbibliotheek, bouwt aan collecties en tools om deze tot leven te brengen. In samenwerking met bibliotheken, musea en archieven delen we deze hulpmiddelen en collecties om ieders dienstverlening te bevorderen.
+De Internet Archive Europe, een Nederlandse non-profit onderzoeksbibliotheek, bouwt aan collecties en tools om deze tot leven te brengen. In samenwerking met bibliotheken, musea en archieven delen we deze hulpmiddelen en collecties om ieders dienstverlening te bevorderen.
