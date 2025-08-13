@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /assets/opml/feeds.opml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>{{ site.title | xml_escape }} Feeds</title>
+  </head>
+  <body>
+    {% assign members_with_rss = site.members | where_exp: "member", "member.rss" %}
+    {% assign non_member_rss = site.data.non_member_rss %}
+    {% assign feeds = members_with_rss | concat: non_member_rss %}
+    {% for feed in feeds %}
+      <outline text="{{ feed.title | xml_escape }}" title="{{ feed.title | xml_escape }}" type="rss" xmlUrl="{{ feed.rss | absolute_url }}" htmlUrl="{{ feed.url | absolute_url }}"/>
+    {% endfor %}
+  </body>
+</opml>
