@@ -8,4 +8,6 @@ permalink: /nieuws-netwerk/
 
 Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestuur@opennederland.nl)!
 
+Wil je de feeds in je eigen RSS-lezer openen? Download hier het <a href="/assets/opml/feeds.opml" download="netwerk.opml">OPML bestand</a>.
+
 {% include nieuwsnetwerk.html %}
