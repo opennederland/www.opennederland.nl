@@ -2,7 +2,6 @@
 layout: default
 title: Publieke waarde van Open – Open Data 
 permalink: /publieke-waarde/open-data
-order: 3
 ---
 
 **Vereniging Open Nederland, 2025**
