@@ -1,13 +1,11 @@
 ---
 layout: default
-title: ublieke waarde van Open – Open Data 
+title: Publieke waarde van Open – Open Data 
 permalink: /publieke-waarde/open-data
 order: 3
 ---
 
-# Publieke waarde van Open – Open Data 
-
-Vereniging Open Nederland, 2025
+**Vereniging Open Nederland, 2025**
 
 Open data is een structurele bouwsteen van de digitale samenleving. Internationale voorbeelden tonen aan dat een goed geregeld open-data-ecosysteem leidt tot economische groei, bestuurlijke efficiëntie en vertrouwen in overheid en politiek. Nederland is sterk gedigitaliseerd en heeft ook een open-data-ecosysteem met betrokken maatschappelijke partners. Waaronder de vereniging Open Nederland, een netwerkorganisatie van alle vormen van open, waaronder Open Data en Open Overheid, maar ook Open Source, Open Content, Open Onderwijs, etc. 
 
@@ -72,6 +70,7 @@ Open data is bewezen effectief als aanjager van innovatie, transparantie en vert
 2. Ontwikkel een publieke infrastructuur om deze data uniform en gecentraliseerd te delen.  
 3. Betrek maatschappelijke organisaties waaronder (de leden van) Vereniging Open Nederland als klankbord voor uitvoerbaarheid en maatschappelijke aansluiting.
 
+# Bronnen
 [^1]:  Overweging 23, Europese Open Data Richtlijn (EU 2019/1024)
 
 [^2]:  Indien mogelijk, volgende uit artikel 5 lid 1, Europese Open Data Richtlijn (EU 2019/1024)
