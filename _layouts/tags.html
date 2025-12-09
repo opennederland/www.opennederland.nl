@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
+{% if page.wikidata %}
+<p><a href="{{ "https://www.wikidata.org/wiki/" | append: page.wikidata }}">Wikidata:{{ page.title }}</a></p>
+{% endif %}
+
 {{ content }}
 
 <h2>Berichten</h2>

@@ -1,6 +1,7 @@
 ---
 title: Open Source
 tags: ["Open Source"]
+wikidata: Q39162
 ---
 <em>Open source (letterlijk vertaald: open bron) betreft de praktijk die in productie en ontwikkeling vrije toegang geeft tot de bronmaterialen (de source) van het eindproduct.<br>
 <br>

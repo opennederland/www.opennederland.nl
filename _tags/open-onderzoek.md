@@ -1,6 +1,7 @@
 ---
 title: Open Onderzoek
 tags: ["Open Onderzoek"]
+wikidata: Q309823
 ---
 <em>Open science (open wetenschap) is een beweging die streeft naar het opener maken van wetenschappelijk onderzoek. Open science kan van toepassing zijn op alle wetenschappen, dus naast natuurwetenschappen ook medische wetenschappen, sociale wetenschappen en geesteswetenschappen.</em> - [https://nl.wikipedia.org/wiki/Open_science](https://nl.wikipedia.org/wiki/Open_science)
 

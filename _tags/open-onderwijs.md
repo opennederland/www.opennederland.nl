@@ -1,6 +1,7 @@
 ---
 title: Open Onderwijs
 tags: ["Open Onderwijs"]
+wikidata: Q1031140
 ---
 <em>Open onderwijs (Engels: Open Education) is een verzamelnaam[1] voor educatieve organisaties die er naar streven om toetredingsbarrières te elimineren. Dergelijke instellingen hebben bijvoorbeeld geen academische toelatingseisen. Voorbeelden zijn de Open Universiteit in Groot-Brittannië en de Athabasca University in Canada. Dergelijke programma's zijn meestal afstandsonderwijsprogramma's zoals e-learning, MOOC of OpenCourseWare.</em> - [https://nl.wikipedia.org/wiki/Open_onderwijs](https://nl.wikipedia.org/wiki/Open_onderwijs)
 
