@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Activiteiten
+title: Home
 order: 1
 ---
 <div style="display: flex; margin: auto; text-align: center; flex-wrap: wrap">

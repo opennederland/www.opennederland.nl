@@ -1,28 +1,43 @@
 ---
 layout: default
-title: Vereniging
+title: De vereniging
 permalink: /vereniging/
-order: 2
+order: 3
 ---
 
-Vereniging Open Nederland is <em>dé vereniging</em> voor organisaties & individuen die werken aan 'Open'. Wij zijn een landelijk netwerk van makers, adviseurs en ondernemers die werken aan 'Open'. Van Open Source tot Open Science. Van Open Education tot Open Design en meer! Ons doel is om 'Open' in zijn vele vormen te creëren, te gebruiken, te ondersteunen en aan te moedigen voor het algemeen belang.
+Vereniging Open Nederland is dé vereniging voor organisaties en personen die werken aan Open. Wij zijn een landelijk netwerk van makers, adviseurs en ondernemers, van Open Source tot Open Science, van Open Education tot Open Design, en meer! We willen Open in zijn vele vormen creëren, gebruiken, ondersteunen en aanmoedigen voor het algemeen belang, en Open aanjagen en versterken door kennisdeling en samenwerking tussen onze leden en sectoren te organiseren.
+
+Uit [de statuten]((/assets/docs/concept akte van vaststelling statuten vereniging Open Nederland.pdf)):
 
 _Vereniging Open Nederland heeft tot doel het bevorderen van toegang tot informatie, kennis en cultuur welke voor iedereen beschikbaar is en dit materiaal kan gebruiken, bewerken en delen voor alle doeleinden, hoogstens onderworpen aan eisen die de herkomst en openheid van het materiaal behouden._
 
+## Bestuur
+
 Het bestuur van Open Nederland bestaat uit:
 
-- [Maarten Zeinstra](https://www.ip-squared.com) (Voorzitter)
-- [Ton Zijlstra](https://www.zylstra.org/) (Penningmeester)
-- [Johan Groenen](https://www.jgroenen.nl) (Secretaris)
-- Hessel van Oorschot (Algemeen bestuurlid)
-- [Bjorn Wijers](https://burobjorn.nl) (Algemeen bestuurslid)
+- [Maarten Zeinstra]({{ '/leden/maarten-zeinstra/' | url_relative }}) (Voorzitter)
+- [Ton Zijlstra]({{ '/leden/ton-zijlstra/' | url_relative }}) (Penningmeester)
+- [Johan Groenen]({{ '/leden/johan-groenen/' | url_relative }}) (Secretaris)
+- [Hessel van Oorschot]({{ '/leden/chief-of-noise/' | url_relative }}) (Algemeen bestuurlid)
 
-Onze, door de leden geaccepteerde maar niet gedeponeerde, statuten zijn [hier](/assets/docs/concept akte van vaststelling statuten vereniging Open Nederland.pdf) te downloaden
+## Lidmaatschap
 
-Open Nederland is ook de beheersorganisatie van Creative Commons in Nederland en lid van het Internationale Creative Commons netwerk. Dit betekent dat we organisatie houden aan de Creative Commons Network Charter.
+Vereniging Open Nederland is een netwerk van meer dan 130 professionals en organisaties. Deze leden zijn verspreid over meerdere thema's en sectoren, waaronder:
+
+{% include tags-list.html %}
+
+Daarnaast is een aantal leden van Open Nederland jurist of advocaat met een specialisatie in en affiniteit met intellectueel eigendom en licenties.
+
+### Voor organisaties
+
+Open Nederland is een netwerkorganisatie waar ook enkele organisaties in Nederland die zich bezig houden met open lid van zijn:
+
+{% include organisaties.html %}
+
+### Voor professionals
+
+Open Nederland kent een kleine 150 leden. Leden die aangegeven hebben op de online Ledenlijst te willen staan zijn te vinden op onze [online ledenlijst](/leden/personen).
 
 {% include creative-commons.md %}
 
-## Lid worden?
-
-Werk jij ook aan open in jouw domein en wil je graag kennis en ervaring delen met de andere leden van Vereniging Open Nederland? [Word dan lid!]({{ "/leden/" | relative_url }})
+{% include lid-worden.md %}
