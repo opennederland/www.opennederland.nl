@@ -13,6 +13,9 @@ collections:
   members:
     output: true
     permalink: /leden/:name/
+  initiatives:
+    output: true
+    permalink: /initiatief/:name/
 defaults:
   - scope:
       type: tags
@@ -24,3 +27,8 @@ defaults:
     values:
       layout: members
       collection: members
+  - scope:
+      type: initiatives
+    values:
+      layout: initiatives
+      collection: initiatives
