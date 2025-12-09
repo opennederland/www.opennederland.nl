@@ -6,7 +6,7 @@
 
 {% for initiative in initiatives %}
 <div>
-    <h3>{{ initiative.title }}</h3>
+    <h3>{{ initiative.title }} - ({{ initiative.year }})</h3>
 
     <p>{% include tags.html tags=initiative.tags %}</p>
 
