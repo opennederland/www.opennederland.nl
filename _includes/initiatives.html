@@ -1,4 +1,10 @@
-{% for initiative in site.initiatives %}
+{% if include.tag %}
+{% assign initiatives = site.initiatives | where_exp: "initiative", "initiative.tags contains include.tag" %}
+{% else %}
+{% assign initiatives = site.initiatives %}
+{% endif %}
+
+{% for initiative in initiatives %}
 <div>
     <h3>{{ initiative.title }}</h3>
 
