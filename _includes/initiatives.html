@@ -1,0 +1,11 @@
+{% for initiative in site.initiatives %}
+<div>
+    <h3>{{ initiative.title }}</h3>
+
+    <p>{% include tags.html tags=initiative.tags %}</p>
+
+    <p>{{ initiative.content }}</p>
+
+    <p><a href="{{ initiative.website }}">{{ initiative.website }}}</a></p>
+</div>
+{% endfor %}
