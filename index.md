@@ -8,23 +8,9 @@ order: 1
     <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
 </div>
 
-## Uitgelichte berichten
-
-Open Nederland schrijft en verzamelt berichten die het open domein in Nederland raken. De onderstaande lijst met berichten zijn berichten die wij hebben gecureerd uit de vele berichten rondom domeinen van Open in Nederland.
-
-Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestuur@opennederland.nl)!
-
-{% for post in site.posts limit: 3 %}
-{% include bericht.html bericht=post %}
-{% endfor %}
-
-<div style="padding: 1em 0">
-<a href="{{ "/berichten/" | relative_url }}" class="main-item">Bekijk alle berichten</a>
-</div>
-
 ## Nieuws uit het netwerk
 
-[Leden](https://www.opennederland.nl/leden/) en verwante organisaties plaatsen regelmatig nieuws op hun eigen platformen. Wanneer er een RSS feed beschikbaar is kunnen wij deze ook hier tonen. Dit is een overzicht wat er afgelopen periode op de sites van deze leden en aanverante organisaties geplaatst is. Open Nederland heeft geen controle over de inhoud van deze berichten en niet alle berichten zullen even relevant zijn voor de missie van Open Nederland.
+[Leden]({{ "/leden/" | relative_url }}) en verwante organisaties plaatsen regelmatig nieuws op hun eigen platformen. Wanneer er een RSS feed beschikbaar is kunnen wij deze ook hier tonen. Dit is een overzicht wat er afgelopen periode op de sites van deze leden en aanverante organisaties geplaatst is. Open Nederland heeft geen controle over de inhoud van deze berichten en niet alle berichten zullen even relevant zijn voor de missie van Open Nederland.
 
 Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestuur@opennederland.nl)!
 
