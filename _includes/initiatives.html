@@ -1,7 +1,7 @@
 {% if include.tag %}
-{% assign initiatives = site.initiatives | where_exp: "initiative", "initiative.tags contains include.tag" %}
+{% assign initiatives = site.initiatives | where_exp: "initiative", "initiative.tags contains include.tag" | sort: "year" %}
 {% else %}
-{% assign initiatives = site.initiatives %}
+{% assign initiatives = site.initiatives | sort: "year" %}
 {% endif %}
 
 {% for initiative in initiatives %}
