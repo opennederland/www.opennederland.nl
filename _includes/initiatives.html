@@ -10,7 +10,7 @@
 
     <p>{% include tags.html tags=initiative.tags %}</p>
 
-    <p>{{ initiative.content }}</p>
+    <p>{{ initiative.content | markdownify }}</p>
 
     <p><a href="{{ initiative.website }}">{{ initiative.website }}</a></p>
 </div>
