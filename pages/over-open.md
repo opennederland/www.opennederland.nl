@@ -15,5 +15,5 @@ Open Nederland onderschrijft en promoot diverse internationale initiatieven, man
 
 {% include initiatives.md %}
 
-## Initiatief toevoegen?
+### Initiatief toevoegen?
 Zijn er initiatieven, manifesten, beleidsposities, e.d. die Open Nederland moet onderschrijven? Neem contact met ons op of maak een [issue](https://github.com/opennederland/www.opennederland.nl) aan op onze Github omgeving.
