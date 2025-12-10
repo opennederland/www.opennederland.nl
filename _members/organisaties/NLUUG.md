@@ -1,7 +1,7 @@
 ---
 title: NLUUG
 website: https://nluug.nl/
-image: /assets/images/organisaties/nluug.png
+image: /assets/img/organisations/logo_nluug.png
 tags: ["Open Source"]
 type: organisatie
 rss: https://nluug.nl/atom.xml

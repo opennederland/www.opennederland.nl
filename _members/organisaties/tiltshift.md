@@ -1,7 +1,7 @@
 ---
 title: Tiltshift
 website: https://tiltshift.nl
-image: /assets/images/organisaties/tiltshift.png
+image: 
 tags: ["Open Source", "Open Overheid"]
 type: organisatie
 ---
