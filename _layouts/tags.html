@@ -7,7 +7,11 @@ layout: default
 
 {{ content }}
 
-<h2>Berichten</h2>
+<h2>Nieuws uit het netwerk</h2>
+
+{% include nieuwsnetwerk.html tags="page.title" %}
+
+<h2>Onze berichten</h2>
 
 {% assign posts = site.posts | where_exp: "post", "post.tags contains page.title" %}
 {% for post in posts limit: 3 %}

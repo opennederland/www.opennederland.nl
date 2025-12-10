@@ -9,11 +9,23 @@
   var rssLoader = new RSSLoader();
   var rssRenderer = new RSSRenderer({{ include.limit | default: 0 }});
 
+  var filterTags = rawTags ? rawTags.split(',').map(t => t.trim()).filter(t => t) : [];
+
   var allItems = [];
 
   var feeds = await fetch('{{ "json/feeds.json" | relative_url }}')
     .then(response => response.json())
-    .then(data => data.feeds);
+    .then(data => {
+      // Apply Filter
+      if (filterTags.length > 0) {
+        return data.feeds.filter(feed => {
+          // Ensure feed has tags, then check if ANY of the feed's tags exist in our filter list
+          return feed.tags && feed.tags.some(tag => filterTags.includes(tag));
+        });
+      }
+      // If no tags provided, return all feeds
+      return data.feeds;
+    });
 
   feeds.forEach(feed => {
     loadItemsFromFeed(feed.rss, feed);
