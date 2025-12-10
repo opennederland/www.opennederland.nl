@@ -1,7 +1,7 @@
 ---
 title: Wikimedia Nederland
 website: https://nl.wikimedia.org
-image: /assets/img/organisations/logo_wikimedia-nl.png
+image: /assets/img/organisations/logo_Wikimedia-nl.png
 tags: ["Open GLAM"]
 type: organisatie
 rss: https://www.wikimedia.nl/feed/rss/
