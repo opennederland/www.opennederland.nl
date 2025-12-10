@@ -8,7 +8,7 @@ Open in Nederland is verspreid over meerdere thema’s en sectoren, waaronder:
 
 {% include tags-list.html %}
 
-## Initiatieven, manifesten en wetgeving
+## Manifesten, verklaring en aanbevelingen
 
 Open Nederland onderschrijft en promoot diverse internationale initiatieven, manifesten en wetgeving rondom openheid, waaronder:
 
