@@ -1,10 +1,25 @@
 {% if include.tag %}
-{% assign orgs = site.members | where: "type", "organisatie" | where_exp: "org", "org.tags contains include.tag" | sort: "name" %}
+  {% assign orgs = site.members | where: "type", "organisatie" | where_exp: "org", "org.tags contains include.tag" | sort: "title" %}
 {% else %}
-{% assign orgs = site.members | where: "type", "organisatie" | sort: "name" %}
+  {% assign orgs = site.members | where: "type", "organisatie" | sort: "title" %}
 {% endif %}
-<ul>
+<ul class="org-list">
 {% for org in orgs %}
-<li><a href="{{ org.url }}">{{ org.title }}</a></li>
+  <li class="org-item">
+    <a href="{{ org.url }}" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
+      
+      <div style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        {% if org.image %}
+          <img src="{{ org.image | relative_url }}" 
+               alt="{{ org.title }} logo" 
+               style="max-width: 100%; max-height: 100%; object-fit: contain;">
+        {% else %}
+          <span style="font-size: 24px;">🏢</span>
+        {% endif %}
+      </div>
+      
+      <span style="font-weight: bold;">{{ org.title }}</span>
+    </a>
+  </li>
 {% endfor %}
 </ul>
