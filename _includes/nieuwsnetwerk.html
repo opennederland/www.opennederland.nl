@@ -8,7 +8,8 @@
 
   var rssLoader = new RSSLoader();
   var rssRenderer = new RSSRenderer({{ include.limit | default: 0 }});
-
+  
+  var rawTags = "{{ include.tags | default: '' }}";
   var filterTags = rawTags ? rawTags.split(',').map(t => t.trim()).filter(t => t) : [];
 
   var allItems = [];
