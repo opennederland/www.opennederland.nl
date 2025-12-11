@@ -1,11 +1,17 @@
 <template id="bericht-template">
-    <div style="margin-bottom: 4em; padding-left: 1rem; background: #eee; padding: 1rem">
-        <p style="margin: 0; font-size: 1.2em" data-el="date"></p>
-        <h3 style="margin: 0">
+    <div class="news-card">
+        <div class="news-card__meta">
+            <span data-el="date"></span> • Bron: <a href="" target="_blank" data-el="source-link"></a>
+        </div>
+        
+        <h3>
             <a target="_blank" href="" data-el="title-link"></a>
         </h3>
-        <p style="margin-top: 1rem" data-el="description"></p>
-        <p>Bron: <a href="" data-el="source-link"></a></p>
-        <p style="margin-top: 1rem"><a class="tag unknown-theme">extern</a></p>
+        
+        <p data-el="description"></p>
+        
+        <div class="news-card__footer">
+            <span class="tag unknown-theme">extern</span>
+        </div>
     </div>
 </template>
