@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Het netwerk voor Open in Nederland
+menu_title: Home
 order: 1
 ---
 

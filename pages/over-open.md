@@ -2,6 +2,7 @@
 layout: default
 title: Wat is Open?
 permalink: /wat-is-open/
+menu_title: Open?
 order: 2
 ---
 Open in Nederland is verspreid over meerdere thema’s en sectoren, waaronder:

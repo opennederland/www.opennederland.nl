@@ -2,6 +2,7 @@
 layout: default
 title: De vereniging
 permalink: /vereniging/
+menu_title: Over
 order: 3
 ---
 
