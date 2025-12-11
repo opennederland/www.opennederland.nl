@@ -5,6 +5,8 @@ description: "Bevorderen van toegang tot informatie, kennis en cultuur"
 twitter: "@OpenNederland"
 social-image: header-banner-bijeenkomst-foto.jpg
 icon: assets/img/ON-beeldmerk-2024.png
+url: "https://www.opennederland.nl"
+baseurl: ""
 
 collections:
   tags:

@@ -3,6 +3,9 @@ layout: default
 title: Home
 order: 1
 ---
+
+Welkom op de website van de vereniging Open Nederland. Vereniging Open Nederland is dé vereniging voor organisaties en personen die werken aan Open. Bekijk hieronder onze activiteiten en het nieuws uit het netwerk.
+
 <div style="display: flex; margin: auto; text-align: center; flex-wrap: wrap">
     <a href="{{ "publiek-domeindag/" | relative_url }}" class="main-item">Publiek Domeindag</a>
     <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
