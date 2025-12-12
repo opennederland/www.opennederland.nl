@@ -1,7 +1,7 @@
 ---
 title: Code for NL
 website: https://codefor.nl
-image: /assets/img/organisations/Logo_codefor.png
+image: 
 tags: ["Open Source", "Open Overheid"]
 type: organisatie
 rss: https://codefor.nl/feed.xml
