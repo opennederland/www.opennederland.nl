@@ -3,23 +3,22 @@
 {% else %}
   {% assign orgs = site.members | where: "type", "organisatie" | sort: "title" %}
 {% endif %}
-<ul class="org-list">
+
+<div class="org-grid">
 {% for org in orgs %}
-  <li class="org-item">
-    <a href="{{ org.url }}" style="display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit;">
+  
+    <a href="{{ org.url }}" class="org-card" title="Ga naar website van {{ org.title }}">
       
-      <div style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+      <div class="org-logo-box">
         {% if org.image %}
-          <img src="{{ org.image | relative_url }}" 
-               alt="{{ org.title }} logo" 
-               style="max-width: 100%; max-height: 100%; object-fit: contain;">
+          <img src="{{ org.image | relative_url }}" alt="{{ org.title }} logo">
         {% else %}
-          <span style="font-size: 24px;">🏢</span>
+          <span style="font-size: 2.5em;">🏢</span>
         {% endif %}
       </div>
       
-      <span style="font-weight: bold;">{{ org.title }}</span>
+      <span class="org-title">{{ org.title }}</span>
     </a>
-  </li>
+
 {% endfor %}
-</ul>
+</div>
