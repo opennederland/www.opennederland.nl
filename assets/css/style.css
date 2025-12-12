@@ -464,6 +464,72 @@ a.tag:hover {
 }
 
 
+/* --- Laposta Nieuwsbrief Styling --- */
+
+.newsletter-box {
+    background-color: #f4f4f4;
+    padding: 2em;
+    border-radius: 8px;
+    margin: 3em auto;
+    max-width: 600px; /* Niet te breed */
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.newsletter-box h3 {
+    margin-top: 0;
+    color: var(--main-color);
+}
+
+.newsletter-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    max-width: 350px; /* Het formulier zelf smal houden */
+    margin: 1em auto;
+    text-align: left;
+}
+
+/* Labels iets netter maken */
+.newsletter-box label {
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: -0.5em; /* Dichter op het invoerveld */
+    color: #555;
+}
+
+/* De invoervelden */
+.newsletter-box input[type="text"],
+.newsletter-box input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* De knop (stijl overnemen van je .main-item pill buttons) */
+.newsletter-box input[type="submit"] {
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 1em;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.newsletter-box input[type="submit"]:hover {
+    filter: brightness(110%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
 
 
 

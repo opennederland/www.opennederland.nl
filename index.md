@@ -77,8 +77,4 @@ order: 1
 
 <hr />
 
-## Blijf op de hoogte
-
-(Nog) geen lid, maar wel geïnteresseerd in de ontwikkelingen van Open in Nederland? Meld je aan voor de nieuwsbrief.
-
 {% include laposta.html %}
