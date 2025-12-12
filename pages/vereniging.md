@@ -3,7 +3,7 @@ layout: default
 title: De vereniging
 permalink: /vereniging/
 menu_title: Over
-order: 3
+order: 4
 ---
 
 Vereniging Open Nederland is dé vereniging voor organisaties en personen die werken aan Open. Wij zijn een landelijk netwerk van makers, adviseurs en ondernemers, van Open Source tot Open Science, van Open Education tot Open Design, en meer! We willen Open in zijn vele vormen creëren, gebruiken, ondersteunen en aanmoedigen voor het algemeen belang, en Open aanjagen en versterken door kennisdeling en samenwerking tussen onze leden en sectoren te organiseren.

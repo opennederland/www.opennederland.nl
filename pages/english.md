@@ -2,7 +2,7 @@
 layout: default
 title: English
 permalink: /english/
-order: 5
+order: 6
 ---
 Open Nederland is <em>the association</em> for organisations & individuals working on 'Open'. We are a national network of creator and makers, advisors and entrepreneurs working on 'Open'.
 From Open Source to Open Science, from Open Education to Open Design and more! Open Nederland is also the steward organisation of Creative Commons The Netherlands - stimulating cooperation around and the use of Creative Commons licenses in the Netherlands. Our goal is to create, use, support and encourage 'Open' in its many forms and shapes for the public benefit. 

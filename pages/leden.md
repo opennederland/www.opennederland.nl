@@ -3,7 +3,7 @@ layout: default
 title: Leden
 permalink: /leden/
 menu_title: Leden
-order: 4
+order: 5
 ---
 
 <p class="mission-statement" style="font-size: 1.4em; text-align: center; margin-bottom: 2em;">
