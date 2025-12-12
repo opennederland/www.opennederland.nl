@@ -9,6 +9,7 @@ lidnummer: 78
 lid open nederland: Ja
 Lid Creative Commons Network: Ja
 rss: https://www.jgroenen.nl/feed.json
+bestuursfunctie: Secretaris
 ---
 In het dagelijks leven werkzaam als product strateeg/software architect. In 2015 de switch gemaakt naar de publieke sector als Code fellow (vanuit Waag) en sindsdien voorvechter van "publictech".
 

@@ -1,5 +1,5 @@
 ---
-title: Chief of Noise
+title: Hessel van Oorschot
 website: 
 image: 
 tags: ["Makers"]
@@ -8,5 +8,6 @@ type: persoon
 lidnummer: 2
 lid open nederland: Ja
 Lid Creative Commons Network: Ja
+bestuursfunctie: Algemeen lid
 ---
 

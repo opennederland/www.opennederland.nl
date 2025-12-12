@@ -8,5 +8,6 @@ type: persoon
 lidnummer: 1
 lid open nederland: Ja
 Lid Creative Commons Network: Ja
+bestuursfunctie: Voorzitter
 ---
 

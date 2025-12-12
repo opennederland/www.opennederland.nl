@@ -6,24 +6,31 @@ menu_title: Over
 order: 4
 ---
 
-Vereniging Open Nederland is dé vereniging voor organisaties en personen die werken aan Open. Wij zijn een landelijk netwerk van makers, adviseurs en ondernemers, van Open Source tot Open Science, van Open Education tot Open Design, en meer! We willen Open in zijn vele vormen creëren, gebruiken, ondersteunen en aanmoedigen voor het algemeen belang, en Open aanjagen en versterken door kennisdeling en samenwerking tussen onze leden en sectoren te organiseren.
+Vereniging Open Nederland is het Nederlandse netwerk voor iedereen die werkt aan 'Open'. Wij verbinden (sectoren van) makers, adviseurs, juristen en ondernemers die geloven dat kennis, cultuur en technologie vrij deelbaar moeten zijn.
 
-Uit [de statuten]((/assets/docs/concept akte van vaststelling statuten vereniging Open Nederland.pdf)):
+### Onze Missie
 
-_Vereniging Open Nederland heeft tot doel het bevorderen van toegang tot informatie, kennis en cultuur welke voor iedereen beschikbaar is en dit materiaal kan gebruiken, bewerken en delen voor alle doeleinden, hoogstens onderworpen aan eisen die de herkomst en openheid van het materiaal behouden._
+Ons doel is helder: het bevorderen van toegang. Wij streven naar een samenleving waarin informatie, kennis en cultuur voor iedereen beschikbaar is. Materiaal dat vrij gebruikt, bewerkt en gedeeld mag worden, zodat we samen sneller kunnen innoveren en leren.
 
-## Bestuur
+> *De formele doelstellingen zijn vastgelegd in onze [statuten]((/assets/docs/concept akte van vaststelling statuten vereniging Open Nederland.pdf)) (PDF).*
+
+## Organisatie
+
+De vereniging wordt geleid door een bestuur van experts uit het veld en speelt een sleutelrol in het internationale Open landschap. Neem [contact](/contact/) op wanneer je hier voor jezelf ook een rol ziet.
 
 Het bestuur van Open Nederland bestaat uit:
 
-- [Maarten Zeinstra]({{ '/leden/maarten-zeinstra/' | url_relative }}) (Voorzitter)
-- [Ton Zijlstra]({{ '/leden/ton-zijlstra/' | url_relative }}) (Penningmeester)
-- [Johan Groenen]({{ '/leden/johan-groenen/' | url_relative }}) (Secretaris)
-- [Hessel van Oorschot]({{ '/leden/chief-of-noise/' | url_relative }}) (Algemeen bestuurlid)
+{% assign bestuur = site.members | where_exp: "lid", "lid.bestuursfunctie" %}
 
-## Leden
+<div class="team-grid">
+    {% for lid in bestuur %}
+    <a href="{{ lid.url | relative_url }}" class="team-member">
+        <strong>{{ lid.title }}</strong>
+        <span>{{ lid.bestuursfunctie }}</span>
+    </a>
+    {% endfor %}
+</div>
 
-{% include leden.md %}
 
 {% include lid-worden.md %}
 
