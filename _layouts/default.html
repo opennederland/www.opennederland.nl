@@ -33,19 +33,10 @@
     </nav>
 
 {% if page.url == "/" %}
-    <div class="foto-banner" style="background-image: url({{ "assets/img/header-banner-bijeenkomst-foto.jpg" | relative_url }})">
-        <div class="foto-banner__overlay"></div>
-        <div class="foto-banner__content">
-            <div>
-                <p style="max-width: 640px; margin: auto; font-style: italic;">“{{ site.open-definition }}”</p>
-                <img src="{{ "assets/img/ON-logo-2024-transparant.png" | relative_url }}" alt="Vereniging Open Nederland">
-                <p style="max-width: 640px; margin: auto; font-size: 1.4em; margin-top: -0.2em">{{ site.tagline }}</p>
-            </div>
+    <div class="hero-banner">
+        <div class="hero-logo-box">
+            <img src="{{ "assets/img/ON-logo-2024-transparant.png" | relative_url }}" alt="Vereniging Open Nederland">
         </div>
-    </div>
-
-    <div style="max-width: 640px; margin: 3em auto">
-        {% include tags-list.html %}
     </div>
 {% endif %}
 

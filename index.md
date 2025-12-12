@@ -9,7 +9,7 @@ order: 1
     
     <p style="font-size: 1.25em; line-height: 1.6; color: #333; margin-bottom: 2em;">
         Vereniging Open Nederland verbindt makers, adviseurs en organisaties die werken aan 'Open'. 
-        Van Open Source tot Open Science. Wij staan voor open.
+        Van Open Source tot Open Science. Wij verbinden open.
     </p>
 
     <div style="display: flex; justify-content: center; gap: 1em; flex-wrap: wrap;">
@@ -21,6 +21,14 @@ order: 1
         </a>
     </div>
 </section>
+
+<hr />
+
+## Verken het netwerk per thema:
+
+<div class="tag-cloud">
+    {% include tags-list.html %}
+</div>
 
 <hr />
 
