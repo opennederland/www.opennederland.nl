@@ -652,6 +652,106 @@ h2[id] {
 }
 
 
+/* --- Member Detail Styling --- */
+
+/* 1. Het Metadata Blok (Grijze balk) */
+.connection-box {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin: 2em 0;
+}
+
+.connection-title {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+/* Knoppen voor links (Website, Organisaties) */
+.meta-btn {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    color: var(--chill-color);
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    transition: all 0.2s;
+}
+
+.meta-btn:hover {
+    border-color: var(--main-color);
+    color: var(--main-color);
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Badges voor rollen (Bestuur, etc) */
+.role-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
+}
+.role-board { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; }
+.role-cc { background: #fffbeb; color: #b45309; border: 1px solid #fcd34d; }
+
+/* 2. RSS Feed Styling */
+.rss-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1em;
+}
+
+.rss-item-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 1em;
+    border-radius: 6px;
+    transition: box-shadow 0.2s;
+}
+
+.rss-item-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.rss-item-card a {
+    font-weight: bold;
+    font-size: 1.1em;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.4em;
+}
+
+.rss-item-card p {
+    color: #666;
+    font-size: 0.9em;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* 3. "Zie ook" sectie styling (simpel) */
+.related-members-section {
+    margin-top: 4em;
+    padding-top: 2em;
+    border-top: 1px solid #eee;
+}
+
+
+
 /* --- Mobiele aanpassingen --- */
 
 /* Mobiele aanpassing voor de cards */
