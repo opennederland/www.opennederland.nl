@@ -382,6 +382,88 @@ a.tag:hover {
 }
 
 
+/* --- Personen Grid --- */
+.people-grid {
+    display: grid;
+    /* Kolommen van minimaal 260px breed */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 1em;
+    list-style: none;
+    padding: 0;
+    margin: 2em 0;
+}
+
+.person-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Zorgt voor gelijke hoogte in de rij */
+    text-decoration: none;
+    color: var(--chill-color);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.person-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    border-color: var(--main-color);
+    text-decoration: none;
+    color: inherit;
+}
+
+.person-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.8em;
+}
+
+.person-name {
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.3;
+}
+
+.lid-badge {
+    font-size: 0.75em;
+    color: #999;
+    background: #f8f8f8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+/* De tags container */
+.person-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto; /* Duwt de tags naar de onderkant van de kaart */
+}
+
+.person-card .tag {
+    font-size: 0.7em;       /* Iets kleiner dan de hoofdnavigatie */
+    padding: 0.3em 0.8em;   
+    margin: 0;              
+    pointer-events: none;   
+}
+
+/* De individuele tag pill */
+.mini-tag {
+    font-size: 0.75em;
+    background-color: #f0f0f0; /* Neutraal grijs */
+    color: #555;
+    padding: 3px 8px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+}
+
+
 
 
 
