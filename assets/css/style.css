@@ -1,34 +1,58 @@
+/* =========================================
+   1. VARIABLES & CONFIGURATION
+   ========================================= */
 :root {
-    --main-color: var(--bs-danger);
-    --chill-color: #333;
-}
-body {
-    font-size: 1em;
-}
-.wrapper {
-    max-width: 40em;
-    margin-left: auto;
-    margin-right: auto;
+    /* Kleuren */
+    --main-color: var(--bs-danger); /* Rood */
+    --main-color-light: #ff9f8a;    /* Voor gradients */
+    --chill-color: #333;            /* Donkere tekst */
+    --text-muted: #666;             /* Lichte tekst */
+    --bg-light: #f8f9fa;            /* Achtergrond blokken */
+    --bg-white: #ffffff;
+    
+    /* Borders & Lines */
+    --border-color: #e9ecef;
+    --border-radius: 6px;
+    --border-radius-pill: 6px;
+
+    /* Spacing & Layout */
+    --wrapper-width: 40em; /* Of breder: 1200px voor desktop */
+    --gap-grid: 1.5em;
+
+    /* Shadows & Transitions */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-hover: 0 6px 15px rgba(0,0,0,0.15);
+    --transition-base: all 0.2s ease;
 }
 
-h1 {
-    font-size: 4em;
-    text-align: center;
+/* =========================================
+   2. RESET & BASE STYLES
+   ========================================= */
+* {
+    box-sizing: border-box; /* Essentieel voor grids en padding */
 }
-h2 {
-    font-size: 3em;
-    font-weight: 500;
-    margin: 1em 0 0.2em;
+
+body {
+    font-size: 1em;
+    color: var(--chill-color);
+    line-height: 1.6;
+    margin: 0;
 }
-h3 {
-    font-size: 2em;
-    color: var(--main-color);
-    line-height: 1.4em;
-    margin: 1em 0 0.2em;
-}
+
+/* Typography */
+h1 { font-size: 4em; text-align: center; margin-bottom: 0.5em; }
+h2 { font-size: 3em; font-weight: 500; margin: 1em 0 0.5em; }
+h3 { font-size: 2em; color: var(--main-color); line-height: 1.3; margin: 1em 0 0.5em; }
+
 a {
     color: var(--chill-color);
     font-weight: 700;
+    transition: var(--transition-base);
+}
+
+a:hover {
+    color: var(--main-color);
 }
 
 img, iframe {
@@ -46,33 +70,137 @@ blockquote {
     font-size: 0.95em;
 }
 
+/* Layout Wrapper */
+.wrapper {
+    max-width: var(--wrapper-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem; /* Voorkomt dat tekst tegen de rand plakt op mobiel */
+}
+
+main { padding-bottom: 80px; }
+
+/* =========================================
+   3. SHARED COMPONENTS (The "Uniformity" Layer)
+   ========================================= */
+
+/* --- Generic Card Style --- */
+/* Dit vervangt de dubbele code in news-card, org-card, team-member etc. */
+.news-card,
+.initiative-card,
+.org-card,
+.person-card,
+.team-member,
+.rss-item-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5em;
+    transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Zorgt voor gelijke hoogte in grids */
+    text-decoration: none; /* Voor als de hele card een link is */
+    color: inherit;
+}
+
+/* Hover effect voor alle kaarten */
+.news-card:hover,
+.initiative-card:hover,
+.org-card:hover,
+.person-card:hover,
+.team-member:hover,
+.rss-item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--main-color);
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Generic Pill Buttons (.main-item, .quick-link, etc) --- */
+.btn-pill {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-base);
+    border: 1px solid transparent;
+}
+
+/* Specifieke knop varianten */
+.main-item {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    box-shadow: var(--shadow-sm);
+    margin: 0.5em;
+}
+.main-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    color: #fff;
+    filter: brightness(110%);
+}
+
+.meta-btn, .quick-link-btn {
+    background: #fff;
+    border-color: #ddd;
+    color: var(--chill-color);
+    font-size: 0.9em;
+}
+.meta-btn:hover, .quick-link-btn:hover {
+    background: var(--main-color);
+    border-color: var(--main-color);
+    color: #fff;
+}
+
+/* =========================================
+   4. SPECIFIC COMPONENT OVERRIDES
+   ========================================= */
+
+/* --- Navigation & Footer --- */
+nav {
+    background-color: #000;
+    padding: 1em;
+}
+nav a {
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0 0.4em;
+    text-decoration: none;
+}
+
+footer {
+    background-color: var(--main-color);
+    color: #fff;
+    min-height: 200px;
+    padding: 3em 0;
+}
+footer a { color: #fff; font-weight: 900; }
+.footer-box { display: flex; flex-wrap: wrap; gap: 2em; }
+.footer-box__right { margin-left: auto; }
+
 /* --- Hero Banner --- */
 .hero-banner {
     width: 100%;
     height: 280px;
-    /* Gebruik de main-color maar laat hem verlopen naar een iets lichtere tint */
-    background: linear-gradient(135deg, var(--main-color) 0%, #ff9f8a 100%); 
+    background: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-light) 100%); 
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2em;
 }
-
 .hero-logo-box {
     background: rgba(255, 255, 255, 0.95);
     padding: 1.5em 3em;
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Zachte schaduw tilt hem op */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
+.hero-logo-box img { max-height: 120px; width: auto; margin: 0; display: block; }
 
-.hero-logo-box img {
-    max-height: 120px;
-    width: auto;
-    margin: 0;
-    display: block;
-}
-
-/* --- Mission Statement (Open Definitie) --- */
 .mission-statement {
     font-size: 1.6em; 
     line-height: 1.4;
@@ -82,707 +210,137 @@ blockquote {
     font-style: italic;
     max-width: 900px;
     margin: 2rem auto 1rem auto; 
-    padding: 0 1rem;
 }
 
-/* --- Navigatie --- */
-
-nav {
-    background-color: #000;
-    padding: 1em;
-}
-nav a {
-    color: #fff;
-    font-size: 1.2em;
-    padding: 0 0.4em;
-}
-main {
-    padding-bottom: 80px;
-}
-footer {
-    background-color: var(--main-color);
-    color: #fff;
-    min-height: 200px;
-    padding: 2em 0;
-}
-footer a {
-    color: #fff;
-    font-weight: 900;
-}
-
-.main-item {
-    background-color: var(--main-color);
-    color: #fff;
-    margin: 0.5em; /* Iets minder marge rondom */
-    text-align: center;
-    padding: 1em 2em; /* Iets compacter dan de 1.4em */
-    font-size: 1.2em;
-    font-weight: 600;
-    text-decoration: none;
-    
-    /* De modernisering: */
-    border-radius: 50px; /* Pil-vorm (past bij de tags en banner) */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
-    border: 2px solid transparent; /* Voorbereiding op hover */
-    
-    /* Zorg dat de breedte flexibel is, niet hard 300px */
-    width: auto; 
-    min-width: 200px;
-    display: inline-block;
-}
-
-.main-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    color: #fff;
-    text-decoration: none;
-    /* Optioneel: iets lichter maken bij hover */
-    filter: brightness(110%);
-}
-
-.footer-box {
-    display: flex;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-.footer-box__left {
-}
-.footer-box__right {
-    margin-left: auto;
-}
-
-/* --- Nieuws Cards Component --- */
-
-.news-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 1.5rem;
-    margin-bottom: 2em;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: box-shadow 0.2s ease;
-}
-
-.news-card:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.news-card__meta {
-    font-size: 0.85em;
-    color: #666;
-    margin-bottom: 0.5em;
-}
-
-.news-card__meta a {
-    /* Overschrijf de standaard dikke link stijl voor metadata */
-    font-weight: 400;
-    color: #666;
-    text-decoration: underline;
-}
-
-.news-card h3 {
-    /* Reset de grote margin-top van de standaard h3 */
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    font-size: 1.6em; /* Iets compacter dan de standaard 2em */
-}
-
-.news-card h3 a {
-    text-decoration: none;
-}
-
-.news-card p {
-    margin-bottom: 1em;
-    line-height: 1.6;
-}
-
-.news-card__footer {
-    display: flex;
-    justify-content: flex-end; /* Tag rechts uitlijnen */
-}
-
-
-/* TAGS */
-a.tag {
-    display: inline-block;
-    color: var(--chill-color);
-    margin: 0.2em 0.5em;
-    font-size: 0.9rem;
-    font-weight: 200;
-    line-height: 1rem;
-    text-decoration: none;
-    vertical-align: text-bottom;
-}
-.tag.makers { border-bottom: 3px solid var(--bs-pink); }
-.tag.open-access { border-bottom: 3px solid var(--bs-danger); }
-.tag.open-source { border-bottom: 3px solid var(--bs-warning); }
-.tag.open-design { border-bottom: 3px solid var(--bs-info); }
-.tag.open-glam { border-bottom: 3px solid var(--bs-success); }
-.tag.open-onderwijs { border-bottom: 3px solid var(--bs-teal); }
-.tag.open-onderzoek { border-bottom: 3px solid var(--bs-primary); }
-.tag.open-overheid { border-bottom: 3px solid var(--bs-purple); }
-.tag.open-zorg { border-bottom: 3px solid var(--bs-orange); }
-.tag.unknown-theme { border-bottom: 3px solid var(--bs-gray); }
-
-/* Container voor de tags */
-.tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.8em;
-    margin: 2em 0;
-}
-
-/* De algemene stijl voor de tag-knop */
-a.tag {
-    display: inline-block;
-    padding: 0.6em 1.2em;
-    border-radius: 50px; /* Maakt ze pil-vormig */
-    background-color: #f8f9fa; /* Lichte achtergrond */
-    border: 1px solid #e9ecef;
-    border-bottom-width: 4px; /* De kleur-balk blijft, maar dikker */
-    color: var(--chill-color);
-    font-size: 1em; /* Iets groter */
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.1s, box-shadow 0.1s;
-    margin: 0; /* Margin wordt nu geregeld door de gap in de container */
-}
-
-/* Hover effect: "Indrukken" of omhoog komen */
-a.tag:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    background-color: #fff;
-}
-
-/* --- Initiatieven Grid --- */
-
+/* --- Grids --- */
 .initiatives-grid {
     display: grid;
-    /* Automatisch kolommen maken van minimaal 300px breed */
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); 
-    gap: 1.5em;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Aangepast naar 300px voor desktop responsive */
+    gap: var(--gap-grid);
     margin-top: 1em;
 }
-
-.initiative-card {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 1.5em;
-    display: flex;
-    flex-direction: column; /* Zorgt dat de knop onderaan komt */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.initiative-card h3 {
-    margin-top: 0;
-    font-size: 1.3em;
-    margin-bottom: 0.2em;
-}
-
-.initiative-card .year {
-    font-size: 0.9em;
-    color: #888;
-    margin-bottom: 1em;
-    font-style: italic;
-}
-
-.initiative-card .content {
-    font-size: 0.95em;
-    line-height: 1.5;
-    margin-bottom: 1.5em;
-    flex-grow: 1; /* Duwt de knop naar beneden */
-}
-
-/* De knop onderaan de kaart */
-.btn-visit {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #f4f4f4;
-    color: #333;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9em;
-    font-weight: 600;
-    align-self: flex-start;
-    transition: background 0.2s;
-}
-
-.btn-visit:hover {
-    background-color: #e0e0e0;
-    text-decoration: none;
-}
-
-
-
-/* --- Organisatie Logo Grid --- */
 
 .org-grid {
     display: grid;
-    /* Maak kolommen van minimaal 140px breed. Vult de ruimte automatisch op. */
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 1.5em;
+    gap: var(--gap-grid);
     margin: 2em 0;
-    padding: 0;
-    list-style: none;
+    list-style: none; padding: 0;
 }
 
-.org-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 6px;
-    padding: 1.5em;
-    text-decoration: none;
-    color: var(--chill-color);
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    height: 100%; /* Zorgt dat alle kaartjes even hoog zijn */
-}
-
-.org-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-color: var(--main-color);
-    text-decoration: none;
-    color: var(--main-color);
-}
-
-.org-logo-box {
-    width: 100%;
-    height: 80px; /* Vaste hoogte voor het logo-gebied */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1em;
-}
-
-.org-logo-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    /* Optioneel: Maak logo's zwart-wit voor een rustig beeld */
-    filter: grayscale(100%); 
-    opacity: 0.8;
-    transition: filter 0.2s, opacity 0.2s;
-}
-
-/* Bij hover: kleur terugbrengen */
-.org-card:hover .org-logo-box img {
-    filter: grayscale(0%);
-    opacity: 1;
-}
-
-.org-title {
-    font-size: 0.9em;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.3;
-}
-
-
-/* --- Personen Grid --- */
-.people-grid {
+.people-grid, .team-grid {
     display: grid;
-    /* Kolommen van minimaal 260px breed */
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
     gap: 1em;
-    list-style: none;
-    padding: 0;
+    list-style: none; padding: 0;
     margin: 2em 0;
 }
 
-.person-card {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 6px;
-    padding: 1.2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%; /* Zorgt voor gelijke hoogte in de rij */
-    text-decoration: none;
+/* --- Card Content Specifics --- */
+
+/* Organisatie Logos */
+.org-logo-box {
+    width: 100%; height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1em;
+}
+.org-logo-box img {
+    filter: grayscale(100%); opacity: 0.8; transition: var(--transition-base);
+}
+.org-card:hover .org-logo-box img { filter: grayscale(0%); opacity: 1; }
+.org-title { text-align: center; font-weight: 600; font-size: 0.9em; }
+
+/* Nieuws Cards */
+.news-card h3 { margin-top: 0; font-size: 1.4em; }
+.news-card__meta { font-size: 0.85em; color: var(--text-muted); margin-bottom: 0.5em; }
+.news-card__footer { margin-top: auto; align-self: flex-end; }
+
+/* Personen / Team */
+.person-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8em; }
+.person-name { font-weight: 700; font-size: 1.1em; line-height: 1.3; }
+.lid-badge { font-size: 0.75em; color: #999; background: #f8f8f8; padding: 2px 6px; border-radius: 4px; margin-left: 10px; }
+.person-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+
+/* --- Tags --- */
+.tag-cloud {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8em; margin: 2em 0;
+}
+a.tag {
+    display: inline-block;
+    padding: 0.4em 1em;
+    border-radius: var(--border-radius-pill);
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-bottom-width: 3px;
     color: var(--chill-color);
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-
-.person-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-    border-color: var(--main-color);
-    text-decoration: none;
-    color: inherit;
-}
-
-.person-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.8em;
-}
-
-.person-name {
-    font-weight: 700;
-    font-size: 1.1em;
-    line-height: 1.3;
-}
-
-.lid-badge {
-    font-size: 0.75em;
-    color: #999;
-    background: #f8f8f8;
-    padding: 2px 6px;
-    border-radius: 4px;
-    white-space: nowrap;
-    margin-left: 10px;
-}
-
-/* De tags container */
-.person-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: auto; /* Duwt de tags naar de onderkant van de kaart */
-}
-
-.person-card .tag {
-    font-size: 0.7em;       /* Iets kleiner dan de hoofdnavigatie */
-    padding: 0.3em 0.8em;   
-    margin: 0;              
-    pointer-events: none;   
-}
-
-/* De individuele tag pill */
-.mini-tag {
-    font-size: 0.75em;
-    background-color: #f0f0f0; /* Neutraal grijs */
-    color: #555;
-    padding: 3px 8px;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-}
-
-
-/* --- Laposta Nieuwsbrief Styling --- */
-
-.newsletter-box {
-    background-color: #f4f4f4;
-    padding: 2em;
-    border-radius: 8px;
-    margin: 3em auto;
-    max-width: 600px; /* Niet te breed */
-    text-align: center;
-    border: 1px solid #e0e0e0;
-}
-
-.newsletter-box h3 {
-    margin-top: 0;
-    color: var(--main-color);
-}
-
-.newsletter-box form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8em;
-    max-width: 350px; /* Het formulier zelf smal houden */
-    margin: 1em auto;
-    text-align: left;
-}
-
-/* Labels iets netter maken */
-.newsletter-box label {
-    font-weight: bold;
     font-size: 0.9em;
-    margin-bottom: -0.5em; /* Dichter op het invoerveld */
-    color: #555;
-}
-
-/* De invoervelden */
-.newsletter-box input[type="text"],
-.newsletter-box input[type="email"] {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-    box-sizing: border-box;
-}
-
-/* De knop (stijl overnemen van je .main-item pill buttons) */
-.newsletter-box input[type="submit"] {
-    background-color: var(--main-color);
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.1em;
-    font-weight: 700;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-top: 1em;
-    width: 100%;
-    transition: all 0.2s;
-}
-
-.newsletter-box input[type="submit"]:hover {
-    filter: brightness(110%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-
-/* 2. Het Bestuur (Team Grid) */
-.team-grid {
-    display: grid;
-    /* Automatisch kolommen maken: minimaal 220px breed */
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-    gap: 1.5em;
-    margin-top: 2em;
-    margin-bottom: 3em;
-    list-style: none; /* Geen puntjes */
-    padding: 0;
-}
-
-.team-member {
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 6px;
-    padding: 1.5em;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none; /* Link streep weg */
-    color: inherit;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-
-.team-member:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    border-color: var(--main-color);
+    font-weight: 600;
     text-decoration: none;
-    color: inherit;
+    transition: var(--transition-base);
 }
+a.tag:hover { transform: translateY(-2px); background-color: #fff; }
 
-.team-member strong {
-    display: block;
-    font-size: 1.1em;
-    color: var(--main-color);
-    margin-bottom: 0.2em;
-}
+/* Tag Kleuren */
+.tag.makers { border-bottom-color: var(--bs-pink); }
+.tag.open-access { border-bottom-color: var(--bs-danger); }
+.tag.open-source { border-bottom-color: var(--bs-warning); }
+.tag.open-design { border-bottom-color: var(--bs-info); }
+.tag.open-glam { border-bottom-color: var(--bs-success); }
+.tag.open-onderwijs { border-bottom-color: var(--bs-teal); }
+.tag.open-onderzoek { border-bottom-color: var(--bs-primary); }
+.tag.open-overheid { border-bottom-color: var(--bs-purple); }
+.tag.open-zorg { border-bottom-color: var(--bs-orange); }
+.tag.unknown-theme { border-bottom-color: var(--bs-gray); }
 
-.team-member span {
-    font-size: 0.9em;
-    color: #666;
-}
+/* Compacte tags in cards */
+.person-card .tag { font-size: 0.7em; padding: 0.2em 0.6em; pointer-events: none; }
 
 
-/* --- Tag Pagina Styling --- */
-
-/* Quick Links Menu */
+/* --- Page Specific: Tag Super Page --- */
 .quick-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8em;
-    margin-bottom: 3em;
-    padding: 1.5em;
-    background: #f8f9fa; /* Zeer licht grijs */
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
-    align-items: center;
+    display: flex; flex-wrap: wrap; gap: 0.8em; margin-bottom: 3em; padding: 1.5em;
+    background: var(--bg-light); border-radius: 8px; border: 1px solid var(--border-color); align-items: center;
 }
-
-.quick-links-title {
-    font-weight: 700;
-    margin-right: 0.5em;
-    color: #6c757d;
-    font-size: 0.85em;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.quick-link-btn {
-    text-decoration: none;
-    background: #fff;
-    color: var(--main-color);
-    padding: 6px 14px;
-    border-radius: 50px; /* Pilvorm */
-    font-size: 0.9em;
-    border: 1px solid #dee2e6;
-    transition: all 0.2s ease;
-    font-weight: 600;
-}
-
-.quick-link-btn:hover {
-    background: var(--main-color);
-    color: #fff;
-    border-color: var(--main-color);
-    text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-}
-
-/* Scroll margin zorgt dat de kop niet onder je vaste menu verdwijnt als je klikt */
-h2[id] {
-    scroll-margin-top: 100px; 
-}
-
-/* Wikidata Badge */
+.quick-links-title { font-weight: 700; margin-right: 0.5em; color: var(--text-muted); font-size: 0.85em; text-transform: uppercase; }
 .wikidata-badge {
-    font-size: 0.85em; 
-    background: #f8f9fa; 
-    padding: 4px 10px; 
-    border-radius: 4px; 
-    color: #555; 
-    text-decoration: none; 
-    border: 1px solid #dee2e6;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: background 0.2s;
+    font-size: 0.85em; background: var(--bg-light); padding: 4px 10px; border-radius: 4px; color: #555; 
+    border: 1px solid var(--border-color); display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
 }
 
-.wikidata-badge:hover {
-    background: #e9ecef;
-    text-decoration: none;
-    color: #333;
-}
-
-
-/* --- Member Detail Styling --- */
-
-/* 1. Het Metadata Blok (Grijze balk) */
+/* --- Page Specific: Member Detail --- */
 .connection-box {
-    background-color: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    padding: 1.5em;
-    margin: 2em 0;
+    background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5em; margin: 2em 0;
 }
-
 .connection-title {
-    font-size: 0.85em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #888;
-    margin-bottom: 0.5em;
-    font-weight: bold;
+    font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.5em; font-weight: bold;
 }
-
-/* Knoppen voor links (Website, Organisaties) */
-.meta-btn {
-    display: inline-block;
-    background: #fff;
-    border: 1px solid #ddd;
-    color: var(--chill-color);
-    padding: 6px 12px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.95em;
-    margin-right: 0.5em;
-    margin-bottom: 0.5em;
-    transition: all 0.2s;
-}
-
-.meta-btn:hover {
-    border-color: var(--main-color);
-    color: var(--main-color);
-    text-decoration: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-/* Badges voor rollen (Bestuur, etc) */
 .role-tag {
-    display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    font-weight: 600;
-    margin-bottom: 0.5em;
-    margin-right: 0.5em;
+    display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; margin-bottom: 0.5em; margin-right: 0.5em;
 }
 .role-board { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; }
 .role-cc { background: #fffbeb; color: #b45309; border: 1px solid #fcd34d; }
 
-/* 2. RSS Feed Styling */
-.rss-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 1em;
+.rss-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1em; }
+.rss-item-card p { font-size: 0.9em; color: var(--text-muted); margin: 0; }
+.related-members-section { margin-top: 4em; padding-top: 2em; border-top: 1px solid var(--border-color); }
+
+
+/* --- Forms (Laposta) --- */
+.newsletter-box {
+    background-color: var(--bg-light); padding: 2em; border-radius: 8px; margin: 3em auto; max-width: 600px; text-align: center; border: 1px solid var(--border-color);
 }
-
-.rss-item-card {
-    background: #fff;
-    border: 1px solid #eee;
-    padding: 1em;
-    border-radius: 6px;
-    transition: box-shadow 0.2s;
+.newsletter-box form { max-width: 350px; margin: 1em auto; text-align: left; }
+.newsletter-box input[type="text"], .newsletter-box input[type="email"] {
+    width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 1em;
 }
-
-.rss-item-card:hover {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+.newsletter-box input[type="submit"] {
+    background-color: var(--main-color); color: #fff; border: none; padding: 12px 24px; font-size: 1.1em; font-weight: 700;
+    border-radius: var(--border-radius-pill); cursor: pointer; width: 100%; transition: var(--transition-base);
 }
+.newsletter-box input[type="submit"]:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
-.rss-item-card a {
-    font-weight: bold;
-    font-size: 1.1em;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 0.4em;
-}
-
-.rss-item-card p {
-    color: #666;
-    font-size: 0.9em;
-    margin: 0;
-    line-height: 1.4;
-}
-
-/* 3. "Zie ook" sectie styling (simpel) */
-.related-members-section {
-    margin-top: 4em;
-    padding-top: 2em;
-    border-top: 1px solid #eee;
-}
-
-
-
-/* --- Mobiele aanpassingen --- */
-
-/* Mobiele aanpassing voor de cards */
+/* --- Mobile --- */
 @media screen and (max-width: 680px) {
-    .news-card {
-        padding: 1rem;
-    }
-    .news-card h3 {
-        font-size: 1.4em;
-    }
-}
-
-@media screen and (max-width: 680px) {
-    .wrapper {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
-    .foto-banner__content {
-        font-size: 1em;
-    }
-    .footer-box {
-        display: block;
-    }
-    .footer-box__right {
-        margin-top: 40px;
-    }
-}
-
-/* Mission statement */
-@media screen and (max-width: 680px) {
-    .mission-statement {
-        font-size: 1.3em;
-    }
+    .footer-box { display: block; }
+    .footer-box__right { margin-top: 2em; margin-left: 0; }
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
 }
