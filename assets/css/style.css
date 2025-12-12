@@ -68,6 +68,19 @@ blockquote {
     display: block;
 }
 
+/* --- Mission Statement (Open Definitie) --- */
+.mission-statement {
+    font-size: 1.6em; 
+    line-height: 1.4;
+    text-align: center;
+    color: var(--main-color); 
+    font-weight: 300; 
+    font-style: italic;
+    max-width: 900px;
+    margin: 2rem auto 1rem auto; 
+    padding: 0 1rem;
+}
+
 /* --- Navigatie --- */
 
 nav {
@@ -265,5 +278,12 @@ a.tag:hover {
     }
     .footer-box__right {
         margin-top: 40px;
+    }
+}
+
+/* Mission statement */
+@media screen and (max-width: 680px) {
+    .mission-statement {
+        font-size: 1.3em;
     }
 }

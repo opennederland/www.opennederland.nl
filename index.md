@@ -24,6 +24,10 @@ order: 1
 
 <hr />
 
+<h2 class="mission-statement">{{ site.open-definition }}</h2>
+
+<hr />
+
 ## Verken het netwerk per thema:
 
 <div class="tag-cloud">
