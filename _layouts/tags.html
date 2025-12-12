@@ -1,38 +1,104 @@
 ---
 layout: default
 ---
-{% if page.wikidata %}
-<p><a href="{{ "https://www.wikidata.org/wiki/" | append: page.wikidata }}">Wikidata:{{ page.title }}</a></p>
+
+{% assign matching_initiatives = site.initiatives | where_exp: "item", "item.tags contains page.title" %}
+{% assign matching_orgs = site.members | where: "type", "organisatie" | where_exp: "item", "item.tags contains page.title" %}
+{% assign matching_people = site.members | where: "type", "persoon" | where_exp: "item", "item.tags contains page.title" %}
+{% assign matching_posts = site.posts | where_exp: "post", "post.tags contains page.title" %}
+
+
+<div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1em; margin-bottom: 1.5em;">
+    {% if page.wikidata %}
+    <div style="margin-left: auto;">
+        <a href="https://www.wikidata.org/wiki/{{ page.wikidata }}" target="_blank" class="wikidata-badge">
+            Wikidata: <strong>{{ page.wikidata }}</strong>
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+<div style="font-size: 1.1em; line-height: 1.6; margin-bottom: 2em;">
+    {{ content }}
+</div>
+
+
+<div class="quick-links">
+    <span class="quick-links-title">Ga direct naar:</span>
+    
+    {% if matching_initiatives.size > 0 %}
+        <a href="#manifesten" class="quick-link-btn">Manifesten ({{ matching_initiatives.size }})</a>
+    {% endif %}
+
+    {% if matching_orgs.size > 0 %}
+        <a href="#organisaties" class="quick-link-btn">Organisaties ({{ matching_orgs.size }})</a>
+    {% endif %}
+
+    {% if matching_people.size > 0 %}
+        <a href="#experts" class="quick-link-btn">Experts ({{ matching_people.size }})</a>
+    {% endif %}
+    
+    {% if matching_posts.size > 0 %}
+        <a href="#nieuws" class="quick-link-btn">Nieuws</a>
+    {% endif %}
+</div>
+
+<hr />
+
+
+{% if matching_initiatives.size > 0 %}
+    <div style="margin-bottom: 4em;">
+        <h2 id="manifesten">Manifesten & Verklaringen</h2>
+        <p>Initiatieven die dit thema ondersteunen:</p>
+        {% include initiatives.html tag=page.title %}
+    </div>
 {% endif %}
 
-{{ content }}
 
-<h2>Nieuws uit het netwerk</h2>
+{% if matching_orgs.size > 0 %}
+    <div style="margin-bottom: 4em;">
+        <h2 id="organisaties">Organisaties</h2>
+        <p>Partners in het netwerk die actief zijn op dit gebied:</p>
+        {% include organisaties.html tag=page.title %}
+    </div>
+{% endif %}
 
-{% include nieuwsnetwerk.html tags=page.title %}
 
-<h2>Onze berichten</h2>
+{% if matching_people.size > 0 %}
+    <div style="margin-bottom: 4em;">
+        <h2 id="experts">Experts & Leden</h2>
+        <p>Professionals in het netwerk met expertise in {{ page.title | downcase }}:</p>
+        {% include personen.html tag=page.title %}
+    </div>
+{% endif %}
 
-{% assign posts = site.posts | where_exp: "post", "post.tags contains page.title" %}
-{% for post in posts limit: 3 %}
-{% include bericht.html bericht=post %}
-{% endfor %}
 
-<a href="{{ "/berichten/" | relative_url }}">Bekijk alle berichten</a>
+{% if matching_posts.size > 0 %}
+    <div style="margin-bottom: 4em; background: #f9f9f9; padding: 2em; border-radius: 8px; border-left: 5px solid var(--main-color);">
+        <h2 id="nieuws" style="margin-top: 0;">Nieuws & Updates</h2>
+        
+        {% for post in matching_posts limit: 3 %}
+            {% include bericht.html bericht=post %}
+        {% endfor %}
+        
+        <div style="margin-top: 1.5em;">
+            <a href="{{ "/berichten/" | relative_url }}" style="font-weight: bold;">Bekijk alle berichten →</a>
+        </div>
+    </div>
+{% endif %}
 
-<h2>Manifesten, verklaring en aanbevelingen</h2>
-Initiatieven en manifesten rondom dit thema:
-{% include initiatives.html tag=page.title %}
 
-<h2>Organisaties</h2>
-Organisaties die bezig zijn met dit thema:
-{% include organisaties.html tag=page.title %}
+<div style="margin-bottom: 4em;">
+    <h2 id="netwerk-nieuws">Nieuws uit het netwerk</h2>
+    {% include nieuwsnetwerk.html tags=page.title %}
+</div>
 
-<h2>Leden</h2>
-Leden die bezig zijn met dit thema:
-{% include personen.html tag=page.title %}
 
-<hr style="margin-top: 80px">
-<div style="max-width: 640px; margin: 3em auto">
+<hr style="margin-top: 60px; margin-bottom: 40px;">
+
+<div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <h3 style="font-size: 0.9em; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5em;">
+        Verken andere thema's
+    </h3>
     {% include tags-list.html %}
 </div>
