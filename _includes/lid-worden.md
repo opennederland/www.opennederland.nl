@@ -1,4 +1,4 @@
-<h2>Lid worden?</h2>
+<h2 id="lid-worden">Lid worden?</h2>
 
 Werk jij ook aan 'open' in jouw domein en wil je graag kennis en ervaring delen met de andere leden? Sluit je aan bij Vereniging Open Nederland.
 
