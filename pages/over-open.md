@@ -17,6 +17,8 @@ order: 2
 
 **Open is delen van technologie.** In de techniek draait delen om samenwerking en veiligheid. [Open Source](/tags/open-source/) is software waarvan de broncode (de basisinstructies) voor iedereen in te zien is. Dit maakt programma's veiliger, omdat duizenden mensen de code kunnen controleren op fouten en lekken. Open Hardware volgt dit idee door ontwerpen en specificaties van fysieke producten vrij te geven. Hierdoor kunnen mensen zelf apparaten maken, repareren, aanpassen en verbeteren, wat leidt tot snellere innovatie.
 
+**Delen kan je niet alleen doen.** Delen doe je samen. Het zijn de makers, onderzoekers, de kunstenaars, de ambtenaren – de mensen – die hun werk onder open licenties vrijgeven. Mensen die open samenwerken. Alleen door de actieve bijdragen van individuen uit alle sectoren kunnen we de beloftes van Open waarmaken.
+
 <hr />
 
 ## De Domeinen
