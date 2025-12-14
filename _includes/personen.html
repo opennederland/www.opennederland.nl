@@ -1,13 +1,25 @@
-{% if include.tag %}
-  {% assign personen = site.members | where: "type", "persoon" | where_exp: "persoon", "persoon.tags contains include.tag" | sort: "lidnummer" %}
+{% assign personen = "" | split: "" %}
+
+{% if include.tags %}
+  {% for tag in include.tags %}
+    {% assign matches = site.members | where: "type", "persoon" | where_exp: "p", "p.tags contains tag" %}
+    {% assign personen = personen | concat: matches %}
+  {% endfor %}
+  {% assign personen = personen | uniq | sort: "lidnummer" %}
+{% elsif include.tag %}
+  {% assign personen = site.members | where: "type", "persoon" | where_exp: "p", "p.tags contains include.tag" | sort: "lidnummer" %}
+  {% assign context_tags = context_tags | push: include.tag %}
+
 {% else %}
   {% assign personen = site.members | where: "type", "persoon" | sort: "lidnummer" %}
 {% endif %}
 
+
+{% if personen.size > 0 %}
 <ul class="people-grid">
 {% for persoon in personen %}
     <li>
-        <a href="{{ persoon.url }}" class="person-card">
+        <a href="{{ persoon.url | relative_url }}" class="person-card">
             
             <div class="person-header">
                 <span class="person-name">{{ persoon.title }}</span>
@@ -17,9 +29,7 @@
             {% if persoon.tags %}
             <div class="person-tags">
                 {% for tag_name in persoon.tags %}
-                    <span class="tag {{ tag_name | slugify }}">
-                        #{{ tag_name }}
-                    </span>
+                    <span class="mini-tag">#{{ tag_name }}</span>
                 {% endfor %}
             </div>
             {% endif %}
@@ -28,3 +38,4 @@
     </li>
 {% endfor %}
 </ul>
+{% endif %}

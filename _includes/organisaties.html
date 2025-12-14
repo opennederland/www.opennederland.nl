@@ -1,4 +1,12 @@
-{% if include.tag %}
+{% assign orgs = "" | split: "" %}
+
+{% if include.tags %}
+  {% for tag in include.tags %}
+    {% assign matches = site.members | where: "type", "organisatie" | where_exp: "org", "org.tags contains tag" | sort: "title" %}
+    {% assign orgs = orgs | concat: matches %}
+  {% endfor %}
+  {% assign orgs = orgs | uniq | sort: "title" %}
+{% elsif include.tag %}
   {% assign orgs = site.members | where: "type", "organisatie" | where_exp: "org", "org.tags contains include.tag" | sort: "title" %}
 {% else %}
   {% assign orgs = site.members | where: "type", "organisatie" | sort: "title" %}
@@ -6,7 +14,6 @@
 
 <div class="org-grid">
 {% for org in orgs %}
-  
     <a href="{{ org.url }}" class="org-card" title="Ga naar website van {{ org.title }}">
       
       <div class="org-logo-box">

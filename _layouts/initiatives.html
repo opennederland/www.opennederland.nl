@@ -2,6 +2,38 @@
 layout: default
 ---
 
-NOG. NIET. AF.
+<div style="margin-bottom: 2em;">
+    <span style="font-size: 1.2em; color: #888; font-weight: 600; display: block; margin-bottom: 0.5em;">
+        {{ page.year }}
+    </span>
+    {% if page.wikidata %}
+        <a href="https://www.wikidata.org/wiki/{{ page.wikidata }}" target="_blank" class="wikidata-badge">
+            Wikidata: <strong>{{ page.wikidata }}</strong>
+        </a>
+    {% endif %}
+</div>
 
-{{ content }}
+<div id="inhoud" style="font-size: 1.1em; line-height: 1.6; margin-bottom: 3em;">
+    <div style="margin-bottom: 2em;">{{ content }}</div>
+
+    {% if page.website %}
+    <div id="bron" class="connection-box" style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <a href="{{ page.website }}" target="_blank" class="main-item">Naar officiële website ↗</a>
+    </div>
+    {% endif %}
+</div>
+
+<hr />
+
+{% capture initiatives_output %}
+    {% include initiatives.html tags=page.tags %}
+{% endcapture %}
+
+{% assign initiatives_check = initiatives_output | strip %}
+
+{% if initiatives_check != "" %}
+    <div style="margin-bottom: 4em;">
+        <h2 id="initiatives">Aanverwante manifesten, verklaringen en aanbevelingen</h2>
+        {{ initiatives_output }}
+    </div>
+{% endif %}

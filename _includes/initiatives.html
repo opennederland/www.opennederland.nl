@@ -1,4 +1,12 @@
-{% if include.tag %}
+{% assign initiatives = "" | split: "" %}
+
+{% if include.tags %}
+  {% for tag in include.tags %}
+    {% assign matches = site.initiatives | where_exp: "initiative", "initiative.tags contains tag" | sort: "year" %}
+    {% assign initiatives = initiatives | concat: matches %}
+  {% endfor %}
+  {% assign initiatives = initiatives | uniq | sort: "year" %}
+{% elsif include.tag %}
     {% assign initiatives = site.initiatives | where_exp: "initiative", "initiative.tags contains include.tag" | sort: "year" %}
 {% else %}
     {% assign initiatives = site.initiatives | sort: "year" %}
@@ -8,7 +16,7 @@
     {% for initiative in initiatives %}
     <div class="initiative-card">
         
-        <h3>{{ initiative.title }}</h3>
+        <h3><a href="{{ initiative.url | relative_url }}" class="initiative {{ initiative.slug }}">{{ initiative.title }}</a></h3>
         <span class="year">{{ initiative.year }}</span>
 
         <div class="content">
