@@ -14,21 +14,41 @@
 
 <div class="initiatives-grid">
     {% for initiative in initiatives %}
+    
+    {% unless initiative.url == page.url %}
+    
     <div class="initiative-card">
         
-        <h3><a href="{{ initiative.url | relative_url }}" class="initiative {{ initiative.slug }}">{{ initiative.title }}</a></h3>
+        <h3>
+            <a href="{{ initiative.url | relative_url }}" class="initiative {{ initiative.slug }}">{{ initiative.title }}</a>
+        </h3>
         <span class="year">{{ initiative.year }}</span>
 
         <div class="content">
-            {{ initiative.content | markdownify }}
+            {{ initiative.content | markdownify | strip_html | truncatewords: 30 }}
         </div>
 
-        {% if initiative.website %}
-            <a href="{{ initiative.website }}" target="_blank" class="btn-visit">
-                Bezoek website →
-            </a>
+        {% if initiative.tags %}
+        <div style="margin-top: auto; margin-bottom: 1em; padding-top: 0.5em;">
+            {% for tag in initiative.tags %}
+                <a href="{{ '/tags/' | relative_url }}{{ tag | slugify }}/" class="tag {{ tag | slugify }}" style="font-size: 0.75em; padding: 4px 8px;">
+                    #{{ tag }}
+                </a>
+            {% endfor %}
+        </div>
         {% endif %}
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            
+            {% if initiative.website %}
+                <a href="{{ initiative.website }}" target="_blank" style="font-size: 0.9em; color: #888; text-decoration: none;">
+                    Website ↗
+                </a>
+            {% endif %}
+        </div>
         
     </div>
+
+    {% endunless %}
     {% endfor %}
 </div>
