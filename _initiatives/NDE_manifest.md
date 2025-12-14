@@ -6,4 +6,4 @@ tags: ["Open Data", "Open GLAM"]
 type: 
 year: 2018
 ---
-Het Manifest Digitaal Erfgoed roept ondertekenden op om hun erfgoedcollecties open en verbonden aan te bieden.
+Het Manifest Digitaal Erfgoed roept ondertekenden op om hun erfgoedcollecties open en verbonden aan te bieden.s
