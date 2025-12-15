@@ -3,89 +3,126 @@
    ========================================= */
 :root {
     /* Kleuren */
-    --main-color: var(--bs-danger); /* Rood */
-    --main-color-light: #ff9f8a;    /* Voor gradients */
-    --chill-color: #333;            /* Donkere tekst */
-    --text-muted: #666;             /* Lichte tekst */
-    --bg-light: #f8f9fa;            /* Achtergrond blokken */
+    --main-color: var(--bs-danger); 
+    
+    --main-color-light: #ff9f8a;    
+    --chill-color: #2c3e50;
+    --text-body: #4a4a4a;          
+    --text-muted: #7f8c8d;             
+    
+    --bg-light: #f8f9fa;            
     --bg-white: #ffffff;
     
     /* Borders & Lines */
     --border-color: #e9ecef;
-    --border-radius: 6px;
-    --border-radius-pill: 6px;
+    --border-radius: 8px;          
+    --border-radius-pill: 8px;    
 
     /* Spacing & Layout */
-    --wrapper-width: 40em; /* Of breder: 1200px voor desktop */
-    --gap-grid: 1.5em;
+    --wrapper-width: 1100px;        
+    --gap-grid: 2rem;               
 
-    /* Shadows & Transitions */
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-    --shadow-hover: 0 6px 15px rgba(0,0,0,0.15);
-    --transition-base: all 0.2s ease;
+    /* Shadows (Modern & Soft) */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    
+    --transition-base: all 0.2s ease-in-out;
+    
+    /* Fonts (NIEUW: Professionele System Stack) */
+    --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-heading: var(--font-family-base); /* Of een specifieke header font */
 }
 
 /* =========================================
    2. RESET & BASE STYLES
    ========================================= */
 * {
-    box-sizing: border-box; /* Essentieel voor grids en padding */
+    box-sizing: border-box; 
 }
 
 body {
-    font-size: 1em;
-    color: var(--chill-color);
-    line-height: 1.6;
+    font-family: var(--font-family-base); 
+    font-size: 16px;                      /* Goede leesbare basis */
+    color: var(--text-body);
+    line-height: 1.7;                
     margin: 0;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;  /* Scherpere tekst op Mac */
 }
 
-/* Typography */
-h1 { font-size: 4em; text-align: center; margin-bottom: 0.5em; }
-h2 { font-size: 3em; font-weight: 500; margin: 1em 0 0.5em; }
-h3 { font-size: 2em; color: var(--main-color); line-height: 1.3; margin: 1em 0 0.5em; }
+/* Typography - Gebalanceerder */
+h1, h2, h3, h4 {
+    font-family: var(--font-family-heading);
+    color: var(--chill-color);
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+h1 { 
+    font-size: 3rem;   
+    font-weight: 800; 
+    text-align: center; 
+    margin-bottom: 0.5em; 
+    letter-spacing: -0.02em;
+}
+
+h2 { 
+    font-size: 2rem;  
+    font-weight: 700; 
+    margin: 2em 0 1em; /* Meer ruimte boven kopjes */
+}
+
+h3 { 
+    font-size: 1.5rem; 
+    color: var(--main-color); 
+    font-weight: 600;
+    margin: 1.5em 0 0.5em; 
+}
 
 a {
     color: var(--chill-color);
-    font-weight: 700;
+    font-weight: 600;
+    text-decoration: none; /* Cleaner zonder onderstreping (tot hover) */
     transition: var(--transition-base);
 }
 
 a:hover {
     color: var(--main-color);
+    text-decoration: underline;
 }
 
 img, iframe {
     max-width: 100%;
+    height: auto;
     margin: 1em auto;
+    display: block; /* Voorkomt layout shifts */
 }
 
 blockquote {
-    background: #f9f9f9;
-    border-left: 5px solid var(--main-color);
-    margin: 1.5em 0;
-    padding: 1em 1.5em;
+    background: var(--bg-light);
+    border-left: 4px solid var(--main-color);
+    margin: 2em 0;
+    padding: 1.5em 2em;
     font-style: italic;
-    color: #555;
-    font-size: 0.95em;
+    color: var(--text-body);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
 /* Layout Wrapper */
 .wrapper {
     max-width: var(--wrapper-width);
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 1rem; /* Voorkomt dat tekst tegen de rand plakt op mobiel */
+    margin: 0 auto;
+    padding: 0 1.5rem; 
 }
 
 main { padding-bottom: 80px; }
 
 /* =========================================
-   3. SHARED COMPONENTS (The "Uniformity" Layer)
+   3. SHARED COMPONENTS (Card System)
    ========================================= */
 
 /* --- Generic Card Style --- */
-/* Dit vervangt de dubbele code in news-card, org-card, team-member etc. */
 .news-card,
 .initiative-card,
 .org-card,
@@ -95,370 +132,341 @@ main { padding-bottom: 80px; }
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 1.5em;
+    padding: 1.5rem;
     transition: var(--transition-base);
     display: flex;
     flex-direction: column;
-    height: 100%; /* Zorgt voor gelijke hoogte in grids */
-    text-decoration: none; /* Voor als de hele card een link is */
+    height: 100%; 
+    text-decoration: none !important;
     color: inherit;
+    position: relative; /* Voor click area */
 }
 
-/* Hover effect voor alle kaarten */
+/* Hover effect: Card komt iets omhoog, schaduw wordt zachter */
 .news-card:hover,
 .initiative-card:hover,
 .org-card:hover,
 .person-card:hover,
 .team-member:hover,
 .rss-item-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--main-color);
-    text-decoration: none;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: transparent; /* Rand verdwijnt, schaduw neemt over */
     color: inherit;
 }
 
-/* --- Generic Pill Buttons (.main-item, .quick-link, etc) --- */
-.btn-pill {
+/* --- Buttons (.main-item, etc) --- */
+/* Moderne, platte knoppen */
+.main-item {
     display: inline-block;
-    padding: 8px 16px;
-    border-radius: var(--border-radius-pill);
-    text-decoration: none;
+    background-color: var(--main-color);
+    color: #fff !important;
+    padding: 0.8em 2em;
+    font-size: 1.1em;
     font-weight: 600;
+    border-radius: var(--border-radius-pill);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
     transition: var(--transition-base);
-    border: 1px solid transparent;
+    border: 2px solid var(--main-color); /* Voor outline varianten later */
 }
 
-/* Specifieke knop varianten */
-.main-item {
-    background-color: var(--main-color);
-    color: #fff;
-    padding: 1em 2em;
-    font-size: 1.2em;
-    box-shadow: var(--shadow-sm);
-    margin: 0.5em;
-}
 .main-item:hover {
+    background-color: #fff;
+    color: var(--main-color) !important;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-    color: #fff;
-    filter: brightness(110%);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
 }
 
 .meta-btn, .quick-link-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: var(--border-radius);
     background: #fff;
-    border-color: #ddd;
+    border: 1px solid #ddd;
     color: var(--chill-color);
     font-size: 0.9em;
+    font-weight: 500;
+    text-decoration: none;
 }
+
 .meta-btn:hover, .quick-link-btn:hover {
     background: var(--main-color);
     border-color: var(--main-color);
     color: #fff;
+    text-decoration: none;
 }
 
 /* =========================================
    4. SPECIFIC COMPONENT OVERRIDES
    ========================================= */
 
-/* --- Navigation & Footer --- */
+/* --- Navigation --- */
 nav {
-    background-color: #000;
-    padding: 1em;
+    background-color: var(--chill-color); 
+    padding: 1em 0;
+    box-shadow: var(--shadow-sm);
 }
+
+/* Zorg dat de nav content ook binnen de .wrapper breedte valt */
+nav .wrapper, nav > div { 
+    max-width: var(--wrapper-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
 nav a {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.05em;
+    padding: 0.5em 0.8em;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+nav a:hover, nav a.active {
     color: #fff;
-    font-size: 1.2em;
-    padding: 0 0.4em;
+    background-color: rgba(255,255,255,0.1);
     text-decoration: none;
 }
 
+/* --- Footer --- */
 footer {
-    background-color: var(--main-color);
+    background-color: var(--chill-color); /* Matcht nu met nav */
     color: #fff;
-    min-height: 200px;
-    padding: 3em 0;
+    padding: 4em 0;
+    margin-top: auto;
 }
-footer a { color: #fff; font-weight: 900; }
-.footer-box { display: flex; flex-wrap: wrap; gap: 2em; }
-.footer-box__right { margin-left: auto; }
+footer a { color: #fff; opacity: 0.8; }
+footer a:hover { opacity: 1; text-decoration: underline; }
+.footer-box { display: flex; flex-wrap: wrap; gap: 3em; }
 
 /* --- Hero Banner --- */
 .hero-banner {
     width: 100%;
-    height: 280px;
+    padding: 4em 1em; /* Flexibele hoogte op basis van padding */
     background: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-light) 100%); 
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 }
 .hero-logo-box {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 1.5em 3em;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    background: #fff;
+    padding: 2em 3em;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
-.hero-logo-box img { max-height: 120px; width: auto; margin: 0; display: block; }
 
 .mission-statement {
-    font-size: 1.6em; 
-    line-height: 1.4;
+    font-size: 1.5em; 
+    line-height: 1.5;
     text-align: center;
-    color: var(--main-color); 
+    color: var(--bs-danger); 
     font-weight: 300; 
-    font-style: italic;
-    max-width: 900px;
-    margin: 2rem auto 1rem auto; 
+    max-width: 800px;
+    margin: 2rem auto; 
 }
 
 /* --- Grids --- */
 .initiatives-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Aangepast naar 300px voor desktop responsive */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: var(--gap-grid);
-    margin-top: 1em;
+    margin-top: 1.5em;
 }
 
 .org-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: var(--gap-grid);
-    margin: 2em 0;
-    list-style: none; padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
 }
 
-.people-grid, .team-grid {
+.people-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
-    gap: 1em;
-    list-style: none; padding: 0;
-    margin: 2em 0;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
 }
 
 /* --- Card Content Specifics --- */
 
-/* Organisatie Logos */
+/* Org Logos */
 .org-logo-box {
     width: 100%; height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1em;
 }
 .org-logo-box img {
-    filter: grayscale(100%); opacity: 0.8; transition: var(--transition-base);
+    filter: grayscale(100%); opacity: 0.7; transition: var(--transition-base); max-height: 60px;
 }
-.org-card:hover .org-logo-box img { filter: grayscale(0%); opacity: 1; }
-.org-title { text-align: center; font-weight: 600; font-size: 0.9em; }
+.org-card:hover .org-logo-box img { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+.org-title { text-align: center; font-weight: 700; font-size: 0.95em; color: var(--chill-color); }
 
 /* Nieuws Cards */
-.news-card h3 { margin-top: 0; font-size: 1.4em; }
-.news-card__meta { font-size: 0.85em; color: var(--text-muted); margin-bottom: 0.5em; }
-.news-card__footer { margin-top: auto; align-self: flex-end; }
+.news-card h3 { margin-top: 0; font-size: 1.25em; line-height: 1.4; }
+.news-card h3 a { color: var(--chill-color); }
+.news-card:hover h3 a { color: var(--main-color); }
 
-/* Personen / Team */
-.person-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8em; }
-.person-name { font-weight: 700; font-size: 1.1em; line-height: 1.3; }
-.lid-badge { font-size: 0.75em; color: #999; background: #f8f8f8; padding: 2px 6px; border-radius: 4px; margin-left: 10px; }
-.person-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.news-card__meta { 
+    font-size: 0.8em; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    color: var(--text-muted); 
+    margin-bottom: 0.8em; 
+    font-weight: 600;
+}
+
+/* Personen */
+.person-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5em; }
+.person-name { font-weight: 700; font-size: 1.1em; color: var(--chill-color); }
+.lid-badge { font-size: 0.7em; color: var(--text-muted); background: var(--bg-light); padding: 3px 6px; border-radius: 4px; }
 
 /* --- Tags --- */
 .tag-cloud {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8em; margin: 2em 0;
 }
+
 a.tag {
-    display: inline-block;
-    padding: 0.4em 1em;
-    border-radius: var(--border-radius-pill);
-    background-color: var(--bg-light);
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3em 0.8em;
+    border-radius: var(--border-radius); 
+    background-color: #fff;
     border: 1px solid var(--border-color);
-    border-bottom-width: 3px;
-    color: var(--chill-color);
-    font-size: 0.9em;
+    border-bottom: 3px solid var(--border-color); /* Default kleur */
+    color: var(--text-body);
+    font-size: 0.85em;
     font-weight: 600;
-    text-decoration: none;
     transition: var(--transition-base);
 }
-a.tag:hover { transform: translateY(-2px); background-color: #fff; }
 
-/* Tag Kleuren */
-.tag.makers { border-bottom-color: var(--bs-pink); }
-.tag.open-access { border-bottom-color: var(--bs-danger); }
-.tag.open-source { border-bottom-color: var(--bs-warning); }
-.tag.open-design { border-bottom-color: var(--bs-info); }
-.tag.open-glam { border-bottom-color: var(--bs-success); }
-.tag.open-onderwijs { border-bottom-color: var(--bs-teal); }
-.tag.open-onderzoek { border-bottom-color: var(--bs-primary); }
-.tag.open-overheid { border-bottom-color: var(--bs-purple); }
-.tag.open-zorg { border-bottom-color: var(--bs-orange); }
-.tag.unknown-theme { border-bottom-color: var(--bs-gray); }
+a.tag:hover { 
+    transform: translateY(-2px); 
+    box-shadow: var(--shadow-sm); 
+    color: #000;
+}
 
-/* Compacte tags in cards */
-.person-card .tag { font-size: 0.7em; padding: 0.2em 0.6em; pointer-events: none; }
+/* Tag Kleuren (Consistent) */
+.tag.makers { border-bottom-color: #e83e8c; }
+.tag.open-access { border-bottom-color: #dc3545; }
+.tag.open-source { border-bottom-color: #ffc107; }
+.tag.open-design { border-bottom-color: #0dcaf0; }
+.tag.open-glam { border-bottom-color: #198754; }
+.tag.open-onderwijs { border-bottom-color: #20c997; }
+.tag.open-onderzoek { border-bottom-color: #0d6efd; }
+.tag.open-overheid { border-bottom-color: #6610f2; }
+.tag.open-zorg { border-bottom-color: #fd7e14; }
 
-
-/* --- Page Specific: Tag Super Page --- */
+/* --- Page Specifics --- */
 .quick-links {
-    display: flex; flex-wrap: wrap; gap: 0.8em; margin-bottom: 3em; padding: 1.5em;
-    background: var(--bg-light); border-radius: 8px; border: 1px solid var(--border-color); align-items: center;
+    display: flex; flex-wrap: wrap; gap: 0.8em; margin-bottom: 3em; padding: 1em 1.5em;
+    background: var(--bg-white); border-radius: var(--border-radius); 
+    border: 1px solid var(--border-color); align-items: center;
+    box-shadow: var(--shadow-sm);
 }
-.quick-links-title { font-weight: 700; margin-right: 0.5em; color: var(--text-muted); font-size: 0.85em; text-transform: uppercase; }
+.quick-links-title { font-weight: 700; margin-right: 1em; color: var(--chill-color); font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.5px; }
+
 .wikidata-badge {
-    font-size: 0.85em; background: var(--bg-light); padding: 4px 10px; border-radius: 4px; color: #555; 
-    border: 1px solid var(--border-color); display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+    font-size: 0.8em; background: #fff; padding: 4px 10px; border-radius: 20px; 
+    color: var(--text-muted); border: 1px solid var(--border-color); 
+    display: inline-flex; align-items: center; gap: 6px;
 }
 
-/* --- Page Specific: Member Detail --- */
 .connection-box {
-    background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5em; margin: 2em 0;
+    background-color: var(--bg-light); 
+    border: 1px solid transparent; /* Geen harde rand */
+    border-radius: var(--border-radius); 
+    padding: 2em; 
+    margin: 2em 0;
 }
-.connection-title {
-    font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.5em; font-weight: bold;
+
+/* --- Highlight Section (Nieuws) --- */
+.highlight-section {
+    background-color: #fff; 
+    padding: 2em;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--main-color);
+    margin-bottom: 4em;
+    box-shadow: var(--shadow-sm);
 }
-.role-tag {
-    display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600; margin-bottom: 0.5em; margin-right: 0.5em;
-}
-.role-board { background: #eef2ff; color: #4f46e5; border: 1px solid #c7d2fe; }
-.role-cc { background: #fffbeb; color: #b45309; border: 1px solid #fcd34d; }
 
-.rss-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1em; }
-.rss-item-card p { font-size: 0.9em; color: var(--text-muted); margin: 0; }
-.related-members-section { margin-top: 4em; padding-top: 2em; border-top: 1px solid var(--border-color); }
-
-
-/* --- Forms (Laposta) --- */
+/* --- Forms --- */
 .newsletter-box {
-    background-color: var(--bg-light); padding: 2em; border-radius: 8px; margin: 3em auto; max-width: 600px; text-align: center; border: 1px solid var(--border-color);
+    background-color: #fff; padding: 3em 2em; border-radius: 12px; 
+    margin: 3em auto; max-width: 600px; text-align: center; 
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
 }
-.newsletter-box form { max-width: 350px; margin: 1em auto; text-align: left; }
+
 .newsletter-box input[type="text"], .newsletter-box input[type="email"] {
-    width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 1em;
+    width: 100%; padding: 12px 16px; 
+    border: 1px solid #ced4da; border-radius: var(--border-radius); 
+    margin-bottom: 1em; font-size: 1em;
 }
+
 .newsletter-box input[type="submit"] {
-    background-color: var(--main-color); color: #fff; border: none; padding: 12px 24px; font-size: 1.1em; font-weight: 700;
-    border-radius: var(--border-radius-pill); cursor: pointer; width: 100%; transition: var(--transition-base);
+    background-color: var(--main-color); color: #fff; border: none; padding: 12px 24px; 
+    font-size: 1.1em; font-weight: 700; border-radius: var(--border-radius-pill); 
+    cursor: pointer; width: 100%; transition: var(--transition-base);
 }
-.newsletter-box input[type="submit"]:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.newsletter-box input[type="submit"]:hover { background-color: #c02871; }
 
-/* --- Mobile --- */
-@media screen and (max-width: 680px) {
-    .footer-box { display: block; }
-    .footer-box__right { margin-top: 2em; margin-left: 0; }
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 2em; }
-}
 
-/* ---   UTILITIES & HELPER CLASSES --- */
-
-/* --- Layout & Spacing --- */
-/* Vervangt: style="margin-bottom: 2em / 4em" */
+/* =========================================
+   5. UTILITIES (Keep these!)
+   ========================================= */
 .mb-0 { margin-bottom: 0 !important; }
-.mb-sm { margin-bottom: 1em; }
-.mb-md { margin-bottom: 2em; }
-.mb-lg { margin-bottom: 3em; }
-.mb-xl { margin-bottom: 4em; }
+.mb-sm { margin-bottom: 1rem; }
+.mb-md { margin-bottom: 2rem; }
+.mb-lg { margin-bottom: 3rem; }
+.mb-xl { margin-bottom: 4rem; }
+.mt-0 { margin-top: 0 !important; }
+.mt-sm { margin-top: 1rem; }
+.mt-md { margin-top: 2rem; }
 
-.mt-auto { margin-top: auto; } /* Handig in flex cards */
+.text-muted { color: var(--text-muted) !important; }
+.text-center { text-align: center; }
+.text-left { text-align: left !important; }
+.font-bold { font-weight: 700; }
+.ml-auto { margin-left: auto; }
+.mt-auto { margin-top: auto; }
 
-/* Vervangt: style="max-width: 800px; margin: 0 auto;" */
-.container-narrow {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.container-center {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --- Flexbox Helpers --- */
-/* Vervangt: style="display: flex; gap: ...; align-items: ..." */
 .d-flex { display: flex; }
 .flex-wrap { flex-wrap: wrap; }
 .items-center { align-items: center; }
 .justify-between { justify-content: space-between; }
-.justify-end { justify-content: flex-end; }
 .justify-center { justify-content: center; }
 
+.tag-group { display: flex; gap: 0.6em; flex-wrap: wrap; }
 .gap-sm { gap: 0.5em; }
 .gap-md { gap: 1em; }
 
-/* --- Typography Helpers --- */
-/* Vervangt: style="font-size: 1.2em; color: #888..." */
-.text-muted { color: var(--text-muted); }
-.text-center { text-align: center; }
-.text-left { text-align: left !important; }
-.font-bold { font-weight: 700; }
+.container-narrow { max-width: 800px; margin-left: auto; margin-right: auto; }
+.container-center { text-align: center; margin-left: auto; margin-right: auto; }
+.source-box { text-align: center; max-width: 600px; margin: 0 auto; }
 
-.page-meta-header {
-    font-size: 1.2em;
-    color: var(--text-muted);
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.5em;
-}
-
-/* --- Tag Groups --- */
-/* Vervangt flex divs om tags heen */
-.tag-group {
-    display: flex;
-    gap: 0.5em;
-    flex-wrap: wrap;
-}
-
-/* --- Content Styling --- */
-/* Zorgt voor consistente tekstblokken */
-.content-body {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 3em;
-}
-
+.content-body { font-size: 1.125em; line-height: 1.8; color: var(--text-body); }
 .content-body p { margin-bottom: 1.5em; }
 
-/* --- Section Dividers --- */
-hr {
-    border: 0;
-    border-top: 1px solid var(--border-color);
-    margin: 3em 0;
+.page-meta-header {
+    font-size: 1.1em; color: var(--text-muted); font-weight: 600; 
+    display: block; margin-bottom: 0.5em; text-transform: uppercase; letter-spacing: 1px;
 }
 
-hr.large-gap {
-    margin-top: 60px;
-    margin-bottom: 40px;
-}
+hr { border-top: 1px solid var(--border-color); margin: 3rem 0; opacity: 0.6; }
+hr.large-gap { margin-top: 80px; margin-bottom: 60px; }
 
-/* --- Specifieke Component Fixes --- */
-/* Voor de 'bron' box in initiatieven */
-.source-box {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Voor de wikidata badge rechtsboven */
-.header-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-
-.ml-auto { margin-left: auto; } /* Handig om dingen naar rechts te duwen */
-
-/* --- Components: Highlight Section (voor Nieuws blokken) --- */
-/* Vervangt: style="background: #f9f9f9; padding: 2em; border-left: 5px solid..." */
-.highlight-section {
-    background-color: #f9f9f9;
-    padding: 2em;
-    border-radius: 8px;
-    border-left: 5px solid var(--main-color);
-    margin-bottom: 4em; /* Gelijk aan mb-xl */
-}
-
-/* Mobiele optimalisatie voor highlight section */
-@media screen and (max-width: 680px) {
-    .highlight-section {
-        padding: 1.5em;
-    }
+/* Mobile */
+@media screen and (max-width: 768px) {
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
+    .wrapper { padding: 0 1rem; }
+    .hero-logo-box { padding: 1.5em; }
+    .footer-box { flex-direction: column; gap: 2em; }
 }
