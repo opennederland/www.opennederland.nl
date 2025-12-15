@@ -344,3 +344,121 @@ a.tag:hover { transform: translateY(-2px); background-color: #fff; }
     h1 { font-size: 2.5em; }
     h2 { font-size: 2em; }
 }
+
+/* ---   UTILITIES & HELPER CLASSES --- */
+
+/* --- Layout & Spacing --- */
+/* Vervangt: style="margin-bottom: 2em / 4em" */
+.mb-0 { margin-bottom: 0 !important; }
+.mb-sm { margin-bottom: 1em; }
+.mb-md { margin-bottom: 2em; }
+.mb-lg { margin-bottom: 3em; }
+.mb-xl { margin-bottom: 4em; }
+
+.mt-auto { margin-top: auto; } /* Handig in flex cards */
+
+/* Vervangt: style="max-width: 800px; margin: 0 auto;" */
+.container-narrow {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Flexbox Helpers --- */
+/* Vervangt: style="display: flex; gap: ...; align-items: ..." */
+.d-flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+
+.gap-sm { gap: 0.5em; }
+.gap-md { gap: 1em; }
+
+/* --- Typography Helpers --- */
+/* Vervangt: style="font-size: 1.2em; color: #888..." */
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.text-left { text-align: left !important; }
+.font-bold { font-weight: 700; }
+
+.page-meta-header {
+    font-size: 1.2em;
+    color: var(--text-muted);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+/* --- Tag Groups --- */
+/* Vervangt flex divs om tags heen */
+.tag-group {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+/* --- Content Styling --- */
+/* Zorgt voor consistente tekstblokken */
+.content-body {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 3em;
+}
+
+.content-body p { margin-bottom: 1.5em; }
+
+/* --- Section Dividers --- */
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 3em 0;
+}
+
+hr.large-gap {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+/* --- Specifieke Component Fixes --- */
+/* Voor de 'bron' box in initiatieven */
+.source-box {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Voor de wikidata badge rechtsboven */
+.header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.ml-auto { margin-left: auto; } /* Handig om dingen naar rechts te duwen */
+
+/* --- Components: Highlight Section (voor Nieuws blokken) --- */
+/* Vervangt: style="background: #f9f9f9; padding: 2em; border-left: 5px solid..." */
+.highlight-section {
+    background-color: #f9f9f9;
+    padding: 2em;
+    border-radius: 8px;
+    border-left: 5px solid var(--main-color);
+    margin-bottom: 4em; /* Gelijk aan mb-xl */
+}
+
+/* Mobiele optimalisatie voor highlight section */
+@media screen and (max-width: 680px) {
+    .highlight-section {
+        padding: 1.5em;
+    }
+}

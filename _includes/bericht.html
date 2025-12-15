@@ -1,23 +1,42 @@
-<div style="margin-bottom: 4em; padding-left: 1rem; background: #eee; padding: 1rem">
-    {% assign maanden = "januari, februari, maart, april, mei, juni, juli, augustus, september, oktober, november, december" | split: ", " %}
-    {% assign index = include.bericht.date | date: "%-m" | minus: 1 %}
-    {% assign format = "%-d " | append: maanden[index] | append: " %Y" %}
-    <p style="margin: 0; font-size: 1.2em">{{ include.bericht.date | date: format }}</p>
-    <h3 style="margin: 0">
+<div class="news-card mb-md">
+    
+    <div class="news-card__meta">
+        {% assign maanden = "januari, februari, maart, april, mei, juni, juli, augustus, september, oktober, november, december" | split: ", " %}
+        {% assign index = include.bericht.date | date: "%-m" | minus: 1 %}
+        {% assign format = "%-d " | append: maanden[index] | append: " %Y" %}
+        
+        <span>{{ include.bericht.date | date: format }}</span>
+
         {% if include.bericht.source %}
-        <a target="_blank" href="{{ include.bericht.source }}">{{ include.bericht.title }}</a>
-        <a class="tag unknown-theme">extern</a>
+             • Bron: 
+             <a target="_blank" href="{{ include.bericht.source }}" class="text-muted" style="text-decoration: underline;">
+                {{ include.bericht.source | split: '/' | slice: 2 | first | remove_first: 'www.' }}
+             </a>
+        {% endif %}
+    </div>
+
+    <h3>
+        {% if include.bericht.source %}
+            <a target="_blank" href="{{ include.bericht.source }}">{{ include.bericht.title }}</a>
         {% else %}
-        <a href="{{ include.bericht.url | relative_url }}">{{ include.bericht.title }}</a>
+            <a href="{{ include.bericht.url | relative_url }}">{{ include.bericht.title }}</a>
         {% endif %}
     </h3>
+
     {% if include.bericht.description %}
-        <p style="margin-top: 1rem">{{ include.bericht.description }}</p>
+        <p>{{ include.bericht.description }}</p>
     {% endif %}
-    {% if include.bericht.source %}
-        <p>Bron: <a target="_blank" href="{{ include.bericht.source }}">{{ include.bericht.source | split: '/' | slice: 2 | first | remove_first: 'www.' }}</a></p>
-    {% endif %}
-    <p style="margin-top: 1rem">
-        {% include tags.html tags=include.bericht.tags %}
-    </p>
+
+    <div class="news-card__footer">
+        
+        <div class="tag-group">
+            {% include tags.html tags=include.bericht.tags %}
+        </div>
+
+        {% if include.bericht.source %}
+            <span class="tag unknown-theme" style="margin-left: auto;">extern</span>
+        {% endif %}
+        
+    </div>
+
 </div>

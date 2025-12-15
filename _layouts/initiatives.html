@@ -2,8 +2,8 @@
 layout: default
 ---
 
-<div style="margin-bottom: 2em;">
-    <span style="font-size: 1.2em; color: #888; font-weight: 600; display: block; margin-bottom: 0.5em;">
+<div class="mb-md">
+    <span class="page-meta-header">
         {{ page.year }}
     </span>
     {% if page.wikidata %}
@@ -13,11 +13,13 @@ layout: default
     {% endif %}
 </div>
 
-<div id="inhoud" style="font-size: 1.1em; line-height: 1.6; margin-bottom: 3em;">
-    <div style="margin-bottom: 2em;">{{ content }}</div>
+<div id="inhoud" class="content-body">
+    <div class="mb-md">
+        {{ content }}
+    </div>
 
     {% if page.website %}
-    <div id="bron" class="connection-box" style="text-align: center; max-width: 600px; margin: 0 auto;">
+    <div id="bron" class="connection-box source-box">
         <a href="{{ page.website }}" target="_blank" class="main-item">Naar officiële website ↗</a>
     </div>
     {% endif %}
@@ -32,7 +34,7 @@ layout: default
 {% assign initiatives_check = initiatives_output | strip %}
 
 {% if initiatives_check != "" %}
-    <div style="margin-bottom: 4em;">
+    <div class="mb-xl">
         <h2 id="initiatives">Aanverwante manifesten, verklaringen en aanbevelingen</h2>
         {{ initiatives_output }}
     </div>

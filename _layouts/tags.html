@@ -8,9 +8,9 @@ layout: default
 {% assign matching_posts = site.posts | where_exp: "post", "post.tags contains page.title" %}
 
 
-<div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1em; margin-bottom: 1.5em;">
+<div class="header-actions mb-md">
     {% if page.wikidata %}
-    <div style="margin-left: auto;">
+    <div class="ml-auto">
         <a href="https://www.wikidata.org/wiki/{{ page.wikidata }}" target="_blank" class="wikidata-badge">
             Wikidata: <strong>{{ page.wikidata }}</strong>
         </a>
@@ -18,10 +18,9 @@ layout: default
     {% endif %}
 </div>
 
-<div style="font-size: 1.1em; line-height: 1.6; margin-bottom: 2em;">
+<div class="content-body">
     {{ content }}
 </div>
-
 
 <div class="quick-links">
     <span class="quick-links-title">Ga direct naar:</span>
@@ -47,7 +46,7 @@ layout: default
 
 
 {% if matching_initiatives.size > 0 %}
-    <div style="margin-bottom: 4em;">
+    <div class="mb-xl">
         <h2 id="manifesten">Manifesten & Verklaringen</h2>
         <p>Initiatieven die dit thema ondersteunen:</p>
         {% include initiatives.html tag=page.title %}
@@ -56,7 +55,7 @@ layout: default
 
 
 {% if matching_orgs.size > 0 %}
-    <div style="margin-bottom: 4em;">
+    <div class="mb-xl">
         <h2 id="organisaties">Organisaties</h2>
         <p>Partners in het netwerk die actief zijn op dit gebied:</p>
         {% include organisaties.html tag=page.title %}
@@ -65,7 +64,7 @@ layout: default
 
 
 {% if matching_people.size > 0 %}
-    <div style="margin-bottom: 4em;">
+    <div class="mb-xl">
         <h2 id="experts">Experts & Leden</h2>
         <p>Professionals in het netwerk met expertise in {{ page.title | downcase }}:</p>
         {% include personen.html tag=page.title %}
@@ -74,30 +73,30 @@ layout: default
 
 
 {% if matching_posts.size > 0 %}
-    <div style="margin-bottom: 4em; background: #f9f9f9; padding: 2em; border-radius: 8px; border-left: 5px solid var(--main-color);">
-        <h2 id="nieuws" style="margin-top: 0;">Nieuws & Updates</h2>
+    <div class="highlight-section">
+        <h2 id="nieuws" class="mt-0">Nieuws & Updates</h2>
         
         {% for post in matching_posts limit: 3 %}
             {% include bericht.html bericht=post %}
         {% endfor %}
         
-        <div style="margin-top: 1.5em;">
-            <a href="{{ "/berichten/" | relative_url }}" style="font-weight: bold;">Bekijk alle berichten →</a>
+        <div class="mt-md">
+            <a href="{{ "/berichten/" | relative_url }}" class="font-bold">Bekijk alle berichten →</a>
         </div>
     </div>
 {% endif %}
 
 
-<div style="margin-bottom: 4em;">
+<div class="mb-xl">
     <h2 id="netwerk-nieuws">Nieuws uit het netwerk</h2>
     {% include nieuwsnetwerk.html tags=page.title %}
 </div>
 
 
-<hr style="margin-top: 60px; margin-bottom: 40px;">
+<hr class="large-gap">
 
-<div style="max-width: 800px; margin: 0 auto; text-align: center;">
-    <h3 style="font-size: 0.9em; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5em;">
+<div class="container-narrow container-center">
+    <h3 class="connection-title mb-md">
         Verken andere thema's
     </h3>
     {% include tags-list.html %}
