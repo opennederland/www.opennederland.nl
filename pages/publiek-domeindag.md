@@ -22,4 +22,4 @@ Wil je weten welke werken dit jaar vrijkomen, het programma van de komende editi
 
 ---
 
-*Wil je meehelpen aan de organisatie of heb je ideeën voor de volgende editie? Neem dan contact op met de werkgroep via bestuur@opennederland.nl.*
+*Wil je meehelpen aan de organisatie of heb je ideeën voor de volgende editie? Neem dan contact op met de werkgroep via [bestuur@opennederland.nl](mailto:bestuur@opennederland.nl).*

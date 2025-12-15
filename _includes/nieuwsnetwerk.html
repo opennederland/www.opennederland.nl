@@ -34,7 +34,7 @@
 
   async function loadItemsFromFeed(url, feed) {
     var feedItems = await rssLoader.fetchRssFeed(`https://proxy.apitecture.io/?url=${url}`);
-    feedItems = feedItems.map(item => ({ ...item, source: feed.name, url: feed.url }));
+    feedItems = feedItems.map(item => ({ ...item, source: feed.name, url: feed.url, tags: feed.tags }));
     rssRenderer.addItems(feedItems);
   }
 </script>
