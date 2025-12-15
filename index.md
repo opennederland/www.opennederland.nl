@@ -5,76 +5,90 @@ menu_title: Home
 order: 1
 ---
 
-<section style="margin: 2em auto 4em auto; text-align: center; max-width: 800px;">
+<div class="mb-xl container-narrow text-center">
     
-    <p style="font-size: 1.25em; line-height: 1.6; color: #333; margin-bottom: 2em;">
+    <p class="mission-statement mt-0 mb-md">
         Vereniging Open Nederland verbindt makers, adviseurs en organisaties die werken aan 'Open'. 
         Van Open Source tot Open Science. Wij verbinden open.
     </p>
 
-    <div style="display: flex; justify-content: center; gap: 1em; flex-wrap: wrap;">
+    <div class="d-flex justify-center flex-wrap gap-md">
         <a href="{{ "/vereniging/#lid-worden" | relative_url }}" class="main-item">
             Sluit je aan
         </a>
-        <a href="{{ "/vereniging/" | relative_url }}" class="main-item" >
+        <a href="{{ "/vereniging/" | relative_url }}" class="main-item" style="background-color: var(--chill-color); border-color: var(--chill-color);">
             Over de vereniging
         </a>
     </div>
-</section>
-
-<hr />
-
-<h2 class="mission-statement">{{ site.open-definition }}</h2>
-
-<hr />
-
-## Verken het netwerk per thema:
-
-<div class="tag-cloud">
-    {% include tags-list.html %}
 </div>
 
 <hr />
 
-## Onze activiteiten
-
-<p style="text-align: center; margin-bottom: 1.5em; max-width: 700px; margin-left: auto; margin-right: auto;">
-    Ontmoet gelijkgestemden tijdens onze terugkerende evenementen.
-</p>
-
-<div style="display: flex; margin: auto; text-align: center; flex-wrap: wrap; justify-content: center; gap: 1em;">
-    <a href="{{ "publiek-domeindag/" | relative_url }}" class="main-item">Publiek Domeindag</a>
-    <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
+<div class="mb-xl container-narrow text-center">
+    <blockquote style="font-size: 1.4em; border: none; background: transparent; padding: 0;">
+        "{{ site.open-definition }}"
+    </blockquote>
 </div>
 
 <hr />
 
-## Nieuws uit het netwerk
+<div class="mb-xl text-center">
+    <h2 class="mb-md">Verken het netwerk per thema</h2>
+    <div class="tag-cloud">
+        {% include tags-list.html %}
+    </div>
+</div>
 
-<p>
-    Een overzicht van wat er speelt bij <a href="{{ "/leden/" | relative_url }}">onze leden</a> en partners.
-    Heb je zelf een tip? <a href="mailto:bestuur@opennederland.nl">Mail ons!</a>
-</p>
+<hr />
 
-<details style="margin-bottom: 2em; font-size: 0.9em; color: #555;">
-    <summary style="cursor: pointer;">Hoe werkt dit nieuwsoverzicht?</summary>
-    <div style="margin-top: 0.5em; padding-left: 1em; border-left: 3px solid #ddd;">
+<div class="mb-xl text-center">
+    <h2>Onze activiteiten</h2>
+    
+    <p class="content-body container-narrow mb-md">
+        Ontmoet gelijkgestemden tijdens onze terugkerende evenementen.
+    </p>
+
+    <div class="d-flex justify-center flex-wrap gap-md">
+        <a href="{{ "publiek-domeindag/" | relative_url }}" class="main-item">Publiek Domeindag</a>
+        <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
+    </div>
+</div>
+
+<hr />
+
+<div class="mb-xl">
+    <h2 class="text-center">Nieuws uit het netwerk</h2>
+    
+    <div class="container-narrow text-center content-body mb-md">
         <p>
-            Wanneer er een RSS feed beschikbaar is kunnen wij deze ook hier tonen. 
-            Dit is een overzicht wat er afgelopen periode op de sites van deze leden
-            en aanverwante organisaties geplaatst is. Open Nederland heeft geen 
-            controle over de inhoud van deze berichten en niet alle berichten zullen
-            even relevant zijn voor de missie van Open Nederland.
+            Een overzicht van wat er speelt bij <a href="{{ "/leden/" | relative_url }}">onze leden</a> en partners.
+            Heb je zelf een tip? <a href="mailto:bestuur@opennederland.nl">Mail ons!</a>
         </p>
     </div>
-</details>
 
-{% include nieuwsnetwerk.html limit=3 %}
+    <div class="container-narrow mb-md">
+        <details class="text-muted" style="font-size: 0.9em;">
+            <summary style="cursor: pointer; text-align: center;">Hoe werkt dit nieuwsoverzicht?</summary>
+            <div class="mt-sm p-3 bg-light border rounded">
+                <p class="mb-0">
+                    Wanneer er een RSS feed beschikbaar is kunnen wij deze ook hier tonen. 
+                    Dit is een overzicht wat er afgelopen periode op de sites van deze leden
+                    en aanverwante organisaties geplaatst is. Open Nederland heeft geen 
+                    controle over de inhoud van deze berichten.
+                </p>
+            </div>
+        </details>
+    </div>
 
-<div style="padding: 1em 0; text-align: center;">
-    <a href="{{ "/nieuws-netwerk/" | relative_url }}" class="main-item">Bekijk al het nieuws</a>
+    {% include nieuwsnetwerk.html limit=3 %}
+
+    <div class="container-center mt-md">
+        <a href="{{ "/nieuws-netwerk/" | relative_url }}" class="main-item">Bekijk al het nieuws</a>
+    </div>
 </div>
 
 <hr />
 
-{% include laposta.html %}
+<div class="mb-xl">
+    {% include laposta.html %}
+</div>
