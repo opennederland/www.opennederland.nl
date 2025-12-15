@@ -1,7 +1,7 @@
 ---
 title: Internet Archive Europe
 website: https://www.internetarchive.eu/
-image: 
+image: /assets/img/organisations/logo_internet_archive_eu.png
 tags: ["Open Source", "Open Content", "Open Onderwijs", "Open Access", "Open Science"]
 type: organisatie
 rss: https://www.internetarchive.eu/feed/

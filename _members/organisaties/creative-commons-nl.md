@@ -1,7 +1,7 @@
 ---
 title: Creative Commons Nederland
 website: https://creativecommons.nl/
-image: 
+image: /assets/img/organisations/logo_cc.png
 tags: ["Open GLAM", "Open Overheid", "Open Onderzoek", "Open Access", "Open Onderwijs"]
 type: organisatie
 rss: https://creativecommons.nl/feed/

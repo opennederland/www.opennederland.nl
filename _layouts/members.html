@@ -2,73 +2,12 @@
 layout: default
 ---
 
-<div class="member-intro" style="font-size: 1.1em; line-height: 1.6; margin-bottom: 2em;">
+<div class="member-intro content-body mb-md">
     {{ content }}
 </div>
 
-<div class="connection-box">
-    
-    {% if page.bestuursfunctie or page['Lid Creative Commons Network'] == 'Ja' %}
-        <div style="margin-bottom: 1.5em;">
-            <div class="connection-title">Rollen</div>
-            {% if page.bestuursfunctie %}
-                <span class="role-tag role-board">★ Bestuur: {{ page.bestuursfunctie }}</span>
-            {% endif %}
-            {% if page['Lid Creative Commons Network'] == 'Ja' %}
-                <span class="role-tag role-cc">CC Network Member</span>
-            {% endif %}
-        </div>
-    {% endif %}
-
-    
-    {% if page.website %}
-    <div class="connection-title">Connecties</div>
-        <a href="{{ page.website }}" target="_blank" class="meta-btn">
-            🌐 Website bezoeken ↗
-        </a>
-    </div>
-    {% endif %}
-
-{% if page.rss %}
-    <div id="rss-feed" style="margin-top: 3em;">
-        <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 1em;">
-            Laatste updates
-            <a href="{{ page.rss }}" target="_blank"><img src="/assets/img/RSS-feed.png" alt="RSS Feed" style="height: 0.8em; opacity: 0.6;" /></a>
-        </h3>
-        
-        <ul id="rss-feed-items" class="rss-list"></ul>
-
-        <template id="template-rss-feed-item">
-            <li class="rss-item-card">
-                <a data-el="title-link" target="_blank"></a>
-                <p data-el="description"></p>
-            </li>
-        </template>
-    </div>
-    
-    <script type="module">
-        import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
-        var rssLoader = new RSSLoader();
-        var items = await rssLoader.fetchRssFeed("https://proxy.apitecture.io/?url={{ page.rss }}");
-        items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-        
-        // Optioneel: Limiteer tot 3 of 5 items zodat de pagina niet eindeloos wordt
-        items = items.slice(0, 5); 
-
-        var template = document.querySelector("#template-rss-feed-item");
-        items.forEach(item => {
-            var clone = template.content.cloneNode(true);
-            clone.querySelector("[data-el=title-link]").href = item.link;
-            clone.querySelector("[data-el=title-link]").textContent = item.title;
-            
-            // Simpele opschoning van de description tekst (optioneel)
-            var tempDiv = document.createElement("div");
-            tempDiv.innerHTML = item.description;
-            var cleanText = tempDiv.textContent || tempDiv.innerText || "";
-            if(cleanText.length > 200) cleanText = cleanText.substring(0, 200) + "...";
-            
-            clone.querySelector("[data-el=description]").textContent = cleanText;
-            document.querySelector("#rss-feed-items").appendChild(clone);
-        });
-    </script>
+{% if page.type == 'organisatie' %}
+    {% include organisatie.html %}
+{% else %}
+    {% include persoon.html %}
 {% endif %}

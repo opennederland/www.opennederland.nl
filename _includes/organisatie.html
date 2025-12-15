@@ -1,0 +1,23 @@
+<div class="connection-box">
+    
+    {% if page.image %}
+        <div class="text-center mb-md">
+            <img src="{{ page.image | relative_url }}" 
+                 alt="Logo {{ page.title }}" 
+                 style="max-height: 120px; width: auto; display: inline-block; margin: 0;">
+        </div>
+        <hr style="margin: 1.5em 0; opacity: 0.3;" />
+    {% endif %}
+
+
+    <div class="connection-title">Organisatie</div>
+
+    {% if page.website %}
+        <a href="{{ page.website }}" target="_blank" class="meta-btn">
+            🌐 Website bezoeken ↗
+        </a>
+    {% endif %}
+
+</div>
+
+{% include rss-feed.html url=page.rss %}

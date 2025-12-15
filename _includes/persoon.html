@@ -1,0 +1,40 @@
+<div class="connection-box">
+    
+    {% if page.bestuursfunctie or page['Lid Creative Commons Network'] == 'Ja' %}
+        <div class="mb-md">
+            <div class="connection-title">Rollen</div>
+            {% if page.bestuursfunctie %}
+                <span class="role-tag role-board">★ Bestuur: {{ page.bestuursfunctie }}</span><br/>
+            {% endif %}
+            {% if page['Lid Creative Commons Network'] == 'Ja' %}
+                <span class="role-tag role-cc">CC Network Member</span>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if page.webstue or page.organisaties %}
+    <div class="connection-title">Connecties</div>
+    
+    {% if page.website %}
+        <a href="{{ page.website }}" target="_blank" class="meta-btn mb-sm">
+            🌐 Website bezoeken ↗
+        </a>
+    {% endif %}
+
+    {% if page.organisaties %}
+        <div class="mt-sm">
+        {% for org in page.organisaties %}
+            {% assign org_page = site.members | where: "title", org | first %}
+            {% if org_page %}
+                <a href="{{ org_page.url | relative_url }}" class="meta-btn">🏢 {{ org_page.title }}</a>
+            {% else %}
+                <span class="meta-btn bg-light text-muted">{{ org }}</span>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+{% include rss-feed.html url=page.rss %}

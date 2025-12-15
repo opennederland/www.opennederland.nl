@@ -1,0 +1,50 @@
+{% if include.url %}
+    <div id="rss-feed" class="mt-lg">
+        <h3 class="d-flex items-center gap-md mb-sm">
+            Laatste updates
+            <a href="{{ include.url }}" target="_blank">
+                <img src="/assets/img/RSS-feed.png" alt="RSS Feed" style="height: 0.8em; opacity: 0.6;" />
+            </a>
+        </h3>
+        
+        <ul id="rss-feed-items" class="rss-list"></ul>
+
+        <template id="template-rss-feed-item">
+            <li class="rss-item-card">
+                <a data-el="title-link" target="_blank"></a>
+                <p data-el="description"></p>
+            </li>
+        </template>
+    </div>
+    
+    <script type="module">
+        import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
+        var rssLoader = new RSSLoader();
+        // Gebruik de include parameter
+        var items = await rssLoader.fetchRssFeed("https://proxy.apitecture.io/?url={{ include.url }}");
+        
+        if(items && items.length > 0) {
+            items.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+            items = items.slice(0, 5); 
+
+            var template = document.querySelector("#template-rss-feed-item");
+            var container = document.querySelector("#rss-feed-items");
+
+            items.forEach(item => {
+                var clone = template.content.cloneNode(true);
+                clone.querySelector("[data-el=title-link]").href = item.link;
+                clone.querySelector("[data-el=title-link]").textContent = item.title;
+                
+                var tempDiv = document.createElement("div");
+                tempDiv.innerHTML = item.description;
+                var cleanText = tempDiv.textContent || tempDiv.innerText || "";
+                if(cleanText.length > 200) cleanText = cleanText.substring(0, 200) + "...";
+                
+                clone.querySelector("[data-el=description]").textContent = cleanText;
+                container.appendChild(clone);
+            });
+        } else {
+            document.getElementById('rss-feed').style.display = 'none';
+        }
+    </script>
+{% endif %}
