@@ -39,6 +39,7 @@ export default function (limit) {
       clone.querySelector("[data-el=source-link]").textContent = item.source;
       for (const tag in item.tags) {
         clone.querySelector("[data-el=tag]").textContent = tag;
+      }
       container.appendChild(clone);
     }
 
