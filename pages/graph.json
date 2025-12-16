@@ -1,0 +1,98 @@
+---
+layout: null
+permalink: /graph.json
+---
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    
+    {%- comment -%} 1. LEDEN {%- endcomment -%}
+    {%- for member in site.members -%}
+    {
+      "@type": "{%- if member.type == 'organisatie' -%}Organization{%- else -%}Person{%- endif -%}",
+      "@id": "{{ member.url | absolute_url }}",
+      "url": "{{ member.url | absolute_url }}",
+      
+      {%- comment -%} JSONIFY regelt hier de quotes en speciale tekens automatisch {%- endcomment -%}
+      "name": {{ member.title | jsonify }},
+      "description": {{ member.content | strip_html | strip_newlines | truncatewords: 20 | jsonify }},
+      
+      {%- if member.image -%}
+      "image": "{{ member.image | absolute_url }}",
+      {%- endif -%}
+
+      {%- if member.website or member.wikidata -%}
+      "sameAs": [
+          {%- if member.website -%}
+              "{{ member.website }}"{%- if member.wikidata -%},{%- endif -%}
+          {%- endif -%}
+          {%- if member.wikidata -%}
+              "https://www.wikidata.org/wiki/{{ member.wikidata }}"
+          {%- endif -%}
+      ],
+      {%- endif -%}
+
+      {%- if member.type == 'persoon' and member.organisaties -%}
+      "worksFor": [
+          {%- for org in member.organisaties -%}
+          {
+              "@type": "Organization",
+              "name": {{ org | jsonify }}
+          }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+      ],
+      {%- endif -%}
+
+      "memberOf": {
+          "@type": "Organization",
+          "name": "Vereniging Open Nederland",
+          "@id": "{{ '/' | absolute_url }}"
+      },
+      
+      "knowsAbout": {{ member.tags | jsonify }}
+    },
+    {%- endfor -%}
+
+
+    {%- comment -%} 2. INITIATIEVEN {%- endcomment -%}
+    {%- for initiative in site.initiatives -%}
+    {
+      "@type": "CreativeWork",
+      "@id": "{{ initiative.url | absolute_url }}",
+      "name": {{ initiative.title | jsonify }},
+      "datePublished": "{{ initiative.year }}",
+      
+      {%- comment -%} Tags ook via jsonify, veel schoner dan een loop {%- endcomment -%}
+      "keywords": {{ initiative.tags | join: ', ' | jsonify }},
+      
+      "url": "{{ initiative.url | absolute_url }}",
+      
+      {%- if initiative.website or initiative.wikidata -%}
+      "sameAs": [
+          {%- if initiative.website -%}
+              "{{ initiative.website }}"{%- if initiative.wikidata -%},{%- endif -%}
+          {%- endif -%}
+          {%- if initiative.wikidata -%}
+              "https://www.wikidata.org/wiki/{{ initiative.wikidata }}"
+          {%- endif -%}
+      ]
+      {%- endif -%}
+    },
+    {%- endfor -%}
+
+
+    {%- comment -%} 3. ORGANISATIE {%- endcomment -%}
+    {
+      "@type": "Organization",
+      "@id": "{{ '/' | absolute_url }}",
+      "name": "Vereniging Open Nederland",
+      "url": "{{ '/' | absolute_url }}",
+      "logo": "{{ '/assets/img/logo.png' | absolute_url }}",
+      "description": {{ site.description | strip_html | strip_newlines | jsonify }},
+      "sameAs": [
+          "https://twitter.com/opennederland",
+          "https://www.wikidata.org/wiki/Q108331393" 
+      ]
+    }
+  ]
+}
