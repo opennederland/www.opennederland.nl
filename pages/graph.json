@@ -5,15 +5,12 @@ permalink: /graph.json
 {
   "@context": "https://schema.org",
   "@graph": [
-    
-    {%- comment -%} 1. LEDEN {%- endcomment -%}
     {%- for member in site.members -%}
     {
       "@type": "{%- if member.type == 'organisatie' -%}Organization{%- else -%}Person{%- endif -%}",
       "@id": "{{ member.url | absolute_url }}",
       "url": "{{ member.url | absolute_url }}",
       
-      {%- comment -%} JSONIFY regelt hier de quotes en speciale tekens automatisch {%- endcomment -%}
       "name": {{ member.title | jsonify }},
       "description": {{ member.content | strip_html | strip_newlines | truncatewords: 20 | jsonify }},
       
@@ -53,18 +50,13 @@ permalink: /graph.json
     },
     {%- endfor -%}
 
-
-    {%- comment -%} 2. INITIATIEVEN {%- endcomment -%}
     {%- for initiative in site.initiatives -%}
     {
       "@type": "CreativeWork",
       "@id": "{{ initiative.url | absolute_url }}",
       "name": {{ initiative.title | jsonify }},
       "datePublished": "{{ initiative.year }}",
-      
-      {%- comment -%} Tags ook via jsonify, veel schoner dan een loop {%- endcomment -%}
       "keywords": {{ initiative.tags | join: ', ' | jsonify }},
-      
       "url": "{{ initiative.url | absolute_url }}",
       
       {%- if initiative.website or initiative.wikidata -%}
