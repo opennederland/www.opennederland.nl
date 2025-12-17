@@ -2,6 +2,8 @@
 
 Onze website is uiteraard ook open source. Iedereen kan verbeteringen voorstellen, typo's corrigeren, initiatieven toevoegen of zijn eigen ledenprofiel bijwerken. Voor ontwikkelaars: nieuwe functionaliteit is ook welkom, maak daarvoor eerst wel een [issue](https://github.com/opennederland/www.opennederland.nl/issues) aan waarin je beschrijft wat je wilt doen.
 
+Let wel, al je bijdragen in code zijn EUPL V1.2, alle bijdragen in tekst (content) zijn CC BY-SA 4.0
+
 ## ✏️ Kleine wijzigingen
 
 Je hoeft geen developer te zijn om tekst aan te passen. We maken gebruik van GitHub, en je kunt veel direct in de browser doen. Kom je er niet uit? [Mail](https://www.opennederland.nl/contact/) ons met je suggesties.
