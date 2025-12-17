@@ -1,3 +1,5 @@
+*"Wil je meehelpen? Lees onze [Contribution Guidelines](CONTRIBUTING.md)."*
+
 # opennederland.nl
 Dit is de Jekyll versie van de Open Nederland website. Voel je vrij om aanpassingen/pull request te doen.
 
