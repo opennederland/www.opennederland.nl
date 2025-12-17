@@ -16,7 +16,7 @@ order: 1
         <a href="{{ "/vereniging/#lid-worden" | relative_url }}" class="main-item">
             Sluit je aan
         </a>
-        <a href="{{ "/vereniging/" | relative_url }}" class="main-item" style="background-color: var(--chill-color); border-color: var(--chill-color);">
+        <a href="{{ "/vereniging/" | relative_url }}" class="main-item secondary">
             Over de vereniging
         </a>
     </div>

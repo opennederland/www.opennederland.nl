@@ -179,6 +179,17 @@ main { padding-bottom: 80px; }
     text-decoration: none;
 }
 
+/* Secundaire knop variant */
+.main-item.secondary {
+    background-color: var(--chill-color);
+    border-color: var(--chill-color);
+}
+
+.main-item.secondary:hover {
+    background-color: transparent;
+    color: var(--chill-color) !important;
+}
+
 .meta-btn, .quick-link-btn {
     display: inline-block;
     padding: 6px 14px;
@@ -606,5 +617,17 @@ hr.large-gap { margin-top: 80px; margin-bottom: 60px; }
     ::selection {
         background-color: var(--main-color);
         color: #fff;
+    }
+
+    .main-item.secondary {
+        background-color: transparent;
+        border-color: var(--chill-color);
+        color: var(--chill-color) !important;
+    }
+
+    .main-item.secondary:hover {
+        background-color: var(--chill-color);
+        color: var(--bg-white) !important; /* Donkere tekst op lichte knop */
+        border-color: var(--chill-color);
     }
 }
