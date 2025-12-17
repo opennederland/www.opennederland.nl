@@ -12,7 +12,7 @@ order: 5
     </p>
 
     <div class="content-body text-center container-narrow">
-        <p>Vereniging Open Nederland verbindt meer dan 130 professionals en organisaties. Onze leden zijn actief in diverse sectoren:</p>
+        <p>Vereniging Open Nederland verbindt rond de 150 professionals en organisaties. Onze leden zijn actief in diverse sectoren:</p>
     </div>
 
     <div class="container-center">
