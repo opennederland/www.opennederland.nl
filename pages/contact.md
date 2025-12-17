@@ -22,21 +22,23 @@ order: 7
 
 <hr />
 
-<div style="background: #f9f9f9; padding: 2em; border-radius: 4px; display: inline-block; text-align: left; margin-top: 1em;">
-    <div style="margin-bottom: 0.5em;">
-        <strong>E-mail:</strong> <a href="mailto:bestuur@opennederland.nl">bestuur@opennederland.nl</a>
+<div class="connection-box content-body">
+    <div class="mb-sm">
+        <span class="font-bold">E-mail:</span> 
+        <a href="mailto:bestuur@opennederland.nl">bestuur@opennederland.nl</a>
     </div>
-    <div style="margin-bottom: 0.5em;">
-        <strong>Telefoon:</strong> <a href="tel:+31850160418">+31 85 016 04 18</a>
+    <div class="mb-sm">
+        <span class="font-bold">Telefoon:</span> 
+        <a href="tel:+31850160418">+31 85 016 04 18</a>
     </div>
-    <div style="margin-bottom: 0.5em;">
-        <strong>KVK:</strong> 73999393
+    <div class="mb-sm">
+        <span class="font-bold">KVK:</span> 73999393
     </div>
-    <div style="margin-bottom: 0.5em;">
-        <strong>BTW:</strong> NL859738346B01
+    <div class="mb-sm">
+        <span class="font-bold">BTW:</span> NL859738346B01
     </div>
-    <div>
-        <strong>Bank:</strong> NL80 BUNQ 22 0854 3998
+    <div class="mb-0">
+        <span class="font-bold">Bank:</span> NL80 BUNQ 22 0854 3998
     </div>
 </div>
 
