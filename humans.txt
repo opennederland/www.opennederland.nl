@@ -1,0 +1,24 @@
+/* TEAM */
+  Vereniging:     Open Nederland
+  Bestuur:        bestuur@opennederland.nl
+  Community:      Iedereen die een Pull Request heeft ingediend!
+  Contributors:   https://github.com/opennederland/www.opennederland.nl/graphs/contributors
+
+/* THANKS */
+  Aan alle leden voor het delen van hun kennis en feeds.
+  Aan de makers van Jekyll en Open Source software.
+  Aan alle Open Source projecten die gebruikt zijn voor het trainen van de AI's die de ontwikkeling van dit platform versnellen.
+
+/* SITE */
+  Standards:      HTML5, CSS3, RSS, Atom, OPML, JSON-LD
+  Generator:      Jekyll (Static Site Generator)
+  Code:           https://github.com/opennederland/www.opennederland.nl
+  Language:       Dutch / English
+  Doctype:        HTML5
+
+/* IN MEMORIAM */
+  We stand on the shoulders of giants who fought for a free and open world. Some of their tools are actively used in this website (RSS & MarkDown), or used to develop it (Vim). They live on throught their contributions to open.
+  
+  X-Clacks-Overhead: GNU Aaron Swartz (1986 - 2013) – Open Access, Open Source, and Open Knowledge hacktivist, developer of RSS, contributor of MarkDown, co-founder of reddit, committed suicide after disproportional prosecution
+  X-Clacks-Overhead: GNU Bassel Khartabil/Safadi (1981 - 2015) – Open Source, Open Content, Sharism and freedom of expression activist, executed in Syria 
+  X-Clacks-Overhead: GNU Bram Moolenaar (1961 - 2023) – Developer and maintainer of Vim 
