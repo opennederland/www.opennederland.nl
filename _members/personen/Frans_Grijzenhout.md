@@ -6,7 +6,8 @@ tags: ["Open GLAM", "Open Onderzoek"]
 organisaties:
 type: persoon
 lidnummer: 7
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 ---
 

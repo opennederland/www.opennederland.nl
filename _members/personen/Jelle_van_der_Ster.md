@@ -6,7 +6,7 @@ tags: ["Makers"]
 organisaties:
 type: persoon
 lidnummer: 85
-lid open nederland: Ja
-Lid Creative Commons Network: nee
+affiliations:
+  - "Open Nederland"
 ---
 

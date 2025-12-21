@@ -6,7 +6,7 @@ tags: ["Makers", "Open Design", "Open Onderwijs", "Open Overheid", "Open Zorg", 
 organisaties:
 type: persoon
 lidnummer: 147
-lid open nederland: Ja
-Lid Creative Commons Network: Nee
+affiliations:
+  - "Open Nederland"
 ---
 

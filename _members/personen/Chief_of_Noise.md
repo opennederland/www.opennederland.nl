@@ -6,8 +6,9 @@ tags: ["Makers"]
 organisaties:
 type: persoon
 lidnummer: 2
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 bestuursfunctie: Algemeen lid
 ---
 

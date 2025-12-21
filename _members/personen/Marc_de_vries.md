@@ -6,7 +6,7 @@ tags: ["Open Onderzoek", "Open Overheid", "Juridisch"]
 organisaties:
 type: persoon
 lidnummer: 48
-lid open nederland: Ja
-Lid Creative Commons Network: Nee
+affiliations:
+  - "Open Nederland"
 ---
 

@@ -6,7 +6,7 @@ tags: ["Open Design", "Open Onderwijs", "Open Onderzoek", "Open Overheid", "Open
 organisaties:
 type: persoon
 lidnummer: 126
-lid open nederland: Ja
-Lid Creative Commons Network: Nee
+affiliations:
+  - "Open Nederland"
 ---
 

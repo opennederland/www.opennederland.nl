@@ -6,8 +6,9 @@ tags: ["Open GLAM", "Open Onderwijs", "Open Overheid", "Juridisch"]
 organisaties:
 type: persoon
 lidnummer: 1
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 bestuursfunctie: Voorzitter
 ---
 

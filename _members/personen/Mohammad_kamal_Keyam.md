@@ -6,7 +6,8 @@ tags:
 organisaties:
 type: persoon
 lidnummer: 134
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 ---
 

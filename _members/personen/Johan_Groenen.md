@@ -6,8 +6,9 @@ tags: ["Makers", "Open Design", "Open Overheid", "Open Source"]
 organisaties: ["Code for NL", "Open Nederland", "Tiltshift"]
 type: persoon
 lidnummer: 78
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 rss: https://www.jgroenen.nl/feed.json
 bestuursfunctie: Secretaris
 ---

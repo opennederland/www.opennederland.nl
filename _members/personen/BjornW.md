@@ -6,7 +6,8 @@ tags: ["Makers", "Open Design", "Open Onderwijs", "Open Onderzoek", "Open Overhe
 organisaties:
 type: persoon
 lidnummer: 19
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 ---
 

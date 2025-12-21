@@ -6,7 +6,8 @@ tags: ["Open GLAM"]
 organisaties:
 type: persoon
 lidnummer: 55
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 ---
 

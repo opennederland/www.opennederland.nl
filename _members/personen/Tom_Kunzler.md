@@ -6,7 +6,8 @@ tags: ["Open Overheid"]
 organisaties:
 type: persoon
 lidnummer: 10
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 ---
 

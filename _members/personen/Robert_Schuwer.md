@@ -6,8 +6,9 @@ tags: ["Open Onderwijs", "Open Onderzoek"]
 organisaties:
 type: persoon
 lidnummer: 29
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 rss: https://www.robertschuwer.nl/?feed=rss2
 ---
 

@@ -6,7 +6,8 @@ tags: ["Open Onderwijs", "Open Onderzoek", "Open Source"]
 organisaties:
 type: persoon
 lidnummer: 137
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 ---
 

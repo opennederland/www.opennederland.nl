@@ -6,7 +6,7 @@ tags: ["Open Onderzoek", "Open Source"]
 organisaties:
 type: persoon
 lidnummer: 107
-lid open nederland: Ja
-Lid Creative Commons Network: Nee
+affiliations:
+  - "Open Nederland"
 ---
 

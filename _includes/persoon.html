@@ -1,14 +1,14 @@
 <div class="connection-box">
     
-    {% if page.bestuursfunctie or page['Lid Creative Commons Network'] == 'Ja' %}
+    {% if page.bestuursfunctie or page.affiliations %}
         <div class="mb-md">
             <div class="connection-title">Rollen</div>
             {% if page.bestuursfunctie %}
                 <span class="role-tag role-board">★ Bestuur: {{ page.bestuursfunctie }}</span><br/>
             {% endif %}
-            {% if page['Lid Creative Commons Network'] == 'Ja' %}
-                <span class="role-tag role-cc">CC Network Member</span>
-            {% endif %}
+            {% for affiliation in page.affiliations %}
+                <span class="role-tag" >{{ affiliation }}</span><br/>
+            {% endfor %}
         </div>
     {% endif %}
 

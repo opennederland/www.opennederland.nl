@@ -6,7 +6,8 @@ tags: ["Makers", "Open GLAM", "Open Onderwijs"]
 organisaties:
 type: persoon
 lidnummer: 60
-lid open nederland: Ja
-Lid Creative Commons Network: Ja
+affiliations:
+  - "Open Nederland"
+  - "Creative Commons Network"
 ---
 

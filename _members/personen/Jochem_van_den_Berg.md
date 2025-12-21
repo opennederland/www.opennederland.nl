@@ -6,7 +6,7 @@ tags: ["Open Design", "Open Overheid"]
 organisaties:
 type: persoon
 lidnummer: 25
-lid open nederland: Ja
-Lid Creative Commons Network: Nee
+affiliations:
+  - "Open Nederland"
 ---
 
