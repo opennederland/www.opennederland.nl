@@ -1,5 +1,5 @@
 ---
-title: Raoul Kramer
+title: Hans Laagland
 website: 
 image: 
 tags: ["Makers", "Open Overheid", "Open Source", "Open Onderwijs"]

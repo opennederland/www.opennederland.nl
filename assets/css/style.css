@@ -2,17 +2,25 @@
    1. VARIABLES & CONFIGURATION
    ========================================= */
 :root {
-    /* Kleuren */
+    /* --- Basiskleuren (Light Mode Defaults) --- */
     --main-color: var(--bs-danger); 
-    
     --main-color-light: #ff9f8a;    
-    --chill-color: #2c3e50;
+    
+    /* Tekst & Achtergrond */
+    --bg-body: #ffffff;             /* Nieuw: expliciete body kleur */
+    --bg-light: #f8f9fa;            /* Secties / lichte blokken */
+    --bg-card: #ffffff;             /* Cards */
+    
     --text-body: #4a4a4a;          
     --text-muted: #7f8c8d;             
+    --chill-color: #2c3e50;         /* Wordt gebruikt voor headers */
     
-    --bg-light: #f8f9fa;            
-    --bg-white: #ffffff;
-    
+    /* Specifieke UI Elementen Variabelen (Zodat we ze makkelijk kunnen flippen) */
+    --nav-bg: #2c3e50;              /* Navigatie & Footer achtergrond */
+    --nav-text: rgba(255,255,255,0.85);
+    --input-bg: #ffffff;            /* Input velden */
+    --input-border: #ced4da;
+
     /* Borders & Lines */
     --border-color: #e9ecef;
     --border-radius: 8px;          
@@ -22,36 +30,35 @@
     --wrapper-width: 1100px;        
     --gap-grid: 2rem;               
 
-    /* Shadows (Modern & Soft) */
+    /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
     --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
     
     --transition-base: all 0.2s ease-in-out;
     
-    /* Fonts (NIEUW: Professionele System Stack) */
+    /* Fonts */
     --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-family-heading: var(--font-family-base); /* Of een specifieke header font */
+    --font-family-heading: var(--font-family-base);
 }
 
 /* =========================================
    2. RESET & BASE STYLES
    ========================================= */
-* {
-    box-sizing: border-box; 
-}
+* { box-sizing: border-box; }
 
 body {
     font-family: var(--font-family-base); 
-    font-size: 16px;                      /* Goede leesbare basis */
+    font-size: 16px;
     color: var(--text-body);
     line-height: 1.7;                
     margin: 0;
-    background-color: #fff;
-    -webkit-font-smoothing: antialiased;  /* Scherpere tekst op Mac */
+    background-color: var(--bg-body); /* Gebruik variabele! */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Soepele overgang bij togglen */
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Typography - Gebalanceerder */
+/* Typography */
 h1, h2, h3, h4 {
     font-family: var(--font-family-heading);
     color: var(--chill-color);
@@ -59,31 +66,14 @@ h1, h2, h3, h4 {
     line-height: 1.2;
 }
 
-h1 { 
-    font-size: 3rem;   
-    font-weight: 800; 
-    text-align: center; 
-    margin-bottom: 0.5em; 
-    letter-spacing: -0.02em;
-}
-
-h2 { 
-    font-size: 2rem;  
-    font-weight: 700; 
-    margin: 2em 0 1em; /* Meer ruimte boven kopjes */
-}
-
-h3 { 
-    font-size: 1.5rem; 
-    color: var(--main-color); 
-    font-weight: 600;
-    margin: 1.5em 0 0.5em; 
-}
+h1 { font-size: 3rem; font-weight: 800; text-align: center; margin-bottom: 0.5em; letter-spacing: -0.02em; }
+h2 { font-size: 2rem; font-weight: 700; margin: 2em 0 1em; }
+h3 { font-size: 1.5rem; color: var(--main-color); font-weight: 600; margin: 1.5em 0 0.5em; }
 
 a {
     color: var(--chill-color);
     font-weight: 600;
-    text-decoration: none; /* Cleaner zonder onderstreping (tot hover) */
+    text-decoration: none;
     transition: var(--transition-base);
 }
 
@@ -96,7 +86,8 @@ img, iframe {
     max-width: 100%;
     height: auto;
     margin: 1em auto;
-    display: block; /* Voorkomt layout shifts */
+    display: block;
+    transition: filter 0.3s ease; /* Voor dark mode filter */
 }
 
 blockquote {
@@ -122,14 +113,13 @@ main { padding-bottom: 80px; }
    3. SHARED COMPONENTS (Card System)
    ========================================= */
 
-/* --- Generic Card Style --- */
 .news-card,
 .initiative-card,
 .org-card,
 .person-card,
 .team-member,
 .rss-item-card {
-    background: var(--bg-white);
+    background: var(--bg-card); /* Gebruik variabele */
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 1.5rem;
@@ -139,10 +129,9 @@ main { padding-bottom: 80px; }
     height: 100%; 
     text-decoration: none !important;
     color: inherit;
-    position: relative; /* Voor click area */
+    position: relative;
 }
 
-/* Hover effect: Card komt iets omhoog, schaduw wordt zachter */
 .news-card:hover,
 .initiative-card:hover,
 .org-card:hover,
@@ -151,12 +140,11 @@ main { padding-bottom: 80px; }
 .rss-item-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
-    border-color: transparent; /* Rand verdwijnt, schaduw neemt over */
+    border-color: transparent;
     color: inherit;
 }
 
-/* --- Buttons (.main-item, etc) --- */
-/* Moderne, platte knoppen */
+/* --- Buttons --- */
 .main-item {
     display: inline-block;
     background-color: var(--main-color);
@@ -168,18 +156,16 @@ main { padding-bottom: 80px; }
     box-shadow: var(--shadow-sm);
     text-decoration: none;
     transition: var(--transition-base);
-    border: 2px solid var(--main-color); /* Voor outline varianten later */
+    border: 2px solid var(--main-color);
 }
 
 .main-item:hover {
-    background-color: #fff;
+    background-color: var(--bg-card);
     color: var(--main-color) !important;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-    text-decoration: none;
 }
 
-/* Secundaire knop variant */
 .main-item.secondary {
     background-color: var(--chill-color);
     border-color: var(--chill-color);
@@ -194,9 +180,9 @@ main { padding-bottom: 80px; }
     display: inline-block;
     padding: 6px 14px;
     border-radius: var(--border-radius);
-    background: #fff;
-    border: 1px solid #ddd;
-    color: var(--chill-color);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-body); /* Aangepast naar var */
     font-size: 0.9em;
     font-weight: 500;
     text-decoration: none;
@@ -205,8 +191,7 @@ main { padding-bottom: 80px; }
 .meta-btn:hover, .quick-link-btn:hover {
     background: var(--main-color);
     border-color: var(--main-color);
-    color: #fff;
-    text-decoration: none;
+    color: #fff !important;
 }
 
 /* =========================================
@@ -215,12 +200,12 @@ main { padding-bottom: 80px; }
 
 /* --- Navigation --- */
 nav {
-    background-color: var(--chill-color); 
+    background-color: var(--nav-bg); /* Variabele! */
     padding: 1em 0;
     box-shadow: var(--shadow-sm);
+    transition: background-color 0.3s ease;
 }
 
-/* Zorg dat de nav content ook binnen de .wrapper breedte valt */
 nav .wrapper, nav > div { 
     max-width: var(--wrapper-width);
     margin: 0 auto;
@@ -232,7 +217,7 @@ nav .wrapper, nav > div {
 }
 
 nav a {
-    color: rgba(255,255,255,0.85);
+    color: var(--nav-text);
     font-size: 1.05em;
     padding: 0.5em 0.8em;
     border-radius: 4px;
@@ -247,7 +232,7 @@ nav a:hover, nav a.active {
 
 /* --- Footer --- */
 footer {
-    background-color: var(--chill-color); 
+    background-color: var(--nav-bg); /* Gebruik zelfde als Nav */
     color: #fff;
     padding: 4em 0;
     margin-top: auto;
@@ -257,194 +242,86 @@ footer a { color: #fff; opacity: 0.8; }
 footer a:hover { opacity: 1; text-decoration: underline; }
 .footer-box { display: flex; flex-wrap: wrap; gap: 3em; }
 
-/* =========================================
-   FOOTER LAYOUT & STYLING
-   ========================================= */
-
-/* De Grid Container */
+/* Footer Layout */
 .footer-grid {
     display: grid;
-    /* Responsive kolommen: minstens 250px breed, anders stacken ze */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;
     padding-bottom: 2rem;
 }
-
-/* Kolom styling */
-.footer-col {
-    font-size: 0.95em;
-    line-height: 1.6;
-}
-
+.footer-col { font-size: 0.95em; line-height: 1.6; }
 .footer-heading {
-    color: #fff; /* Altijd wit in footer, tenzij je background light maakt */
+    color: #fff;
     font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1.2em;
     opacity: 0.9;
-    border-bottom: 2px solid rgba(255,255,255,0.1); /* Subtiel lijntje */
+    border-bottom: 2px solid rgba(255,255,255,0.1);
     padding-bottom: 0.5em;
     display: inline-block;
 }
-
-/* Link lijstjes */
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 0.8em;
-}
-
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 0.8em; }
 .footer-links a {
-    display: inline-flex;
-    align-items: center;
-    color: rgba(255,255,255,0.85); /* Ietsjes transparant wit */
-    text-decoration: none;
-    transition: all 0.2s ease;
+    display: inline-flex; align-items: center;
+    color: rgba(255,255,255,0.85); text-decoration: none; transition: all 0.2s ease;
 }
-
-.footer-links a:hover {
-    color: #fff;
-    transform: translateX(5px); /* Klein sprongetje naar rechts bij hover */
-}
-
-/* SVG Iconen */
-.footer-icon {
-    width: 1.2em;
-    height: 1.2em;
-    margin-right: 0.6em;
-    fill: currentColor; /* Neemt de kleur van de tekst aan */
-    opacity: 0.8;
-}
-.footer-links a:hover .footer-icon {
-    opacity: 1;
-}
-
-/* Icon spacer voor email/tel (zodat tekst mooi uitlijnt) */
-.icon-spacer {
-    display: inline-block;
-    width: 1.2em;
-    margin-right: 0.3em;
-    text-align: center;
-}
-
-/* Licentie tekst iets kleiner */
-.license-text {
-    font-size: 0.9em;
-    color: rgba(255,255,255,0.7);
-}
+.footer-links a:hover { color: #fff; transform: translateX(5px); }
+.footer-icon { width: 1.2em; height: 1.2em; margin-right: 0.6em; fill: currentColor; opacity: 0.8; }
+.footer-links a:hover .footer-icon { opacity: 1; }
+.icon-spacer { display: inline-block; width: 1.2em; margin-right: 0.3em; text-align: center; }
+.license-text { font-size: 0.9em; color: rgba(255,255,255,0.7); }
 
 /* --- Hero Banner --- */
 .hero-banner {
     width: 100%;
-    padding: 4em 1em; /* Flexibele hoogte op basis van padding */
+    padding: 4em 1em; 
     background: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-light) 100%); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3em;
+    display: flex; justify-content: center; align-items: center; margin-bottom: 3em;
 }
 .hero-logo-box {
     background: #fff;
-    padding: 2em 3em;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 2em 3em; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
-
 .mission-statement {
-    font-size: 1.5em; 
-    line-height: 1.5;
-    text-align: center;
-    color: var(--bs-danger); 
-    font-weight: 300; 
-    max-width: 800px;
-    margin: 2rem auto; 
+    font-size: 1.5em; line-height: 1.5; text-align: center; color: var(--bs-danger); 
+    font-weight: 300; max-width: 800px; margin: 2rem auto; 
 }
 
 /* --- Grids --- */
-.initiatives-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: var(--gap-grid);
-    margin-top: 1.5em;
-}
-
-.org-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.5rem;
-    padding: 0;
-}
-
-.people-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
-    gap: 1.5rem;
-    list-style: none;
-    padding: 0;
-}
+.initiatives-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--gap-grid); margin-top: 1.5em; }
+.org-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem; padding: 0; }
+.people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; list-style: none; padding: 0; }
 
 /* --- Card Content Specifics --- */
-
-/* Org Logos */
-.org-logo-box {
-    width: 100%; height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1em;
-}
-.org-logo-box img {
-    filter: grayscale(100%); opacity: 0.7; transition: var(--transition-base); max-height: 60px;
-}
+.org-logo-box { width: 100%; height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1em; }
+.org-logo-box img { filter: grayscale(100%); opacity: 0.7; transition: var(--transition-base); max-height: 60px; }
 .org-card:hover .org-logo-box img { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 .org-title { text-align: center; font-weight: 700; font-size: 0.95em; color: var(--chill-color); }
 
-/* Nieuws Cards */
 .news-card h3 { margin-top: 0; font-size: 1.25em; line-height: 1.4; }
 .news-card h3 a { color: var(--chill-color); }
 .news-card:hover h3 a { color: var(--main-color); }
+.news-card__meta { font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 0.8em; font-weight: 600; }
 
-.news-card__meta { 
-    font-size: 0.8em; 
-    text-transform: uppercase; 
-    letter-spacing: 0.5px; 
-    color: var(--text-muted); 
-    margin-bottom: 0.8em; 
-    font-weight: 600;
-}
-
-/* Personen */
 .person-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5em; }
 .person-name { font-weight: 700; font-size: 1.1em; color: var(--chill-color); }
 .lid-badge { font-size: 0.7em; color: var(--text-muted); background: var(--bg-light); padding: 3px 6px; border-radius: 4px; }
 
 /* --- Tags --- */
-.tag-cloud {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8em; margin: 2em 0;
-}
-
+.tag-cloud { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8em; margin: 2em 0; }
 a.tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.3em 0.8em;
+    display: inline-flex; align-items: center; padding: 0.3em 0.8em;
     border-radius: var(--border-radius); 
-    background-color: #fff;
+    background-color: var(--bg-card); /* Variabele */
     border: 1px solid var(--border-color);
-    border-bottom: 3px solid var(--border-color); /* Default kleur */
+    border-bottom: 3px solid var(--border-color); 
     color: var(--text-body);
-    font-size: 0.85em;
-    font-weight: 600;
-    transition: var(--transition-base);
+    font-size: 0.85em; font-weight: 600; transition: var(--transition-base);
 }
-
-a.tag:hover { 
-    transform: translateY(-2px); 
-    box-shadow: var(--shadow-sm); 
-    color: #000;
-}
-
-/* Tag Kleuren (Consistent) */
+a.tag:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); color: #000; }
+/* Tag Kleuren */
 .tag.makers { border-bottom-color: #e83e8c; }
 .tag.open-access { border-bottom-color: #dc3545; }
 .tag.open-source { border-bottom-color: #ffc107; }
@@ -458,49 +335,50 @@ a.tag:hover {
 /* --- Page Specifics --- */
 .quick-links {
     display: flex; flex-wrap: wrap; gap: 0.8em; margin-bottom: 3em; padding: 1em 1.5em;
-    background: var(--bg-white); border-radius: var(--border-radius); 
+    background: var(--bg-card); border-radius: var(--border-radius); 
     border: 1px solid var(--border-color); align-items: center;
     box-shadow: var(--shadow-sm);
 }
 .quick-links-title { font-weight: 700; margin-right: 1em; color: var(--chill-color); font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.5px; }
 
 .wikidata-badge {
-    font-size: 0.8em; background: #fff; padding: 4px 10px; border-radius: 20px; 
+    font-size: 0.8em; background: var(--bg-card); padding: 4px 10px; border-radius: 20px; 
     color: var(--text-muted); border: 1px solid var(--border-color); 
     display: inline-flex; align-items: center; gap: 6px;
 }
 
 .connection-box {
     background-color: var(--bg-light); 
-    border: 1px solid transparent; /* Geen harde rand */
+    border: 1px solid transparent; 
     border-radius: var(--border-radius); 
-    padding: 2em; 
-    margin: 2em 0;
+    padding: 2em; margin: 2em 0;
 }
 
-/* --- Highlight Section (Nieuws) --- */
 .highlight-section {
-    background-color: #fff; 
-    padding: 2em;
-    border-radius: var(--border-radius);
+    background-color: var(--bg-card); 
+    padding: 2em; border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     border-left: 5px solid var(--main-color);
-    margin-bottom: 4em;
-    box-shadow: var(--shadow-sm);
+    margin-bottom: 4em; box-shadow: var(--shadow-sm);
 }
 
 /* --- Forms --- */
 .newsletter-box {
-    background-color: #fff; padding: 3em 2em; border-radius: 12px; 
+    background-color: var(--bg-card); padding: 3em 2em; border-radius: 12px; 
     margin: 3em auto; max-width: 600px; text-align: center; 
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color); box-shadow: var(--shadow-md);
 }
 
 .newsletter-box input[type="text"], .newsletter-box input[type="email"] {
     width: 100%; padding: 12px 16px; 
-    border: 1px solid #ced4da; border-radius: var(--border-radius); 
+    background-color: var(--input-bg); /* Variabele */
+    border: 1px solid var(--input-border); 
+    color: var(--text-body);
+    border-radius: var(--border-radius); 
     margin-bottom: 1em; font-size: 1em;
+}
+.newsletter-box input[type="text"]:focus, .newsletter-box input[type="email"]:focus {
+    outline: none; border-color: var(--main-color);
 }
 
 .newsletter-box input[type="submit"] {
@@ -512,7 +390,7 @@ a.tag:hover {
 
 
 /* =========================================
-   5. UTILITIES (Keep these!)
+   5. UTILITIES
    ========================================= */
 .mb-0 { margin-bottom: 0 !important; }
 .mb-sm { margin-bottom: 1rem; }
@@ -565,155 +443,104 @@ hr.large-gap { margin-top: 80px; margin-bottom: 60px; }
 }
 
 
+/* =========================================
+   6. DARK MODE SUPPORT (Consolidated)
+   ========================================= */
 
-/* --- DARK MODE SUPPORT --- */
+/* --- A. De regels voor de knop (body.dark-mode) --- */
+body.dark-mode {
+    --bg-body: #0a0a0a;          
+    --bg-white: #121212;         
+    --bg-light: #1e1e1e;         
+    --bg-card: #1e1e1e;          
+    
+    --text-body: #e0e0e0;
+    --text-muted: #a0a0a0;
+    
+    --chill-color: #dbe4eb;      /* Lichte kleur voor headers */
+    --border-color: #2d2d2d;
+    
+    --nav-bg: #1a252f;           
+    --nav-text: rgba(255,255,255,0.9);
+    
+    --input-bg: #2b2b2b;
+    --input-border: #2d2d2d;
+    
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.8);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.6);
+    --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.6);
 
+    color-scheme: dark;
+}
+
+/* Specifieke element overrides voor .dark-mode */
+body.dark-mode img, 
+body.dark-mode iframe {
+    filter: brightness(0.85) contrast(1.1);
+}
+body.dark-mode .hero-logo-box, 
+body.dark-mode .org-logo-box {
+    background-color: #fff;
+    filter: none;
+}
+
+/* FIX: Secundaire knop (Outline stijl in Dark Mode) */
+body.dark-mode .main-item.secondary {
+    background-color: transparent;       /* Transparant */
+    border-color: var(--chill-color);    /* Lichte rand */
+    color: var(--chill-color) !important; /* Lichte tekst */
+}
+body.dark-mode .main-item.secondary:hover {
+    background-color: var(--chill-color); /* Licht worden bij hover */
+    color: var(--bg-body) !important;     /* Donkere tekst bij hover */
+}
+
+
+/* --- B. De regels voor systeemvoorkeur (Media Query) --- */
 @media (prefers-color-scheme: dark) {
-    /* 1. Global Color Scheme */
-    :root {
-        /* Achtergronden */
-        --bg-white: #121212;         /* Basis donker */
-        --bg-light: #1e1e1e;         /* Cards / Secties */
+    body:not(.light-mode) {
+        --bg-body: #0a0a0a;
+        --bg-white: #121212;
+        --bg-light: #1e1e1e;
+        --bg-card: #1e1e1e;
         
-        /* Tekst */
-        --text-body: #e0e0e0;        /* Leesbaar grijs-wit */
-        --text-muted: #a0a0a0;       /* Gedimd grijs */
-        --chill-color: #dbe4eb;      /* Headers licht maken */
+        --text-body: #e0e0e0;
+        --text-muted: #a0a0a0;
         
-        /* UI Elementen */
-        --border-color: #2d2d2d;     /* Subtielere randen */
+        --chill-color: #dbe4eb;
+        --border-color: #2d2d2d;
         
-        /* Schaduwen (zwaarder aangezet voor diepte op donkere bg) */
+        --nav-bg: #1a252f;
+        --nav-text: rgba(255,255,255,0.9);
+        
+        --input-bg: #2b2b2b;
+        --input-border: #2d2d2d;
+        
         --shadow-sm: 0 1px 2px rgba(0,0,0,0.8);
         --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.6);
         --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.6);
-        
-        /* Vertel de browser dat dit een donker thema is (voor native scrollbars/inputs) */
-        color-scheme: dark; 
+
+        color-scheme: dark;
     }
 
-    body {
-        background-color: #0a0a0a; /* Diepste zwart voor achtergrond */
-    }
-
-    /* 2. Navigatie & Footer (Moeten donker blijven) */
-    nav, footer {
-        background-color: #1a252f !important; /* Originele tint behouden */
-        border-bottom: 1px solid #2d2d2d;
-    }
-    nav a, footer a {
-        color: rgba(255,255,255,0.9) !important;
-    }
-    nav a:hover, footer a:hover {
-        background-color: rgba(255,255,255,0.1);
-        color: #fff !important;
-    }
-
-    /* 3. Cards & Containers */
-    /* Groepeer alle elementen die de 'light' achtergrond nodig hebben */
-    .news-card,
-    .initiative-card,
-    .org-card,
-    .person-card,
-    .team-member,
-    .rss-item-card,
-    .newsletter-box, 
-    .connection-box, 
-    .quick-links, 
-    .highlight-section,
-    a.tag {
-        background-color: var(--bg-light);
-        border-color: var(--border-color);
-        color: var(--text-body);
-    }
-    
-    /* Zorg dat titels in cards de juiste kleur houden */
-    .news-card h3 a, .person-name {
-        color: var(--chill-color);
-    }
-
-    /* 4. Interactieve Elementen (Knoppen & Tags) */
-    .meta-btn, 
-    .quick-link-btn {
-        background-color: var(--bg-light); 
-        color: var(--text-body);
-        border-color: var(--border-color);
-    }
-
-    /* Hover States: Hoog contrast */
-    .meta-btn:hover, 
-    .quick-link-btn:hover {
-        background-color: var(--main-color);
-        border-color: var(--main-color);
-        color: #ffffff !important;
-    }
-    
-    a.tag:hover {
-        color: #ffffff;
-        background-color: #2d2d2d; 
-        border-color: var(--text-muted);
-    }
-
-    /* 5. Formulieren (Input velden) */
-    input[type="text"], 
-    input[type="email"], 
-    textarea {
-        background-color: #2b2b2b;
-        color: #fff;
-        border-color: var(--border-color);
-    }
-    input[type="text"]:focus, 
-    input[type="email"]:focus {
-        border-color: var(--main-color);
-        background-color: #333;
-        outline: none;
-    }
-
-    /* 6. Media (Afbeeldingen & Video) */
-    img, iframe {
+    body:not(.light-mode) img, 
+    body:not(.light-mode) iframe {
         filter: brightness(0.85) contrast(1.1);
     }
-    /* Logo's uitzonderen (witte sticker-look) */
-    .hero-logo-box, .org-logo-box {
+    body:not(.light-mode) .hero-logo-box, 
+    body:not(.light-mode) .org-logo-box {
         background-color: #fff;
         filter: none;
     }
-    
-    /* 7. Scrollbars (WebKit only - Chrome/Safari/Edge) */
-    ::-webkit-scrollbar {
-        width: 12px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #0a0a0a;
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: #444;
-        border-radius: 6px;
-        border: 3px solid #0a0a0a; /* Zorgt voor 'zwevend' effect */
-    }
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: var(--main-color);
-    }
 
-    /* 8. Tekst Selectie (Highlight) */
-    ::selection {
-        background-color: var(--main-color);
-        color: #fff;
-    }
-
-    .main-item.secondary {
+    /* FIX: Zelfde fix ook hier toepassen */
+    body:not(.light-mode) .main-item.secondary {
         background-color: transparent;
         border-color: var(--chill-color);
         color: var(--chill-color) !important;
     }
-
-    .main-item.secondary:hover {
+    body:not(.light-mode) .main-item.secondary:hover {
         background-color: var(--chill-color);
-        color: var(--bg-white) !important; /* Donkere tekst op lichte knop */
-        border-color: var(--chill-color);
+        color: var(--bg-body) !important;
     }
-
-    footer {
-    background-color: #1a252f !important;
-}
 }
