@@ -8,5 +8,13 @@ type: persoon
 lidnummer: 112
 affiliations:
   - "Open Nederland"
+label:  # Functietitel
+work:
+  company: 
+  position:
+  website: 
+url: 
+rss:
+social:
 ---
 

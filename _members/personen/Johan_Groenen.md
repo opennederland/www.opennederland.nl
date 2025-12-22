@@ -9,8 +9,19 @@ lidnummer: 78
 affiliations:
   - "Open Nederland"
   - "Creative Commons Network"
-rss: https://www.jgroenen.nl/feed.json
 bestuursfunctie: Secretaris
+label: "Voorvechter van publictech"
+work:
+  company: Tiltshift
+  position: Managing Partner
+  website: https://www.tiltshift.nl/mensen/johan-groenen/
+url: 
+rss: https://www.jgroenen.nl/feed.json
+social:
+  - "https://github.com/jgroenen"
+  - "https://mastodon.social/@jpagroenen"
+  - "https://www.linkedin.com/in/jgroenen/"
+  - "https://opensourcewerken.nl/user/ceb48dc2-422c-440b-b008-b6a685ccccf3/profile/publications"
 ---
 In het dagelijks leven werkzaam als product strateeg/software architect. In 2015 de switch gemaakt naar de publieke sector als Code fellow (vanuit Waag) en sindsdien voorvechter van "publictech".
 

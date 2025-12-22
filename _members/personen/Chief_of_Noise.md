@@ -10,5 +10,13 @@ affiliations:
   - "Open Nederland"
   - "Creative Commons Network"
 bestuursfunctie: Algemeen lid
+label:  # Functietitel
+work:
+  company: 
+  position:
+  website: 
+url: 
+rss:
+social:
 ---
 

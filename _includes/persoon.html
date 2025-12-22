@@ -1,40 +1,111 @@
-<div class="connection-box">
+<div class="highlight-section d-flex flex-wrap gap-md items-center mb-lg">
     
-    {% if page.bestuursfunctie or page.affiliations %}
-        <div class="mb-md">
-            <div class="connection-title">Rollen</div>
-            {% if page.bestuursfunctie %}
-                <span class="role-tag role-board">★ Bestuur: {{ page.bestuursfunctie }}</span><br/>
-            {% endif %}
-            {% for affiliation in page.affiliations %}
-                <span class="role-tag" >{{ affiliation }}</span><br/>
-            {% endfor %}
-        </div>
+    {% if page.image %}
+    <div style="flex: 0 0 150px;">
+        <img src="{{ page.image }}" alt="{{ page.title }}" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 4px solid var(--border-color); margin: 0;">
+    </div>
     {% endif %}
 
-    {% if page.webstue or page.organisaties %}
-    <div class="connection-title">Connecties</div>
+    <div style="flex: 1; min-width: 280px;">
+        <div class="d-flex items-center flex-wrap gap-sm mb-sm">
+            <h1 class="mb-0 text-left" style="font-size: 2.2rem;">{{ page.title }}</h1>
+            
+            {% if page.bestuursfunctie %}
+                <span class="lid-badge" style="font-size: 1rem; padding: 0.4em 0.8em; background-color: var(--main-color); color: #fff;">
+                    ★ {{ page.bestuursfunctie }}
+                </span>
+            {% endif %}
+        </div>
+
+        {% if page.label or page.work.position or page.work.company %}
+        <div class="text-muted font-bold mb-sm" style="font-size: 1.1em;">
+            {% if page.label %}
+                {{ page.label }}<br/>
+            {% endif %}
+            {% if page.work.position %}
+                {{ page.work.position }} 
+                {% if page.work.company %} bij 
+                    {% if page.work.website %}
+                        <a href="{{ page.work.website }}" target="_blank">{{ page.work.company }}</a>
+                    {% else %}
+                        {{ page.work.company }}
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% if page.social or page.website %}
+        <div class="d-flex flex-wrap gap-sm mt-sm">
+            
+            {% if page.website %}
+                <a href="{{ page.website }}" target="_blank" class="meta-btn">
+                    🌐 Website
+                </a>
+            {% endif %}
+
+            {% for url in page.social %}
+                
+                {% assign raw_domain = url | replace: 'https://', '' | replace: 'http://', '' | replace: 'www.', '' %}
+                
+                {% assign clean_domain = raw_domain | split: '/' | first %}
+
+                {% assign icon = "🔗" %} {% if clean_domain contains "linkedin" %}
+                    {% assign icon = "💼" %}
+                {% elsif clean_domain contains "mastodon" %}
+                    {% assign icon = "🐘" %}
+                {% elsif clean_domain contains "bsky" %}
+                    {% assign icon = "🦋" %}
+                {% elsif clean_domain contains "twitter" or clean_domain contains "x.com" %}
+                    {% assign icon = "🐦" %}
+                {% elsif clean_domain contains "github" %}
+                    {% assign icon = "💻" %}
+                {% elsif clean_domain contains "instagram" %}
+                    {% assign icon = "📸" %}
+                {% elsif clean_domain contains "facebook" %}
+                    {% assign icon = "👤" %}
+                {% endif %}
+
+                <a href="{{ url }}" target="_blank" class="meta-btn" rel="me">
+                    {{ icon }} {{ clean_domain }}
+                </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="initiatives-grid mb-xl" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
     
-    {% if page.website %}
-        <a href="{{ page.website }}" target="_blank" class="meta-btn mb-sm">
-            🌐 Website bezoeken ↗
-        </a>
+    {% if page.affiliations %}
+    <div class="person-card">
+        <h3 class="mb-sm">Lid van</h3>
+        <div class="tag-group">
+            {% for affiliation in page.affiliations %}
+                <span class="quick-link-btn" style="pointer-events: none;">{{ affiliation }}</span>
+            {% endfor %}
+        </div>
+    </div>
     {% endif %}
 
     {% if page.organisaties %}
-        <div class="mt-sm">
-        {% for org in page.organisaties %}
-            {% assign org_page = site.members | where: "title", org | first %}
-            {% if org_page %}
-                <a href="{{ org_page.url | relative_url }}" class="meta-btn">🏢 {{ org_page.title }}</a>
-            {% else %}
-                <span class="meta-btn bg-light text-muted">{{ org }}</span>
-            {% endif %}
-        {% endfor %}
+    <div class="person-card">
+        <h3 class="mb-sm">Betrokken bij</h3>
+        <div class="d-flex flex-wrap gap-sm">
+            {% for org in page.organisaties %}
+                {% assign org_page = site.members | where: "title", org | first %}
+                {% if org_page %}
+                    <a href="{{ org_page.url | relative_url }}" class="meta-btn">
+                        🏢 {{ org_page.title }}
+                    </a>
+                {% else %}
+                    <span class="meta-btn text-muted" style="background: var(--bg-light);">
+                        🏢 {{ org }}
+                    </span>
+                {% endif %}
+            {% endfor %}
         </div>
-    {% endif %}
     </div>
     {% endif %}
-</div>
 
-{% include rss-feed.html url=page.rss %}
+</div>

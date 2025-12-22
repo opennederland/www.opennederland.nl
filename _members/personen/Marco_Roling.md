@@ -8,5 +8,13 @@ type: persoon
 lidnummer: 106
 affiliations:
   - "Open Nederland"
+label:  # Functietitel
+work:
+  company: 
+  position:
+  website: 
+url: 
+rss:
+social:
 ---
 

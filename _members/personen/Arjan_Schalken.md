@@ -8,4 +8,12 @@ type: persoon
 lidnummer: 149
 affiliations:
   - "Open Nederland"
+label:  # Functietitel
+work:
+  company: 
+  position:
+  website: 
+url: 
+rss:
+social:
 ---

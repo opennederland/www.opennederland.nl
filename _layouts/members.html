@@ -2,14 +2,19 @@
 layout: default
 ---
 
-<div class="member-intro content-body mb-md">
-    {{ content }}
-</div>
-
 {% if page.type == 'organisatie' %}
     {% include organisatie.html %}
 {% else %}
     {% include persoon.html %}
+{% endif %}
+
+<div class="member-intro content-body mb-md">
+    {{ content }}
+</div>
+
+{% if page.rss %}
+    <hr class="large-gap">
+    {% include rss-feed.html url=page.rss %}
 {% endif %}
 
 <div class="mt-xl text-center">
