@@ -8,6 +8,7 @@ layout: default
 {% assign matching_people = site.members | where: "type", "persoon" | where_exp: "item", "item.tags contains page.title" %}
 {% assign matching_posts = site.posts | where_exp: "post", "post.tags contains page.title" %}
 
+<h2 class="mission-statement">{{ page.statement }}</h2>
 
 <div class="header-actions mb-md">
     {% if page.wikidata %}

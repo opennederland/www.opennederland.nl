@@ -2,15 +2,12 @@
 title: Open Onderwijs
 tags: ["Open Onderwijs"]
 wikidata: Q1031140
+statement: "Open Onderwijs maakt leermateriaal en educatie vrij beschikbaar voor iedereen, en bevordert daarmee sociale inclusie."
 ---
-<em>Open onderwijs (Engels: Open Education) is een verzamelnaam[1] voor educatieve organisaties die er naar streven om toetredingsbarrières te elimineren. Dergelijke instellingen hebben bijvoorbeeld geen academische toelatingseisen. Voorbeelden zijn de Open Universiteit in Groot-Brittannië en de Athabasca University in Canada. Dergelijke programma's zijn meestal afstandsonderwijsprogramma's zoals e-learning, MOOC of OpenCourseWare.</em> - [https://nl.wikipedia.org/wiki/Open_onderwijs](https://nl.wikipedia.org/wiki/Open_onderwijs)
+**Open is het delen van informatie.** Door gebruikt te maken van open data en andere open informatiebronnen zetten leerkrachten en onderwijskundigen open informatie om in open leermaterialen.
 
-Kijk voor meer informatie over Open Onderwijs bijvoorbeeld bij:
-* [Wikiwijs.nl](https://www.wikiwijs.nl/) een platform voor open onderwijs, 
-* [Impuls Open Leermmateriaal](https://www.openleermateriaal.nl/) een platform dat het gebruik van open leematerialen stimuleert in het primair onderwijs, 
-* [NPuls](https://npuls.nl/) een platform dat het gebruik van open leematerialen stimuleert in het voortgezet onderwijs,
-* [TU Delft OER](https://www.universiteitleiden.nl/en/courses/llinc/open-educational-resources---tu-delft) een overzicht van OER en MOOCs van de TUDelft.
+**Open is het delen van kennis.** Open leermaterialen (OER) zijn vrij toegankelijk en aanpasbaar. Van digitale studieboeken tot complete cursussen en lespakketten. Docenten en studenten kunnen deze bronnen kosteloos gebruiken en hergebruiken in hun eigen lessen. Door lesmateriaal te delen, verbetert de kwaliteit van het onderwijs. Docenten bouwen voort op elkaars expertise en studenten krijgen toegang tot een rijkdom aan perspectieven, wat bijdraagt aan een leven lang leren.
 
-Kijk vooral ook eens naar de volgend thema's:
+**Open is het delen van cultuur.** In Nederland stimuleren diverse programma's deze cultuur van delen. Platformen als [Wikiwijs](https://www.wikiwijs.nl/) en programma's zoals [Impuls Open Leermateriaal](https://www.openleermateriaal.nl/) en [NPuls](https://npuls.nl/) promoten de adoptie van open materialen in het primair, voortgezet en hoger onderwijs.
 
-<a href="/tags/open-onderzoek" class="tag open-onderzoek">#Open Onderzoek</a> <a href="/tags/open-access" class="tag open-access">#Open Access</a>
+**Open is het delen van technologie.** Digitale leeromgevingen en repositories maken wereldwijde verspreiding mogelijk. Voorbeelden zijn de [TU Delft OER](https://www.universiteitleiden.nl/en/courses/llinc/open-educational-resources---tu-delft) en diverse MOOCs, die technologie inzetten om onderwijs schaalbaar en drempelloos aan te bieden.

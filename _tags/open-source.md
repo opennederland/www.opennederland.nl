@@ -2,11 +2,12 @@
 title: Open Source
 tags: ["Open Source"]
 wikidata: Q39162
+statement: "Open Source maakt technologie meer houdbaar, duurzaam, veiliger."
 ---
-<em>Open source (letterlijk vertaald: open bron) betreft de praktijk die in productie en ontwikkeling vrije toegang geeft tot de bronmaterialen (de source) van het eindproduct.
+**Open is het delen van informatie.** Open source maakt de broncode van software en producten zichtbaar en herbruikbaar voor iedereen. In plaats van een gesloten "black box", is de werking transparant. Dit stelt gebruikers in staat om precies te zien wat een programma doet.
 
-Voordat de term open source algemeen in gebruik werd genomen, was er een breed scala aan uitdrukkingen om het concept te beschrijven. Het dankt zijn huidige populariteit mede aan het toenemende gebruik van internet, het mogelijk maken van diverse productiemodellen, manieren om communicatie te bedrijven en interactieve gemeenschappen. De bekendste vorm is opensourcesoftware.</em> - Bron: [https://nl.wikipedia.org/wiki/Open_source](https://nl.wikipedia.org/wiki/Open_source)
+**Open is het delen van kennis.** Doordat de algoritmes leesbaar zijn, kunnen ontwikkelaars leren van elkaars werk en hierop voortbouwen. Verbeteringen, oplossingen voor bugs en nieuwe functionaliteiten worden gedeeld, wat leidt tot robuustere en veiligere software.
 
-Kijk bijvoorbeeld eens naar:
-* [Free Software Foundation Europe](https://fsfe.org/index.nl.html) voor meer informatie over Open Source in Nederland,
-* [OpenSourceWerken.nl](https://opensourcewerken.nl/) voor meer informatie over Open Source bij de Nederlandse overheid.
+**Open is het delen van cultuur.** Het draait om samenwerking en de vrijheid om technologie te gebruiken, te bestuderen, te delen en te verbeteren. Deze kernwaarden worden in Nederland bewaakt en uitgedragen door organisaties zoals de [Free Software Foundation Europe](https://fsfe.org/index.nl.html).
+
+**Open is het delen van technologie.** Open source is het fundament van het moderne internet. Ook binnen de publieke sector groeit de adoptie: "Publiek geld, publieke code". Initiatieven zoals [OpenSourceWerken.nl](https://opensourcewerken.nl/) ondersteunen overheden actief om software open te ontwikkelen en te hergebruiken.

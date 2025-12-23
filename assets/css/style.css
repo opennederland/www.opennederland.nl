@@ -7,15 +7,16 @@
     --main-color-light: #ff9f8a;    
     
     /* Tekst & Achtergrond */
-    --bg-body: #ffffff;             /* Nieuw: expliciete body kleur */
+    --bg-body: #ffffff;            
     --bg-light: #f8f9fa;            /* Secties / lichte blokken */
     --bg-card: #ffffff;             /* Cards */
     
     --text-body: #4a4a4a;          
+    --text-strong: var(--chill-color); /* Dikgedrukt is donkerblauw in light mode */ 
     --text-muted: #7f8c8d;             
-    --chill-color: #2c3e50;         /* Wordt gebruikt voor headers */
+    --chill-color: #2c3e50;         /* Wordt gebruikt voor headers en bold */
     
-    /* Specifieke UI Elementen Variabelen (Zodat we ze makkelijk kunnen flippen) */
+    /* Specifieke UI Elementen Variabelen */
     --nav-bg: #2c3e50;              /* Navigatie & Footer achtergrond */
     --nav-text: rgba(255,255,255,0.85);
     --input-bg: #ffffff;            /* Input velden */
@@ -53,8 +54,8 @@ body {
     color: var(--text-body);
     line-height: 1.7;                
     margin: 0;
-    background-color: var(--bg-body); /* Gebruik variabele! */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Soepele overgang bij togglen */
+    background-color: var(--bg-body); 
+    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -87,7 +88,7 @@ img, iframe {
     height: auto;
     margin: 1em auto;
     display: block;
-    transition: filter 0.3s ease; /* Voor dark mode filter */
+    transition: filter 0.3s ease; 
 }
 
 blockquote {
@@ -109,6 +110,11 @@ blockquote {
 
 main { padding-bottom: 80px; }
 
+strong, b {
+    font-weight: 700;
+    color: var(--text-strong);
+}
+
 /* =========================================
    3. SHARED COMPONENTS (Card System)
    ========================================= */
@@ -119,7 +125,7 @@ main { padding-bottom: 80px; }
 .person-card,
 .team-member,
 .rss-item-card {
-    background: var(--bg-card); /* Gebruik variabele */
+    background: var(--bg-card); 
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 1.5rem;
@@ -182,7 +188,7 @@ main { padding-bottom: 80px; }
     border-radius: var(--border-radius);
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    color: var(--text-body); /* Aangepast naar var */
+    color: var(--text-body);
     font-size: 0.9em;
     font-weight: 500;
     text-decoration: none;
@@ -200,7 +206,7 @@ main { padding-bottom: 80px; }
 
 /* --- Navigation --- */
 nav {
-    background-color: var(--nav-bg); /* Variabele! */
+    background-color: var(--nav-bg); 
     padding: 1em 0;
     box-shadow: var(--shadow-sm);
     transition: background-color 0.3s ease;
@@ -232,7 +238,7 @@ nav a:hover, nav a.active {
 
 /* --- Footer --- */
 footer {
-    background-color: var(--nav-bg); /* Gebruik zelfde als Nav */
+    background-color: var(--nav-bg); 
     color: #fff;
     padding: 4em 0;
     margin-top: auto;
@@ -314,7 +320,7 @@ footer a:hover { opacity: 1; text-decoration: underline; }
 a.tag {
     display: inline-flex; align-items: center; padding: 0.3em 0.8em;
     border-radius: var(--border-radius); 
-    background-color: var(--bg-card); /* Variabele */
+    background-color: var(--bg-card); 
     border: 1px solid var(--border-color);
     border-bottom: 3px solid var(--border-color); 
     color: var(--text-body);
@@ -445,7 +451,7 @@ hr.large-gap { margin-top: 80px; margin-bottom: 60px; }
 
 
 /* =========================================
-   6. DARK MODE SUPPORT (Consolidated)
+   6. DARK MODE SUPPORT
    ========================================= */
 
 /* --- A. De regels voor de knop (body.dark-mode) --- */
@@ -456,9 +462,10 @@ body.dark-mode {
     --bg-card: #1e1e1e;          
     
     --text-body: #e0e0e0;
+    --text-strong: #ffffff;      
     --text-muted: #a0a0a0;
     
-    --chill-color: #dbe4eb;      /* Lichte kleur voor headers */
+    --chill-color: #dbe4eb;      
     --border-color: #2d2d2d;
     
     --nav-bg: #1a252f;           
@@ -474,7 +481,6 @@ body.dark-mode {
     color-scheme: dark;
 }
 
-/* Specifieke element overrides voor .dark-mode */
 body.dark-mode img, 
 body.dark-mode iframe {
     filter: brightness(0.85) contrast(1.1);
@@ -485,15 +491,14 @@ body.dark-mode .org-logo-box {
     filter: none;
 }
 
-/* FIX: Secundaire knop (Outline stijl in Dark Mode) */
 body.dark-mode .main-item.secondary {
-    background-color: transparent;       /* Transparant */
-    border-color: var(--chill-color);    /* Lichte rand */
-    color: var(--chill-color) !important; /* Lichte tekst */
+    background-color: transparent;       
+    border-color: var(--chill-color);    
+    color: var(--chill-color) !important; 
 }
 body.dark-mode .main-item.secondary:hover {
-    background-color: var(--chill-color); /* Licht worden bij hover */
-    color: var(--bg-body) !important;     /* Donkere tekst bij hover */
+    background-color: var(--chill-color); 
+    color: var(--bg-body) !important;     
 }
 
 
@@ -506,6 +511,7 @@ body.dark-mode .main-item.secondary:hover {
         --bg-card: #1e1e1e;
         
         --text-body: #e0e0e0;
+        --text-strong: #ffffff; 
         --text-muted: #a0a0a0;
         
         --chill-color: #dbe4eb;
@@ -534,7 +540,6 @@ body.dark-mode .main-item.secondary:hover {
         filter: none;
     }
 
-    /* FIX: Zelfde fix ook hier toepassen */
     body:not(.light-mode) .main-item.secondary {
         background-color: transparent;
         border-color: var(--chill-color);
