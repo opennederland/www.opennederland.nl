@@ -35,12 +35,18 @@ Wij bouwen voort op internationale principes, manifesten en verklaringen die de 
 
 {% include initiatives.html %}
 
-<div style="background: #f9f9f9; padding: 2em; border-radius: 4px; margin-top: 3em; border-left: 5px solid #ddd;">
-    <h3 style="margin-top: 0;">Ontbreekt er een initiatief?</h3>
+## Platformen
+
+In Nederland wordt veel open materiaal gepubliceerd en samengewerkt aan open materialen. Dit zijn de voornaamste platformen:
+
+{% include platforms.html %}
+
+<div class="connection-box mt-xl">
+    <h3 class="mt-0">Ontbreekt er een initiatief of platform?</h3>
     <p>
-        Zijn er manifesten, beleidsposities of verklaringen die essentieel zijn voor Open in Nederland, maar in dit overzicht ontbreken?
+        Zijn er manifesten, beleidsposities, verklaringen, platformen die essentieel zijn voor Open in Nederland, maar in dit overzicht ontbreken?
     </p>
-    <p style="margin-bottom: 0;">
+    <p class="mb-0">
         Neem <a href="{{ "/contact/" | relative_url }}">contact</a> met ons op of maak direct een <a href="https://github.com/opennederland/www.opennederland.nl">issue aan op GitHub</a>.
     </p>
 </div>

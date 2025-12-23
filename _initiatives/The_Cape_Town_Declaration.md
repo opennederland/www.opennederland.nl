@@ -2,7 +2,7 @@
 title: The Cape Town Open Education Declaration
 website: https://www.capetowndeclaration.org/
 image: 
-tags: ["Open Education"]
+tags: ["Open Onderwijs"]
 type:
 year: 2007 
 ---

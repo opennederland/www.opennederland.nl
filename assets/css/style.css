@@ -331,6 +331,7 @@ a.tag:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); color: 
 .tag.open-onderzoek { border-bottom-color: #0d6efd; }
 .tag.open-overheid { border-bottom-color: #6610f2; }
 .tag.open-zorg { border-bottom-color: #fd7e14; }
+.tag.open-data { border-bottom-color: #82c91e; }
 
 /* --- Page Specifics --- */
 .quick-links {

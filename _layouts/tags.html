@@ -3,6 +3,7 @@ layout: default
 ---
 
 {% assign matching_initiatives = site.initiatives | where_exp: "item", "item.tags contains page.title" %}
+{% assign matching_platforms = site.platforms | where_exp: "item", "item.tags contains page.title" %}
 {% assign matching_orgs = site.members | where: "type", "organisatie" | where_exp: "item", "item.tags contains page.title" %}
 {% assign matching_people = site.members | where: "type", "persoon" | where_exp: "item", "item.tags contains page.title" %}
 {% assign matching_posts = site.posts | where_exp: "post", "post.tags contains page.title" %}
@@ -29,6 +30,10 @@ layout: default
         <a href="#manifesten" class="quick-link-btn">Manifesten ({{ matching_initiatives.size }})</a>
     {% endif %}
 
+    {% if matching_platforms.size > 0 %}
+        <a href="#platformen" class="quick-link-btn">Platformen ({{ matching_platforms.size }})</a>
+    {% endif %}
+
     {% if matching_orgs.size > 0 %}
         <a href="#organisaties" class="quick-link-btn">Organisaties ({{ matching_orgs.size }})</a>
     {% endif %}
@@ -50,6 +55,15 @@ layout: default
         <h2 id="manifesten">Manifesten & Verklaringen</h2>
         <p>Initiatieven die dit thema ondersteunen:</p>
         {% include initiatives.html tag=page.title %}
+    </div>
+{% endif %}
+
+
+{% if matching_platforms.size > 0 %}
+    <div class="mb-xl">
+        <h2 id="platformen">Platformen & Publicatiekanalen</h2>
+        <p>Plekken om werk te publiceren, te vinden of community's te vormen binnen {{ page.title | downcase }}:</p>
+        {% include platforms.html tag=page.title %}
     </div>
 {% endif %}
 

@@ -2,7 +2,7 @@
 title: UNESCO Recommendation on Open Education Resources
 website: https://www.unesco.org/en/legal-affairs/recommendation-open-educational-resources-oer
 image: 
-tags: ["Open Education"]
+tags: ["Open Onderwijs"]
 type: 
 year: 2019
 ---

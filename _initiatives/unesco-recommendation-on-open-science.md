@@ -2,7 +2,7 @@
 title: UNESCO Recommendation on Open Science
 website: https://www.unesco.org/en/open-science/about
 image: 
-tags: ["Open Science", "Open Access"]
+tags: ["Open Onderzoek", "Open Access"]
 type: 
 year: 2021
 ---

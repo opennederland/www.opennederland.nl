@@ -18,6 +18,9 @@ collections:
   initiatives:
     output: true
     permalink: /initiatief/:name/
+  platforms:
+    output: true
+    permalink: /platforms/:name/
 defaults:
   - scope:
       type: tags
@@ -34,3 +37,8 @@ defaults:
     values:
       layout: initiatives
       collection: initiatives
+  - scope:
+      type: platforms
+    values:
+      layout: platforms
+      collection: platforms
