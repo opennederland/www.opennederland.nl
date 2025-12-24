@@ -550,3 +550,32 @@ body.dark-mode .main-item.secondary:hover {
         color: var(--bg-body) !important;
     }
 }
+
+/* --- CC Heart Logo (SVG Mask) --- */
+.cc-logo {
+    display: block;
+    width: 24px;  /* Iets subtieler formaat voor in de nav */
+    height: 24px; 
+    
+    /* Kleur: Neemt automatisch de tekstkleur van de navigatie aan (wit/lichtgrijs) */
+    background-color: var(--nav-text); 
+    
+    /* SVG als masker gebruiken */
+    -webkit-mask-image: url('/assets/img/ccheart.svg');
+    mask-image: url('/assets/img/ccheart.svg');
+    
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover effect: Wordt rood (of je main-color) en groeit ietsje */
+.cc-logo:hover {
+    background-color: var(--main-color);
+    transform: scale(1.1);
+}
