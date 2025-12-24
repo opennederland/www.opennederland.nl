@@ -317,17 +317,32 @@ footer a:hover { opacity: 1; text-decoration: underline; }
 
 /* --- Tags --- */
 .tag-cloud { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8em; margin: 2em 0; }
-a.tag {
-    display: inline-flex; align-items: center; padding: 0.3em 0.8em;
+
+/* AANGEPAST: Van 'a.tag' naar '.tag' gemaakt */
+.tag {
+    display: inline-flex; 
+    align-items: center; 
+    padding: 0.3em 0.8em;
     border-radius: var(--border-radius); 
     background-color: var(--bg-card); 
     border: 1px solid var(--border-color);
-    border-bottom: 3px solid var(--border-color); 
+    border-bottom: 3px solid var(--border-color); /* Default kleur */
     color: var(--text-body);
-    font-size: 0.85em; font-weight: 600; transition: var(--transition-base);
+    font-size: 0.85em; 
+    font-weight: 600; 
+    transition: var(--transition-base);
+    text-decoration: none; /* Zorgt dat links geen onderstreping krijgen */
 }
-a.tag:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); color: #000; }
-/* Tag Kleuren */
+
+/* Hover effect alleen toepassen als het daadwerkelijk een link is */
+a.tag:hover { 
+    transform: translateY(-2px); 
+    box-shadow: var(--shadow-sm); 
+    color: var(--text-body); /* Of #000 als je dat liever hebt */
+    text-decoration: none;
+}
+
+/* Tag Kleuren (Blijven hetzelfde, werken nu op zowel a als span) */
 .tag.makers { border-bottom-color: #e83e8c; }
 .tag.open-access { border-bottom-color: #dc3545; }
 .tag.open-source { border-bottom-color: #ffc107; }

@@ -32,3 +32,10 @@ De huidige vertegenwoordiging bestaat uit:
 * **Global Council Representative:** [Hessel van Oorschot](/leden/chief-of-noise/)
 
 Voor meer informatie over de licenties zelf verwijzen we naar [CreativeCommons.nl](https://creativecommons.nl/).
+
+<hr />
+
+## Creative Commons Nederland Chapter leden
+Creative Commons wordt uitgedragen door iedereen die met Creative Commons-licenties werkt. Een aantal van de Open Nederland leden is ook lid van het Creative Commons internationale netwerk, en lid van de Creative Commons Chapter in Nederland:
+
+{% include personen.html affiliation="Creative Commons Network" %}

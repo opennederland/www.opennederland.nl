@@ -9,6 +9,9 @@
 {% elsif include.tag %}
   {% assign personen = site.members | where: "type", "persoon" | where_exp: "p", "p.tags contains include.tag" | sort: "lidnummer" %}
   {% assign context_tags = context_tags | push: include.tag %}
+{% elsif include.affiliation %}
+  {% assign personen = site.members | where: "type", "persoon" | where_exp: "p", "p.affiliations contains include.affiliation" | sort: "lidnummer" %}
+  {% assign context_tags = context_tags | push: include.tag %}
 {% else %}
   {% assign personen = site.members | where: "type", "persoon" | sort: "lidnummer" %}
 {% endif %}
