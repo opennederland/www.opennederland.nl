@@ -46,15 +46,4 @@ layout: default
 
 <hr />
 
-{% capture initiatives_output %}
-    {% include initiatives.html tags=page.tags %}
-{% endcapture %}
-
-{% assign initiatives_check = initiatives_output | strip %}
-
-{% if initiatives_check != "" %}
-    <div class="mb-xl">
-        <h2 id="initiatives">Aanverwante manifesten, verklaringen en aanbevelingen</h2>
-        {{ initiatives_output }}
-    </div>
-{% endif %}
+{% include gerelateerd.html %}

@@ -46,36 +46,4 @@ layout: default
 
 <hr />
 
-{% capture initiatives_output %}
-    {% include initiatives.html tags=page.tags %}
-{% endcapture %}
-{% assign initiatives_check = initiatives_output | strip %}
-
-{% capture platforms_output %}
-    {% include platforms.html tags=page.tags %}
-{% endcapture %}
-{% assign platforms_check = platforms_output | strip %}
-
-{% if initiatives_check != "" or platforms_check != "" %}
-    <div class="mb-xl">
-        <h2 id="gerelateerd" class="mb-md">Gerelateerd</h2>
-        
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
-            
-            {% if platforms_check != "" %}
-            <div style="flex: 1 1 300px;">
-                <h3 class="h4 mb-sm">Platformen & Communities</h3>
-                {{ platforms_output }}
-            </div>
-            {% endif %}
-
-            {% if initiatives_check != "" %}
-            <div style="flex: 1 1 300px;">
-                <h3 class="h4 mb-sm">Manifesten & Verklaringen</h3>
-                {{ initiatives_output }}
-            </div>
-            {% endif %}
-            
-        </div>
-    </div>
-{% endif %}
+{% include gerelateerd.html %}
