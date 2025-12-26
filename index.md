@@ -89,6 +89,7 @@ order: 1
 
 <hr />
 
-<div class="mb-xl">
+<div class="mb-xl text-center">
     {% include laposta.html %}
+    <p class="content-body container-narrow mb-md">Wil je ook lid worden?  <a href="/lid-worden">meld je aan!</a></p>
 </div>

@@ -30,6 +30,3 @@ Het bestuur van Open Nederland bestaat uit:
     </a>
     {% endfor %}
 </div>
-
-
-{% include lid-worden.md %}
