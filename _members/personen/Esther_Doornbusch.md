@@ -13,7 +13,6 @@ work:
   company: 
   position:
   website: 
-url: 
 rss:
 social:
 ---

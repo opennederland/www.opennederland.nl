@@ -15,7 +15,6 @@ work:
   company: 
   position:
   website: 
-url: 
 rss: https://www.zylstra.org/blog/category/open-data/feed/
 social:
 ---

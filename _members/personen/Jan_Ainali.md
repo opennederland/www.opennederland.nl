@@ -14,7 +14,6 @@ work:
   company: 
   position:
   website: 
-url: 
 rss: https://ainali.com/feed/
 social:
 ---

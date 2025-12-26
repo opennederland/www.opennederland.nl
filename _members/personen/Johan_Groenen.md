@@ -15,7 +15,6 @@ work:
   company: Tiltshift
   position: Managing Partner
   website: https://www.tiltshift.nl/mensen/johan-groenen/
-url: 
 rss: https://www.jgroenen.nl/feed.json
 social:
   - "https://github.com/jgroenen"

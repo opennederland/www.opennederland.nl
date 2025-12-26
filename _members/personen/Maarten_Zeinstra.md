@@ -18,7 +18,6 @@ work:
   company: "IP Squared"
   position: "eigenaar"
   website: "https://ip-squared.com/"
-url: 
 rss:
 social:
   - "https://www.linkedin.com/in/maartenzeinstra/"
