@@ -2,7 +2,7 @@
 title: FAIR principles
 website: https://www.go-fair.org/fair-principles/
 image: 
-tags: ["Open Access", "Open Science"]
+tags: ["Open Access", "Open Onderzoek"]
 type: 
 year: 2016
 ---

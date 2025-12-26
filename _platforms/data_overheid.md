@@ -2,7 +2,7 @@
 title: Data.overheid.nl
 website: https://data.overheid.nl
 image: 
-tags: ["Open Data", Open Overheid"]
+tags: ["Open Data", "Open Overheid"]
 type: Platform
 year: 2011
 ---
