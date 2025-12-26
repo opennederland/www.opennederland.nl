@@ -1,0 +1,362 @@
+---
+layout: default
+title: Network Graph
+permalink: /network/
+---
+
+<style>
+  #graph-wrapper {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    margin-bottom: 4rem;
+    overflow: hidden;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Background Rings */
+  .zone-ring {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 1px;
+    stroke-dasharray: 4, 4;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .graph-link {
+    stroke: var(--border-color);
+    /* UPDATED: Thicker and darker */
+    stroke-width: 1.5px;
+    opacity: 0.6; 
+    transition: opacity 0.3s, stroke 0.3s;
+  }
+  
+  /* Make links darker in light mode for better contrast */
+  @media (prefers-color-scheme: light) {
+    .graph-link { stroke: #999; }
+  }
+
+  .node-text {
+    font-family: var(--font-family-base);
+    pointer-events: none;
+    fill: var(--text-body);
+    font-weight: 700;
+    text-shadow: -3px -3px 0 var(--bg-card), 3px -3px 0 var(--bg-card), -3px 3px 0 var(--bg-card), 3px 3px 0 var(--bg-card);
+  }
+
+  /* Node Styling */
+  .node-circle { cursor: pointer; transition: all 0.4s ease; }
+  
+  /* Tag: Outer Ring (Base styles, colors handled in JS now) */
+  .node-tag { } 
+  
+  /* Entities: Inner Rings */
+  .node-person { fill: #20c997; stroke: #fff; stroke-width: 2px; } 
+  .node-platform { fill: #9467bd; stroke: #fff; stroke-width: 2px; } 
+  .node-org { fill: var(--chill-color); stroke: #fff; stroke-width: 2px; } 
+  .node-init { fill: var(--main-color); stroke: #fff; stroke-width: 2px; }
+
+  #graph-tooltip {
+    position: absolute; padding: 1rem; background: var(--bg-card);
+    border: 1px solid var(--border-color); border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md); pointer-events: none; opacity: 0;
+    max-width: 280px; z-index: 10; color: var(--text-body);
+  }
+
+  #controls { position: absolute; top: 20px; right: 20px; z-index: 5; }
+  
+  #loading {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    color: var(--text-muted); font-weight: 600;
+  }
+</style>
+
+<div class="wrapper">
+  <div class="text-center mb-md">
+    <h1>Ecosystem Explorer</h1>
+    <p class="text-muted container-narrow">
+      <strong>Hollow Ring:</strong> Click to open topic.<br/>
+      <strong>Filled Ring:</strong> Topic is open.
+    </p>
+  </div>
+
+  <div id="graph-wrapper">
+    <div id="controls"><button id="toggle-btn" class="meta-btn">Expand All</button></div>
+    
+    <div id="graph-container" style="width:100%; height:100%;">
+      <div id="loading">Loading Data...</div>
+    </div>
+    <div id="graph-tooltip"></div>
+  </div>
+
+  <div class="quick-links justify-center">
+    <span class="quick-links-title">Zones:</span>
+    <span class="tag" style="border-bottom-color: #20c997">Center: People</span>
+    <span class="tag" style="border-bottom-color: #9467bd">Ring 1: Platforms</span>
+    <span class="tag" style="border-bottom-color: var(--chill-color)">Ring 2: Orgs</span>
+    <span class="tag" style="border-bottom-color: var(--text-muted)">Outer: Topics</span>
+  </div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  const container = document.getElementById('graph-container');
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+  const center = { x: width / 2, y: height / 2 };
+
+  // --- COLORS ---
+  const brandColors = {
+    "Makers": "#e83e8c", "Open Access": "#dc3545", "Open Source": "#ffc107",
+    "Open Design": "#0dcaf0", "Open GLAM": "#198754", "Open Onderwijs": "#20c997",
+    "Open Onderzoek": "#0d6efd", "Open Overheid": "#6610f2", "Open Zorg": "#fd7e14",
+    "Open Data": "#82c91e", "default": "#7f8c8d"
+  };
+  const getTagColor = (id) => {
+    const cleanId = id.replace("tag-", "");
+    return brandColors[cleanId] || brandColors["default"];
+  };
+
+  const ringRadius = {
+    person: 80, platform: 180, org: 280, tag: 380         
+  };
+
+  const svg = d3.select("#graph-container").append("svg")
+      .attr("viewBox", [0, 0, width, height])
+      .style("cursor", "grab");
+
+  const g = svg.append("g");
+  
+  // Background Rings
+  const rings = [ringRadius.person, ringRadius.platform, ringRadius.org, ringRadius.tag];
+  g.append("g").selectAll("circle")
+    .data(rings).enter().append("circle")
+    .attr("class", "zone-ring")
+    .attr("cx", center.x).attr("cy", center.y).attr("r", d => d);
+
+  const zoom = d3.zoom().scaleExtent([0.1, 8]).on("zoom", ({transform}) => g.attr("transform", transform));
+  svg.call(zoom);
+
+  d3.json('/graph.json').then(function(data) {
+    d3.select("#loading").remove();
+
+    const nodes = data.nodes.map(d => Object.create(d));
+    const nodeMap = new Map(nodes.map(d => [d.id, d]));
+    const links = data.links.map(d => Object.create(d))
+        .filter(l => nodeMap.has(l.source) && nodeMap.has(l.target));
+
+    const neighbors = {};
+    links.forEach(l => {
+      if (!neighbors[l.source]) neighbors[l.source] = [];
+      if (!neighbors[l.target]) neighbors[l.target] = [];
+      neighbors[l.source].push(l.target);
+      neighbors[l.target].push(l.source);
+    });
+
+    // --- INITIAL STATE ---
+    nodes.forEach(n => {
+      n.visible = (n.group === 'tag'); 
+      n.collapsed = true; // Default to closed (Hollow)
+      if (n.group === 'tag') {
+        const angle = Math.random() * 2 * Math.PI; 
+        n.x = center.x + ringRadius.tag * Math.cos(angle);
+        n.y = center.y + ringRadius.tag * Math.sin(angle);
+      }
+    });
+
+    const simulation = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d => d.id).strength(0.01)) 
+        .force("charge", d3.forceManyBody().strength(-40)) 
+        .force("collide", d3.forceCollide().radius(d => d.radius + 8).iterations(3))
+        .force("r", d3.forceRadial(d => {
+            if (d.group === 'tag') return ringRadius.tag;
+            if (d.type === 'persoon') return ringRadius.person;
+            if (d.type === 'Platform' || d.type === 'Bibliotheek') return ringRadius.platform;
+            return ringRadius.org;
+        }, center.x, center.y).strength(0.8));
+
+    let link = g.append("g").selectAll(".graph-link");
+    let node = g.append("g").selectAll(".node");
+
+    function restart() {
+      const visibleNodes = nodes.filter(n => n.visible);
+      const visibleLinks = links.filter(l => l.source.visible && l.target.visible);
+
+      link = link.data(visibleLinks, d => d.source.id + "-" + d.target.id);
+      link.exit().remove();
+      const linkEnter = link.enter().append("line").attr("class", "graph-link");
+      link = linkEnter.merge(link);
+
+      node = node.data(visibleNodes, d => d.id);
+      node.exit().transition().duration(200).attr("transform", d => `scale(0)`).remove();
+
+      const nodeEnter = node.enter().append("g")
+          .attr("class", "node")
+          .call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
+
+      nodeEnter.append("circle")
+          .attr("class", d => {
+              if (d.group === 'tag') return "node-circle node-tag"; // We handle color manually
+              if (d.type === 'persoon') return "node-circle node-person";
+              if (d.type === 'Platform') return "node-circle node-platform";
+              if (d.type === 'organisatie') return "node-circle node-org";
+              return "node-circle node-init";
+          })
+          .attr("r", 0)
+          .transition().duration(400).attr("r", d => d.radius);
+
+      nodeEnter.append("text")
+          .attr("class", "node-text")
+          .attr("dy", d => d.radius + 12)
+          .attr("text-anchor", "middle")
+          .text(d => d.label)
+          .style("font-size", d => d.group === 'tag' ? "12px" : "10px")
+          .style("opacity", d => d.group === 'tag' ? 1 : 0)
+          .transition().duration(400).style("opacity", 1);
+
+      nodeEnter.on("click", handleClick).on("mouseover", showTooltip).on("mouseout", hideTooltip);
+
+      node = nodeEnter.merge(node);
+      
+      // --- DYNAMIC STYLING UPDATE ---
+      // This ensures that when we click a node, its style updates (Hollow vs Filled)
+      node.select("circle")
+          .attr("fill", d => {
+              if (d.group === 'tag') {
+                  // CLOSED = Hollow (Card background)
+                  // OPEN = Filled (Brand color)
+                  return d.collapsed ? "var(--bg-card)" : getTagColor(d.id);
+              }
+              // Other nodes retain their CSS class fills, so we return null/current
+              return null; 
+          })
+          .attr("stroke", d => {
+              if (d.group === 'tag') return getTagColor(d.id); // Colored border always
+              return null; // Others use CSS
+          })
+          .attr("stroke-width", d => {
+              if (d.group === 'tag') return 4; // Thick border for tags
+              return null;
+          });
+
+      simulation.nodes(visibleNodes);
+      simulation.force("link").links(visibleLinks);
+      simulation.alpha(0.8).restart();
+    }
+
+    function zoomToFit() {
+        const visibleNodes = nodes.filter(n => n.visible);
+        if (visibleNodes.length === 0) return;
+
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+        visibleNodes.forEach(d => {
+            minX = Math.min(minX, d.x - d.radius);
+            minY = Math.min(minY, d.y - d.radius);
+            maxX = Math.max(maxX, d.x + d.radius);
+            maxY = Math.max(maxY, d.y + d.radius);
+        });
+
+        const graphWidth = maxX - minX;
+        const graphHeight = maxY - minY;
+        const midX = minX + graphWidth / 2;
+        const midY = minY + graphHeight / 2;
+        const scale = 0.9 / Math.max(graphWidth / width, graphHeight / height);
+        const finalScale = Math.min(scale, 1.2); // Cap zoom
+
+        const transform = d3.zoomIdentity
+            .translate(width / 2 - midX * finalScale, height / 2 - midY * finalScale)
+            .scale(finalScale);
+
+        svg.transition().duration(750).call(zoom.transform, transform);
+    }
+
+    function handleClick(event, d) {
+      event.stopPropagation();
+      if (d.group !== 'tag') {
+        if (d.url) window.location.href = d.url;
+        return;
+      }
+
+      const myNeighbors = neighbors[d.id] || [];
+      const childrenToToggle = nodes.filter(n => myNeighbors.includes(n.id) && n.group !== 'tag');
+
+      if (childrenToToggle.length > 0) {
+        d.collapsed = !d.collapsed;
+        const isOpening = !d.collapsed;
+        
+        childrenToToggle.forEach(child => {
+          if (isOpening) {
+            child.visible = true; 
+            child.x = d.x; child.y = d.y;
+            child.vx = 0; child.vy = 0;
+          } else {
+            // Check if connected to another open tag? (Simplification: just hide)
+            child.visible = false;
+          }
+        });
+        
+        restart();
+        
+        // UPDATED: Wait 1.5s for physics to settle before zooming
+        setTimeout(zoomToFit, 1500);
+      }
+    }
+
+    // Toggle All
+    let allExpanded = false;
+    const btn = document.getElementById('toggle-btn');
+    btn.addEventListener('click', () => {
+        allExpanded = !allExpanded;
+        if(allExpanded) {
+            nodes.forEach(n => { n.visible = true; n.collapsed = false; });
+            btn.innerText = "Collapse All";
+        } else {
+            nodes.forEach(n => { n.visible = (n.group === 'tag'); n.collapsed = true; });
+            btn.innerText = "Expand All";
+        }
+        restart();
+        setTimeout(zoomToFit, 1500);
+    });
+
+    function showTooltip(e, d) {
+      d3.select(this).select("circle").attr("stroke", "#333");
+      link.style("opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.1)
+          .style("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "var(--main-color)" : null);
+
+      const tt = d3.select("#graph-tooltip");
+      tt.transition().duration(200).style("opacity", 1);
+      tt.html(`<h4>${d.label}</h4><div class="meta">${d.group==='tag'?'Topic':d.type}</div>`)
+        .style("left", (e.pageX+15)+"px").style("top", (e.pageY-28)+"px");
+    }
+    
+    function hideTooltip() { 
+      // Reset stroke based on type
+      d3.select(this).select("circle").attr("stroke", d => {
+          if(d.group === 'tag') return getTagColor(d.id);
+          return "#fff";
+      });
+      link.style("opacity", 0.6).style("stroke", null);
+      d3.select("#graph-tooltip").transition().duration(200).style("opacity",0); 
+    }
+    
+    simulation.on("tick", () => {
+      link.attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+          .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+      node.attr("transform", d => `translate(${d.x},${d.y})`);
+    });
+    
+    function dragstarted(e, d) { if(!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; }
+    function dragged(e, d) { d.fx=e.x; d.fy=e.y; }
+    function dragended(e, d) { if(!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; }
+
+    restart();
+    setTimeout(zoomToFit, 500);
+  });
+});
+</script>
