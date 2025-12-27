@@ -21,6 +21,9 @@ collections:
   platforms:
     output: true
     permalink: /platforms/:name/
+  positions:
+    output: true
+    permalink: /standpunten/:name/
 defaults:
   - scope:
       type: tags
@@ -42,3 +45,8 @@ defaults:
     values:
       layout: platforms
       collection: platforms
+  - scope:
+      type: positions
+    values:
+      layout: positions
+      collection: positions
