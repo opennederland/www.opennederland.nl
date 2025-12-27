@@ -2,7 +2,7 @@
 title: PDOK (Publieke Dienstverlening Op de Kaart)
 website: https://www.pdok.nl
 image: 
-tags: ["Open Data"]
+tags: ["Open Data", "Open Overheid"]
 type: Platform
 year: 2013
 ---
