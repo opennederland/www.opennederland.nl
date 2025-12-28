@@ -89,7 +89,7 @@ body:
         **Licentie**
         Door dit formulier in te sturen ga je akkoord dat deze content wordt gepubliceerd onder de **CC BY-SA 4.0** licentie.
 
-  - type: checkbox
+  - type: checkboxes
     id: terms
     attributes:
       label: Akkoord
