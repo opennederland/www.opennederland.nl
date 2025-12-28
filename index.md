@@ -13,7 +13,7 @@ order: 1
     </p>
 
     <div class="d-flex justify-center flex-wrap gap-md">
-        <a href="{{ "/vereniging/#lid-worden" | relative_url }}" class="main-item">
+        <a href="{{ "/lid-worden/" | relative_url }}" class="main-item">
             Sluit je aan
         </a>
         <a href="{{ "/vereniging/" | relative_url }}" class="main-item secondary">
