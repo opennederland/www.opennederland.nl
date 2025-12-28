@@ -1,13 +1,13 @@
 name: "👤 Lid (Profiel aanmaken/aanpassen)"
 description: "Dien je gegevens in voor een (aanpassing) van je ledenprofiel op OpenNederland.nl"
-title: "[Nieuw Lid]: <Jouw Naam>"
+title: "[Lid]: <Jouw Naam>"
 labels: ["leden", "content"]
 body:
   - type: markdown
     attributes:
       value: |
         Leuk dat je zichtbaar wilt zijn als lid van Open Nederland! 
-        Vul dit formulier in, dan voegen wij je profiel toe aan de website.
+        Vul dit formulier in, dan voegen wij je profiel toe of passen we je profiel aan op de website.
 
   - type: input
     id: name
@@ -76,9 +76,9 @@ body:
       label: Social Media & Links
       description: Plak hier de links naar je profielen (GitHub, LinkedIn, Mastodon, etc.).
       value: |
-        GitHub: https://github.com/
-        LinkedIn: https://linkedin.com/in/
-        Mastodon: 
+        - https://github.com/
+        - https://linkedin.com/in/
+        - 
     validations:
       required: true
 
