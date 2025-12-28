@@ -1,0 +1,98 @@
+name: "👤 Lid (Profiel aanmaken/aanpassen)"
+description: "Dien je gegevens in voor een (aanpassing) van je ledenprofiel op OpenNederland.nl"
+title: "[Nieuw Lid]: <Jouw Naam>"
+labels: ["leden", "content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Leuk dat je zichtbaar wilt zijn als lid van Open Nederland! 
+        Vul dit formulier in, dan voegen wij je profiel toe aan de website.
+
+  - type: input
+    id: name
+    attributes:
+      label: Naam
+      description: Hoe wil je op de site heten?
+      placeholder: Voornaam Achternaam
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: Link naar je persoonlijke website of blog.
+      placeholder: https://...
+
+  - type: input
+    id: image
+    attributes:
+      label: Foto URL
+      description: Heb je een profielfoto online staan? Plak de link hier. Zo niet, mail een foto naar het bestuur.
+      placeholder: https://...
+
+  - type: dropdown
+    id: tags
+    attributes:
+      label: Thema's (Tags)
+      description: Selecteer de thema's die bij jou passen (je kunt er meerdere kiezen door cmd/ctrl ingedrukt te houden, of noem ze in de extra opmerkingen).
+      multiple: true
+      options:
+        - Makers
+        - Open Access
+        - Open Data
+        - Open Design
+        - Open GLAM
+        - Open Onderwijs
+        - Open Onderzoek
+        - Open Overheid
+        - Open Source
+        - Open Zorg
+    validations:
+      required: true
+
+  - type: input
+    id: label
+    attributes:
+      label: Functietitel
+      placeholder: Bijv. Software Engineer, Beleidsmaker, Activist
+
+  - type: textarea
+    id: work
+    attributes:
+      label: Werk / Organisatie
+      description: Waar werk je? (Bedrijfsnaam, Functie, Website)
+      placeholder: |
+        Bedrijf: 
+        Functie: 
+        Website: 
+    validations:
+      required: false
+
+  - type: textarea
+    id: social
+    attributes:
+      label: Social Media & Links
+      description: Plak hier de links naar je profielen (GitHub, LinkedIn, Mastodon, etc.).
+      value: |
+        GitHub: https://github.com/
+        LinkedIn: https://linkedin.com/in/
+        Mastodon: 
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **Licentie**
+        Door dit formulier in te sturen ga je akkoord dat deze content wordt gepubliceerd onder de **CC BY-SA 4.0** licentie.
+
+  - type: checkbox
+    id: terms
+    attributes:
+      label: Akkoord
+      options:
+        - label: Ik ga akkoord met de CC BY-SA 4.0 licentie voor deze inhoud.
+          required: true

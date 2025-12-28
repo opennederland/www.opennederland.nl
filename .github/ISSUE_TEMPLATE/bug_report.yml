@@ -1,0 +1,56 @@
+name: "🐛 Bug melding"
+description: "Meld een fout, broken link of layout probleem op de website."
+title: "[Bug]: <Korte beschrijving>"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bedankt voor het melden! Vul onderstaande velden zo goed mogelijk in, zodat we het snel kunnen oplossen.
+
+  - type: input
+    id: url
+    attributes:
+      label: Op welke pagina gaat het mis?
+      description: Plak hier de URL.
+      placeholder: https://www.opennederland.nl/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Wat gaat er mis?
+      description: Beschrijf wat er gebeurt en wat je eigenlijk had verwacht.
+      placeholder: "Ik klikte op de knop 'Lid worden', maar ik kreeg een 404 pagina..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Hoe kunnen we dit reproduceren?
+      description: Welke stappen moeten we nemen om de fout ook te zien?
+      placeholder: |
+        1. Ga naar de homepage
+        2. Scroll naar beneden
+        3. Klik op ...
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser en Apparaat
+      description: Welke browser (Chrome, Firefox, Safari) en welk apparaat (Mobiel, Laptop) gebruik je?
+      placeholder: Bijv. Safari op iPhone, of Chrome op Windows 10
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Je kunt screenshots direct hier in het tekstveld plakken (Ctrl+V).
+    validations:
+      required: false
