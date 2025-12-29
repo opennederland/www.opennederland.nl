@@ -21,26 +21,67 @@ export default function (limit) {
   }
 
   async function render(page) {
-    page = page || getPageWithCurrentDayItems();
+    // 1. Bounds
+    const currentPage = page || getPageWithCurrentDayItems();
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + (limit || itemsPerPage);
 
-    var fromItem = (page - 1) * itemsPerPage;
-    var toItem = fromItem + (limit ? limit : itemsPerPage);
-
+    // 2. Containers
     container.innerHTML = '';
-    for (var i = fromItem; i < toItem; i++) {
-      var item = allItems[i];
-      if (!item) break;
-      var clone = template.content.cloneNode(true);
-      clone.querySelector("[data-el=date]").textContent = new Date(item.pubDate).toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' });
-      clone.querySelector("[data-el=title-link]").href = item.link;
-      clone.querySelector("[data-el=title-link]").textContent = item.title;
-      clone.querySelector("[data-el=description]").textContent = item.description;
-      clone.querySelector("[data-el=source-link]").href = item.url;
-      clone.querySelector("[data-el=source-link]").textContent = item.source;
-      container.appendChild(clone);
-    }
+    const fragment = document.createDocumentFragment();
 
-    if (!limit) renderPaginationControls(container, allItems, page);
+    // 3. Select items within bounds
+    const itemsToRender = allItems.slice(start, end);
+
+    itemsToRender.forEach(item => {
+      const clone = template.content.cloneNode(true);
+
+      // Date Formatting
+      const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDate = new Date(item.pubDate).toLocaleDateString('nl-NL', dateOptions);
+      
+      clone.querySelector("[data-el=date]").textContent = formattedDate;
+      
+      // Links and Text
+      const titleLink = clone.querySelector("[data-el=title-link]");
+      titleLink.href = item.link;
+      titleLink.textContent = item.title || "Zonder titel";
+
+      clone.querySelector("[data-el=description]").textContent = item.description;
+
+      const sourceLink = clone.querySelector("[data-el=source-link]");
+      sourceLink.href = item.url;
+      sourceLink.textContent = item.source;
+
+      // 4. Handle Tags
+      const tagTemplate = clone.querySelector("[data-el=tag]");
+      if (tagTemplate && item.tags) {
+        const tagParent = tagTemplate.parentNode;
+
+        item.tags.forEach(tagText => {
+          const newTag = tagTemplate.cloneNode(true);
+          const slug = tagText.toLowerCase().replace(/\s+/g, '-');
+
+          newTag.textContent = tagText;
+          newTag.classList.add(slug);
+          newTag.href = `/tags/${slug}/`;
+
+          tagParent.appendChild(newTag);
+        });
+
+        // Remove the original placeholder tag
+        tagTemplate.remove();
+      }
+
+      fragment.appendChild(clone);
+    });
+
+    // 5. DOM Update (Single Reflow)
+    container.appendChild(fragment);
+
+    if (!limit) {
+      renderPaginationControls(container, allItems, currentPage);
+    }
   }
 
   function renderPaginationControls(container, allItems, page) {
