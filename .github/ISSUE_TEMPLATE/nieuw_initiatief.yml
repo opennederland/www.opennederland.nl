@@ -1,0 +1,83 @@
+name: "📜 Nieuw Initiatief toevoegen"
+description: "Meld een verklaring, manifest of petitie aan voor de collectie."
+title: "[Nieuw Initiatief]: <Naam>"
+labels: ["content", "initiatieven"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Wil je een relevant open initiatief (zoals een verklaring of manifest) toevoegen aan opennederland.nl? 
+        Vul de details in, dan voegen wij het toe aan het overzicht.
+
+  - type: input
+    id: title
+    attributes:
+      label: Titel
+      description: De naam van de verklaring of het manifest.
+      placeholder: "Bijv: Barcelona Declaration on Open Research Information"
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: Link naar de officiële pagina.
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: input
+    id: year
+    attributes:
+      label: Jaartal
+      description: In welk jaar is dit initiatief gestart of gepubliceerd?
+      placeholder: "2024"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tags
+    attributes:
+      label: Thema's (Tags)
+      description: Welke thema's dekt dit initiatief? (Selecteer meerdere met Ctrl/Cmd).
+      multiple: true
+      options:
+        - Makers
+        - Open Access
+        - Open Data
+        - Open Design
+        - Open GLAM
+        - Open Onderwijs
+        - Open Onderzoek
+        - Open Overheid
+        - Open Source
+        - Open Zorg
+    validations:
+      required: true
+
+  - type: input
+    id: image
+    attributes:
+      label: Afbeelding URL (Optioneel)
+      description: Link naar een logo of header afbeelding.
+      placeholder: https://...
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Beschrijving
+      description: |
+        Schrijf hier een korte toelichting over het initiatief.
+        Dit komt op de pagina onder de metadata te staan. Je mag Markdown gebruiken.
+      placeholder: "Dit manifest roept op tot..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Licentie
+      options:
+        - label: Ik ga akkoord dat deze content wordt gedeeld onder de CC BY-SA 4.0 licentie.
+          required: true

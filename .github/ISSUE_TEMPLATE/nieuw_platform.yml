@@ -1,0 +1,88 @@
+name: "💻 Nieuw Platform toevoegen"
+description: "Meld een Nederlands platform aan waar open materiaal wordt gepubliceerd."
+title: "[Nieuw Platform]: <Naam>"
+labels: ["content", "platforms"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ontbreekt er een een platform van Nederlandse bodem waar open materiaal wordt gedeeld?
+        Laat het ons weten!
+
+  - type: input
+    id: title
+    attributes:
+      label: Naam Platform
+      description: De naam van de website of het platform.
+      placeholder: "Bijv: Data.overheid.nl"
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: Link naar het platform.
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: input
+    id: year
+    attributes:
+      label: Startjaar
+      description: Sinds wanneer bestaat dit platform?
+      placeholder: "2011"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tags
+    attributes:
+      label: Thema's (Tags)
+      description: Welk type materiaal staat hier centraal? (Selecteer meerdere met Ctrl/Cmd).
+      multiple: true
+      options:
+        - Makers
+        - Open Access
+        - Open Data
+        - Open Design
+        - Open GLAM
+        - Open Onderwijs
+        - Open Onderzoek
+        - Open Overheid
+        - Open Source
+        - Open Zorg
+    validations:
+      required: true
+
+  - type: input
+    id: image
+    attributes:
+      label: Afbeelding URL (Optioneel)
+      description: Link naar een logo.
+      placeholder: https://...
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Beschrijving
+      description: |
+        Schrijf hier een korte toelichting over het platform.
+        Dit komt op de pagina onder de metadata te staan. Je mag Markdown gebruiken.
+      placeholder: "Data.overheid.nl is het open dataportaal van de Nederlandse overheid..."
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        *Let op voor de beheerder: Vergeet niet `type: Platform` toe te voegen in de Front Matter.*
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Licentie
+      options:
+        - label: Ik ga akkoord dat deze content wordt gedeeld onder de CC BY-SA 4.0 licentie.
+          required: true
