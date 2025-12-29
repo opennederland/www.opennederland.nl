@@ -4,6 +4,14 @@ Leuk dat je wilt bijdragen! 👋 Onze website is open source en **iedereen is ui
 
 Onze content bestaat uit levende documenten. Iedereen kan verbeteringen voorstellen, typo's corrigeren, nieuwe initiatieven toevoegen of bestaande informatie actualiseren via een Pull Request.
 
+## ➕ Nieuwe content aanmelden (Geen technische kennis nodig)
+
+Wil je iets toevoegen, maar werk je liever niet direct in GitHub bestanden? Gebruik dan onze formulieren. Wij zetten het dan voor je op de site!
+
+* 📜 **[Nieuw Initiatief toevoegen](https://github.com/opennederland/www.opennederland.nl/issues/new?template=nieuw_initiatief.yml)** (Verklaring, Manifest, Petitie)
+* 💻 **[Nieuw Platform toevoegen](https://github.com/opennederland/www.opennederland.nl/issues/new?template=nieuw_platform.yml)** (Website met open materiaal)
+* 🐛 **[Fout melden](https://github.com/opennederland/www.opennederland.nl/issues/new?template=bug_report.yml)** (Bug of broken link)
+
 ## 🚀 Snel iets aanpassen?
 
 Weet je niet precies waar het bestand staat dat je wilt wijzigen? Geen probleem.
