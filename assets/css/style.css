@@ -57,6 +57,7 @@ body {
     background-color: var(--bg-body); 
     transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 /* Typography */
@@ -67,8 +68,8 @@ h1, h2, h3, h4 {
     line-height: 1.2;
 }
 
-h1 { font-size: 3rem; font-weight: 800; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em; letter-spacing: -0.02em; }
-h2 { font-size: 2rem; font-weight: 700; margin: 2em 0 1em; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 2em 0 1em; }
 h3 { font-size: 1.5rem; color: var(--main-color); font-weight: 600; margin: 1.5em 0 0.5em; }
 
 a {
@@ -113,6 +114,17 @@ main { padding-bottom: 80px; }
 strong, b {
     font-weight: 700;
     color: var(--text-strong);
+}
+
+:focus-visible {
+    outline: 2px solid var(--main-color);
+    outline-offset: 2px;
+}
+
+.main-item:focus-visible,
+.meta-btn:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 159, 138, 0.5); /* using main-color-light */
+    outline: none;
 }
 
 /* =========================================
@@ -296,9 +308,9 @@ footer a:hover { opacity: 1; text-decoration: underline; }
 }
 
 /* --- Grids --- */
-.initiatives-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--gap-grid); margin-top: 1.5em; }
+.initiatives-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--gap-grid); margin-top: 1.5em; }
 .org-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.5rem; padding: 0; }
-.people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; list-style: none; padding: 0; }
+.people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 1.5rem; list-style: none; padding: 0; }
 
 /* --- Card Content Specifics --- */
 .org-logo-box { width: 100%; height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1em; }
@@ -446,6 +458,13 @@ a.tag:hover {
 
 .content-body { font-size: 1.125em; line-height: 1.8; color: var(--text-body); }
 .content-body p { margin-bottom: 1.5em; }
+.content-body, 
+article p, 
+article ul, 
+article ol {
+    /* Prevents lines from becoming too long to read comfortably */
+    max-width: 70ch; 
+}
 
 .page-meta-header {
     font-size: 1.1em; color: var(--text-muted); font-weight: 600; 
@@ -462,6 +481,52 @@ hr.large-gap { margin-top: 80px; margin-bottom: 60px; }
     .wrapper { padding: 0 1rem; }
     .hero-logo-box { padding: 1.5em; }
     .footer-box { flex-direction: column; gap: 2em; }
+    nav .wrapper {
+        justify-content: flex-start; /* Align start */
+        flex-wrap: nowrap;           /* Stop wrapping */
+        overflow-x: auto;            /* Allow horizontal scroll */
+        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+        padding-bottom: 0.5rem;      /* Space for scrollbar (if visible) */
+        
+        /* Hide scrollbar visually but keep functionality (Optional) */
+        scrollbar-width: none;       /* Firefox */
+        -ms-overflow-style: none;    /* IE/Edge */
+    }
+    
+    nav .wrapper::-webkit-scrollbar { 
+        display: none; /* Chrome/Safari */
+    }
+
+    nav a {
+        white-space: nowrap; 
+        padding: 0.6em 1em; 
+        background: rgba(255,255,255,0.05); /* Optional: subtle background to show it's clickable */
+        border-radius: 20px;
+        margin-right: 0.5em;
+    }
+        
+    .hero-banner {
+        padding: 2em 1em;
+        flex-direction: column; /* Ensure content stacks if you add image later */
+        text-align: center;
+    }
+    
+    .hero-logo-box {
+        padding: 1.5em;
+        width: 100%; /* Max width on mobile */
+    }
+
+    /* Fix footer stacking order/spacing */
+    .footer-grid {
+        gap: 2rem;
+    }
+
+    /* Make buttons full width on very small screens for easier thumb reach */
+    .hero-banner .main-item {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5em;
+    }    
 }
 
 
@@ -514,6 +579,19 @@ body.dark-mode .main-item.secondary {
 body.dark-mode .main-item.secondary:hover {
     background-color: var(--chill-color); 
     color: var(--bg-body) !important;     
+}
+
+body.dark-mode .news-card,
+body.dark-mode .initiative-card,
+body.dark-mode .org-card {
+    /* Shadows are hard to see on dark backgrounds, use borders/background contrast */
+    border: 1px solid #333; 
+    background-color: var(--bg-card);
+}
+
+/* Ensure focus rings pop in dark mode */
+body.dark-mode :focus-visible {
+    outline-color: #fff;
 }
 
 
