@@ -672,3 +672,93 @@ body.dark-mode :focus-visible {
     background-color: var(--main-color);
     transform: scale(1.1);
 }
+
+/* =========================================
+   7. PRINT STYLES
+   ========================================= */
+@media print {
+    /* 1. RESET COLORS (Save Ink) */
+    :root, body, body.dark-mode {
+        --bg-body: #ffffff !important;
+        --bg-card: #ffffff !important;
+        --bg-light: #ffffff !important;
+        --text-body: #000000 !important;
+        --text-muted: #333333 !important;
+        --chill-color: #000000 !important;
+        --border-color: #cccccc !important;
+        --shadow-sm: none !important;
+        --shadow-md: none !important;
+        --shadow-hover: none !important;
+    }
+
+    body {
+        background-color: #fff !important;
+        color: #000 !important;
+        font-size: 12pt !important; /* Standard print size */
+    }
+
+    /* 2. HIDE NON-ESSENTIAL ELEMENTS */
+    nav, 
+    footer, 
+    .hero-banner, 
+    .newsletter-box, 
+    .print-btn-hide, /* Hides the print button itself */
+    .quick-links,
+    iframe {
+        display: none !important;
+    }
+
+    /* 3. LAYOUT ADJUSTMENTS */
+    .wrapper {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    main {
+        padding-bottom: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 4. COMPONENT CLEANUP */
+    .news-card,
+    .initiative-card,
+    .org-card,
+    .person-card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        break-inside: avoid; /* Prevents card from being cut in half across pages */
+        margin-bottom: 1em !important;
+    }
+
+    /* Remove colored backgrounds from badges to save ink */
+    .tag, .lid-badge {
+        border: 1px solid #000 !important;
+        background: transparent !important;
+        color: #000 !important;
+    }
+
+    /* 5. TYPOGRAPHY & LINKS */
+    h1, h2, h3 {
+        color: #000 !important;
+        page-break-after: avoid;
+    }
+
+    a {
+        text-decoration: underline !important;
+        color: #000 !important;
+    }
+
+    /* Show URL after links (good for paper) */
+    main a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #444;
+    } 
+    
+    
+    img {
+        max-width: 100% !important;
+    }
+}
