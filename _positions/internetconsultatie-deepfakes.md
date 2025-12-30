@@ -1,5 +1,5 @@
 ---
-title: Standpunt – Internetconsultatie Wet naburig recht deepfakes van personen 
+title:  Internetconsultatie Wet naburig recht deepfakes van personen 
 publication: 31-12-2025
 ---
 
