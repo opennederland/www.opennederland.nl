@@ -5,6 +5,7 @@ image:
 tags: ["Open Onderwijs"]
 type: 
 year: 2009
+wikidata: Q1906528
 ---
 
 Wikiwijs ondersteunt leraren bij het vinden, gebruiken, delen en samen ontwikkelen van open leermateriaal.
