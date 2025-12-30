@@ -5,5 +5,6 @@ image:
 tags: ["Open Access", "Open Onderzoek"]
 type: 
 year: 2016
+wikidata: Q29032644
 ---
 De [FAIR-principes](https://www.go-fair.org/fair-principles/) (Vindbaar, Toegankelijk, Interoperabel en Herbruikbaar) zijn richtlijnen voor het beheer van wetenschappelijke data, gericht op het optimaliseren van de herbruikbaarheid van digitale activa, zowel voor mensen als machines, door middel van unieke identificatie en rijke metadata. GO-FAIR wordt o.a. vanuit Nederland gecoördineerd.
