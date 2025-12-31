@@ -22,6 +22,7 @@ rss:
 social:
   - "https://www.linkedin.com/in/maartenzeinstra/"
   - "https://github.com/mzeinstra"
+working_groups: ["Publiek Domein"]
 ---
 Jurist en informatieprofessional, werkt aan projecten rondom toegang tot informatie, kennis en cultuur in de publieke sector. Is sinds 2009 betrokken bij Creative Commons Nederland en beantwoord daarvoor sindsdien juridische en praktische vragen via de telefoon en email. 
 

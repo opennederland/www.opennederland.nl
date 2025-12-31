@@ -24,6 +24,9 @@ collections:
   positions:
     output: true
     permalink: /standpunten/:name/
+  working_groups:
+    output: true
+    permalink: /werkgroep/:name/
 defaults:
   - scope:
       type: tags
@@ -50,3 +53,8 @@ defaults:
     values:
       layout: positions
       collection: positions
+  - scope:
+      type: working_groups
+    values:
+      layout: working_groups
+      collection: working_groups

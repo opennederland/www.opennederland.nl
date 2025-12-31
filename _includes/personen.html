@@ -5,15 +5,18 @@
     {% assign matches = site.members | where: "type", "persoon" | where_exp: "p", "p.tags contains tag" %}
     {% assign personen = personen | concat: matches %}
   {% endfor %}
-  {% assign personen = personen | uniq | sort: "lidnummer" %}
+  {% assign personen = personen | uniq | sort: "title" %}
 {% elsif include.tag %}
-  {% assign personen = site.members | where: "type", "persoon" | where_exp: "p", "p.tags contains include.tag" | sort: "lidnummer" %}
+  {% assign personen = site.members | where: "type", "persoon" | where_exp: "p", "p.tags contains include.tag" | sort: "title" %}
   {% assign context_tags = context_tags | push: include.tag %}
 {% elsif include.affiliation %}
-  {% assign personen = site.members | where: "type", "persoon" | where_exp: "p", "p.affiliations contains include.affiliation" | sort: "lidnummer" %}
+  {% assign personen = site.members | where: "type", "persoon" | where_exp: "p", "p.affiliations contains include.affiliation" | sort: "title" %}
+  {% assign context_tags = context_tags | push: include.tag %}
+{% elsif include.working_group %}
+  {% assign personen = site.members | where: "type", "persoon" | where_exp: "p", "p.working_groups contains include.working_group" | sort: "title" %}
   {% assign context_tags = context_tags | push: include.tag %}
 {% else %}
-  {% assign personen = site.members | where: "type", "persoon" | sort: "lidnummer" %}
+  {% assign personen = site.members | where: "type", "persoon" | sort: "title" %}
 {% endif %}
 
 
