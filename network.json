@@ -1,0 +1,55 @@
+---
+layout: null
+---
+{% assign raw_docs = site.documents | where_exp: "item", "item.tags" %}
+{% assign all_docs = raw_docs | where_exp: "item", "item.collection != 'posts'" %}
+
+{% comment %} Get Unique Tags {% endcomment %}
+{% assign all_tags = "" | split: "" %}
+{% for doc in all_docs %}
+  {% for tag in doc.tags %}
+    {% assign all_tags = all_tags | push: tag %}
+  {% endfor %}
+{% endfor %}
+{% assign unique_tags = all_tags | uniq %}
+
+{
+  "nodes": [
+    {% comment %} === OUTER RING: TAGS === {% endcomment %}
+    {% for tag in unique_tags %}
+      {
+        "id": "tag-{{ tag }}", 
+        "label": {{ tag | jsonify }},
+        "group": "tag",
+        "level": 1,
+        "radius": 20
+      },
+    {% endfor %}
+
+    {% comment %} === INNER ELEMENTS: ENTITIES === {% endcomment %}
+    {% for doc in all_docs %}
+      {
+        "id": {{ doc.url | jsonify }},
+        "label": {{ doc.title | jsonify }},
+        "group": "entity",
+        "level": 2,
+        "type": "{{ doc.type | default: 'initiative' }}",
+        "radius": 6,
+        "url": "{{ doc.url }}"
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "links": [
+    {% assign first_link = true %}
+    {% for doc in all_docs %}
+      {% for tag in doc.tags %}
+        {% unless first_link %},{% endunless %}
+        {
+          "source": "tag-{{ tag }}",
+          "target": {{ doc.url | jsonify }}
+        }
+        {% assign first_link = false %}
+      {% endfor %}
+    {% endfor %}
+  ]
+}

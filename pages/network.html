@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function() {
   svg.call(zoom).on("dblclick.zoom", null);
 
   // 5. Load Data
-  d3.json('/graph.json').then(function(data) {
+  d3.json('/network.json').then(function(data) {
     d3.select("#loading").remove();
 
     const nodes = data.nodes.map(d => ({...d}));
@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function() {
           .style("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "var(--main-color)" : null);
 
       tooltip.transition().duration(200).style("opacity", 1);
-      tooltip.html(`<b>${d.label}</b><br/><small>${d.group==='tag'?'Topic':d.type}</small>`)
+      tooltip.html(`<b>${d.label}</b><br/><small>${d.group==='tag'?'Thema':d.type}</small>`)
              .style("left", (e.pageX+15)+"px").style("top", (e.pageY-28)+"px");
     }
 
