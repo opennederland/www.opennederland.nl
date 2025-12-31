@@ -45,12 +45,13 @@ order: 1
     <h2>Onze activiteiten</h2>
     
     <p class="content-body container-narrow mb-md">
-        Ontmoet gelijkgestemden tijdens onze terugkerende evenementen.
+        Ontmoet gelijkgestemden tijdens onze terugkerende evenementen. Lees onze standpunten.
     </p>
 
     <div class="d-flex justify-center flex-wrap gap-md">
         <a href="{{ "publiek-domeindag/" | relative_url }}" class="main-item">Publiek Domeindag</a>
         <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
+        <a href="{{ "/standpunten/" | relative_url }}" class="main-item">Onze standpunten</a>
     </div>
 </div>
 
