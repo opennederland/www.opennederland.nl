@@ -11,3 +11,5 @@ statement: "Open Overheid versterkt het vertrouwen in de democratie door transpa
 **Open is het delen van cultuur.** Het vraagt om een omslag naar een bestuursstijl waarin openheid de norm is. Organisaties zoals de [Open State Foundation](https://openstate.eu/nl/) bevorderen deze digitale transparantie  en houden de overheid scherp op haar publieke taak.
 
 **Open is het delen van technologie.** De overheid zet open source software en open algoritmes in. Dit garandeert dat digitale overheidssystemen voor iedereen controleerbaar zijn, niet afhankelijk te zijn van gesloten leveranciers, dit maakt ze veiliger en eerlijker.
+
+**Ons standpunt** Lees ook ons [standpunt over Open Overheid](/standpunten/open-overheid/)
