@@ -49,7 +49,9 @@ order: 1
     </p>
 
     <div class="d-flex justify-center flex-wrap gap-md">
-        <a href="{{ "publiek-domeindag/" | relative_url }}" class="main-item">Publiek Domeindag</a>
+    {% for group in site.working_groups %}
+        <a href="{{ group.url | relative_url }}" class="main-item">{{ group.title }}</a>
+    {% endfor %}
         <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
         <a href="{{ "/standpunten/" | relative_url }}" class="main-item">Onze standpunten</a>
     </div>
