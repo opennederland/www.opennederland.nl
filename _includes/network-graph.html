@@ -1,62 +1,38 @@
----
-layout: default
-title: Netwerkverkenner
-permalink: /network/
----
-
 <style>
-  /* --- 1. Layout: Breakout to 95% Width --- */
-  
-  /* We do NOT override .wrapper globally anymore. 
-     The text stays centered. The graph breaks out below.
-  */
-
+  /* --- 1. Layout: Contained Width (Fits Parent) --- */
   #graph-wrapper {
     position: relative;
-    height: 85vh; /* Slightly less than 90 to see edges */
-    
-    /* THE BREAKOUT TRICK */
-    width: 95vw; 
-    left: 50%;
-    right: 50%;
-    margin-left: -47.5vw; /* Half of 95vw */
-    margin-right: -47.5vw;
-    
-    margin-bottom: 0;
+    /* Height: Uses viewport height to ensure plenty of space, 
+       but you can change this to 600px if you prefer a fixed height. */
+    height: 75vh; 
+    width: 100%; 
+    margin: 0;
     overflow: hidden;
     
     /* Theme Integration */
     background-color: var(--bg-body); 
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    /* Rounded corners for the graph container itself */
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Rounded top only */
     box-shadow: var(--shadow-sm);
   }
 
   /* --- 2. Graph Elements Styling --- */
-
-  /* Background Rings - INCREASED VISIBILITY */
   .zone-ring {
     fill: none;
     stroke: var(--border-color);
-    stroke-width: 2px; /* Thicker */
-    opacity: 0.8;      /* Much more visible */
-    stroke-dasharray: 4, 6; /* Tighter dash */
+    stroke-width: 2px; 
+    opacity: 0.8;      
+    stroke-dasharray: 4, 6; 
     pointer-events: none;
     transition: stroke 0.3s ease;
   }
   
-  /* Ensure rings pop in Dark Mode */
   @media (prefers-color-scheme: dark) {
-    .zone-ring { 
-      stroke: #3a3a3a; /* Explicit dark grey if border-color is too subtle */
-      opacity: 0.6; 
-    }
+    .zone-ring { stroke: #3a3a3a; opacity: 0.6; }
   }
   body.dark-mode .zone-ring { stroke: #3a3a3a; opacity: 0.6; }
 
-  /* Connecting Lines */
   .graph-link {
     stroke: var(--text-muted); 
     stroke-width: 1.5px;
@@ -67,37 +43,27 @@ permalink: /network/
   @media (prefers-color-scheme: dark) { .graph-link { opacity: 0.3; } }
   body.dark-mode .graph-link { opacity: 0.3; }
 
-  /* Node Labels */
   .node-text {
     font-family: var(--font-family-base);
     pointer-events: none;
     fill: var(--text-body);
     font-weight: 700;
-    /* Halo for readability */
-    text-shadow: 
-      -2px -2px 0 var(--bg-body), 
-       2px -2px 0 var(--bg-body), 
-      -2px  2px 0 var(--bg-body), 
-       2px  2px 0 var(--bg-body);
+    text-shadow: -2px -2px 0 var(--bg-body), 2px -2px 0 var(--bg-body), -2px  2px 0 var(--bg-body), 2px  2px 0 var(--bg-body);
     transition: fill 0.3s ease;
   }
 
-  /* Node Circles */
-  .node-circle { 
-    cursor: pointer; 
-    transition: all 0.4s ease; 
-  }
+  .node-circle { cursor: pointer; transition: all 0.4s ease; }
   
-  /* Entity Colors (Borders) */
+  /* Borders for entities */
   .node-person   { stroke: #20c997; stroke-width: 2px; } 
   .node-platform { stroke: #9467bd; stroke-width: 2px; } 
   .node-org      { stroke: var(--chill-color); stroke-width: 2px; } 
   .node-init     { stroke: var(--main-color); stroke-width: 2px; }
 
-  /* --- 3. Bridge Highlighting (The "Connector" Glow) --- */
+  /* --- 3. Bridge Highlighting --- */
   .node-bridge circle {
-    stroke: #ffc107 !important; /* Gold */
-    stroke-width: 5px !important; /* Even thicker for emphasis */
+    stroke: #ffc107 !important; 
+    stroke-width: 5px !important; 
     filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.8)); 
   }
   .node-bridge text {
@@ -108,17 +74,10 @@ permalink: /network/
 
   /* --- 4. UI Controls --- */
   #graph-tooltip {
-    position: absolute; 
-    padding: 1rem; 
-    background: var(--bg-card); 
-    border: 1px solid var(--border-color); 
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md); 
-    pointer-events: none; 
-    opacity: 0;
-    max-width: 280px; 
-    z-index: 10; 
-    color: var(--text-body);
+    position: absolute; padding: 1rem; background: var(--bg-card); 
+    border: 1px solid var(--border-color); border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md); pointer-events: none; opacity: 0;
+    max-width: 280px; z-index: 10; color: var(--text-body);
   }
 
   #controls { position: absolute; top: 20px; right: 20px; z-index: 5; }
@@ -128,21 +87,19 @@ permalink: /network/
     color: var(--text-muted); font-weight: 600;
   }
   
-  /* Legend Styling - Matches the 95% width layout */
+  /* Legend Styling - Contained Width */
   .legend-wrapper {
-    width: 95vw;
-    position: relative;
-    left: 50%;
-    margin-left: -47.5vw;
+    width: 100%;
     background: var(--bg-light);
     border-bottom: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color); /* Added side borders to match graph */
+    border-right: 1px solid var(--border-color);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
   }
 
   .legend-bar {
     display: flex; justify-content: center; flex-wrap: wrap; 
     gap: 0.5rem; padding: 1rem; 
-    max-width: var(--wrapper-width); margin: 0 auto; /* Keep content centered */
   }
   
   .legend-tag {
@@ -153,46 +110,41 @@ permalink: /network/
     display: inline-flex; align-items: center; gap: 6px;
   }
   
-  /* Dot for legend */
   .legend-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
 </style>
 
-<div class="wrapper">
+<div id="graph-wrapper">
+  <div id="controls">
+    <button id="toggle-btn" class="meta-btn">Alles uitklappen</button>
+  </div>
   
-  <div class="text-center mb-md">
-    <p class="text-muted container-narrow">
-      Verken de open verklaringen, open platformen, open organisaties en professionals die werken aan open.
-    </p>
+  <div id="graph-container" style="width:100%; height:100%;">
+    <div id="loading">Laden...</div>
   </div>
+  <div id="graph-tooltip"></div>
+</div>
 
-  <div id="graph-wrapper">
-    <div id="controls">
-      <button id="toggle-btn" class="meta-btn">Alles uitklappen</button>
-    </div>
-    
-    <div id="graph-container" style="width:100%; height:100%;">
-      <div id="loading">Laden...</div>
-    </div>
-    <div id="graph-tooltip"></div>
+<div class="legend-wrapper">
+  <div class="legend-bar">
+    <span class="legend-tag" style="border-bottom-color: #7f8c8d; border-bottom-width:1px;">
+      <span class="legend-dot" style="border: 2px solid #7f8c8d; background: transparent;"></span> 
+      Thema
+    </span>
+    <span class="legend-tag" style="border-bottom-color: #ffc107; border-bottom-width:1px;">
+      <span class="legend-dot" style="background: transparent; border: 2px solid #ffc107; box-shadow: 0 0 4px #ffc107;"></span>
+      Verbinder
+    </span>
+    <span class="legend-tag" style="border-bottom-color: #20c997">Professional</span>
+    <span class="legend-tag" style="border-bottom-color: #9467bd">Platform</span>
+    <span class="legend-tag" style="border-bottom-color: var(--chill-color)">Organisatie</span>
+    <span class="legend-tag" style="border-bottom-color: var(--main-color)">Initiatief</span>
   </div>
+</div>
 
-  <div class="legend-wrapper">
-    <div class="legend-bar">
-      <span class="legend-tag" style="border-bottom-color: #7f8c8d; border-bottom-width:1px;">
-        <span class="legend-dot" style="border: 2px solid #7f8c8d; background: transparent;"></span> 
-        Thema
-      </span>
-      <span class="legend-tag" style="border-bottom-color: #ffc107; border-bottom-width:1px;">
-        <span class="legend-dot" style="background: transparent; border: 2px solid #ffc107; box-shadow: 0 0 4px #ffc107;"></span>
-        Verbinder
-      </span>
-      <span class="legend-tag" style="border-bottom-color: #20c997">Professional</span>
-      <span class="legend-tag" style="border-bottom-color: #9467bd">Platform</span>
-      <span class="legend-tag" style="border-bottom-color: var(--chill-color)">Organisatie</span>
-      <span class="legend-tag" style="border-bottom-color: var(--main-color)">Initiatief</span>
-    </div>
-  </div>
-
+<div class="text-center mt-sm">
+  <small class="text-muted">
+    Visualisatie met <a href="https://github.com/d3/d3/">D3.js</a>
+  </small>
 </div>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -202,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const container = document.getElementById('graph-wrapper');
   const graphDiv = document.getElementById('graph-container');
   
-  // 1. Setup Dimensions
+  // Setup Dimensions
   let width = graphDiv.clientWidth;
   let height = graphDiv.clientHeight;
   let center = { x: width / 2, y: height / 2 };
@@ -223,17 +175,17 @@ document.addEventListener("DOMContentLoaded", function() {
     return config.colors[cleanId] || config.colors["default"];
   };
 
-  // 2. Initialize SVG
+  // SVG Init
   const svg = d3.select("#graph-container").append("svg")
       .attr("width", "100%")
       .attr("height", "100%")
       .attr("viewBox", [0, 0, width, height])
       .style("cursor", "grab")
-      .style("touch-action", "none"); // Improves touch handling inside graph
+      .style("touch-action", "none"); 
 
   const g = svg.append("g");
   
-  // 3. Draw Background Rings
+  // Background Rings
   const ringData = [config.radii.person, config.radii.platform, config.radii.org, config.radii.tag];
   const zoneGroup = g.append("g").attr("class", "zones");
   
@@ -245,12 +197,14 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   drawRings();
 
-  // 4. Zoom Logic
+  // Zoom
   const zoom = d3.zoom().scaleExtent([0.1, 8]).on("zoom", ({transform}) => g.attr("transform", transform));
   svg.call(zoom).on("dblclick.zoom", null);
 
-  // 5. Load Data
-  d3.json('/network.json').then(function(data) {
+  // Load Data using Liquid Variable for flexibility
+  const jsonUrl = '{{ include.data | default: "/network.json" }}';
+
+  d3.json(jsonUrl).then(function(data) {
     d3.select("#loading").remove();
 
     const nodes = data.nodes.map(d => ({...d}));
@@ -266,7 +220,6 @@ document.addEventListener("DOMContentLoaded", function() {
       neighbors[l.target].push(l.source);
     });
 
-    // Initial Node Positions (Exploded Tags)
     nodes.forEach(n => {
       n.visible = (n.group === 'tag'); 
       n.collapsed = true; 
@@ -279,9 +232,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    // 6. Physics Simulation (Stable)
+    // Physics
     const simulation = d3.forceSimulation(nodes)
-        .velocityDecay(0.55) // Friction to prevent jitter
+        .velocityDecay(0.55) 
         .force("link", d3.forceLink(links).id(d => d.id).strength(0.02))
         .force("charge", d3.forceManyBody().strength(d => d.group === 'tag' ? -150 : -30)) 
         .force("collide", d3.forceCollide().radius(d => d.radius + 8).iterations(2))
@@ -295,15 +248,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let link = g.append("g").attr("class", "links").selectAll(".graph-link");
     let node = g.append("g").attr("class", "nodes").selectAll(".node");
 
-    // 7. Render Loop
     function restart() {
       const visibleNodes = nodes.filter(n => n.visible);
       const visibleLinks = links.filter(l => l.source.visible && l.target.visible);
 
-      // --- Bridge Logic ---
-      const openTagIds = new Set(
-          nodes.filter(n => n.group === 'tag' && !n.collapsed).map(n => n.id)
-      );
+      const openTagIds = new Set(nodes.filter(n => n.group === 'tag' && !n.collapsed).map(n => n.id));
       const bridgeNodes = new Set();
       visibleNodes.forEach(n => {
           if (n.group === 'tag') return;
@@ -312,13 +261,11 @@ document.addEventListener("DOMContentLoaded", function() {
           if (openConnections >= 2) bridgeNodes.add(n.id);
       });
 
-      // Update Links
       link = link.data(visibleLinks, d => d.source.id + "-" + d.target.id);
       link.exit().remove();
       const linkEnter = link.enter().append("line").attr("class", "graph-link");
       link = linkEnter.merge(link);
 
-      // Update Nodes
       node = node.data(visibleNodes, d => d.id);
       node.exit().transition().duration(300).attr("transform", d => `translate(${d.x},${d.y}) scale(0)`).remove();
 
@@ -339,7 +286,6 @@ document.addEventListener("DOMContentLoaded", function() {
       node = nodeEnter.merge(node);
       node.transition().duration(300).attr("transform", d => `translate(${d.x},${d.y}) scale(1)`);
 
-      // Update Classes & Styles
       node.attr("class", d => bridgeNodes.has(d.id) ? "node node-bridge" : "node");
 
       node.select("circle")
@@ -351,12 +297,10 @@ document.addEventListener("DOMContentLoaded", function() {
               return "node-circle node-init";
           })
           .transition().duration(300)
-          .attr("r", d => bridgeNodes.has(d.id) ? d.radius * 1.5 : d.radius) // Grow bridges
+          .attr("r", d => bridgeNodes.has(d.id) ? d.radius * 1.5 : d.radius) 
           .attr("fill", d => {
-              if (d.group === 'tag') {
-                return d.collapsed ? "var(--bg-body)" : getTagColor(d.id);
-              }
-              return null; // CSS handles others
+              if (d.group === 'tag') return d.collapsed ? "var(--bg-body)" : getTagColor(d.id);
+              return null; 
           })
           .attr("stroke", d => d.group === 'tag' ? getTagColor(d.id) : null)
           .attr("stroke-width", d => d.group === 'tag' ? 3 : null);
@@ -366,17 +310,14 @@ document.addEventListener("DOMContentLoaded", function() {
       simulation.alpha(1).restart();
     }
 
-    // 8. Interaction
     function handleNodeClick(event, d) {
       event.stopPropagation();
       if (d.group !== 'tag') {
         if (d.url) window.location.href = d.url;
         return;
       }
-
       const myNeighbors = neighbors[d.id] || [];
       const childrenToToggle = nodes.filter(n => myNeighbors.includes(n.id) && n.group !== 'tag');
-
       if (childrenToToggle.length > 0) {
         d.collapsed = !d.collapsed;
         childrenToToggle.forEach(child => {
@@ -401,7 +342,6 @@ document.addEventListener("DOMContentLoaded", function() {
       d3.select(this).select("circle").attr("stroke", "#333").style("stroke-width", "3px");
       link.style("stroke-opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.05)
           .style("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "var(--main-color)" : null);
-
       tooltip.transition().duration(200).style("opacity", 1);
       tooltip.html(`<b>${d.label}</b><br/><small>${d.group==='tag'?'Thema':d.type}</small>`)
              .style("left", (e.pageX+15)+"px").style("top", (e.pageY-28)+"px");
@@ -440,7 +380,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('toggle-btn').addEventListener('click', function() {
         let allExpanded = (this.innerText === "Alles inklappen");
         allExpanded = !allExpanded;
-        
         nodes.forEach(n => {
             if (n.group === 'tag') {
                 n.collapsed = !allExpanded;

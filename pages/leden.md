@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Leden
+title: Netwerk
 permalink: /leden/
-menu_title: Leden
+menu_title: Netwerk
 order: 5
 ---
 
@@ -40,6 +40,13 @@ order: 5
             Bekijk de lijst met professionals
         </a>
     </div>
+</div>
+
+<hr />
+
+<div class="mb-xl">
+    <h2>Verken het netwerk</h2>
+    {% include network-graph.html %}
 </div>
 
 <hr />
