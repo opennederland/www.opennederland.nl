@@ -1,4 +1,4 @@
-{% assign height = include.height | default: "75vh" %}
+{% assign height = include.height | default: "80vh" %}
 {% assign uid = include.uid | default: "default" %}
 {% assign focus_node = include.focus_node | default: "" %}
 {% assign focus_tags = page.tags | default: [] %}
@@ -18,42 +18,61 @@
     box-shadow: var(--shadow-sm);
   }
 
-  /* --- Element Styles --- */
-  .zone-ring { fill: none; stroke: var(--border-color); stroke-width: 2px; opacity: 0.8; stroke-dasharray: 4, 6; pointer-events: none; transition: stroke 0.3s ease; }
-  @media (prefers-color-scheme: dark) { .zone-ring { stroke: #3a3a3a; opacity: 0.6; } }
-  body.dark-mode .zone-ring { stroke: #3a3a3a; opacity: 0.6; }
+  /* --- Rings --- */
+  .zone-ring { 
+    fill: none; 
+    stroke: var(--border-color); 
+    stroke-width: 1.5px; 
+    opacity: 0.7; 
+    stroke-dasharray: 6, 4; 
+    pointer-events: none; 
+    transition: all 0.5s ease;
+  }
+  @media (prefers-color-scheme: dark) { .zone-ring { stroke: #444; opacity: 0.5; } }
+  body.dark-mode .zone-ring { stroke: #444; opacity: 0.5; }
 
-  .graph-link { stroke: var(--text-muted); stroke-width: 1.5px; opacity: 0.4; transition: all 0.3s ease; }
-  @media (prefers-color-scheme: dark) { .graph-link { opacity: 0.3; } }
-  body.dark-mode .graph-link { opacity: 0.3; }
+  /* Links */
+  .graph-link { stroke: var(--text-muted); stroke-width: 1.5px; opacity: 0.3; transition: all 0.3s ease; }
+  @media (prefers-color-scheme: dark) { .graph-link { opacity: 0.2; } }
+  body.dark-mode .graph-link { opacity: 0.2; }
 
-  .node-text { font-family: var(--font-family-base); pointer-events: none; fill: var(--text-body); font-weight: 700; text-shadow: -2px -2px 0 var(--bg-body), 2px -2px 0 var(--bg-body), -2px  2px 0 var(--bg-body), 2px  2px 0 var(--bg-body); transition: fill 0.3s ease; }
-  .node-circle { cursor: pointer; transition: all 0.4s ease; }
+  /* Nodes */
+  .node-text { 
+    font-family: var(--font-family-base); pointer-events: none; fill: var(--text-body); font-weight: 700; 
+    text-shadow: -2px -2px 0 var(--bg-body), 2px -2px 0 var(--bg-body), -2px 2px 0 var(--bg-body), 2px 2px 0 var(--bg-body); 
+    font-size: 10px; transition: font-size 0.3s ease;
+  }
+  .node-circle { cursor: pointer; transition: all 0.4s ease; stroke-width: 2px; }
+
+  /* --- Category Colors (Borders) --- */
+  /* 1. Professional (Center) */
+  .node-person { stroke: #20c997; } 
+  /* 2. Organisation */
+  .node-org { stroke: var(--chill-color); } 
+  /* 3. Platform */
+  .node-platform { stroke: #9467bd; } 
+  /* 4. Initiative */
+  .node-init { stroke: var(--main-color); }
+  /* 5. Topic (Outer) */
+  .node-tag { stroke-width: 3px; }
+
+  /* Highlights */
+  .node-bridge circle { stroke: #ffc107 !important; stroke-width: 4px !important; filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.6)); }
+  .node-bridge text { font-size: 11px !important; fill: var(--text-strong) !important; }
   
-  /* Type Colors */
-  .node-person { stroke: #20c997; stroke-width: 2px; } 
-  .node-platform { stroke: #9467bd; stroke-width: 2px; } 
-  .node-org { stroke: var(--chill-color); stroke-width: 2px; } 
-  .node-init { stroke: var(--main-color); stroke-width: 2px; }
-
-  /* Bridge Highlight */
-  .node-bridge circle { stroke: #ffc107 !important; stroke-width: 5px !important; filter: drop-shadow(0 0 6px rgba(255, 193, 7, 0.8)); }
-  .node-bridge text { font-weight: 900 !important; font-size: 11px !important; fill: var(--text-strong) !important; }
-
-  /* Current Page Node */
   .node-current circle { stroke-width: 6px !important; stroke: var(--text-body) !important; stroke-dasharray: 3, 2; }
-  .node-current text { font-size: 14px !important; font-weight: 900 !important; text-decoration: underline; }
+  .node-current text { font-size: 14px !important; text-decoration: underline; }
 
-  /* UI */
-  #graph-tooltip { position: absolute; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--border-radius); box-shadow: var(--shadow-md); pointer-events: none; opacity: 0; max-width: 280px; z-index: 10; color: var(--text-body); }
-  #controls { position: absolute; top: 20px; right: 20px; z-index: 5; }
+  /* UI Components */
+  #graph-tooltip { position: absolute; padding: 0.8rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: var(--shadow-md); pointer-events: none; opacity: 0; max-width: 280px; z-index: 10; color: var(--text-body); font-size: 0.9em; }
+  #controls { position: absolute; top: 15px; right: 15px; z-index: 5; }
   #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--text-muted); font-weight: 600; }
   
   /* Legend */
-  .legend-wrapper { width: 100%; background: var(--bg-light); border-bottom: 1px solid var(--border-color); border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); border-radius: 0 0 var(--border-radius) var(--border-radius); }
-  .legend-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; padding: 1rem; }
-  .legend-tag { font-size: 0.85em; padding: 4px 10px; border-radius: 4px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-body); font-weight: 600; border-bottom-width: 3px; display: inline-flex; align-items: center; gap: 6px; }
-  .legend-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .legend-wrapper { width: 100%; background: var(--bg-light); border: 1px solid var(--border-color); border-top: none; border-radius: 0 0 var(--border-radius) var(--border-radius); }
+  .legend-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; padding: 1rem; }
+  .legend-tag { font-size: 0.8em; padding: 4px 10px; border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-body); font-weight: 600; border-bottom: 3px solid transparent; display: inline-flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 </style>
 
 <div id="graph-wrapper-{{ uid }}">
@@ -68,12 +87,13 @@
 
 <div class="legend-wrapper">
   <div class="legend-bar">
-    <span class="legend-tag" style="border-bottom-color: #7f8c8d; border-bottom-width:1px;"><span class="legend-dot" style="border: 2px solid #7f8c8d; background: transparent;"></span> Thema</span>
-    <span class="legend-tag" style="border-bottom-color: #ffc107; border-bottom-width:1px;"><span class="legend-dot" style="background: transparent; border: 2px solid #ffc107; box-shadow: 0 0 4px #ffc107;"></span> Verbinder</span>
     <span class="legend-tag" style="border-bottom-color: #20c997">Professional</span>
-    <span class="legend-tag" style="border-bottom-color: #9467bd">Platform</span>
     <span class="legend-tag" style="border-bottom-color: var(--chill-color)">Organisatie</span>
+    <span class="legend-tag" style="border-bottom-color: #9467bd">Platform</span>
     <span class="legend-tag" style="border-bottom-color: var(--main-color)">Initiatief</span>
+    <span class="legend-tag" style="border-bottom-color: #7f8c8d">Thema</span>
+    <span style="border-left:1px solid var(--border-color); height: 20px; margin: 0 5px;"></span>
+    <span class="legend-tag" style="border-bottom-color: #ffc107"><span class="legend-dot" style="background:#ffc107; box-shadow: 0 0 4px #ffc107;"></span> Verbinder</span>
   </div>
 </div>
 
@@ -87,24 +107,38 @@ document.addEventListener("DOMContentLoaded", function() {
   const container = document.getElementById('graph-wrapper-{{ uid }}');
   const graphDiv = container.querySelector('#graph-container');
   
-  // Dimensions
   let width = graphDiv.clientWidth;
   let height = graphDiv.clientHeight;
   let center = { x: width / 2, y: height / 2 };
 
-  // --- VARIABLES PASSED FROM LIQUID ---
+  // --- CONFIGURATION ---
   const focusId = "{{ focus_node }}"; 
-  
-  // FIX: Force empty array if null
   const pageTags = {{ focus_tags | jsonify }} || []; 
-  
   const jsonUrl = '{{ include.data | default: "/network.json" }}';
 
+  // 1. Define the 5 Zones (Radii)
+  // Center: People (Cloud) -> Ring 1: Org -> Ring 2: Platform -> Ring 3: Init -> Outer: Topic
   const config = {
     colors: { "Makers": "#e83e8c", "Open Access": "#dc3545", "Open Source": "#ffc107", "Open Design": "#0dcaf0", "Open GLAM": "#198754", "Open Onderwijs": "#20c997", "Open Onderzoek": "#0d6efd", "Open Overheid": "#6610f2", "Open Zorg": "#fd7e14", "Open Data": "#82c91e", "default": "#7f8c8d" },
-    radii: { person: 80, platform: 180, org: 280, tag: 380 }
+    radii: { 
+      person: 70,    // Center Cloud
+      org: 200,      // Ring 1
+      platform: 280, // Ring 2
+      init: 350,     // Ring 3
+      tag: 450       // Ring 4 (Outer)
+    }
   };
   const getTagColor = (id) => config.colors[id.replace("tag-", "").replace("/tags/", "").replace("/", "")] || config.colors["default"];
+
+  // Helper to categorize nodes into the 5 rings
+  const getType = (d) => {
+    if (d.group === 'tag') return 'tag';
+    if (d.type === 'persoon') return 'person';
+    if (d.type === 'initiative' || d.type === 'licentie') return 'init';
+    if (['organisatie', 'Stichting', 'Vereniging'].includes(d.type)) return 'org';
+    // Platforms, Libraries, Studios, Communities go here
+    return 'platform'; 
+  };
 
   const svg = d3.select(graphDiv).append("svg")
       .attr("width", "100%").attr("height", "100%")
@@ -113,19 +147,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const g = svg.append("g");
   
-  // Draw Background Rings
-  const ringData = [config.radii.person, config.radii.platform, config.radii.org, config.radii.tag];
-  g.append("g").attr("class", "zones").selectAll("circle").data(ringData).join("circle")
+  // Draw Background Rings (Only for the outer 4 layers)
+  // We skip the center 'person' radius for the ring drawing to keep the cloud clean
+  const ringSizes = [config.radii.org, config.radii.platform, config.radii.init, config.radii.tag];
+  g.append("g").attr("class", "zones").selectAll("circle").data(ringSizes).join("circle")
     .attr("class", "zone-ring").attr("cx", center.x).attr("cy", center.y).attr("r", d => d);
 
-  const zoom = d3.zoom().scaleExtent([0.1, 8]).on("zoom", ({transform}) => g.attr("transform", transform));
+  const zoom = d3.zoom().scaleExtent([0.1, 5]).on("zoom", ({transform}) => g.attr("transform", transform));
   svg.call(zoom).on("dblclick.zoom", null);
 
-  // Load Data
   d3.json(jsonUrl).then(function(data) {
     container.querySelector("#loading").remove();
 
-    const nodes = data.nodes.map(d => ({...d}));
+    const nodes = data.nodes.map(d => ({...d, zoneType: getType(d)}));
     const nodeMap = new Map(nodes.map(d => [d.id, d]));
     const links = data.links.map(d => ({...d})).filter(l => nodeMap.has(l.source) && nodeMap.has(l.target));
 
@@ -137,37 +171,32 @@ document.addEventListener("DOMContentLoaded", function() {
       neighbors[l.target].push(l.source);
     });
 
-    // --- INITIALIZATION LOGIC ---
-    // 1. Reset all to hidden
+    // --- INITIAL VISIBILITY & POSITION ---
+    // Default: Hide all
     nodes.forEach(n => { n.visible = false; n.collapsed = true; });
 
     let activeMode = "DEFAULT"; 
     const activeTagIds = pageTags.map(t => "tag-" + t);
     
-    // Determine Mode
-    if (focusId && nodeMap.has(focusId)) {
-        activeMode = "FOCUS";
-    } else if (activeTagIds.length > 0 && activeTagIds.some(id => nodeMap.has(id))) {
-        activeMode = "TAGS";
-    }
+    if (focusId && nodeMap.has(focusId)) activeMode = "FOCUS";
+    else if (activeTagIds.length > 0 && activeTagIds.some(id => nodeMap.has(id))) activeMode = "TAGS";
 
     if (activeMode === "FOCUS") {
         const target = nodeMap.get(focusId);
-        target.visible = true;
-        target.isCurrent = true;
+        target.visible = true; target.isCurrent = true;
+        // Pin center
         target.x = center.x; target.y = center.y; target.fx = center.x; target.fy = center.y; 
-
-        // Open related tags
+        
+        // Show context
+        (neighbors[focusId]||[]).forEach(pid => { if(nodeMap.get(pid)) nodeMap.get(pid).visible = true; });
         nodes.forEach(n => {
             if (activeTagIds.includes(n.id)) {
                 n.visible = true; n.collapsed = false;
                 (neighbors[n.id]||[]).forEach(pid => { if(nodeMap.get(pid)) nodeMap.get(pid).visible = true; });
             }
         });
-        (neighbors[focusId]||[]).forEach(pid => { if(nodeMap.get(pid)) nodeMap.get(pid).visible = true; });
 
     } else if (activeMode === "TAGS") {
-        // Show pages related to tags
         nodes.forEach(n => {
             if (activeTagIds.includes(n.id)) {
                 n.visible = true; n.collapsed = false;
@@ -176,11 +205,10 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
     } else {
-        // DEFAULT
+        // DEFAULT: Show Ring of Tags
         nodes.forEach(n => {
-            if (n.group === 'tag') {
+            if (n.zoneType === 'tag') {
                 n.visible = true;
-                n.collapsed = true;
                 const angle = Math.random() * 2 * Math.PI; 
                 n.x = center.x + config.radii.tag * Math.cos(angle);
                 n.y = center.y + config.radii.tag * Math.sin(angle);
@@ -188,16 +216,15 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // --- PHYSICS SETUP ---
     const simulation = d3.forceSimulation(nodes)
-        .velocityDecay(0.55)
-        .force("link", d3.forceLink(links).id(d => d.id).strength(0.02))
-        .force("charge", d3.forceManyBody().strength(d => d.group === 'tag' ? -150 : -30))
-        .force("collide", d3.forceCollide().radius(d => d.radius + 8).iterations(2))
+        .velocityDecay(0.5) // Slightly less friction to let them sort into rings
+        .force("link", d3.forceLink(links).id(d => d.id).strength(0.01))
+        .force("charge", d3.forceManyBody().strength(d => d.zoneType === 'tag' ? -200 : -25))
+        .force("collide", d3.forceCollide().radius(d => d.radius + 5).iterations(2))
+        // THE 5-ZONE RADIAL FORCE
         .force("r", d3.forceRadial(d => {
-            if (d.group === 'tag') return config.radii.tag;
-            if (d.type === 'persoon') return config.radii.person;
-            if (['Platform', 'Bibliotheek', 'Studio', 'Community'].includes(d.type)) return config.radii.platform;
-            return config.radii.org;
+            return config.radii[d.zoneType] || 200;
         }, center.x, center.y).strength(0.8));
 
     let link = g.append("g").attr("class", "links").selectAll(".graph-link");
@@ -206,11 +233,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function restart() {
       const visibleNodes = nodes.filter(n => n.visible);
       const visibleLinks = links.filter(l => l.source.visible && l.target.visible);
-      const openTagIds = new Set(nodes.filter(n => n.group === 'tag' && !n.collapsed).map(n => n.id));
+      const openTagIds = new Set(nodes.filter(n => n.zoneType === 'tag' && !n.collapsed).map(n => n.id));
       
       const bridgeNodes = new Set();
       visibleNodes.forEach(n => {
-          if (n.group === 'tag') return;
+          if (n.zoneType === 'tag') return;
           const myNeighbors = neighbors[n.id] || [];
           if (activeMode !== "DEFAULT") {
              if(myNeighbors.filter(nid => nodeMap.get(nid).visible).length >= 2) bridgeNodes.add(n.id);
@@ -228,33 +255,33 @@ document.addEventListener("DOMContentLoaded", function() {
       const nodeEnter = node.enter().append("g").attr("class", "node")
           .call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
       nodeEnter.append("circle");
-      nodeEnter.append("text").attr("class", "node-text").attr("dy", d => d.radius + 12).attr("text-anchor", "middle").text(d => d.label)
-        .style("font-size", d => d.group === 'tag' ? "12px" : "10px");
+      nodeEnter.append("text").attr("class", "node-text").attr("dy", d => d.radius + 12).attr("text-anchor", "middle").text(d => d.label);
       
       nodeEnter.on("click", handleNodeClick).on("mouseover", showTooltip).on("mouseout", hideTooltip);
       node = nodeEnter.merge(node);
 
+      // Classes
       node.attr("class", d => {
-        if(d.isCurrent) return "node node-current";
-        if(bridgeNodes.has(d.id)) return "node node-bridge";
-        return "node";
+        let cls = "node";
+        if(d.isCurrent) cls += " node-current";
+        else if(bridgeNodes.has(d.id)) cls += " node-bridge";
+        return cls;
       });
+
+      // Styling based on ZoneType
       node.select("circle")
-          .attr("class", d => {
-              if (d.group === 'tag') return "node-circle node-tag";
-              if (d.type === 'persoon') return "node-circle node-person";
-              if (['Platform', 'Bibliotheek', 'Studio', 'Community'].includes(d.type)) return "node-circle node-platform";
-              if (d.type === 'organisatie') return "node-circle node-org";
-              return "node-circle node-init";
-          })
+          .attr("class", d => `node-circle node-${d.zoneType}`)
           .attr("r", d => {
               if (d.isCurrent) return d.radius * 2.5;
               if (bridgeNodes.has(d.id)) return d.radius * 1.5;
               return d.radius;
           })
-          .attr("fill", d => (d.group === 'tag' && !d.collapsed) ? getTagColor(d.id) : null)
-          .attr("stroke", d => d.group === 'tag' ? getTagColor(d.id) : null)
-          .attr("stroke-width", d => d.group === 'tag' ? 3 : null);
+          .attr("fill", d => (d.zoneType === 'tag') ? (d.collapsed ? "var(--bg-body)" : getTagColor(d.id)) : null)
+          .attr("stroke", d => (d.zoneType === 'tag') ? getTagColor(d.id) : null)
+          .attr("stroke-width", d => (d.zoneType === 'tag') ? 3 : null);
+          
+      // Font size adjustment
+      node.select("text").style("font-size", d => d.zoneType === 'tag' ? "12px" : "10px");
 
       simulation.nodes(visibleNodes);
       simulation.force("link").links(visibleLinks);
@@ -263,12 +290,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function handleNodeClick(event, d) {
       event.stopPropagation();
-      if (d.group !== 'tag') {
+      // Only tags are toggleable. Others are links.
+      if (d.zoneType !== 'tag') {
         if (d.url) window.location.href = d.url;
         return;
       }
+      
       const myNeighbors = neighbors[d.id] || [];
-      const childrenToToggle = nodes.filter(n => myNeighbors.includes(n.id) && n.group !== 'tag');
+      // Only expand children that are NOT tags
+      const childrenToToggle = nodes.filter(n => myNeighbors.includes(n.id) && n.zoneType !== 'tag');
       
       if (childrenToToggle.length > 0) {
         d.collapsed = !d.collapsed;
@@ -276,7 +306,8 @@ document.addEventListener("DOMContentLoaded", function() {
           if (!d.collapsed) { 
               child.visible = true; child.x = d.x; child.y = d.y; 
           } else if (activeMode === "DEFAULT") {
-             const activeTags = nodes.filter(n => n.group === 'tag' && !n.collapsed && n.id !== d.id);
+             // In default mode, check if child is shared by another open tag
+             const activeTags = nodes.filter(n => n.zoneType === 'tag' && !n.collapsed && n.id !== d.id);
              const isShared = activeTags.some(tag => (neighbors[tag.id]||[]).includes(child.id));
              if (!isShared) child.visible = false;
           }
@@ -291,13 +322,17 @@ document.addEventListener("DOMContentLoaded", function() {
       link.style("stroke-opacity", l => (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.05)
           .style("stroke", l => (l.source.id === d.id || l.target.id === d.id) ? "var(--main-color)" : null);
       tooltip.transition().duration(200).style("opacity", 1);
-      tooltip.html(`<b>${d.label}</b><br/><small>${d.group==='tag'?'Thema':d.type}</small>`)
+      
+      let typeLabel = d.type;
+      if(d.zoneType === 'tag') typeLabel = 'Thema';
+      
+      tooltip.html(`<b>${d.label}</b><br/><small style="text-transform:capitalize">${typeLabel}</small>`)
              .style("left", (e.pageX+15)+"px").style("top", (e.pageY-28)+"px");
     }
     function hideTooltip(e, d) { 
        tooltip.transition().duration(200).style("opacity",0); 
-       d3.select(this).select("circle").attr("stroke", n => n.group === 'tag' ? getTagColor(n.id) : null).style("stroke-width", null);
-       link.style("stroke-opacity", 0.4).style("stroke", null);
+       d3.select(this).select("circle").attr("stroke", n => n.zoneType === 'tag' ? getTagColor(n.id) : null).style("stroke-width", null);
+       link.style("stroke-opacity", 0.3).style("stroke", null);
     }
     
     function zoomToFit() {
@@ -307,9 +342,9 @@ document.addEventListener("DOMContentLoaded", function() {
            return;
         }
         const box = { minX: d3.min(visibleNodes, d => d.x), maxX: d3.max(visibleNodes, d => d.x), minY: d3.min(visibleNodes, d => d.y), maxY: d3.max(visibleNodes, d => d.y) };
-        const gw = box.maxX - box.minX + 60; const gh = box.maxY - box.minY + 60;
-        if(isNaN(gw) || gw <= 60 || isNaN(gh) || gh <= 60) return;
-        const scale = Math.min(2, 0.9 / Math.max(gw / width, gh / height));
+        const gw = box.maxX - box.minX + 80; const gh = box.maxY - box.minY + 80;
+        if(isNaN(gw) || gw <= 80 || isNaN(gh) || gh <= 80) return;
+        const scale = Math.min(1.5, 0.9 / Math.max(gw / width, gh / height));
         svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(width/2, height/2).scale(scale).translate(-(box.minX+box.maxX)/2, -(box.minY+box.maxY)/2));
     }
     
@@ -328,13 +363,13 @@ document.addEventListener("DOMContentLoaded", function() {
         let allExpanded = (this.innerText === "Alles inklappen");
         allExpanded = !allExpanded;
         nodes.forEach(n => {
-             if(n.group === 'tag') {
+             if(n.zoneType === 'tag') {
                  n.collapsed = !allExpanded;
                  if(allExpanded) {
                      (neighbors[n.id]||[]).forEach(x => { if(nodeMap.get(x)) nodeMap.get(x).visible = true; });
                  }
              } else {
-                 n.visible = allExpanded || n.group === 'tag' || (focusId && (n.id === focusId || (neighbors[focusId]||[]).includes(n.id)));
+                 n.visible = allExpanded || n.zoneType === 'tag' || (focusId && (n.id === focusId || (neighbors[focusId]||[]).includes(n.id)));
              }
         });
         this.innerText = allExpanded ? "Alles inklappen" : "Alles uitklappen";
@@ -358,9 +393,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         zoomToFit();
     }, 1500);
-  }).catch(err => {
-    console.error("Network Graph Error:", err);
-    container.querySelector("#loading").innerText = "Error loading data.";
-  });
+  }).catch(err => { console.error(err); });
 });
 </script>
