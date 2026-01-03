@@ -12,6 +12,11 @@ layout: default
     {{ content }}
 </div>
 
+    <div class="mb-lg">
+    <h3>Netwerkconnecties</h3>
+        {% include network-graph.html focus_node=page.url height="600px" %}
+    </div>
+
 {% if page.rss %}
     <hr class="large-gap">
     {% include rss-feed.html url=page.rss %}

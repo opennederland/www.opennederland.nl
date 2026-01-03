@@ -15,9 +15,6 @@ order: 5
         <p>Vereniging Open Nederland verbindt meer dan 150 professionals en organisaties. Onze leden zijn actief in diverse sectoren:</p>
     </div>
 
-    <div class="container-center">
-        {% include tags-list.html %}
-    </div>
 </div>
 
 <hr />
@@ -46,7 +43,7 @@ order: 5
 
 <div class="mb-xl">
     <h2>Verken het netwerk</h2>
-    {% include network-graph.html %}
+    {% include network-graph.html focus_node="" height="600px" %}
 </div>
 
 <hr />

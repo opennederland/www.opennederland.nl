@@ -34,6 +34,12 @@ Delen doe je samen. Het zijn de [Makers](/tags/makers/), de onderzoekers, de kun
 
 <hr />
 
+<div class="mb-xl">
+    <h2>Verken het netwerk</h2>
+    {% include network-graph.html focus_node="" height="600px" %}
+</div>
+
+
 ## Manifesten, verklaringen en aanbevelingen
 
 Wij bouwen voort op internationale principes, manifesten en verklaringen die de standaarden definiëren voor een open samenleving. Open Nederland onderschrijft en promoot onderstaande initiatieven:
