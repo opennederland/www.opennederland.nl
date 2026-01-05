@@ -17,7 +17,7 @@
   Doctype:        HTML5
 
 /* IN MEMORIAM */
-  We stand on the shoulders of giants who fought for a free and open world. Some of their tools are actively used in this website (RSS & MarkDown), or used to develop it (Vim). They live on throught their contributions to open.
+  We stand on the shoulders of giants who fought for a free and open world. Some of their tools are actively used in this website (RSS & MarkDown), or used to develop it (Vim). They live on through their contributions to open.
   
   X-Clacks-Overhead: GNU Aaron Swartz (1986 - 2013) – Open Access, Open Source, and Open Knowledge hacktivist, developer of RSS, contributor of MarkDown, co-founder of reddit, committed suicide after disproportional prosecution
   X-Clacks-Overhead: GNU Bassel Khartabil/Safadi (1981 - 2015) – Open Source, Open Content, Sharism and freedom of expression activist, executed in Syria 

@@ -8,18 +8,18 @@ permalink: /llms.txt
 
 ## Content
 
-{% for post in site.posts %}
+{%- for post in site.posts -%}
 - [{{ post.title }}](https://raw.githubusercontent.com/opennederland/www.opennederland.nl/main/{{ post.path }})
   - Date: {{ post.date | date: "%Y-%m-%d" }}
   {% if post.description %}- Description: {{ post.description }}{% endif %}
-{% endfor %}
+{%- endfor %}
 
 ## Pages
 
-{% for page in site.pages %}
-{% comment %} Filter out system files, feeds, error pages, and listing pages {% endcomment %}
-{% if page.title and page.url != "/llms.txt" and page.url != "/feed.xml" and page.url != "/404.html" and page.url != "/berichten/" and page.url != "/bedankt" and page.url != "/" %}
+{%- for page in site.pages -%}
+{%- comment %} Filter out system files, feeds, error pages, and listing pages {% endcomment -%}
+{%- if page.title and page.url != "/llms.txt" and page.url != "/feed.xml" and page.url != "/404.html" and page.url != "/berichten/" and page.url != "/bedankt" and page.url != "/" -%}
 - [{{ page.title }}](https://raw.githubusercontent.com/opennederland/www.opennederland.nl/main/{{ page.path }})
   {% if page.description %}- Description: {{ page.description }}{% endif %}
-{% endif %}
-{% endfor %}
+{%- endif -%}
+{%- endfor %}
