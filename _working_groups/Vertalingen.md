@@ -17,6 +17,17 @@ Open Nederland (en haar leden) is betrokken (geweest) bij cruiale vertalingen di
 * **[Open Heritage Statement](https://openheritagestatement.org/statement):** Richtlijnen voor open toegang tot cultureel erfgoed.
 * **[Europeana Public Domain Charter](https://pro.europeana.eu/post/the-europeana-public-domain-charter):** *(In behandeling)* de 2025 versie van de Europeana publieke domein verklaring.
 
+### Niet vertaalde manifesten en verklaringen
+
+Nederland heeft niet de traditie om manifesto's en verklaringen te vertalen. Hiermee doen we onze eigen taal en onze achterban te kort. De volgende manifesten en verklaringen zijn nog niet vertaald naar het Nederlands. Vertaal je mee?
+
+* [Open definition](https://opendefinition.org/)
+* [Public Domain Manifesto](https://publicdomainmanifesto.org/manifesto/)
+* [Barcelona Declaration on Open Research Information](https://barcelona-declaration.org/translations/)
+* [Budapest Open Access Initiative](https://www.budapestopenaccessinitiative.org/read/)
+* [The Berlin Declaration on Open Access to Knowledge in the Sciences and Humanities](https://openaccess.mpg.de/Berlin-Declaration)
+* [The Cape Town Open Education Declaration](https://www.capetowndeclaration.org/read/)
+* [Open Data Charter](https://www.opennederland.nl/initiatief/open-data-charter/)
 
 ### Vertaal mee
 [Neem contact op](/contact/) wanneer jij je taalkundige of inhoudelijke expertise wilt inzetten. De werkgroep zoekt altijd mensen die willen helpen bij het vertalen of reviewen van nieuwe documenten. Er zijn ook nog belangrijke documenten die geen vertaling hebben. Het is een concrete manier om bij te dragen aan de missie van Open Nederland.
