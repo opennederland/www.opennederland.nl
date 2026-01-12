@@ -1,6 +1,6 @@
 ---
 title: Stichting Differentia
-website: 
+website: https://differentia.nl/
 image: 
 tags: ["Open Source", "Open Onderzoek", "Juridisch"]
 type: organisatie
