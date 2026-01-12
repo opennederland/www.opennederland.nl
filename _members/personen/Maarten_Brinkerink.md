@@ -16,5 +16,6 @@ work:
   website: 
 rss:
 social:
+working_groups: ["Vertalingen"]
 ---
 
