@@ -9,8 +9,8 @@ layout: default
             <span class="page-meta-header">Standpunt Vereniging Open Nederland</span>
             
             <div class="text-muted font-bold mb-md">
-                <time datetime="{{ page.date | date_to_xmlschema }}">
-                    {{ page.date | date: "%-d %B %Y" }}
+                <time datetime="{{ page.publication | date_to_xmlschema }}">
+                    {{ page.publication | date: "%-d %B %Y" }}
                 </time>
                 {% if page.author %}
                     <span> &bull; {{ page.author }}</span>
