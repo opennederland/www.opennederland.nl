@@ -41,6 +41,18 @@
     /* Fonts */
     --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-family-heading: var(--font-family-base);
+
+    /* --- Categorie Kleuren --- */
+    --col-makers: #e83e8c;
+    --col-open-access: #dc3545;
+    --col-open-source: #ffc107;
+    --col-open-design: #0dcaf0;
+    --col-open-glam: #198754;
+    --col-open-onderwijs: #20c997;
+    --col-open-onderzoek: #0d6efd;
+    --col-open-overheid: #6610f2;
+    --col-open-zorg: #fd7e14;
+    --col-open-data: #82c91e;
 }
 
 /* =========================================
@@ -343,7 +355,7 @@ footer a:hover { opacity: 1; text-decoration: underline; }
     font-size: 0.85em; 
     font-weight: 600; 
     transition: var(--transition-base);
-    text-decoration: none; /* Zorgt dat links geen onderstreping krijgen */
+    text-decoration: none; 
 }
 
 /* Hover effect alleen toepassen als het daadwerkelijk een link is */
@@ -354,17 +366,36 @@ a.tag:hover {
     text-decoration: none;
 }
 
-/* Tag Kleuren (Blijven hetzelfde, werken nu op zowel a als span) */
-.tag.makers { border-bottom-color: #e83e8c; }
-.tag.open-access { border-bottom-color: #dc3545; }
-.tag.open-source { border-bottom-color: #ffc107; }
-.tag.open-design { border-bottom-color: #0dcaf0; }
-.tag.open-glam { border-bottom-color: #198754; }
-.tag.open-onderwijs { border-bottom-color: #20c997; }
-.tag.open-onderzoek { border-bottom-color: #0d6efd; }
-.tag.open-overheid { border-bottom-color: #6610f2; }
-.tag.open-zorg { border-bottom-color: #fd7e14; }
-.tag.open-data { border-bottom-color: #82c91e; }
+/* --- Tag Kleuren (via variabelen) --- */
+.tag.makers { border-bottom-color: var(--col-makers); }
+.tag.open-access { border-bottom-color: var(--col-open-access); }
+.tag.open-source { border-bottom-color: var(--col-open-source); }
+.tag.open-design { border-bottom-color: var(--col-open-design); }
+.tag.open-glam { border-bottom-color: var(--col-open-glam); }
+.tag.open-onderwijs { border-bottom-color: var(--col-open-onderwijs); }
+.tag.open-onderzoek { border-bottom-color: var(--col-open-onderzoek); }
+.tag.open-overheid { border-bottom-color: var(--col-open-overheid); }
+.tag.open-zorg { border-bottom-color: var(--col-open-zorg); }
+.tag.open-data { border-bottom-color: var(--col-open-data); }
+
+/* --- Card Border Kleuren op basis van main_tag --- */
+/* Dit zorgt dat de hele kaart de kleur van de categorie krijgt */
+.initiative-card.makers { border-color: var(--col-makers); }
+.initiative-card.open-access { border-color: var(--col-open-access); }
+.initiative-card.open-source { border-color: var(--col-open-source); }
+.initiative-card.open-design { border-color: var(--col-open-design); }
+.initiative-card.open-glam { border-color: var(--col-open-glam); }
+.initiative-card.open-onderwijs { border-color: var(--col-open-onderwijs); }
+.initiative-card.open-onderzoek { border-color: var(--col-open-onderzoek); }
+.initiative-card.open-overheid { border-color: var(--col-open-overheid); }
+.initiative-card.open-zorg { border-color: var(--col-open-zorg); }
+.initiative-card.open-data { border-color: var(--col-open-data); }
+
+/* Optioneel: Maak de gekleurde border iets dikker zodat het opvalt */
+.initiative-card[class*="open-"], 
+.initiative-card.makers {
+    border-width: 2px; 
+}
 
 /* --- Page Specifics --- */
 .quick-links {

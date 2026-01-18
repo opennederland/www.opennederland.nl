@@ -17,7 +17,7 @@
     
     {% unless platform.url == page.url %}
     
-    <div class="initiative-card">
+    <div class="initiative-card {{ platform.tags[0] | slugify }}">
         
         <h3>
             <a href="{{ platform.url | relative_url }}" class="platform {{ platform.slug }}">{{ platform.title }}</a>

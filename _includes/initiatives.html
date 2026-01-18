@@ -17,7 +17,7 @@
     
     {% unless initiative.url == page.url %}
     
-    <div class="initiative-card">
+    <div class="initiative-card {{ initiative.tags[0] | slugify }}">
         
         <h3>
             <a href="{{ initiative.url | relative_url }}" class="initiative {{ initiative.slug }}">{{ initiative.title }}</a>
