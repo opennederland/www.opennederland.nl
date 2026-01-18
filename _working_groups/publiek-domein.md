@@ -2,6 +2,7 @@
 title: Publiek Domein
 tags: ["Makers", "Open GLAM"]
 website: https://publiekdomeindag.nl/
+summary: "De werkgroep Publiek Domein werkt aan een vrij toegankelijk publiek domein. Als hoogtepunt organiseren zij jaarlijks de nationale Publiek Domeindag om het vrijkomen van cultureel erfgoed te vieren."
 ---
 
 Open Nederland ziet het publiek domein — de verzameling creaties die vrij van beperkingen gebruikt kunnen worden — als een fundament voor een vrije en creatieve samenleving.

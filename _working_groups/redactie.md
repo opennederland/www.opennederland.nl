@@ -2,6 +2,7 @@
 title: Redactie
 tags: ["Makers", "Open Access", "Open Data", "Open Design", "Open GLAM", "Open Onderwijs", "Open Onderzoek", "Open Overheid", "Open Source", "Open Zorg"]
 website: 
+summary: "De Werkgroep Redactie maakt de successen en inzichten van open zichtbaar via de website en nieuwsbrief. Samen cureren ze het belangrijkste nieuws uit het veld."
 ---
 
 **"Open is delen. Maar om te kunnen delen, moeten verhalen verteld worden."**

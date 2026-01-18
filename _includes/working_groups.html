@@ -1,0 +1,19 @@
+{% assign groups = "" | split: "" %}
+
+{% assign groups = site.working_groups %}
+
+<div class="initiatives-grid">
+    {% for group in groups %}
+    
+    <div class="initiative-card">
+        
+        <h3>
+            <a href="{{ group.url | relative_url }}" class="initiative {{ group.slug }}">{{ group.title }}</a>
+        </h3>
+
+        <div class="content">
+            {{ group.summary | markdownify | strip_html }}
+        </div>
+    </div>
+    {% endfor %}
+</div>

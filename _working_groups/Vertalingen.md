@@ -2,6 +2,7 @@
 title: Vertalingen
 tags: ["Makers", "Open Access", "Open Data", "Open Design", "Open GLAM", "Open Onderwijs", "Open Onderzoek", "Open Overheid", "Open Source", "Open Zorg"]
 website: 
+summary: "Om taalbarrières weg te nemen, vertaalt deze werkgroep essentiële internationale manifesten en standaarden naar het Nederlands. Hiermee maken we wereldwijde kennis en beleidsinstrumenten direct toegankelijk voor de lokale praktijk."
 ---
 
 Taal mag geen barrière zijn voor toegang tot kennis. Open Nederland zet zich in om [manifesten, verklaringen en aanbevelingen](/wat-is-open/) rondom 'Open' toegankelijk te maken voor het Nederlandse taalgebied.

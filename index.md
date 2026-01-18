@@ -42,6 +42,13 @@ order: 1
 <hr />
 
 <div class="mb-xl text-center">
+    <h2>Onze werkgroepen</h2>
+    {% include working_groups.html %}
+    <p class="content-body container-narrow mb-md">Meedoen of zelf een activiteit beginnen? Neem <a href="/contact/">contact</a> op</p>
+</div>
+
+<hr />
+<div class="mb-xl text-center">
     <h2>Onze activiteiten</h2>
     
     <p class="content-body container-narrow mb-md">
@@ -49,9 +56,6 @@ order: 1
     </p>
 
     <div class="d-flex justify-center flex-wrap gap-md">
-    {% for group in site.working_groups %}
-        <a href="{{ group.url | relative_url }}" class="main-item">{{ group.title }}</a>
-    {% endfor %}
         <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
         <a href="{{ "/standpunten/" | relative_url }}" class="main-item">Onze standpunten</a>
     </div>
