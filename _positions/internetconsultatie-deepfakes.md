@@ -1,6 +1,7 @@
 ---
 title:  Internetconsultatie Wet naburig recht deepfakes van personen 
 publication: 31-12-2025
+summary: "Bescherm personen via privacywetgeving, niet door onze gedeelde geschiedenis en cultuur te privatiseren."
 ---
 
 **In dit standpunt reageert Open Nederland op de [internetconsultatie 'Wet naburig recht deepfakes van personen'](https://www.internetconsultatie.nl/zeggenschapoverdeepfakes/b1).**

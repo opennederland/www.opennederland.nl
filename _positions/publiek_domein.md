@@ -1,6 +1,7 @@
 ---
 title: Het Publiek Domein als Fundament
 publication: 31-12-2025
+summary: "Bescherm het publiek domein als fundament van onze samenleving, zodat informatie, kennis en cultuur onbeperkt beschikbaar blijft als grondstof voor innovatie en creativiteit."
 ---
 
 **"Open is delen. Delen is Vermenigvuldigen. Delen doe je niet alleen."**

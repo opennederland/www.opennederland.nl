@@ -19,14 +19,15 @@
     
     <div class="initiative-card">
         
-        <h3>
-            <a href="{{ position.url | relative_url }}" class="initiative {{ position.slug }}">{{ position.title }}</a>
-        </h3>
-        <span class="year">{{ position.year }}</span>
-
         <div class="content">
-            {{ position.content | markdownify | strip_html | truncatewords: 30 }}
+            <blockquote class="quote-statement">
+                "{{ position.summary | markdownify | strip_html }}"
+             </blockquote>
         </div>
+        <div class="content">
+            Standpunt: <a href="{{ position.url | relative_url }}" class="initiative {{ position.slug }}">{{ position.title }}</a>
+        </div>
+        <span class="year">{{ position.publication | date: "%Y"}}</span>
 
         {% if position.tags %}
         <div style="margin-top: auto; margin-bottom: 1em; padding-top: 0.5em;">

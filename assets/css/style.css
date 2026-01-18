@@ -114,6 +114,16 @@ blockquote {
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
+.quote-statement {
+    font-size: 1.4em;
+    border: none !important;     
+    background: none !important; 
+    padding: 0 !important;      
+    color: var(--chill-color);   
+    font-weight: 600;            
+    font-style: italic;
+}
+
 /* Layout Wrapper */
 .wrapper {
     max-width: var(--wrapper-width);
@@ -378,23 +388,22 @@ a.tag:hover {
 .tag.open-zorg { border-bottom-color: var(--col-open-zorg); }
 .tag.open-data { border-bottom-color: var(--col-open-data); }
 
-/* --- Card Border Kleuren op basis van main_tag --- */
-/* Dit zorgt dat de hele kaart de kleur van de categorie krijgt */
-.initiative-card.makers { border-color: var(--col-makers); }
-.initiative-card.open-access { border-color: var(--col-open-access); }
-.initiative-card.open-source { border-color: var(--col-open-source); }
-.initiative-card.open-design { border-color: var(--col-open-design); }
-.initiative-card.open-glam { border-color: var(--col-open-glam); }
-.initiative-card.open-onderwijs { border-color: var(--col-open-onderwijs); }
-.initiative-card.open-onderzoek { border-color: var(--col-open-onderzoek); }
-.initiative-card.open-overheid { border-color: var(--col-open-overheid); }
-.initiative-card.open-zorg { border-color: var(--col-open-zorg); }
-.initiative-card.open-data { border-color: var(--col-open-data); }
+.initiative-card.makers { border-color: var(--col-makers) !important; }
+.initiative-card.open-access { border-color: var(--col-open-access) !important; }
+.initiative-card.open-source { border-color: var(--col-open-source) !important; }
+.initiative-card.open-design { border-color: var(--col-open-design) !important; }
+.initiative-card.open-glam { border-color: var(--col-open-glam) !important; }
+.initiative-card.open-onderwijs { border-color: var(--col-open-onderwijs) !important; }
+.initiative-card.open-onderzoek { border-color: var(--col-open-onderzoek) !important; }
+.initiative-card.open-overheid { border-color: var(--col-open-overheid) !important; }
+.initiative-card.open-zorg { border-color: var(--col-open-zorg) !important; }
+.initiative-card.open-data { border-color: var(--col-open-data) !important; }
 
-/* Optioneel: Maak de gekleurde border iets dikker zodat het opvalt */
+/* Zorg dat de border zichtbaar is (overschrijft de default grijze rand) */
 .initiative-card[class*="open-"], 
 .initiative-card.makers {
-    border-width: 2px; 
+    border-width: 2px !important; 
+    border-style: solid;
 }
 
 /* --- Page Specifics --- */

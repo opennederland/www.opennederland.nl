@@ -25,7 +25,7 @@ order: 1
 <hr />
 
 <div class="mb-xl container-narrow text-center">
-    <blockquote style="font-size: 1.4em; border: none; background: transparent; padding: 0;">
+    <blockquote class="quote-statement">
         "{{ site.open-definition }}"
     </blockquote>
 </div>
@@ -49,16 +49,8 @@ order: 1
 
 <hr />
 <div class="mb-xl text-center">
-    <h2>Onze activiteiten</h2>
-    
-    <p class="content-body container-narrow mb-md">
-        Ontmoet gelijkgestemden tijdens onze terugkerende evenementen. Lees onze standpunten.
-    </p>
-
-    <div class="d-flex justify-center flex-wrap gap-md">
-        <a href="{{ "/openup/" | relative_url }}" class="main-item">OpenUp! Meetups</a>
-        <a href="{{ "/standpunten/" | relative_url }}" class="main-item">Onze standpunten</a>
-    </div>
+    <h2>Onze standpunten</h2>
+    {% include standpunten.html %}
 </div>
 
 <hr />

@@ -1,6 +1,7 @@
 ---
 title: Open Overheid
 publication: 31-12-2025
+summary: "Publiek geld is publiek eigendom, een overheid die informatie, kennis, cultuur en technologie standaard open deelt werkt motor voor innovatie en democratisch vertrouwen."
 ---
 
 **"Open is delen. Delen is Vermenigvuldigen. Delen doe je niet alleen."**
