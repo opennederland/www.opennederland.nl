@@ -2,7 +2,7 @@
 title: Manifest Netwerk Digitaal Erfgoed
 website: https://nde.dev.so-plesk.nl/wie-we-zijn/#groei
 image: 
-tags: ["Open Data", "Open GLAM"]
+tags: ["Open GLAM", "Open Data"]
 type: 
 year: 2018
 wikidata: Q137640742
