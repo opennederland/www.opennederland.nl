@@ -1,6 +1,6 @@
 ---
 title: Open Source
-publication: 31-12-2025
+publication: 03-02-2026
 summary: "IN ONTWIKKELING: Versterk de positie van open source in Europa en schrijf mee aan de gezamenlijke reactie van de Nederlandse open communities op de nieuwe EU-strategie."
 ---
 
