@@ -19,8 +19,19 @@
     
     <script type="module">
         import RSSLoader from "{{ '/assets/js/modules/rssLoader.js' | relative_url }}";
+        
+        // 1. Helper functie voor de classnamen (slugs)
+        function slugify(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/\s+/g, '-')     
+                .replace(/[^\w\-]+/g, '') 
+                .replace(/\-\-+/g, '-');  
+        }
+
         var rssLoader = new RSSLoader();
-        // Gebruik de include parameter
         var items = await rssLoader.fetchRssFeed("https://proxy.apitecture.io/?url={{ include.url }}");
         
         if(items && items.length > 0) {
@@ -32,8 +43,23 @@
 
             items.forEach(item => {
                 var clone = template.content.cloneNode(true);
-                clone.querySelector("[data-el=title-link]").href = item.link;
-                clone.querySelector("[data-el=title-link]").textContent = item.title;
+                
+                // 2. Selecteer de kaart zelf om de class toe te voegen
+                var card = clone.querySelector(".rss-item-card");
+
+                // 3. Probeer tags te vinden (RSS noemt dit vaak 'categories')
+                // We kijken of 'categories' bestaat, zo niet proberen we 'tags'
+                var tags = item.categories || item.tags || [];
+
+                if (tags.length > 0) {
+                    var slug = slugify(tags[0]);
+                    card.classList.add(slug);
+                }
+
+                // Bestaande logica voor content vullen
+                var titleLink = clone.querySelector("[data-el=title-link]");
+                titleLink.href = item.link;
+                titleLink.textContent = item.title;
                 
                 var tempDiv = document.createElement("div");
                 tempDiv.innerHTML = item.description;
@@ -41,6 +67,7 @@
                 if(cleanText.length > 200) cleanText = cleanText.substring(0, 200) + "...";
                 
                 clone.querySelector("[data-el=description]").textContent = cleanText;
+                
                 container.appendChild(clone);
             });
         } else {

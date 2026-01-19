@@ -388,20 +388,23 @@ a.tag:hover {
 .tag.open-zorg { border-bottom-color: var(--col-open-zorg); }
 .tag.open-data { border-bottom-color: var(--col-open-data); }
 
-.initiative-card.makers { border-color: var(--col-makers) !important; }
-.initiative-card.open-access { border-color: var(--col-open-access) !important; }
-.initiative-card.open-source { border-color: var(--col-open-source) !important; }
-.initiative-card.open-design { border-color: var(--col-open-design) !important; }
-.initiative-card.open-glam { border-color: var(--col-open-glam) !important; }
-.initiative-card.open-onderwijs { border-color: var(--col-open-onderwijs) !important; }
-.initiative-card.open-onderzoek { border-color: var(--col-open-onderzoek) !important; }
-.initiative-card.open-overheid { border-color: var(--col-open-overheid) !important; }
-.initiative-card.open-zorg { border-color: var(--col-open-zorg) !important; }
-.initiative-card.open-data { border-color: var(--col-open-data) !important; }
+/* 3. De border van de kaart zelf (op basis van de eerste tag) */
+/* Geldt nu voor zowel initiatieven als nieuwsberichten */
 
-/* Zorg dat de border zichtbaar is (overschrijft de default grijze rand) */
-.initiative-card[class*="open-"], 
-.initiative-card.makers {
+.initiative-card.makers,          .news-card.makers          { border-color: var(--col-makers) !important; }
+.initiative-card.open-access,     .news-card.open-access     { border-color: var(--col-open-access) !important; }
+.initiative-card.open-source,     .news-card.open-source     { border-color: var(--col-open-source) !important; }
+.initiative-card.open-design,     .news-card.open-design     { border-color: var(--col-open-design) !important; }
+.initiative-card.open-glam,       .news-card.open-glam       { border-color: var(--col-open-glam) !important; }
+.initiative-card.open-onderwijs,  .news-card.open-onderwijs  { border-color: var(--col-open-onderwijs) !important; }
+.initiative-card.open-onderzoek,  .news-card.open-onderzoek  { border-color: var(--col-open-onderzoek) !important; }
+.initiative-card.open-overheid,   .news-card.open-overheid   { border-color: var(--col-open-overheid) !important; }
+.initiative-card.open-zorg,       .news-card.open-zorg       { border-color: var(--col-open-zorg) !important; }
+.initiative-card.open-data,       .news-card.open-data       { border-color: var(--col-open-data) !important; }
+
+/* Algemene styling voor de gekleurde rand */
+.initiative-card[class*="open-"], .initiative-card.makers,
+.news-card[class*="open-"],       .news-card.makers {
     border-width: 2px !important; 
     border-style: solid;
 }
