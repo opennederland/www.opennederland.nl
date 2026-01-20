@@ -1,17 +1,17 @@
 ---
-title: Tim Vos-Goedhart
+title: Brechje Huisma
 website: 
 image: 
-tags: ["Open Overheid", "Open Source"]
+tags: ["Open Source", "Open Overheid", "Open Data"]
 organisaties:
 type: persoon
-lidnummer: 119
+lidnummer: 155
 affiliations:
   - "Open Nederland"
 label:  # Functietitel
 work:
   company: Open State Foundation
-  position: senior projectmanager
+  position: project officer
   website: https://openstate.eu
 rss:
 social:

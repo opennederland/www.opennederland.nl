@@ -16,6 +16,6 @@ work:
   website: 
 rss:
 social:
-working_groups: ["Publiek Domein"]
+working_groups: ["Publiek Domein", "Redactie"]
 ---
 
