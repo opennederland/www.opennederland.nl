@@ -107,5 +107,24 @@
         </div>
     </div>
     {% endif %}
+    {% if page.working_groups %}
+    <div class="person-card">
+        <h3 class="mb-sm">Actief in de werkgroep(en)</h3>
+        <div class="d-flex flex-wrap gap-sm">
+            {% for group in page.working_groups %}
+                {% assign group_page = site.working_groups | where: "title", group | first %}
+                {% if group_page %}
+                    <a href="{{ group_page.url | relative_url }}" class="meta-btn">
+                        🏢 {{ group_page.title }} 
+                    </a>
+                {% else %}
+                    <span class="meta-btn text-muted" style="background: var(--bg-light);">
+                        🏢 {{ org }}
+                    </span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
 
 </div>
