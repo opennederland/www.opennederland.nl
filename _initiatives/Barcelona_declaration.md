@@ -2,7 +2,7 @@
 title: Barcelona Declaration on Open Research Information
 website: https://barcelona-declaration.org/
 image: 
-tags: ["Open Access", "Open Onderzoek"]
+tags: ["Open Access", "Open Onderzoek", "Open Data"]
 type: 
 year: 2024
 wikidata: Q125499330
