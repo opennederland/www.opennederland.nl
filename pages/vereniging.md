@@ -12,7 +12,7 @@ Vereniging Open Nederland is het Nederlandse netwerk voor iedereen die werkt aan
 
 Ons doel is helder: het bevorderen van toegang. Wij streven naar een samenleving waarin informatie, kennis en cultuur voor iedereen beschikbaar is. Materiaal dat vrij gebruikt, bewerkt en gedeeld mag worden, zodat we samen sneller kunnen innoveren en leren.
 
-> *De formele doelstellingen zijn vastgelegd in onze [statuten]((/assets/docs/concept akte van vaststelling statuten vereniging Open Nederland.pdf)) (PDF).*
+> *De formele doelstellingen zijn vastgelegd in onze [statuten](/assets/docs/concept akte van vaststelling statuten vereniging Open Nederland.pdf) (PDF).*
 
 ## Organisatie
 
