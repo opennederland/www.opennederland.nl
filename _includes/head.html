@@ -1,0 +1,25 @@
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    {% assign random = site.time | date: "%s%N" %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?forceRefresh=" | append: random | relative_url }}">
+
+    <link rel="icon" href="{{ site.icon | absolute_url }}">
+    <link rel="image_src" href="{{ site.icon | absolute_url }}">
+    <link rel="shortcut icon" type="image/png" href="{{ site.icon | absolute_url }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.title }}: {{ page.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:image" content="{{ site.social-image | absolute_url }}">
+    <meta property="og:url" content="{{ site.url | absolute_url }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ site.title }}: {{ page.title }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:image" content="{{ site.social-image | absolute_url }}">
+    <meta name="twitter:url" content="{{ site.url | absolute_url }}">
+    <meta name="twitter:site" content="{{ site.twitter }}">
+    <meta name="twitter:creator" content="{{ site.twitter }}">
+
+    {% include json-ld.html %}

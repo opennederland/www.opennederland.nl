@@ -1,19 +1,27 @@
 <div class="wrapper d-flex items-center" style="justify-content: space-between;">
     
     <div class="nav-links d-flex items-center gap-md">
-        {% assign pages = site.pages | where_exp: 'page', 'page.order' | sort: 'order' %}
-        {% for page in pages %}
-            <a href="{{ page.url | relative_url }}" class="{% if page.url == url %}active{% endif %}">
-                {{ page.menu_title | default: page.title }}
+        {% assign current_url = page.url %}
+        {% assign nav_pages = site.pages | where_exp: 'item', 'item.order' | sort: 'order' %}
+        
+        {% for item in nav_pages %}
+            {% assign is_active = false %}
+            {% if item.url == current_url %}
+                {% assign is_active = true %}
+            {% endif %}
+
+            <a href="{{ item.url | relative_url }}" 
+               class="{% if is_active %}active{% endif %}"
+               {% if is_active %}aria-current="page"{% endif %}>
+                {{ item.menu_title | default: item.title }}
             </a>
         {% endfor %}
+        
         <a href="{{ "/lid-worden/" | relative_url }}" class="font-bold">Lid worden?</a>
         <a href="/cc/" target="_blank" class="cc-logo" title="Creative Commons Nederland"></a>
     </div>
 
     <div class="d-flex items-center gap-md">
-
-
         <button id="theme-toggle" class="theme-toggle-btn" style="border:none; background:transparent; font-size:1.2rem; cursor:pointer; padding: 0;">
             🌗
         </button>
