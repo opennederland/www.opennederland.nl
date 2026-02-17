@@ -1,9 +1,9 @@
 ---
 ---
-@use "variables";
-@use "base";
-@use "layout";
-@use "components";
-@use "network-graph"; 
-@use "dark-mode";
-@use "utilities";
+@import "variables";
+@import "base";
+@import "layout";
+@import "components";
+@import "network-graph"; 
+@import "dark-mode";
+@import "utilities";
