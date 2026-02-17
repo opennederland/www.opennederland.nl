@@ -1,0 +1,78 @@
+/* =========================================
+   RESET & BASE STYLES
+   ========================================= */
+* { box-sizing: border-box; }
+
+body {
+    font-family: var(--font-family-base); 
+    font-size: 16px;
+    color: var(--text-body);
+    line-height: 1.7;                
+    margin: 0;
+    background-color: var(--bg-body); 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-family-heading);
+    color: var(--chill-color);
+    margin-top: 0;
+    line-height: 1.2;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; text-align: center; margin-bottom: 0.5em; margin-top: 0.5em; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin: 2em 0 1em; }
+h3 { font-size: 1.5rem; color: var(--main-color); font-weight: 600; margin: 1.5em 0 0.5em; }
+
+a {
+    color: var(--chill-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+a:hover {
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
+img, iframe {
+    max-width: 100%;
+    height: auto;
+    margin: 1em auto;
+    display: block;
+    transition: filter 0.3s ease; 
+}
+
+blockquote {
+    background: var(--bg-light);
+    border-left: 4px solid var(--main-color);
+    margin: 2em 0;
+    padding: 1.5em 2em;
+    font-style: italic;
+    color: var(--text-body);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.quote-statement {
+    font-size: 1.4em;
+    border: none !important;     
+    background: none !important; 
+    padding: 0 !important;      
+    color: var(--chill-color);   
+    font-weight: 600;            
+    font-style: italic;
+}
+
+strong, b {
+    font-weight: 700;
+    color: var(--text-strong);
+}
+
+:focus-visible {
+    outline: 2px solid var(--main-color);
+    outline-offset: 2px;
+}

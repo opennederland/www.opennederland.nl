@@ -1,0 +1,110 @@
+/* =========================================
+   DARK MODE SUPPORT
+   ========================================= */
+
+/* --- Via Toggle Button (Class) --- */
+body.dark-mode {
+    --bg-body: #0a0a0a;          
+    --bg-white: #121212;         
+    --bg-light: #1e1e1e;         
+    --bg-card: #1e1e1e;          
+    
+    --text-body: #e0e0e0;
+    --text-strong: #ffffff;      
+    --text-muted: #a0a0a0;
+    
+    --chill-color: #dbe4eb;      
+    --border-color: #2d2d2d;
+    
+    --nav-bg: #1a252f;           
+    --nav-text: rgba(255,255,255,0.9);
+    
+    --input-bg: #2b2b2b;
+    --input-border: #2d2d2d;
+    
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.8);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.6);
+    --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.6);
+
+    color-scheme: dark;
+}
+
+body.dark-mode img, 
+body.dark-mode iframe {
+    filter: brightness(0.85) contrast(1.1);
+}
+body.dark-mode .hero-logo-box, 
+body.dark-mode .org-logo-box {
+    background-color: #fff;
+    filter: none;
+}
+
+body.dark-mode .main-item.secondary {
+    background-color: transparent;       
+    border-color: var(--chill-color);    
+    color: var(--chill-color) !important; 
+}
+body.dark-mode .main-item.secondary:hover {
+    background-color: var(--chill-color); 
+    color: var(--bg-body) !important;     
+}
+
+body.dark-mode .news-card,
+body.dark-mode .initiative-card,
+body.dark-mode .org-card {
+    border: 1px solid #333; 
+    background-color: var(--bg-card);
+}
+
+body.dark-mode :focus-visible {
+    outline-color: #fff;
+}
+
+/* --- Via System Preference --- */
+@media (prefers-color-scheme: dark) {
+    body:not(.light-mode) {
+        --bg-body: #0a0a0a;
+        --bg-white: #121212;
+        --bg-light: #1e1e1e;
+        --bg-card: #1e1e1e;
+        
+        --text-body: #e0e0e0;
+        --text-strong: #ffffff; 
+        --text-muted: #a0a0a0;
+        
+        --chill-color: #dbe4eb;
+        --border-color: #2d2d2d;
+        
+        --nav-bg: #1a252f;
+        --nav-text: rgba(255,255,255,0.9);
+        
+        --input-bg: #2b2b2b;
+        --input-border: #2d2d2d;
+        
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.8);
+        --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.6);
+        --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.6);
+
+        color-scheme: dark;
+    }
+
+    body:not(.light-mode) img, 
+    body:not(.light-mode) iframe {
+        filter: brightness(0.85) contrast(1.1);
+    }
+    body:not(.light-mode) .hero-logo-box, 
+    body:not(.light-mode) .org-logo-box {
+        background-color: #fff;
+        filter: none;
+    }
+
+    body:not(.light-mode) .main-item.secondary {
+        background-color: transparent;
+        border-color: var(--chill-color);
+        color: var(--chill-color) !important;
+    }
+    body:not(.light-mode) .main-item.secondary:hover {
+        background-color: var(--chill-color);
+        color: var(--bg-body) !important;
+    }
+}

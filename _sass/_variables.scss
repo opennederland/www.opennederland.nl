@@ -1,0 +1,56 @@
+/* =========================================
+   VARIABLES & CONFIGURATION
+   ========================================= */
+:root {
+    /* --- Basiskleuren (Light Mode Defaults) --- */
+    --main-color: #dc3545; /* Bootstrap Danger Red */
+    --main-color-light: #ff9f8a;
+    
+    /* Tekst & Achtergrond */
+    --bg-body: #ffffff;            
+    --bg-light: #f8f9fa;            /* Secties / lichte blokken */
+    --bg-card: #ffffff;             /* Cards */
+    
+    --text-body: #4a4a4a;          
+    --text-strong: var(--chill-color); /* Dikgedrukt is donkerblauw in light mode */ 
+    --text-muted: #7f8c8d;             
+    --chill-color: #2c3e50;         /* Wordt gebruikt voor headers en bold */
+    
+    /* Specifieke UI Elementen Variabelen */
+    --nav-bg: #2c3e50;              /* Navigatie & Footer achtergrond */
+    --nav-text: rgba(255,255,255,0.85);
+    --input-bg: #ffffff;            /* Input velden */
+    --input-border: #ced4da;
+
+    /* Borders & Lines */
+    --border-color: #e9ecef;
+    --border-radius: 8px;          
+    --border-radius-pill: 8px;    
+
+    /* Spacing & Layout */
+    --wrapper-width: 1100px;        
+    --gap-grid: 2rem;               
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    
+    --transition-base: all 0.2s ease-in-out;
+    
+    /* Fonts */
+    --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-heading: var(--font-family-base);
+
+    /* --- Categorie Kleuren --- */
+    --col-makers: #e83e8c;
+    --col-open-access: #dc3545;
+    --col-open-source: #ffc107;
+    --col-open-design: #0dcaf0;
+    --col-open-glam: #198754;
+    --col-open-onderwijs: #20c997;
+    --col-open-onderzoek: #0d6efd;
+    --col-open-overheid: #6610f2;
+    --col-open-zorg: #fd7e14;
+    --col-open-data: #82c91e;
+}
