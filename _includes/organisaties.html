@@ -18,7 +18,7 @@
       
       <div class="org-logo-box">
         {% if org.image %}
-          <img src="{{ org.image | relative_url }}" alt="{{ org.title }} logo">
+          <img src="{{ org.image | relative_url }}" alt="{{ org.title }} logo" loading="lazy">
         {% else %}
           <span style="font-size: 2.5em;">🏢</span>
         {% endif %}
