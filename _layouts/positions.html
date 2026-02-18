@@ -10,7 +10,7 @@ layout: default
             
             <div class="text-muted font-bold mb-md">
                 <time datetime="{{ page.publication | date_to_xmlschema }}">
-                    {{ page.publication | date: "%-d %B %Y" }}
+                    {% include date-nl.html date=page.publication %}
                 </time>
                 {% if page.author %}
                     <span> &bull; {{ page.author }}</span>
