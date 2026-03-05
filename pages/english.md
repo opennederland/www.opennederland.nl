@@ -3,7 +3,7 @@ layout: default
 title: English Summary
 permalink: /english/
 menu_title: English
-order: 6
+order: 7
 ---
 
 <div class="content-body">

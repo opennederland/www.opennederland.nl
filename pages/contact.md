@@ -2,7 +2,7 @@
 layout: default
 permalink: /contact/
 title: Contact
-order: 7
+order: 8
 ---
 
 <div style="text-align: center; max-width: 700px; margin: 0 auto;">
