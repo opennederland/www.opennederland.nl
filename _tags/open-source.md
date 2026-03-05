@@ -3,6 +3,13 @@ title: Open Source
 tags: ["Open Source"]
 wikidata: Q39162
 statement: "Open Source maakt technologie meer houdbaar, duurzaam, veiliger."
+events:
+  - name: "I Love Free Software Day"
+    date: "14 februari"
+    url: "https://fsfe.org/campaigns/ilovefs/"
+  - name: "Software Freedom Day"
+    date: "Derde zaterdag van september"
+    url: "https://softwarefreedomday.org/"
 ---
 **Open is het delen van informatie.** Open source maakt de broncode van software en producten zichtbaar en herbruikbaar voor iedereen. In plaats van een gesloten "black box", is de werking transparant. Dit stelt gebruikers in staat om precies te zien wat een programma doet.
 

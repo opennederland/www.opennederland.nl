@@ -3,6 +3,16 @@ title: Open GLAM
 tags: ["Open GLAM"]
 wikidata: Q17073125
 statement: "Open GLAM brengt ons gezamenlijk geheugen tot leven door cultureel erfgoed vrij toegankelijk en herbruikbaar te maken."
+events:
+  - name: "Publiek domein dag"
+    date: "Tweede vrijdag van januari"
+    url: "https://publiekdomeindag.nl/"
+  - name: "Europese publiek domein dag"
+    date: "Januari"
+    url: "https://pdday.org/"
+  - name: "Wiki Loves Monuments"
+    date: "september"
+    url: "https://www.wikilovesmonuments.nl/"
 ---
 **Open is het delen van informatie.** Erfgoedinstellingen delen hun beschrijvende data (metadata) zo vrij mogelijk, vaak via een Creative Commons Zero (CC0) verklaring. Hierdoor worden collecties vindbaar en verbonden. Nederlandse datasets zijn veelal te vinden in het open source [NDE datasetregister](https://datasetregister.netwerkdigitaalerfgoed.nl/?lang=nl), wat aansluit bij internationale afspraken zoals die van [Europeana](https://pro.europeana.eu/page/the-data-exchange-agreement).
 

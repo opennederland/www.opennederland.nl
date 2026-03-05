@@ -3,6 +3,10 @@ title: Open Access
 tags: ["Open Access"]
 wikidata: Q232932
 statement: "Open Access maakt wetenschap en onderzoek direct beschikbaar voor de hele maatschappij."
+events:
+  - name: "Open Access Week"
+    date: "Laatste volle week van oktober"
+    url: "https://www.openaccessweek.org/"
 ---
 **Open is het delen van informatie.** Open access zorgt ervoor dat wetenschappelijke publicaties en onderzoeksdata vrij toegankelijk zijn, voor iedereen vindbaar en controleerbaar.
 

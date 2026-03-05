@@ -3,6 +3,13 @@ title: Open Onderzoek
 tags: ["Open Onderzoek"]
 wikidata: Q309823
 statement: "Open Onderzoek maakt wetenschap transparant, controleerbaar, reproduceerbaar en betrouwbaarder."
+events:
+  - name: "Nationaal Open Science Festival"
+    date: "Nazomer of vroege herfst"
+    url: "https://opensciencefestival.nl/"
+  - name: "Open Science Week"
+    date: "Eind oktober (valt vaak samen met Open Access Week)"
+    url: "https://www.openaccessweek.org/"
 ---
 **Open is het delen van informatie.** Het gaat bij Open Onderzoek om meer dan alleen de publicatie; het draait om het delen van het hele onderzoeksproces. Van onderzoeksdata tot labnotities en methodieken. Hierdoor wordt onderzoek controleerbaar, reproduceerbaar en betrouwbaarder.
 

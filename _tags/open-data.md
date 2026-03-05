@@ -3,6 +3,10 @@ title: Open Data
 tags: ["Open Data"]
 wikidata: Q309901
 statement: "Open Data ontsluit waardevolle gegevens van de overheid, GLAM en organisaties voor maatschappelijke innovatie en transparantie."
+events:
+  - name: "Open Data Day"
+    date: "Begin maart"
+    url: "https://opendataday.org/"
 ---
 **Open is het delen van informatie.** Open data maakt publieke datasets vrij beschikbaar zonder auteursrechtelijke beperkingen. Van begrotingen tot geografische kaarten; deze informatie is voor iedereen vrij te hergebruiken.
 

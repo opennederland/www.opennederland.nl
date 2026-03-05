@@ -27,6 +27,10 @@ layout: default
 <div class="quick-links">
     <span class="quick-links-title">Ga direct naar:</span>
     
+    {% if page.events %}
+        <a href="#evenementen" class="quick-link-btn">Evenementen ({{ page.events.size }})</a>
+    {% endif %}
+
     {% if matching_initiatives.size > 0 %}
         <a href="#manifesten" class="quick-link-btn">Manifesten ({{ matching_initiatives.size }})</a>
     {% endif %}
@@ -57,6 +61,14 @@ layout: default
 
 <hr />
 
+{% if page.events %}
+    <div class="mb-xl">
+        <h2 id="evenementen">Vieringen & Evenementen</h2>
+        <p>Belangrijke dagen en weken rondom {{ page.title | downcase }}:</p>
+        {% include events.html %}
+    </div>
+{% endif %}
+
 {% if matching_initiatives.size > 0 %}
     <div class="mb-xl">
         <h2 id="manifesten">Manifesten & Verklaringen</h2>
@@ -64,7 +76,6 @@ layout: default
         {% include initiatives.html tag=page.title %}
     </div>
 {% endif %}
-
 
 {% if matching_platforms.size > 0 %}
     <div class="mb-xl">
@@ -74,7 +85,6 @@ layout: default
     </div>
 {% endif %}
 
-
 {% if matching_orgs.size > 0 %}
     <div class="mb-xl">
         <h2 id="organisaties">Organisaties</h2>
@@ -83,7 +93,6 @@ layout: default
     </div>
 {% endif %}
 
-
 {% if matching_people.size > 0 %}
     <div class="mb-xl">
         <h2 id="experts">Experts & Leden</h2>
@@ -91,7 +100,6 @@ layout: default
         {% include personen.html tag=page.title %}
     </div>
 {% endif %}
-
 
 {% if matching_posts.size > 0 %}
     <div class="highlight-section">
@@ -107,12 +115,10 @@ layout: default
     </div>
 {% endif %}
 
-
 <div class="mb-xl">
     <h2 id="netwerk-nieuws">Nieuws uit het netwerk</h2>
     {% include nieuwsnetwerk.html tags=page.title %}
 </div>
-
 
 <hr class="large-gap">
 
