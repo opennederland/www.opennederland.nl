@@ -13,6 +13,12 @@ events:
   - name: "Wiki Loves Monuments"
     date: "september"
     url: "https://www.wikilovesmonuments.nl/"
+  - name: "Wikimania"
+    date: "Meestal in augustus (Wisselende locatie)"
+    url: "https://wikimania.wikimedia.org/"
+  - name: "Creative Commons Global Summit"
+    date: "Wisselend (elke 1 á 2 jaar)"
+    url: "https://summit.creativecommons.org/"
 ---
 **Open is het delen van informatie.** Erfgoedinstellingen delen hun beschrijvende data (metadata) zo vrij mogelijk, vaak via een Creative Commons Zero (CC0) verklaring. Hierdoor worden collecties vindbaar en verbonden. Nederlandse datasets zijn veelal te vinden in het open source [NDE datasetregister](https://datasetregister.netwerkdigitaalerfgoed.nl/?lang=nl), wat aansluit bij internationale afspraken zoals die van [Europeana](https://pro.europeana.eu/page/the-data-exchange-agreement).
 

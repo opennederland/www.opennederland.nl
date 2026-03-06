@@ -10,6 +10,21 @@ events:
   - name: "Software Freedom Day"
     date: "Derde zaterdag van september"
     url: "https://softwarefreedomday.org/"
+  - name: "FOSDEM"
+    date: "Eerste weekend van februari (Brussel)"
+    url: "https://fosdem.org/"
+  - name: "Chaos Communication Congress (CCC)"
+    date: "Najaar (Duitsland)"
+    url: "https://events.ccc.de/"
+  - name: "NLUUG Conferenties"
+    date: "Voorjaar & Najaar (Nederland)"
+    url: "https://nluug.nl/events/"
+  - name: "Open Source Summit Europe (Linux Foundation)"
+    date: "Vroege herfst (Wisselende locatie)"
+    url: "https://events.linuxfoundation.org/"
+  - name: "MozFest (Mozilla Festival)"
+    date: "Meestal in maart (Deels virtueel, deels lokaal)"
+    url: "https://www.mozillafestival.org/"
 ---
 **Open is het delen van informatie.** Open source maakt de broncode van software en producten zichtbaar en herbruikbaar voor iedereen. In plaats van een gesloten "black box", is de werking transparant. Dit stelt gebruikers in staat om precies te zien wat een programma doet.
 
