@@ -7,9 +7,11 @@ events:
   - name: "Nationaal Open Science Festival"
     date: "Nazomer of vroege herfst"
     url: "https://opensciencefestival.nl/"
+    month: 9
   - name: "Open Science Week"
     date: "Eind oktober (valt vaak samen met Open Access Week)"
     url: "https://www.openaccessweek.org/"
+    month: 10
 ---
 **Open is het delen van informatie.** Het gaat bij Open Onderzoek om meer dan alleen de publicatie; het draait om het delen van het hele onderzoeksproces. Van onderzoeksdata tot labnotities en methodieken. Hierdoor wordt onderzoek controleerbaar, reproduceerbaar en betrouwbaarder.
 

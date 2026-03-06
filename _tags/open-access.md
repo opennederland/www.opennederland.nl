@@ -7,6 +7,7 @@ events:
   - name: "Open Access Week"
     date: "Laatste volle week van oktober"
     url: "https://www.openaccessweek.org/"
+    month: 10
 ---
 **Open is het delen van informatie.** Open access zorgt ervoor dat wetenschappelijke publicaties en onderzoeksdata vrij toegankelijk zijn, voor iedereen vindbaar en controleerbaar.
 

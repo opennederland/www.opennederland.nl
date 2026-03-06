@@ -7,12 +7,15 @@ events:
   - name: "Open Data Day"
     date: "Begin maart"
     url: "https://opendataday.org/"
+    month: 3
   - name: "State of the Map (OpenStreetMap)"
     date: "Zomer / vroege herfst (Wisselende locatie)"
     url: "https://stateofthemap.org/"
+    month: 8
   - name: "FOSS4G (Free and Open Source Software for Geospatial)"
     date: "Zomer / vroege herfst (Wisselende locatie)"
     url: "https://foss4g.org/"
+    month : 6
 ---
 **Open is het delen van informatie.** Open data maakt publieke datasets vrij beschikbaar zonder auteursrechtelijke beperkingen. Van begrotingen tot geografische kaarten; deze informatie is voor iedereen vrij te hergebruiken.
 

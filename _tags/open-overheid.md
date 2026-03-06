@@ -7,6 +7,7 @@ events:
   - name: "Open Gov Week"
     date: "Medio mei"
     url: "https://www.opengovweek.org/"
+    month: 5
 ---
 **Open is het delen van informatie.** Besluitvorming en overheidsinformatie worden actief openbaar gemaakt. Hierdoor kan iedereen controleren hoe beleid tot stand komt, welke afwegingen er worden gemaakt en waar belastinggeld naartoe gaat.
 

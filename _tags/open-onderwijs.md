@@ -7,6 +7,7 @@ events:
   - name: "Open Education Week"
     date: "Begin maart"
     url: "https://www.openeducationweek.org/"
+    month: 3
 ---
 **Open is het delen van informatie.** Door gebruikt te maken van open data en andere open informatiebronnen zetten leerkrachten en onderwijskundigen open informatie om in open leermaterialen.
 

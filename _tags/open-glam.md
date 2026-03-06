@@ -7,15 +7,19 @@ events:
   - name: "Publiek domein dag"
     date: "Tweede vrijdag van januari"
     url: "https://publiekdomeindag.nl/"
+    month: 1
   - name: "Europese publiek domein dag"
     date: "Januari"
     url: "https://pdday.org/"
+    month: 1
   - name: "Wiki Loves Monuments"
     date: "september"
     url: "https://www.wikilovesmonuments.nl/"
+    month: 9
   - name: "Wikimania"
     date: "Meestal in augustus (Wisselende locatie)"
     url: "https://wikimania.wikimedia.org/"
+    month: 8
   - name: "Creative Commons Global Summit"
     date: "Wisselend (elke 1 á 2 jaar)"
     url: "https://summit.creativecommons.org/"
