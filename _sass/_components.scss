@@ -148,6 +148,7 @@ a.tag:hover {
 .tag.open-overheid { border-bottom-color: var(--col-open-overheid); }
 .tag.open-zorg { border-bottom-color: var(--col-open-zorg); }
 .tag.open-data { border-bottom-color: var(--col-open-data); }
+.tag.open-standaarden { border-bottom-color: var(--col-open-standaarden); }
 
 /* Initiative Cards Coloring */
 .initiative-card.makers,          .news-card.makers          { border-color: var(--col-makers) !important; }
@@ -160,6 +161,8 @@ a.tag:hover {
 .initiative-card.open-overheid,   .news-card.open-overheid   { border-color: var(--col-open-overheid) !important; }
 .initiative-card.open-zorg,       .news-card.open-zorg       { border-color: var(--col-open-zorg) !important; }
 .initiative-card.open-data,       .news-card.open-data       { border-color: var(--col-open-data) !important; }
+.initiative-card.open-standaarden,.news-card.open-standaarden{ border-color: var(--col-open-standaarden) !important; }
+
 
 .initiative-card[class*="open-"], .initiative-card.makers,
 .news-card[class*="open-"],       .news-card.makers {

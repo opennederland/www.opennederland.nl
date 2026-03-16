@@ -2,7 +2,7 @@
 title: Hans Laagland
 website: 
 image: 
-tags: ["Open Overheid"]
+tags: ["Open Overheid", "Open Standaarden"]
 organisaties: 
 type: persoon
 lidnummer: 152

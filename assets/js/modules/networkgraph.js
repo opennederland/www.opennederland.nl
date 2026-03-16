@@ -19,8 +19,21 @@ export default function initNetworkGraph({
 
     // --- CONFIGURATION ---
     const config = {
-      colors: { "Makers": "#e83e8c", "Open Access": "#dc3545", "Open Source": "#ffc107", "Open Design": "#0dcaf0", "Open GLAM": "#198754", "Open Onderwijs": "#20c997", "Open Onderzoek": "#0d6efd", "Open Overheid": "#6610f2", "Open Zorg": "#fd7e14", "Open Data": "#82c91e", "default": "#7f8c8d" },
-      radii: { 
+    colors: {
+        "Makers": "#f43f5e",
+        "Open Access": "#e11d48",
+        "Open Source": "#f59e0b",
+        "Open Design": "#06b6d4",
+        "Open GLAM": "#10b981",
+        "Open Onderwijs": "#14b8a6",
+        "Open Onderzoek": "#3b82f6",
+        "Open Overheid": "#6366f1",
+        "Open Zorg": "#f97316",
+        "Open Data": "#84cc16",
+        "Open Standaarden": "#8b5cf6",
+        "default": "#94a3b8"
+    },
+    radii: { 
         person: 70,    // Center Cloud
         org: 200,      // Ring 1
         platform: 280, // Ring 2
