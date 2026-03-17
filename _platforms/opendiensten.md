@@ -1,5 +1,5 @@
 ---
-title: Data.overheid.nl
+title: Open Diensten
 website: https://www.opendiensten.nl/#
 image: 
 tags: ["Open Source", "Makers"]
