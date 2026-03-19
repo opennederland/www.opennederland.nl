@@ -2,7 +2,7 @@
 title: Openpubliceren.nl
 website: https://openpubliceren.nl/
 image: 
-tags: ["Open OVerheid", "Open Standaarden"]
+tags: ["Open Overheid", "Open Standaarden"]
 type: Platform
 year: 2026
 wikidata: 
