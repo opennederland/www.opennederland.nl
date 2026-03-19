@@ -1,6 +1,8 @@
 ---
 title: Open Overheid
 tags: ["Open Overheid"]
+color: "#6366f1"
+icon: "fa-building-columns"
 wikidata: Q720829
 statement: "Open Overheid versterkt het vertrouwen in de democratie door transparantie en actieve verantwoording."
 events:

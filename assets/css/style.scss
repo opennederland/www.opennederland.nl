@@ -1,4 +1,5 @@
 ---
+# Main SASS entry point with Front-Matter for Liquid processing
 ---
 @import "variables";
 @import "base";
@@ -7,3 +8,22 @@
 @import "network-graph"; 
 @import "dark-mode";
 @import "utilities";
+
+// --- Dynamic Category Variables ---
+:root {
+  {% for tag in site.tags %}
+    {% if tag.color %}
+    --col-{{ tag.slug }}: {{ tag.color }};
+    {% endif %}
+  {% endfor %}
+}
+
+// --- Dynamic CSS Rules ---
+{% for tag in site.tags %}
+  {% if tag.color %}
+    .tag.{{ tag.slug }} { border-bottom-color: var(--col-{{ tag.slug }}) !important; }
+    .initiative-card.{{ tag.slug }}, .news-card.{{ tag.slug }} { 
+      border-color: var(--col-{{ tag.slug }}) !important; 
+    }
+  {% endif %}
+{% endfor %}

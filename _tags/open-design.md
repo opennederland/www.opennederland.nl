@@ -1,6 +1,8 @@
 ---
 title: Open Design
 tags: ["Open Design"]
+color: "#06b6d4" 
+icon: "fa-bezier-curve"
 wikidata: Q1759164
 statement: "Open Design maakt van elke consument een potentiele maker."
 events:

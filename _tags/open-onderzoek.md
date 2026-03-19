@@ -1,6 +1,8 @@
 ---
 title: Open Onderzoek
 tags: ["Open Onderzoek"]
+color: "#3b82f6"
+icon: "fa-microscope"
 wikidata: Q309823
 statement: "Open Onderzoek maakt wetenschap transparant, controleerbaar, reproduceerbaar en betrouwbaarder."
 events:

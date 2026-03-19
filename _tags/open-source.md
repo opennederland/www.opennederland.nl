@@ -1,6 +1,8 @@
 ---
 title: Open Source
 tags: ["Open Source"]
+color: "#f59e0b"
+icon: "fa-code"
 wikidata: Q39162
 statement: "Open Source maakt technologie meer houdbaar, duurzaam, veiliger."
 events:

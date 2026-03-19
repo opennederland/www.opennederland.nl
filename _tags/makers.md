@@ -1,6 +1,8 @@
 ---
 title: Makers
 tags: ["Makers"]
+color: "#f43f5e" 
+icon: "fa-screwdriver-wrench"
 wikidata: Q2251455
 statement: "Delen kan je niet alleen. Makers zijn de motor van alles wat open is; zij zetten open principes om in tastbare actie."
 ---

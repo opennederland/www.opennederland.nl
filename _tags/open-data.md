@@ -1,6 +1,8 @@
 ---
 title: Open Data
 tags: ["Open Data"]
+color: "#84cc16"
+icon: "fa-database"
 wikidata: Q309901
 statement: "Open Data ontsluit waardevolle gegevens van de overheid, GLAM en organisaties voor maatschappelijke innovatie en transparantie."
 events:

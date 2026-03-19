@@ -1,6 +1,8 @@
 ---
 title: Open GLAM
 tags: ["Open GLAM"]
+color: "#10b981"
+icon: "fa-landmark"
 wikidata: Q17073125
 statement: "Open GLAM brengt ons gezamenlijk geheugen tot leven door cultureel erfgoed vrij toegankelijk en herbruikbaar te maken."
 events:

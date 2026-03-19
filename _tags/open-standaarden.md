@@ -1,6 +1,8 @@
 ---
 title: Open Standaarden
 tags: ["Open Standaarden"]
+color: "#8b5cf6"
+icon: "fa-layer-group"
 wikidata: Q681263
 statement: "Open standaarden verbeteren de samenwerking tussen bedrijven, burgers en de overheid. Zij zorgen voor veiliger internet, betere gegevensuitwisseling, meer toegang en openbaarheid en meer leveranciersonafhankelijkheid."
 ---

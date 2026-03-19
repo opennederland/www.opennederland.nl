@@ -1,6 +1,8 @@
 ---
 title: Open Zorg
 tags: ["Open Zorg"]
+color: "#f97316"
+icon: "fa-heart-pulse"
 wikidata: 
 statement: "Open Zorg zet innovatie en de mens centraal voor een toegankelijk en duurzaam gezondheidssysteem."
 ---

@@ -1,6 +1,8 @@
 ---
 title: Open Access
 tags: ["Open Access"]
+color: "#e11d48"
+icon: "fa-unlock-keyhole"
 wikidata: Q232932
 statement: "Open Access maakt wetenschap en onderzoek direct beschikbaar voor de hele maatschappij."
 events:

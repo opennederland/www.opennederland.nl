@@ -1,6 +1,8 @@
 ---
 title: Open Onderwijs
 tags: ["Open Onderwijs"]
+color: "#14b8a6"
+icon: "fa-graduation-cap"
 wikidata: Q1031140
 statement: "Open Onderwijs maakt leermateriaal en educatie vrij beschikbaar voor iedereen, en bevordert daarmee sociale inclusie."
 events:

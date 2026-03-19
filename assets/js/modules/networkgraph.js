@@ -17,34 +17,18 @@ export default function initNetworkGraph({
     let height = graphDiv.clientHeight;
     let center = { x: width / 2, y: height / 2 };
 
-    // --- CONFIGURATION ---
     const config = {
-    colors: {
-        "Makers": "#f43f5e",
-        "Open Access": "#e11d48",
-        "Open Source": "#f59e0b",
-        "Open Design": "#06b6d4",
-        "Open GLAM": "#10b981",
-        "Open Onderwijs": "#14b8a6",
-        "Open Onderzoek": "#3b82f6",
-        "Open Overheid": "#6366f1",
-        "Open Zorg": "#f97316",
-        "Open Data": "#84cc16",
-        "Open Standaarden": "#8b5cf6",
-        "default": "#94a3b8"
-    },
-    radii: { 
-        person: 70,    // Center Cloud
-        org: 200,      // Ring 1
-        platform: 280, // Ring 2
-        init: 350,     // Ring 3
-        tag: 450       // Ring 4 (Outer)
-      }
+      // Safety fallback color
+      defaultColor: "#94a3b8",
+      radii: { 
+          person: 70,    
+          org: 200,      
+          platform: 280, 
+          init: 350,     
+          tag: 450       
+        }
     };
     
-    const getTagColor = (id) => config.colors[id.replace("tag-", "").replace("/tags/", "").replace("/", "")] || config.colors["default"];
-
-    // Helper to categorize nodes into the 5 rings
     const getType = (d) => {
       if (d.group === 'tag') return 'tag';
       if (d.type === 'persoon') return 'person';
@@ -60,7 +44,6 @@ export default function initNetworkGraph({
 
     const g = svg.append("g");
     
-    // Draw Background Rings
     const ringSizes = [config.radii.org, config.radii.platform, config.radii.init, config.radii.tag];
     g.append("g").attr("class", "zones").selectAll("circle").data(ringSizes).join("circle")
       .attr("class", "zone-ring").attr("cx", center.x).attr("cy", center.y).attr("r", d => d);
@@ -83,7 +66,6 @@ export default function initNetworkGraph({
         neighbors[l.target].push(l.source);
       });
 
-      // --- INITIAL VISIBILITY & POSITION ---
       nodes.forEach(n => { n.visible = false; n.collapsed = true; });
 
       let activeMode = "DEFAULT"; 
@@ -95,10 +77,7 @@ export default function initNetworkGraph({
       if (activeMode === "FOCUS") {
           const target = nodeMap.get(focusId);
           target.visible = true; target.isCurrent = true;
-          // Pin center
           target.x = center.x; target.y = center.y; target.fx = center.x; target.fy = center.y; 
-          
-          // Show context
           (neighbors[focusId]||[]).forEach(pid => { if(nodeMap.get(pid)) nodeMap.get(pid).visible = true; });
           nodes.forEach(n => {
               if (activeTagIds.includes(n.id)) {
@@ -106,7 +85,6 @@ export default function initNetworkGraph({
                   (neighbors[n.id]||[]).forEach(pid => { if(nodeMap.get(pid)) nodeMap.get(pid).visible = true; });
               }
           });
-
       } else if (activeMode === "TAGS") {
           nodes.forEach(n => {
               if (activeTagIds.includes(n.id)) {
@@ -114,9 +92,7 @@ export default function initNetworkGraph({
                   (neighbors[n.id]||[]).forEach(pid => { if(nodeMap.get(pid)) nodeMap.get(pid).visible = true; });
               }
           });
-
       } else {
-          // DEFAULT: Show Ring of Tags
           nodes.forEach(n => {
               if (n.zoneType === 'tag') {
                   n.visible = true;
@@ -127,15 +103,12 @@ export default function initNetworkGraph({
           });
       }
 
-      // --- PHYSICS SETUP ---
       const simulation = d3.forceSimulation(nodes)
           .velocityDecay(0.5)
           .force("link", d3.forceLink(links).id(d => d.id).strength(0.01))
           .force("charge", d3.forceManyBody().strength(d => d.zoneType === 'tag' ? -200 : -25))
-          .force("collide", d3.forceCollide().radius(d => d.radius + 5).iterations(2))
-          .force("r", d3.forceRadial(d => {
-              return config.radii[d.zoneType] || 200;
-          }, center.x, center.y).strength(0.8));
+          .force("collide", d3.forceCollide().radius(d => (d.radius || 10) + 5).iterations(2))
+          .force("r", d3.forceRadial(d => config.radii[d.zoneType] || 200, center.x, center.y).strength(0.8));
 
       let link = g.append("g").attr("class", "links").selectAll(".graph-link");
       let node = g.append("g").attr("class", "nodes").selectAll(".node");
@@ -165,7 +138,7 @@ export default function initNetworkGraph({
         const nodeEnter = node.enter().append("g").attr("class", "node")
             .call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended));
         nodeEnter.append("circle");
-        nodeEnter.append("text").attr("class", "node-text").attr("dy", d => d.radius + 12).attr("text-anchor", "middle").text(d => d.label);
+        nodeEnter.append("text").attr("class", "node-text").attr("dy", d => (d.radius || 6) + 12).attr("text-anchor", "middle").text(d => d.label);
         
         nodeEnter.on("click", handleNodeClick).on("mouseover", showTooltip).on("mouseout", hideTooltip);
         node = nodeEnter.merge(node);
@@ -180,12 +153,18 @@ export default function initNetworkGraph({
         node.select("circle")
             .attr("class", d => `node-circle node-${d.zoneType}`)
             .attr("r", d => {
-                if (d.isCurrent) return d.radius * 2.5;
-                if (bridgeNodes.has(d.id)) return d.radius * 1.5;
-                return d.radius;
+                const baseR = d.radius || 6;
+                if (d.isCurrent) return baseR * 2.5;
+                if (bridgeNodes.has(d.id)) return baseR * 1.5;
+                return baseR;
             })
-            .attr("fill", d => (d.zoneType === 'tag') ? (d.collapsed ? "var(--bg-body)" : getTagColor(d.id)) : null)
-            .attr("stroke", d => (d.zoneType === 'tag') ? getTagColor(d.id) : null)
+            .attr("fill", d => {
+                if (d.zoneType === 'tag') {
+                    return d.collapsed ? "var(--bg-body)" : (d.color || config.defaultColor);
+                }
+                return null;
+            })
+            .attr("stroke", d => (d.zoneType === 'tag') ? (d.color || config.defaultColor) : null)
             .attr("stroke-width", d => (d.zoneType === 'tag') ? 3 : null);
             
         node.select("text").style("font-size", d => d.zoneType === 'tag' ? "12px" : "10px");
@@ -230,12 +209,22 @@ export default function initNetworkGraph({
         let typeLabel = d.type;
         if(d.zoneType === 'tag') typeLabel = 'Thema';
         
-        tooltip.html(`<b>${d.label}</b><br/><small style="text-transform:capitalize">${typeLabel}</small>`)
-               .style("left", (e.pageX+15)+"px").style("top", (e.pageY-28)+"px");
+        tooltip.html(`
+            <div style="display:flex; align-items:center; gap:8px;">
+                ${d.icon ? `<i class="fa-solid ${d.icon}" style="color:${d.color || config.defaultColor}"></i>` : ''}
+                <b>${d.label}</b>
+            </div>
+            <small style="text-transform:capitalize">${typeLabel}</small>
+        `)
+        .style("left", (e.pageX+15)+"px").style("top", (e.pageY-28)+"px");
       }
+
       function hideTooltip(e, d) { 
          tooltip.transition().duration(200).style("opacity",0); 
-         d3.select(this).select("circle").attr("stroke", n => n.zoneType === 'tag' ? getTagColor(n.id) : null).style("stroke-width", null);
+         // FIX: Re-applying the color logic from restart() instead of calling missing getTagColor
+         d3.select(this).select("circle")
+           .attr("stroke", n => n.zoneType === 'tag' ? (n.color || config.defaultColor) : null)
+           .style("stroke-width", n => n.zoneType === 'tag' ? "3px" : null);
          link.style("stroke-opacity", 0.3).style("stroke", null);
       }
       
