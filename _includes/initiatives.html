@@ -30,9 +30,10 @@
 
         {% if initiative.tags %}
         <div style="margin-top: auto; margin-bottom: 1em; padding-top: 0.5em;">
-            {% for tag in initiative.tags %}
-                <a href="{{ '/tags/' | relative_url }}{{ tag | slugify }}/" class="tag {{ tag | slugify }}" style="font-size: 0.75em; padding: 4px 8px;">
-                    #{{ tag }}
+            {% for tag_name in initiative.tags %}
+                {% assign tag_doc = site.tags | where: "title", tag_name | first %}
+                <a href="{{ '/tags/' | relative_url }}{{ tag_name | slugify }}/" class="tag {{ tag_name | slugify }}">
+                    {% if tag_doc.icon %}<i class="fa-solid {{ tag_doc.icon }}"></i>&nbsp;{% endif %}#{{ tag_name }}
                 </a>
             {% endfor %}
         </div>

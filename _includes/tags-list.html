@@ -1,1 +1,1 @@
-{% for tag in site.tags %}<a href="{{ tag.url | relative_url }}" class="tag {{ tag.slug }}">#{{ tag.title }}</a>{% endfor %}
+{% for tag in site.tags %}<a href="{{ tag.url | relative_url }}" class="tag {{ tag.slug }}">{% if tag.icon %}<i class="fa-solid {{ tag.icon }}" style="margin-right: 5px;"></i>{% endif %}#{{ tag.title }}</a>{% endfor %}

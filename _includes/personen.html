@@ -34,7 +34,8 @@
             {% if persoon.tags %}
             <div class="person-tags">
                 {% for tag_name in persoon.tags %}
-                    <span class="tag {{ tag_name | slugify }}">#{{ tag_name }}</span>
+                  {% assign tag_doc = site.tags | where: "title", tag_name | first %}
+                    <span class="tag {{ tag_name | slugify }}">{% if tag_doc.icon %}<i class="fa-solid {{ tag_doc.icon }}"></i>&nbsp;{% endif %}#{{ tag_name }}</span>
                 {% endfor %}
             </div>
             {% endif %}

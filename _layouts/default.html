@@ -21,7 +21,9 @@
     </header>
 
     <main class="wrapper">
-        <h1>{{ page.title }}</h1>
+        <h1 class="text-center">
+            {% if page.icon %}<i class="fa-solid {{ page.icon }} mb-sm" style="display:block; font-size:1.5em; color:var(--col-{{ page.slug }})"></i>{% endif %}{{ page.title }}
+        </h1>
 
         {% if page.tags %}
             <p>{% include tags.html tags=page.tags %}</p>
