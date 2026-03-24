@@ -5,11 +5,6 @@ color: "#6366f1"
 icon: "fa-building-columns"
 wikidata: Q720829
 statement: "Open Overheid versterkt het vertrouwen in de democratie door transparantie en actieve verantwoording."
-events:
-  - name: "Open Gov Week"
-    date: "Medio mei"
-    url: "https://www.opengovweek.org/"
-    month: 5
 ---
 **Open is het delen van informatie.** Besluitvorming en overheidsinformatie worden actief openbaar gemaakt. Hierdoor kan iedereen controleren hoe beleid tot stand komt, welke afwegingen er worden gemaakt en waar belastinggeld naartoe gaat.
 

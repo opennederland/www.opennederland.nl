@@ -31,12 +31,13 @@ layout: null
 
     {% comment %} === INNER ELEMENTS: ENTITIES === {% endcomment %}
     {% for doc in all_docs %}
+      {% assign doc_type = doc.type | default: doc.collection | replace: 'agenda', 'event' | default: 'initiative' %}
       {
         "id": {{ doc.url | jsonify }},
         "label": {{ doc.title | jsonify }},
         "group": "entity",
         "level": 2,
-        "type": "{{ doc.type | default: 'initiative' }}",
+        "type": "{{ doc_type }}",
         "radius": 6,
         "url": "{{ doc.url }}"
       }{% unless forloop.last %},{% endunless %}

@@ -98,6 +98,7 @@ body.dark-mode .graph-link {
 .node-platform { stroke: #9467bd; } 
 .node-init { stroke: var(--main-color); }
 .node-tag { stroke-width: 3px; }
+.node-event { stroke: #ff9f1c; }
 
 /* States */
 .node-bridge circle { 
@@ -153,3 +154,4 @@ body.dark-mode .graph-link {
     height: 8px; 
     border-radius: 50%; 
 }
+.legend-tag[style*="#ff9f1c"] { border-bottom-color: #ff9f1c; }

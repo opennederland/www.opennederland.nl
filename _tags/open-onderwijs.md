@@ -5,11 +5,6 @@ color: "#14b8a6"
 icon: "fa-graduation-cap"
 wikidata: Q1031140
 statement: "Open Onderwijs maakt leermateriaal en educatie vrij beschikbaar voor iedereen, en bevordert daarmee sociale inclusie."
-events:
-  - name: "Open Education Week"
-    date: "Begin maart"
-    url: "https://www.openeducationweek.org/"
-    month: 3
 ---
 **Open is het delen van informatie.** Door gebruikt te maken van open data en andere open informatiebronnen zetten leerkrachten en onderwijskundigen open informatie om in open leermaterialen.
 

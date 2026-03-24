@@ -30,6 +30,9 @@ collections:
   working_groups:
     output: true
     permalink: /werkgroep/:name/
+  agenda:
+      output: true
+      permalink: /agenda/:name/
 defaults:
   - scope:
       type: tags
@@ -61,3 +64,8 @@ defaults:
     values:
       layout: working_groups
       collection: working_groups
+  - scope:
+      type: agenda
+    values:
+      layout: default
+      collection: agenda

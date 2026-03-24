@@ -18,13 +18,13 @@ export default function initNetworkGraph({
     let center = { x: width / 2, y: height / 2 };
 
     const config = {
-      // Safety fallback color
       defaultColor: "#94a3b8",
       radii: { 
           person: 70,    
           org: 200,      
           platform: 280, 
           init: 350,     
+          event: 350,  
           tag: 450       
         }
     };
@@ -33,6 +33,7 @@ export default function initNetworkGraph({
       if (d.group === 'tag') return 'tag';
       if (d.type === 'persoon') return 'person';
       if (d.type === 'initiative' || d.type === 'licentie') return 'init';
+      if (d.type === 'event') return 'event';
       if (['organisatie', 'Stichting', 'Vereniging'].includes(d.type)) return 'org';
       return 'platform'; 
     };

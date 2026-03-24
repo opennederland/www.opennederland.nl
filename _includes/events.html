@@ -1,44 +1,21 @@
-{% assign event_list = include.events | default: page.events %}
-{% assign theme_tag = include.tag | default: page.tags[0] %}
+{% assign event_list = include.events %}
+{% assign theme_tag = include.tag %}
 
-{% if event_list %}
-
-{% unless include.no_wrapper %}
+{% if event_list.size > 0 %}
 <div class="initiatives-grid">
-{% endunless %}
-
     {% for event in event_list %}
-    
     <div class="initiative-card {{ theme_tag | slugify }}">
-        
         <h3>
-            <a href="{{ event.url }}" target="_blank" rel="noopener noreferrer">{{ event.name }}</a>
+            <a href="{{ event.url }}" target="_blank" rel="noopener noreferrer">{{ event.title }}</a>
         </h3>
-        
-        <span class="year">{{ event.date }}</span>
+        <span class="year">{{ event.date_string }}</span>
 
-        <div style="margin-top: auto; padding-top: 1em;"></div>
-
-        <div style="margin-top: auto; margin-bottom: 1em; padding-top: 0.5em;">
-                <a href="{{ '/tags/' | relative_url }}{{ theme_tag | slugify }}/" class="tag {{ theme_tag | slugify }}" style="font-size: 0.75em; padding: 4px 8px;">
-                    #{{ theme_tag }}
-                </a>
+        <div style="margin-top: auto; padding-top: 1em;">
+            <a href="{{ '/tags/' | relative_url }}{{ theme_tag | slugify }}/" class="tag {{ theme_tag | slugify }}" style="font-size: 0.75em; padding: 4px 8px;">
+                #{{ theme_tag }}
+            </a>
         </div>
-
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            {% if event.url %}
-                <a href="{{ event.url }}" target="_blank" rel="noopener noreferrer" style="font-size: 0.9em; color: #888; text-decoration: none;">
-                    Website ↗
-                </a>
-            {% endif %}
-        </div>
-        
     </div>
-
     {% endfor %}
-
-{% unless include.no_wrapper %}
 </div>
-{% endunless %}
-
 {% endif %}

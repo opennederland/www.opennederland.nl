@@ -5,15 +5,6 @@ color: "#06b6d4"
 icon: "fa-bezier-curve"
 wikidata: Q1759164
 statement: "Open Design maakt van elke consument een potentiele maker."
-events:
-  - name: "Hardware Freedom Day"
-    date: "Derde zaterdag van april"
-    url: "https://hfday.org/"
-    month: 4
-  - name: "Open Hardware Summit"
-    date: "Jaarlijks in de lente"
-    url: "https://oshwa.org/events/"
-    month: 4
 ---
 **Open is het delen van informatie.** Open design gaat over transparantie in het ontwerp: het delen van CAD-bestanden, materiaallijsten en montage-instructies. Hierdoor is voor iedereen duidelijk hoe een product in elkaar zit, wat reparatie en hergebruik mogelijk maakt.
 

@@ -7,6 +7,8 @@ layout: default
 {% assign matching_orgs = site.members | where: "type", "organisatie" | where_exp: "item", "item.tags contains page.title" %}
 {% assign matching_people = site.members | where: "type", "persoon" | where_exp: "item", "item.tags contains page.title" %}
 {% assign matching_posts = site.posts | where_exp: "post", "post.tags contains page.title" %}
+{% assign matching_events = site.agenda | where_exp: "item", "item.tags contains page.title" | sort: "month" %}
+
 
 <h2 class="mission-statement">{{ page.statement }}</h2>
 
@@ -27,8 +29,8 @@ layout: default
 <div class="quick-links">
     <span class="quick-links-title">Ga direct naar:</span>
     
-    {% if page.events %}
-        <a href="#evenementen" class="quick-link-btn">Evenementen ({{ page.events.size }})</a>
+    {% if matching_events.size > 0 %}
+        <a href="#evenementen" class="quick-link-btn">Evenementen ({{ matching_events.size }})</a>
     {% endif %}
 
     {% if matching_initiatives.size > 0 %}
@@ -61,11 +63,11 @@ layout: default
 
 <hr />
 
-{% if page.events %}
+{% if matching_events.size > 0 %}
     <div class="mb-xl">
         <h2 id="evenementen">Vieringen & Evenementen</h2>
         <p>Belangrijke dagen en weken rondom {{ page.title | downcase }}:</p>
-        {% include events.html %}
+        {% include events.html events=matching_events tag=page.title %}
     </div>
 {% endif %}
 
