@@ -2,6 +2,8 @@
 layout: default
 title: "Jaarkalender"
 permalink: /kalender/
+menu_title: Kalender
+order: 6
 ---
 
 <div class="container-narrow text-center mb-xl">
@@ -24,7 +26,7 @@ permalink: /kalender/
                 <ul class="calendar-event-list">
                     {% for event in month_events %}
                         <li class="calendar-event-item">
-                            <a href="{{ event.url }}" target="_blank" class="event-link" title="{{ event.title }}">
+                            <a href="{{ event.event_url }}" target="_blank" class="event-link" title="{{ event.title }}">
                                 {% assign tag_slug = event.tags[0] | slugify %}
                                 <span class="event-tag-dot" style="background-color: var(--col-{{ tag_slug }}, var(--border-color))"></span>
                                 <div class="event-details">
