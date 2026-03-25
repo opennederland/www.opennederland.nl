@@ -39,6 +39,80 @@ nav a:hover, nav a.active {
     text-decoration: none;
 }
 
+/* --- Submenu Navigatie --- */
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+    
+    .nav-link {
+        padding: 0.8em 1em;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+}
+
+.submenu-arrow {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* Submenu container */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--nav-bg);
+    min-width: 220px;
+    box-shadow: var(--shadow-md);
+    border-radius: 0 0 8px 8px;
+    list-style: none;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 100;
+
+    li a {
+        display: block;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95em;
+        font-weight: 400;
+        color: var(--nav-text);
+        
+        &:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+/* Tonen bij hover */
+.nav-item:hover {
+    .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+/* Mobiele optimalisatie (Eenvoudig horizontaal scrollen behouden) */
+@media screen and (max-width: 768px) {
+    .submenu {
+        display: none; /* Verberg submenu's op heel kleine schermen voor nu */
+    }
+    .nav-container {
+        overflow-x: auto;
+    }
+}
+
 /* --- Hero Banner --- */
 .hero-banner {
     width: 100%;

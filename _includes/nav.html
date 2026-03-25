@@ -1,30 +1,33 @@
 <div class="wrapper d-flex items-center" style="justify-content: space-between;">
     
-    <div class="nav-links d-flex items-center gap-md">
-        {% assign current_url = page.url %}
-        {% assign nav_pages = site.pages | where_exp: 'item', 'item.order' | sort: 'order' %}
-        
-        {% for item in nav_pages %}
-            {% assign is_active = false %}
-            {% if item.url == current_url %}
-                {% assign is_active = true %}
-            {% endif %}
-
-            <a href="{{ item.url | relative_url }}" 
-               class="{% if is_active %}active{% endif %}"
-               {% if is_active %}aria-current="page"{% endif %}>
-                {{ item.menu_title | default: item.title }}
-            </a>
-        {% endfor %}
-        
+    <div class="nav-container d-flex items-center">
+        <ul class="nav-menu d-flex items-center gap-md">
+            {% for item in site.data.navigation.main %}
+                <li class="nav-item {% if item.sub %}has-submenu{% endif %}">
+                    <a href="{{ item.url | relative_url }}" class="nav-link">
+                        {{ item.title }}
+                        {% if item.sub %}<span class="submenu-arrow">▾</span>{% endif %}
+                    </a>
+                    
+                    {% if item.sub %}
+                        <ul class="submenu">
+                            {% for subitem in item.sub %}
+                                <li>
+                                    <a href="{{ subitem.url | relative_url }}">{{ subitem.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
         <a href="{{ "/lid-worden/" | relative_url }}" class="font-bold">Lid worden?</a>
-        <a href="/cc/" target="_blank" class="cc-logo" title="Creative Commons Nederland"></a>
+        <a href="/cc/" target="_blank" class="cc-logo ml-auto" title="Creative Commons Nederland"></a>
     </div>
 
     <div class="d-flex items-center gap-md">
-        <button id="theme-toggle" class="theme-toggle-btn" style="border:none; background:transparent; font-size:1.2rem; cursor:pointer; padding: 0;">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Donkere modus inschakelen">
             🌗
         </button>
     </div>
-
 </div>

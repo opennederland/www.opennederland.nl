@@ -1,0 +1,41 @@
+main:
+  - title: "Home"
+    url: /
+  - title: "Open?"
+    url: /wat-is-open/
+    sub:
+      - title: "Wat is Open?"
+        url: /wat-is-open/
+      - title: "Manifesten & Verklaringen"
+        url: /verklaringen/
+      - title: "Platformen"
+        url: /platforms/
+
+  - title: "Netwerk"
+    url: /leden/
+    sub:
+      - title: "Leden & Organisaties"
+        url: /leden/
+      - title: "Professionals"
+        url: /leden/personen/
+      - title: "Netwerkverkenner"
+        url: /network/
+
+  - title: "Actueel"
+    sub:
+      - title: "Nieuws uit het netwerk"
+        url: /nieuws-netwerk/
+      - title: "Jaarkalender"
+        url: /kalender/
+      - title: "Standpunten"
+        url: /standpunten/
+
+  - title: "Over"
+    url: /vereniging/
+    sub:
+      - title: "De Vereniging"
+        url: /vereniging/
+      - title: "Contact"
+        url: /contact/
+  - title: "English"
+    url: /english/
