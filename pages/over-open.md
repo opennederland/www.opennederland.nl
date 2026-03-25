@@ -5,6 +5,11 @@ permalink: /wat-is-open/
 menu_title: Open?
 order: 2
 ---
+{% assign matching_events = site.agenda %}
+{% assign matching_initiatives = site.initiatives %}
+{% assign matching_platforms = site.platforms %}
+{% assign matching_people = site.members | where: "type", "persoon" %}
+
 <h2 class="mission-statement">{{ site.open-definition }}</h2>
 
 **Delen maakt ons allemaal beter. Delen is vermenigvuldigen.**
@@ -26,36 +31,37 @@ Delen doe je samen. Het zijn de [Makers](/tags/makers/), de onderzoekers, de kun
 
 <hr />
 
-## De Domeinen
+## Open in de praktijk
+Ieder domein van open heeft eigen uitdagingen, instrumenten en netwerken. Verken de rijkdom van de Nederlandse community op de manier die bij jou past.
 
-[Leden](/leden) van de Vereniging Open Nederland werken samen aan openheid in diverse specifieke sectoren:
-
-{% include tags-list.html %}
+### 1. Zoek op thema
+Ben je specifiek geïnteresseerd in één gebied? Start hier voor diepgaande dossiers en expertlijsten:
+<div class="tag-cloud" style="justify-content: flex-start; margin-top: 1rem;">
+    {% include tags-list.html %}
+</div>
 
 <hr />
 
-<div class="mb-xl">
-    <h2>Verken het netwerk</h2>
-    {% include network-graph.html focus_node="" height="600px" %}
+### 2. Zoek op categorie
+Ben je op zoek naar specifieke gereedschappen, data of mensen uit het hele netwerk?
+<div class="quick-links">
+    <span class="quick-links-title">Ga direct naar:</span>
+    <a href="/kalender/" class="quick-link-btn">Jaarkalender ({{ matching_events.size }})</a>
+    <a href="/verklaringen/" class="quick-link-btn">Manifesten & Verklaringen ({{ matching_initiatives.size }})</a>
+    <a href="/platforms/" class="quick-link-btn">Platformen ({{ matching_platforms.size }})</a>
+    <a href="/leden/personen" class="quick-link-btn">Experts & Leden ({{ matching_people.size }})</a>
 </div>
 
+<hr />
 
-## Manifesten, verklaringen en aanbevelingen
-
-Wij bouwen voort op internationale principes, manifesten en verklaringen die de standaarden definiëren voor een open samenleving. Open Nederland onderschrijft en promoot onderstaande initiatieven:
-
-{% include initiatives.html %}
-
-## Platformen
-
-In Nederland wordt veel open materiaal gepubliceerd en samengewerkt aan open materialen. Dit zijn de voornaamste platformen:
-
-{% include platforms.html %}
+### 3. Verken het ecosysteem
+Wil je zien hoe alles met elkaar verbonden is? De onderstaande grafiek toont de dwarsverbanden tussen thema's, leden en initiatieven.
+{% include network-graph.html focus_node="" height="600px" %}
 
 <div class="connection-box mt-xl">
-    <h3 class="mt-0">Ontbreekt er een initiatief of platform?</h3>
+    <h3 class="mt-0">Ontbreekt er iets?</h3>
     <p>
-        Zijn er manifesten, beleidsposities, verklaringen, platformen die essentieel zijn voor Open in Nederland, maar in dit overzicht ontbreken?
+        Wij proberen zoveel mogelijk intiatieven, netwerken, en domeinen te beschrrijven en te verbinden.
     </p>
     <p class="mb-0">
         Neem <a href="{{ "/contact/" | relative_url }}">contact</a> met ons op of maak direct een <a href="https://github.com/opennederland/www.opennederland.nl">issue aan op GitHub</a>.
