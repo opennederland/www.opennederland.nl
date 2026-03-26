@@ -239,3 +239,48 @@ a.tag:hover {
     background-color: var(--main-color);
     transform: scale(1.1);
 }
+
+/* --- Paginering (voor RSS-feeds) --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    gap: 0.5rem;
+}
+
+.page-item {
+    display: inline-block;
+}
+
+.page-link {
+    display: block;
+    padding: 8px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-body);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-base);
+
+    &:hover:not(.disabled) {
+        background: var(--main-color);
+        border-color: var(--main-color);
+        color: #fff !important;
+        text-decoration: none;
+    }
+
+    &.disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+/* Donkere modus pagination */
+body.dark-mode .page-link {
+    background: var(--bg-light);
+    border-color: #333;
+}
