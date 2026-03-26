@@ -1,94 +1,74 @@
 ---
 layout: default
-title: Het netwerk voor Open in Nederland
-menu_title: Home
-order: 1
+title: Verbinder van Open
 ---
+{% assign members_with_rss = site.members | where_exp: "member", "member.rss" %}
+{% assign non_member_rss = site.data.non_member_rss %}
+{% assign total_feeds = members_with_rss.size | plus: non_member_rss.size %}
+{% assign count_people = site.members | where: "type", "persoon" | size %}
+{% assign count_orgs = site.members | where: "type", "organisatie" | size %}
+{% assign count_initiatives = site.initiatives | size %}
+{% assign count_platforms = site.platforms | size %}
 
-<div class="mb-xl container-narrow text-center">
-    
-    <p class="mission-statement mt-0 mb-md">
-        Vereniging Open Nederland verbindt makers, adviseurs en organisaties die werken aan 'Open'. 
-        Van Open Source tot Open Science. Wij verbinden open.
+<div class="text-center mb-xl">
+    <p class="mission-statement">Navigeer direct naar de kennis, data en experts in 11 domeinen:</p>
+</div>
+
+<div class="tag-cloud justify-center mb-xl" style="gap: 1.5rem;">
+  {% for tag in site.tags %}
+    <a href="{{ tag.url | relative_url }}" class="tag {{ tag.slug }}" style="font-size: 1.1rem; padding: 0.8em 1.2em;">
+        {% if tag.icon %}<i class="fa-solid {{ tag.icon }}"></i>&nbsp;{% endif %}#{{ tag.title }}
+    </a>
+  {% endfor %}
+</div>
+
+<div class="highlight-section container-narrow text-center mb-xl">
+    <p class="content-body mb-0">
+        Open Nederland verbindt meer dan <strong class="font-bold">{{ count_people }}</strong> <a href="/leden/personen/">professionals</a> en <strong class="font-bold">{{ count_orgs }}</strong> <a href="/leden/">organisaties</a>. 
+        Wij volgen <strong class="font-bold">{{ count_initiatives }}</strong> <a href="/verklaringen/">verklaringen en manifesten</a> en kennen <strong class="font-bold">{{ count_platforms }}</strong> <a href="/platforms/">open platformen</a> die actief zijn in Nederland.
     </p>
-
-    <div class="d-flex justify-center flex-wrap gap-md">
-        <a href="{{ "/lid-worden/" | relative_url }}" class="main-item">
-            Sluit je aan
-        </a>
-        <a href="{{ "/vereniging/" | relative_url }}" class="main-item secondary">
-            Over de vereniging
-        </a>
-    </div>
-</div>
-
-<hr />
-
-<div class="mb-xl container-narrow text-center">
-    <blockquote class="quote-statement">
-        "{{ site.open-definition }}"
-    </blockquote>
-</div>
-
-<hr />
-
-<div class="mb-xl text-center">
-    <h2 class="mb-md">Verken het netwerk per thema</h2>
-    <div class="tag-cloud">
-        {% include tags-list.html %}
-    </div>
-</div>
-
-<hr />
-
-<div class="mb-xl text-center">
-    <h2>Onze werkgroepen</h2>
-    {% include working_groups.html %}
-    <p class="content-body container-narrow mb-md">Meedoen of zelf een activiteit beginnen? Neem <a href="/contact/">contact</a> op</p>
-</div>
-
-<hr />
-<div class="mb-xl text-center">
-    <h2>Onze standpunten</h2>
-    {% include standpunten.html %}
 </div>
 
 <hr />
 
 <div class="mb-xl">
-    <h2 class="text-center">Nieuws uit het netwerk</h2>
+    <h2 class="text-center mb-md">Nu in het netwerk</h2>
+    <p class="text-center content-body container-narrow mb-lg">
+        Wij zijn de verzamelplaats voor nieuws uit het hele open ecosysteem. Dit is wat onze leden en partners momenteel delen:
+    </p>
     
-    <div class="container-narrow text-center content-body mb-md">
-        <p>
-            Een overzicht van wat er speelt bij <a href="{{ "/leden/" | relative_url }}">onze leden</a> en partners.
-            Heb je zelf een tip? <a href="mailto:bestuur@opennederland.nl">Mail ons!</a>
-        </p>
-    </div>
+    {% include nieuwsnetwerk.html limit=6 %}
 
-    <div class="container-narrow mb-md">
-        <details class="text-muted" style="font-size: 0.9em;">
-            <summary style="cursor: pointer; text-align: center;">Hoe werkt dit nieuwsoverzicht?</summary>
-            <div class="mt-sm p-3 bg-light border rounded">
-                <p class="mb-0">
-                    Wanneer er een RSS feed beschikbaar is kunnen wij deze ook hier tonen. 
-                    Dit is een overzicht wat er afgelopen periode op de sites van deze leden
-                    en aanverwante organisaties geplaatst is. Open Nederland heeft geen 
-                    controle over de inhoud van deze berichten.
-                </p>
-            </div>
-        </details>
-    </div>
-
-    {% include nieuwsnetwerk.html limit=3 %}
-
-    <div class="container-center mt-md">
-        <a href="{{ "/nieuws-netwerk/" | relative_url }}" class="main-item">Bekijk al het nieuws</a>
+    <div class="container-center mt-lg">
+        <a href="/nieuws-netwerk/" class="main-item">Ontdek alle {{ total_feeds }} rss-feeds</a>
     </div>
 </div>
 
 <hr />
 
-<div class="mb-xl text-center">
-    {% include laposta.html %}
-    <p class="content-body container-narrow mb-md">Wil je ook lid worden?  <a href="/lid-worden">meld je aan!</a></p>
+<div class="initiatives-grid mb-xl" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+    
+    <div class="news-card">
+        <h3>📅 Agenda</h3>
+        <p>Belangrijke momenten zoals Publiek Domeindag en Open Data Day op één rij.</p>
+        <a href="/kalender/" class="font-bold">Bekijk de jaarkalender →</a>
+    </div>
+
+    <div class="news-card">
+        <h3>🌐 Netwerkverkenner</h3>
+        <p>Verken de dwarsverbanden tussen 150+ professionals, organisaties en manifesten in onze interactieve graaf.</p>
+        <a href="/network/" class="font-bold">Open de verkenner →</a>
+    </div>
+
+</div>
+
+<hr />
+
+<div class="newsletter-box">
+    <h3>Doe mee met Open Nederland</h3>
+    <p>Sluit je aan bij de beweging of meld je aan voor de updates.</p>
+    <div class="d-flex justify-center gap-md mt-md flex-wrap">
+        <a href="/lid-worden/" class="main-item">Lid worden (Gratis)</a>
+        <a href="/contact/" class="main-item secondary">Iets toevoegen</a>
+    </div>
 </div>
