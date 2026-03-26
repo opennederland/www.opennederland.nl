@@ -18,6 +18,8 @@ main:
         url: /leden/
       - title: "Professionals"
         url: /leden/personen/
+      - title: "Werkgroepen"
+        url: /werkgroepen/
       - title: "Netwerkverkenner"
         url: /network/
 
