@@ -2,7 +2,7 @@
 title: Michael Boelen
 website: 
 image: 
-tags: ["Open Source", "Open Data", ""]
+tags: ["Open Source", "Open Data"]
 organisaties:
 type: persoon
 lidnummer: 161
