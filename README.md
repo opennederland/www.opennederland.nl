@@ -20,6 +20,7 @@ Iedereen kan bijdragen, ook als je geen programmeur bent.
 Ben je een ontwikkelaar en wil je wijzigingen lokaal testen of aan de layout werken? Volg dan deze stappen:
 
 ### Vereisten
+
 * [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (check je versie met `ruby -v`)
 * [Bundler](https://bundler.io/) (`gem install bundler`)
 
@@ -44,6 +45,7 @@ Start de lokale server:
    ```
 
 Je kunt de website nu bekijken op http://localhost:4000. Herlaadt de site als je wijzigingen aanbrengt in de bestanden.
+
 ## ⚖️ Licenties
 
 Dit project hanteert twee verschillende licenties voor code en content.
@@ -60,4 +62,4 @@ Tenzij anders aangegeven is alle content (tekst, afbeeldingen, data) in deze rep
 
    [Lees de CC BY-SA 4.0 akte](https://creativecommons.org/licenses/by-sa/4.0/deed.nl)
 
-Let op, op de website worden ook rss feeds van derden ingeladen, bekijk de bron van deze feeds om de licentie te bepalen.
+Let op, op de website worden ook RSS-feeds van derden ingeladen. Bekijk de bron van deze feeds om de licentie te bepalen.
