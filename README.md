@@ -27,7 +27,7 @@ Ben je een ontwikkelaar en wil je wijzigingen lokaal testen of aan de layout wer
 
 1. Clone de repository:
    ```bash
-   git clone [https://github.com/opennederland/www.opennederland.nl.git](https://github.com/opennederland/www.opennederland.nl.git)
+   git clone https://github.com/opennederland/www.opennederland.nl.git
    cd www.opennederland.nl
    ```
 
