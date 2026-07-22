@@ -2,7 +2,7 @@
 title: Tim Vos-Goedhart
 website: 
 image: 
-tags: ["Open Overheid", "Open Source", "Open Standaarden"]
+tags: ["Open Overheid", "Open Source", "Open Standaarden", "Open Data"]
 organisaties:
 type: persoon
 lidnummer: 119
