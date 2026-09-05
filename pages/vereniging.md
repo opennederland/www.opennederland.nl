@@ -5,14 +5,15 @@ permalink: /vereniging/
 menu_title: Over
 order: 4
 ---
-
-Vereniging Open Nederland is het Nederlandse netwerk voor iedereen die werkt aan 'Open'. Wij verbinden (sectoren van) makers, adviseurs, juristen en ondernemers die geloven dat kennis, cultuur en technologie vrij deelbaar moeten zijn.
-
-### Onze Missie
-
-Ons doel is helder: het bevorderen van toegang. Wij streven naar een samenleving waarin informatie, kennis en cultuur voor iedereen beschikbaar is. Materiaal dat vrij gebruikt, bewerkt en gedeeld mag worden, zodat we samen sneller kunnen innoveren en leren.
+### Onze missie
+Vereniging Open Nederland zet zich in voor vrije toegang tot informatie, kennis en cultuur voor iedereen. 
+Wij streven naar een samenleving waarin informatie, kennis en cultuur voor iedereen beschikbaar is.
+Waarin dit materiaal vrij gebruikt, bewerkt en gedeeld mag worden, zodat we samen sneller kunnen leren en innoveren.
 
 > *De formele doelstellingen zijn vastgelegd in onze [statuten](/assets/docs/concept akte van vaststelling statuten vereniging Open Nederland.pdf) (PDF).*
+
+### Wat we doen
+Wij verbinden professionals en organisaties die hiermee en hieraan werken in diverse sectoren: van onderwijs, onderzoek en zorg tot overheid en cultuur (OpenGLAM). Daarnaast behartigen we het publieke belang door gevraagd en ongevraagd input te leveren op wetsvoorstellen en consultaties. Open Nederland vormt de Nederlandse Chapter van Creative Commons en vormt zo de brug tussen het nationale en internationale open netwerk.
 
 ## Organisatie
 

@@ -10,6 +10,13 @@ title: Verbinder van Open
 {% assign count_initiatives = site.initiatives | size %}
 {% assign count_platforms = site.platforms | size %}
 
+<div class="highlight-section container-narrow text-center mb-xl mt-xl">
+    <p class="content-body mb-0">
+        Open Nederland verbindt meer dan <strong class="font-bold">{{ count_people }}</strong> <a href="/leden/personen/">professionals</a> en <strong class="font-bold">{{ count_orgs }}</strong> <a href="/leden/">organisaties</a>. 
+        Wij volgen <strong class="font-bold">{{ count_initiatives }}</strong> <a href="/verklaringen/">verklaringen en manifesten</a> en kennen <strong class="font-bold">{{ count_platforms }}</strong> <a href="/platforms/">open platformen</a> die actief zijn in Nederland.
+    </p>
+</div>
+
 <div class="text-center mb-xl">
     <p class="mission-statement">Navigeer direct naar de kennis, data en experts in 11 domeinen:</p>
 </div>
@@ -20,13 +27,6 @@ title: Verbinder van Open
         {% if tag.icon %}<i class="fa-solid {{ tag.icon }}"></i>&nbsp;{% endif %}#{{ tag.title }}
     </a>
   {% endfor %}
-</div>
-
-<div class="highlight-section container-narrow text-center mb-xl">
-    <p class="content-body mb-0">
-        Open Nederland verbindt meer dan <strong class="font-bold">{{ count_people }}</strong> <a href="/leden/personen/">professionals</a> en <strong class="font-bold">{{ count_orgs }}</strong> <a href="/leden/">organisaties</a>. 
-        Wij volgen <strong class="font-bold">{{ count_initiatives }}</strong> <a href="/verklaringen/">verklaringen en manifesten</a> en kennen <strong class="font-bold">{{ count_platforms }}</strong> <a href="/platforms/">open platformen</a> die actief zijn in Nederland.
-    </p>
 </div>
 
 <hr />
