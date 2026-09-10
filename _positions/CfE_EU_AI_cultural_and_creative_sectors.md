@@ -1,7 +1,7 @@
 ---
 title:  Position Open Nederland on EU Call for evidence on Artificial intelligence strategy for the cultural and creative sectors
 publication: 11-09-2026
-summary: "Open Nederland advocates for a European AI strategy in the cultural and creative sectors that prioritizes open access, public ownership of publicly funded innovations, radical transparency, the protection of the public domain, and fair, direct remuneration for human creators rather than corporate monopolies."
+summary: "We need an open, transparent, and creator-centric EU AI strategy for the cultural sector."
 ---
 
 [In reactie op de call for evidence 'Artificial intelligence strategy for the cultural and creative sectors' van de Europese Unie.](https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/18592-Artificial-intelligence-strategy-for-the-cultural-and-creative-sectors_en)
