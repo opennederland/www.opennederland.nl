@@ -2,7 +2,7 @@
 title: Wouter Kobes
 website: 
 image: 
-tags: ["Maker", "Open Overheid", "Open Source", "Open Data", "Open Standaarden"]
+tags: ["Makers", "Open Overheid", "Open Source", "Open Data", "Open Standaarden"]
 organisaties:
 type: persoon
 lidnummer: 168

@@ -2,7 +2,7 @@
 title: Koen Wiegman
 website: 
 image: 
-tags: ["Maker", "Open Overheid", "Open Source", "Open Data"]
+tags: ["Makers", "Open Overheid", "Open Source", "Open Data"]
 organisaties:
 type: persoon
 lidnummer: 166
