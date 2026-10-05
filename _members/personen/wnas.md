@@ -1,9 +1,9 @@
 ---
 title: Wilfred Nas
-website: 
+website: https://pleio.nl
 image: 
 tags: ["Makers", "Open Source"] #check
-organisaties:
+organisaties: Pleio
 type: persoon
 lidnummer: 
 affiliations:
@@ -11,9 +11,9 @@ affiliations:
 label:  # Functietitel
 work: 
   company: Pleio
-  position:
-  website: 
+  position: Product Owner
+  website: https://pleio.nl
 rss:
-social:
+social: @Wnas@mastodon.nl
 ---
 
