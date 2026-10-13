@@ -9,6 +9,7 @@ lidnummer: 19
 affiliations:
   - "Open Nederland"
   - "Creative Commons Network"
+bestuursfunctie: Oud bestuur
 label:  # Functietitel
 work:
   company: 

@@ -9,7 +9,7 @@ lidnummer: 3
 affiliations:
   - "Open Nederland"
   - "Creative Commons Network"
-bestuursfunctie: Penningmeester
+bestuursfunctie: Oud bestuur
 label:  # Functietitel
 work:
   company: 

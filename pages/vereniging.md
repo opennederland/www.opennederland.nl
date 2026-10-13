@@ -23,12 +23,27 @@ Het bestuur van Open Nederland bestaat uit:
 
 {% assign bestuur = site.members | where_exp: "lid", "lid.bestuursfunctie" %}
 
+<<!-- Current board members -->
 <div class="team-grid">
     {% for lid in bestuur %}
-    <a href="{{ lid.url | relative_url }}" class="team-member">
-        <strong>{{ lid.title }}</strong>
-        <span>{{ lid.bestuursfunctie }}</span>
-    </a>
+        {% if lid.bestuursfunctie != "Oud bestuur" %}
+        <a href="{{ lid.url | relative_url }}" class="team-member">
+            <strong>{{ lid.title }}</strong>
+            <span>{{ lid.bestuursfunctie }}</span>
+        </a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+We zijn erg dankbaar voor de tijd, energie en expertise die onze oud-bestuursleden in de vereniging gestopt hebben:
+<!-- Former board members -->
+<div class="team-grid">
+    {% for lid in bestuur %}
+        {% if lid.bestuursfunctie == "Oud bestuur" %}
+        <a href="{{ lid.url | relative_url }}" class="team-member">
+            <strong>{{ lid.title }}</strong>
+        </a>
+        {% endif %}
     {% endfor %}
 </div>
 

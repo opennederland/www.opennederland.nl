@@ -8,6 +8,7 @@ type: persoon
 lidnummer: 138
 affiliations:
   - "Open Nederland"
+bestuursfunctie: Algemeen bestuurslid
 label:  # Functietitel
 work:
   company: 

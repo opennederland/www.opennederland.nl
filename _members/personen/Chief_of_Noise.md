@@ -9,7 +9,7 @@ lidnummer: 2
 affiliations:
   - "Open Nederland"
   - "Creative Commons Network"
-bestuursfunctie: Algemeen lid
+bestuursfunctie: Oud bestuur
 label:  # Functietitel
 work:
   company: 

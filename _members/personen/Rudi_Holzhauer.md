@@ -10,6 +10,7 @@ type: persoon
 lidnummer: 154
 affiliations:
   - "Open Nederland"
+bestuursfunctie: Algemeen bestuurslid
 label:  # Functietitel
 work:
   company: Stichting Differentia
