@@ -22,8 +22,6 @@ De vereniging wordt geleid door een bestuur van experts uit het veld en speelt e
 Het bestuur van Open Nederland bestaat uit:
 
 {% assign bestuur = site.members | where_exp: "lid", "lid.bestuursfunctie" %}
-
-<<!-- Current board members -->
 <div class="team-grid">
     {% for lid in bestuur %}
         {% if lid.bestuursfunctie != "Oud bestuur" %}
@@ -36,7 +34,6 @@ Het bestuur van Open Nederland bestaat uit:
 </div>
 
 We zijn erg dankbaar voor de tijd, energie en expertise die onze oud-bestuursleden in de vereniging gestopt hebben:
-<!-- Former board members -->
 <div class="team-grid">
     {% for lid in bestuur %}
         {% if lid.bestuursfunctie == "Oud bestuur" %}

@@ -10,7 +10,7 @@ affiliations:
   - "Open Nederland"
   - "Creative Commons Network"
 label:  # Functietitel
-bestuursfunctie: Oud bestuurslid
+bestuursfunctie: Oud bestuur
 work:
   company: 
   position:
