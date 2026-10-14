@@ -15,9 +15,9 @@ label:  # Functietitel
 work:
   company: Stichting Differentia
   position:
-  website: 
+  website: www.differentia.nl
 rss:
 social:
-working_groups: ["Vertalingen"]
+working_groups: ["Vertalingen", "Publiek Domein"]
 ---
 
