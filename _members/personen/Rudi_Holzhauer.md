@@ -18,6 +18,6 @@ work:
   website: www.differentia.nl
 rss:
 social:
-working_groups: ["Vertalingen"]["Publiek Domein"]
+working_groups: ["Vertalingen", "Publiek Domein"]
 ---
 
