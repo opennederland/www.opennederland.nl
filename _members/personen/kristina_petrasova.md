@@ -1,5 +1,5 @@
 ---
-title: kristina petrasova
+title: Kristina Petrasova
 website: 
 image: 
 tags: ["Makers", "Open GLAM"]
