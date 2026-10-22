@@ -3,10 +3,10 @@
     <div class="news-card__meta">
         <span>{% include date-nl.html date=include.bericht.date %}</span>
         {% if include.bericht.source %}
-             • Bron: 
-             <a target="_blank" href="{{ include.bericht.source }}" class="text-muted" style="text-decoration: underline;">
+            — Bron: 
+            <a target="_blank" href="{{ include.bericht.source }}" class="text-muted" style="text-decoration: underline;">
                 {{ include.bericht.source | split: '/' | slice: 2 | first | remove_first: 'www.' }}
-             </a>
+            </a>
         {% endif %}
     </div>
 
