@@ -31,6 +31,8 @@ main:
         url: /kalender/
       - title: "Standpunten"
         url: /standpunten/
+      - title: "Berichten"
+        url: /berichten/
 
   - title: "Over"
     url: /vereniging/

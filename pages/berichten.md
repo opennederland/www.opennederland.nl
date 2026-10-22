@@ -13,5 +13,7 @@ Heb je een tip? Neem contact met ons via [bestuur@opennederland.nl](mailto:bestu
 <hr/>
 
 {% for post in site.posts %}
-{% include bericht.html bericht=post %}
+  {% if post.layout != "redirect" %}
+    {% include bericht.html bericht=post %}
+  {% endif %}
 {% endfor %}
